@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 20
+<<<<<<< HEAD
   productGUID: 84ecc2fa0222b3c45baf5a64fea9af1e
+=======
+  productGUID: 5e8419cc4ac84f44f86c72f7e7a54722
+>>>>>>> 19ddab599f5c535ef10d7e69789ee4b11964d7b9
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +17,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: AlphaMevius
+=======
+  productName: "\u30E1\u30D3\u30A6\u30B9\u0391"
+>>>>>>> 19ddab599f5c535ef10d7e69789ee4b11964d7b9
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -526,14 +534,22 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
+<<<<<<< HEAD
   metroPackageName: AlphaMevius
+=======
+  metroPackageName: "\u30E1\u30D3\u30A6\u30B9\u0391"
+>>>>>>> 19ddab599f5c535ef10d7e69789ee4b11964d7b9
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
+<<<<<<< HEAD
   metroApplicationDescription: AlphaMevius
+=======
+  metroApplicationDescription: "\u30E1\u30D3\u30A6\u30B9\u0391"
+>>>>>>> 19ddab599f5c535ef10d7e69789ee4b11964d7b9
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0

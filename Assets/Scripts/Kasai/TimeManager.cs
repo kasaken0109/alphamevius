@@ -9,6 +9,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] public float timeRate = 0.6f;
     [SerializeField] int timeScale = 10;
     public float m_time;
+    int m_dayNum = 0;
     DayStatus dayStatus;
     // Start is called before the first frame update
     enum DayStatus
@@ -24,16 +25,18 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_time += Time.deltaTime / 60;
+        //m_time += Time.deltaTime / 60;
+        m_time += Time.deltaTime;
+        m_dayNum = ((int)m_time / timeScale) + 1;
         if (m_time >= timeScale * timeRate)
         {
             dayStatus = DayStatus.NIGHT;
-            text.text = "夜:" + m_time;
+            text.text = m_dayNum + "日目　夜:" + m_time % timeScale;
         }
         else
         {
             dayStatus = DayStatus.NOON;
-            text.text = "昼:" + m_time;
+            text.text = m_dayNum + "日目　昼:" + m_time % timeScale;
         }
     }
 }

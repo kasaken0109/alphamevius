@@ -28,7 +28,7 @@ public class TimeManager : MonoBehaviour
         //m_time += Time.deltaTime / 60;
         m_time += Time.deltaTime;
         m_dayNum = ((int)m_time / timeScale) + 1;
-        if (m_time >= timeScale * timeRate)
+        if ((m_time % timeScale) >= timeScale * timeRate)
         {
             dayStatus = DayStatus.NIGHT;
             text.text = m_dayNum + "日目　夜:" + m_time % timeScale;

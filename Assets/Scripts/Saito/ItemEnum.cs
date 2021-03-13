@@ -62,6 +62,7 @@ public enum ItemEnum
         PickaxeCore,
         ///<summary>斧の骨子</summary>
         AxeCore,
+        
     #endregion
 
         #region クラフト系(一つしか持てない)

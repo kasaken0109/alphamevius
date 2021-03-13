@@ -12,7 +12,7 @@ public class ItemDisassembly : MonoBehaviour
         {
             Debug.Log(disassemblyData.ToString() + "をてにいれた ");
             Materialitem item = new Materialitem(disassemblyData);
-            ItemManage.Instance.GetItem(item);
+            ItemManage.Instance.GetItem(item, ItemManage.Instance.m_playerLevel);
         }
         else
         {

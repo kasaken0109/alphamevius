@@ -33,15 +33,29 @@ public class ItemCraft : MonoBehaviour
         }
         if (craftFrag)
         {
-            HaveOne item = new HaveOne(craftItem);
-            if (item.CheckHaveOne() && ItemManage.Instance.itemList[craftItem] == 1)
+            
+            if ((int)craftItem >= (int)ItemEnum.AluminiumKnife)
             {
-                Debug.Log("複数もてません");
+                if (ItemManage.Instance.itemList[craftItem] == 1)
+                {
+                    Debug.Log("複数もてません");
+                }
+                else if(craftItem == ItemEnum.Bridge || craftItem == ItemEnum.Fire)
+                {
+                    EventItem item = new EventItem(craftItem);
+                    ItemManage.Instance.GetItem(item);
+                }
+                else
+                {
+                    HaveOne item = new HaveOne(craftItem);
+                    ItemManage.Instance.GetItem(item);
+                }
             }
             else
             {
+                UseItem item = new UseItem(craftItem);
                 Debug.Log(craftItem.ToString() + "を作成した");
-                ItemManage.Instance.GetItem(item);
+                ItemManage.Instance.GetItem(item, ItemManage.Instance.m_playerLevel);
             }
         }
         else

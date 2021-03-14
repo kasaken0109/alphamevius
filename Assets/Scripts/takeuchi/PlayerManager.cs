@@ -18,7 +18,14 @@ public class PlayerManager : MonoBehaviour
     public int CurrentHunger { get; private set; }
     /// <summary> 現在の水分値 </summary>
     public int CurrentHydrate { get; private set; }
-    
+    private void Start()
+    {
+        #region 体力関係の初期化
+        CurrentHP = playerMaxHP;
+        CurrentHunger = playerMaxHunger;
+        CurrentHydrate = playerMaxHydrate;
+        #endregion
+    }
     /// <summary>
     /// プレイヤーにダメージを与える
     /// </summary>

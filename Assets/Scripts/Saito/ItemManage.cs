@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemManage : MonoBehaviour
 {
@@ -50,12 +51,33 @@ public class ItemManage : MonoBehaviour
         {ItemEnum.Fire,0 }
         #endregion
     };
+    public ItemStates[] states;
+    public Text[] itemText;
     private void Start()
     {
         Instance = this;
-
+        //ステータスの設定
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            if (i <= (int)ItemEnum.EndMaterial)
+            {
+                states[i] = ItemStates.UseItem;
+            }
+            else if(i <= (int)ItemEnum.AxeCore)
+            {
+                states[i] = ItemStates.MaterialItem;
+            }
+            else if (i <= (int)ItemEnum.Hammer)
+            {
+                states[i] = ItemStates.HaveOne;
+            }
+            else
+            {
+                states[i] = ItemStates.EventItem;
+            }
+        }
     }
-    public void GetItem(ItemBaseMain item)
+    public void SetItem(ItemBaseMain item)
     {
         if(item.CheckHaveOne())
         {
@@ -72,7 +94,7 @@ public class ItemManage : MonoBehaviour
             itemList[item.GetItemType()]++;
         }
     }
-    public void GetItem(ItemBaseMain item, int playerLevel)
+    public void SetItem(ItemBaseMain item, int playerLevel)
     {
         if (item.CheckHaveOne())
         {

@@ -43,19 +43,19 @@ public class ItemCraft : MonoBehaviour
                 else if(craftItem == ItemEnum.Bridge || craftItem == ItemEnum.Fire)
                 {
                     EventItem item = new EventItem(craftItem);
-                    ItemManage.Instance.GetItem(item);
+                    ItemManage.Instance.SetItem(item);
                 }
                 else
                 {
                     HaveOne item = new HaveOne(craftItem);
-                    ItemManage.Instance.GetItem(item);
+                    ItemManage.Instance.SetItem(item);
                 }
             }
             else
             {
                 UseItem item = new UseItem(craftItem);
                 Debug.Log(craftItem.ToString() + "を作成した");
-                ItemManage.Instance.GetItem(item, ItemManage.Instance.m_playerLevel);
+                ItemManage.Instance.SetItem(item, ItemManage.Instance.m_playerLevel);
             }
         }
         else

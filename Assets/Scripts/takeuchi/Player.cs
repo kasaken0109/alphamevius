@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     /// <summary> Playerの向き </summary>
     private MoveAngle angle;
     private bool angleChange;
+    /// <summary> 行動可能かのフラグ </summary>
+    private bool action;
     private enum MoveAngle
     {
         Left,
@@ -28,57 +30,72 @@ public class Player : MonoBehaviour
     void Start()
     {
         rB = GetComponent<Rigidbody2D>();
+        action = true;
     }
 
     void Update()
     {
-        if (angleChange)
+        if (action)
         {
-            if (angle == MoveAngle.Right)
+            if (angleChange)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                if (angle == MoveAngle.Right)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                angleChange = false;
             }
-            else
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            angleChange = false;
         }
     }
 
     private void LateUpdate()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        if (action)
         {
-            if (Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
-                moveX = moveSpeed;
-                if (angle != MoveAngle.Right)
+                if (Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    angle = MoveAngle.Right;
-                    angleChange = true;
+                    moveX = moveSpeed;
+                    if (angle != MoveAngle.Right)
+                    {
+                        angle = MoveAngle.Right;
+                        angleChange = true;
+                    }
                 }
-            }
-            else if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                moveX = -moveSpeed;
-                if (angle != MoveAngle.Left)
+                else if (Input.GetAxisRaw("Horizontal") < 0)
                 {
-                    angle = MoveAngle.Left;
-                    angleChange = true;
+                    moveX = -moveSpeed;
+                    if (angle != MoveAngle.Left)
+                    {
+                        angle = MoveAngle.Left;
+                        angleChange = true;
+                    }
                 }
-            }
-            if (Input.GetAxisRaw("Vertical") > 0)
-            {
-                moveY = moveSpeed;
-            }
-            else if (Input.GetAxisRaw("Vertical") < 0)
-            {
-                moveY = -moveSpeed;
-            }
+                if (Input.GetAxisRaw("Vertical") > 0)
+                {
+                    moveY = moveSpeed;
+                }
+                else if (Input.GetAxisRaw("Vertical") < 0)
+                {
+                    moveY = -moveSpeed;
+                }
+            }            
         }
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;
     }
+    /// <summary>
+    /// プレイヤーを行動不能にする
+    /// </summary>
+    public void ActionStop() { action = false; }
+    /// <summary>
+    /// プレイヤーを行動可能にする
+    /// </summary>
+    public void ActionStart() { action = true; }
 }

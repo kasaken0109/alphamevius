@@ -4,7 +4,7 @@
 /// </summary>
 public enum ItemEnum
 {
-        #region ステータス系
+        #region UseItem系
         ///<summary>鶏肉</summary>
         Chicken,
         ///<summary>鹿肉</summary>
@@ -62,6 +62,7 @@ public enum ItemEnum
         PickaxeCore,
         ///<summary>斧の骨子</summary>
         AxeCore,
+        
     #endregion
 
         #region クラフト系(一つしか持てない)
@@ -89,6 +90,13 @@ public enum ItemEnum
         Fire,
         #endregion
         
+}
+public enum ItemStates
+{
+    UseItem,
+    MaterialItem,
+    HaveOne,
+    EventItem
 }
 
 

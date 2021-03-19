@@ -6,9 +6,13 @@ using UnityEngine;
 public class FieldItemManager : MonoBehaviour
 {
     public static FieldItemManager Instance { get; private set; }
+    /// <summary> 同時に表示されるアイテムの最大数 </summary>
     [SerializeField] int allFieldItemsNumber = 20;
-    [SerializeField] GameObject itemPrefab;
+    /// <summary> フィールド上のアイテムプレハブ </summary>
+    [SerializeField] GameObject itemPrefab;//コライダーとリジットボディ、FieldItemコンポーネントを設定されたプレハブ
+    /// <summary> フィールド上の全アイテムの入れ物 </summary>
     List<FieldItem> fieldItems;
+    /// <summary> アイテム設定用変数 </summary>
     ItemBaseMain item;
     private void Awake()
     {

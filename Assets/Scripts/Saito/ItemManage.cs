@@ -8,6 +8,7 @@ public class ItemManage : MonoBehaviour
     public static ItemManage Instance { get; private set; }
     public int m_ricyclePoints = 0;
     public int m_playerLevel = 1;
+    public int m_playerExp = 0;
     public Dictionary<ItemEnum, int> itemList = new Dictionary<ItemEnum, int>()
     {
         #region ディクショナリーの初期化
@@ -53,9 +54,12 @@ public class ItemManage : MonoBehaviour
     };
     public ItemStates[] states;
     public Text[] itemText;
-    private void Start()
+    private void Awake()
     {
         Instance = this;
+    }
+    private void Start()
+    {
         //ステータスの設定
         for (int i = 0; i < itemList.Count; i++)
         {
@@ -94,7 +98,7 @@ public class ItemManage : MonoBehaviour
             itemList[item.GetItemType()]++;
         }
     }
-    public void SetItem(ItemBaseMain item, int playerLevel)
+    public void SetItem(ItemBaseMain item, int addNum)
     {
         if (item.CheckHaveOne())
         {
@@ -108,7 +112,7 @@ public class ItemManage : MonoBehaviour
         else
         {
             Debug.Log("入手");
-            itemList[item.GetItemType()] += playerLevel;
+            itemList[item.GetItemType()] += addNum;
         }
     }
     public void UseItem(ItemEnum ID)

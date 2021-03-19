@@ -5,6 +5,8 @@ using UnityEngine;
 public class CreateBridge : MonoBehaviour
 {
     [SerializeField] GameObject m_bridge;
+    [SerializeField] GameObject m_bridgeCollider;
+    bool m_touchFlag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,19 @@ public class CreateBridge : MonoBehaviour
     void Update()
     {
         Debug.Log(ItemManage.Instance.itemList[ItemEnum.Bridge]);
-        if (ItemManage.Instance.itemList[ItemEnum.Bridge] == 1)
+        if (ItemManage.Instance.itemList[ItemEnum.Bridge] == 1 && Input.GetButtonDown("Craft") && m_touchFlag)
         {
             m_bridge.SetActive(true);
+            m_bridgeCollider.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "KeyCollider")
+        {
+            Debug.Log("プレイヤーが入った");
+            m_touchFlag = true;
         }
     }
 }

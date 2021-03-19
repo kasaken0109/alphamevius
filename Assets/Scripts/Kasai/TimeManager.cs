@@ -8,6 +8,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField]Text text = null;
     [SerializeField] public float timeRate = 0.6f;
     [SerializeField] int timeScale = 10;
+    ItemBaseMain itemWood;
+    ItemBaseMain itemDurableIvy;
     public float m_time;
     int m_dayNum = 0;
     DayStatus dayStatus;
@@ -20,6 +22,11 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         dayStatus = DayStatus.NOON;
+
+        itemWood = new ItemBaseMain(ItemEnum.Wood);
+        ItemManage.Instance.SetItem(itemWood,5);
+        itemDurableIvy = new ItemBaseMain(ItemEnum.DurableIvy);
+        ItemManage.Instance.SetItem(itemDurableIvy, 5);
     }
 
     // Update is called once per frame

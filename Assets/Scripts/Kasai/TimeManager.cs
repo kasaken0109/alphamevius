@@ -8,8 +8,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField]Text text = null;
     [SerializeField] public float timeRate = 0.6f;
     [SerializeField] int timeScale = 10;
+    [SerializeField] GameObject m_menu = null;
     ItemBaseMain itemWood;
     ItemBaseMain itemDurableIvy;
+    ItemCraft m_craft;
     public float m_time;
     int m_dayNum = 0;
     DayStatus dayStatus;
@@ -45,5 +47,19 @@ public class TimeManager : MonoBehaviour
             dayStatus = DayStatus.NOON;
             text.text = m_dayNum + "日目　昼:" + m_time % timeScale;
         }
+        ///一時的にメニューのSetActiveを追加、後で削除予定
+        if (Input.GetButtonDown("Menu"))
+        {
+            if (!GameObject.Find("CraftButtonCanvas"))
+            {
+                m_menu.SetActive(true);
+            }
+            else
+            {
+                m_menu.SetActive(false);
+            }
+        }
+
+        Debug.Log(ItemManage.Instance.itemList[ItemEnum.Wood]+ ","+ItemManage.Instance.itemList[ItemEnum.DurableIvy]);
     }
 }

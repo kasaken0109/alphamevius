@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FieldItem : MonoBehaviour
 {
-    /// <summary> アイテムの種類 </summary>
+    /// <summary> アイテムの入れ物 </summary>
     [SerializeField] ItemBaseMain item;
     /// <summary> 入手フラグ </summary>
     bool getFlag = false;
+    /// <summary> 存在する時間 </summary>
     float toExistTime = 8f;
+    /// <summary> 存在時間のタイマー </summary>
     float existTimer = 0f;
     private void Start()
     {
@@ -42,7 +44,7 @@ public class FieldItem : MonoBehaviour
             if (!getFlag)
             {
                 getFlag = true;
-                ItemManage.Instance.GetItem(item);
+                ItemManage.Instance.SetItem(item);
                 this.gameObject.SetActive(false);
             }
         }

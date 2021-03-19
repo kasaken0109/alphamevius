@@ -1,32 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemManage : MonoBehaviour
 {
     public static ItemManage Instance { get; private set; }
-    #region アイテムごとに必要なクラフト素材
-    public List<ItemEnum> AluminiumKnifeCraft = new List<ItemEnum> { ItemEnum.AluminumCan, ItemEnum.PieceOfCloth };
-    public List<ItemEnum> FragileKnifeCraft = new List<ItemEnum> { ItemEnum.BrokenBottle, ItemEnum.Aluminium };
-    public List<ItemEnum> SmallKnifeCraft = new List<ItemEnum> { ItemEnum.IronPiece, ItemEnum.DurableBranches };
-    public List<ItemEnum> MacheteCraft = new List<ItemEnum> { ItemEnum.KnifeCore, ItemEnum.FragmentOfOre, ItemEnum.Wood };
-    public List<ItemEnum> Pickaxe1Craft = new List<ItemEnum> { ItemEnum.IronPiece, ItemEnum.DurableBranches };
-    public List<ItemEnum> Pickaxe2Craft = new List<ItemEnum> { ItemEnum.PickaxeCore, ItemEnum.BearClaws,ItemEnum.DurableBranches };
-    public List<ItemEnum> TrapCraft = new List<ItemEnum> { ItemEnum.Straw, ItemEnum.SuppleBranches };
-    public List<ItemEnum> AxeCraft = new List<ItemEnum> { ItemEnum.IronPiece, ItemEnum.DurableBranches };
-    public List<ItemEnum> HammerCraft = new List<ItemEnum> { ItemEnum.AxeCore, ItemEnum.HardOre };
-    public List<ItemEnum> BridgeCraft = new List<ItemEnum> { ItemEnum.Wood, ItemEnum.Wood, ItemEnum.Wood, ItemEnum.Wood, ItemEnum.Wood, ItemEnum.DurableIvy, ItemEnum.DurableIvy, ItemEnum.DurableIvy, ItemEnum.DurableIvy, ItemEnum.DurableIvy };
-    public List<ItemEnum> FireCraft = new List<ItemEnum> { ItemEnum.DeadBranch, ItemEnum.Straw };
-    #endregion
-
-    #region アイテムを分解すると手に入る素材
-    public ItemEnum amallKnefeDisassembly = ItemEnum.KnifeCore;
-    public ItemEnum pickaxe1Disassembly = ItemEnum.PickaxeCore;
-    public ItemEnum aluminiumKnifeDisassembly = ItemEnum.Aluminium;
-    public ItemEnum fragileKnifeDisassembly = ItemEnum.IronPiece;
-    public ItemEnum axeDisassembly = ItemEnum.AxeCore;
-    #endregion
-
+    public int m_ricyclePoints = 0;
+    public int m_playerLevel = 1;
     public Dictionary<ItemEnum, int> itemList = new Dictionary<ItemEnum, int>()
     {
         #region ディクショナリーの初期化
@@ -70,12 +51,33 @@ public class ItemManage : MonoBehaviour
         {ItemEnum.Fire,0 }
         #endregion
     };
+    public ItemStates[] states;
+    public Text[] itemText;
     private void Start()
     {
         Instance = this;
-
+        //ステータスの設定
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            if (i <= (int)ItemEnum.EndMaterial)
+            {
+                states[i] = ItemStates.UseItem;
+            }
+            else if(i <= (int)ItemEnum.AxeCore)
+            {
+                states[i] = ItemStates.MaterialItem;
+            }
+            else if (i <= (int)ItemEnum.Hammer)
+            {
+                states[i] = ItemStates.HaveOne;
+            }
+            else
+            {
+                states[i] = ItemStates.EventItem;
+            }
+        }
     }
-    public void GetItem(ItemBaseMain item)
+    public void SetItem(ItemBaseMain item)
     {
         if(item.CheckHaveOne())
         {
@@ -92,7 +94,7 @@ public class ItemManage : MonoBehaviour
             itemList[item.GetItemType()]++;
         }
     }
-    public void GetItem(ItemBaseMain item, int playerLevel)
+    public void SetItem(ItemBaseMain item, int playerLevel)
     {
         if (item.CheckHaveOne())
         {
@@ -109,5 +111,16 @@ public class ItemManage : MonoBehaviour
             itemList[item.GetItemType()] += playerLevel;
         }
     }
-
+    public void UseItem(ItemEnum ID)
+    {
+        if (itemList[ID] != 0)
+        {
+            itemList[ID]--;
+            Debug.Log("使った");
+        }
+        else
+        {
+            Debug.Log("持ってない");
+        }
+    }
 }

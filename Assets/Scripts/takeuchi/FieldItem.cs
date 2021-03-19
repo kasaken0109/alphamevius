@@ -5,21 +5,21 @@ using UnityEngine;
 public class FieldItem : MonoBehaviour
 {
     /// <summary> アイテムの入れ物 </summary>
-    [SerializeField] ItemBaseMain item;
+    ItemBaseMain item;
     /// <summary> 入手フラグ </summary>
     bool getFlag = false;
     /// <summary> 存在する時間 </summary>
     float toExistTime = 8f;
     /// <summary> 存在時間のタイマー </summary>
-    float existTimer = 0f;
+    public float ExistTimer { get; private set; } = 0f;
     private void Start()
     {
         this.gameObject.SetActive(false);
     }
     private void Update()
     {
-        existTimer -= Time.deltaTime;
-        if (existTimer <= 0)
+        ExistTimer -= Time.deltaTime;
+        if (ExistTimer <= 0)
         {
             this.gameObject.SetActive(false);
         }
@@ -34,8 +34,15 @@ public class FieldItem : MonoBehaviour
         this.item = item;
         transform.position = pos;
         getFlag = false;
-        existTimer = toExistTime;
+        ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
+    }
+    /// <summary>
+    /// アクティブ状態かどうかを返す
+    /// </summary>
+    public bool IsActive()
+    {
+        return gameObject.activeInHierarchy;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

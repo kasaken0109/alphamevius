@@ -43,11 +43,15 @@ public class ItemCraft : MonoBehaviour
                 else if(craftItem == ItemEnum.Bridge || craftItem == ItemEnum.Fire)
                 {
                     EventItem item = new EventItem(craftItem);
+                    Debug.Log(craftItem.ToString() + "を作成した");
+                    ItemManage.Instance.m_playerExp++;
                     ItemManage.Instance.SetItem(item);
                 }
                 else
                 {
                     HaveOne item = new HaveOne(craftItem);
+                    Debug.Log(craftItem.ToString() + "を作成した");
+                    ItemManage.Instance.m_playerExp++;
                     ItemManage.Instance.SetItem(item);
                 }
             }
@@ -55,6 +59,7 @@ public class ItemCraft : MonoBehaviour
             {
                 UseItem item = new UseItem(craftItem);
                 Debug.Log(craftItem.ToString() + "を作成した");
+                ItemManage.Instance.m_playerExp++;
                 ItemManage.Instance.SetItem(item, ItemManage.Instance.m_playerLevel);
             }
         }

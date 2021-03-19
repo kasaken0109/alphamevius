@@ -8,6 +8,7 @@ public class ItemManage : MonoBehaviour
     public static ItemManage Instance { get; private set; }
     public int m_ricyclePoints = 0;
     public int m_playerLevel = 1;
+    public int m_playerExp = 0;
     public Dictionary<ItemEnum, int> itemList = new Dictionary<ItemEnum, int>()
     {
         #region ディクショナリーの初期化

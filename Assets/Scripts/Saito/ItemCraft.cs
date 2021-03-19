@@ -33,7 +33,6 @@ public class ItemCraft : MonoBehaviour
         }
         if (craftFrag)
         {
-            
             if ((int)craftItem >= (int)ItemEnum.AluminiumKnife)
             {
                 if (ItemManage.Instance.itemList[craftItem] == 1)

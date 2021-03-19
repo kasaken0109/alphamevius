@@ -111,5 +111,16 @@ public class ItemManage : MonoBehaviour
             itemList[item.GetItemType()] += playerLevel;
         }
     }
-
+    public void UseItem(ItemEnum ID)
+    {
+        if (itemList[ID] != 0)
+        {
+            itemList[ID]--;
+            Debug.Log("使った");
+        }
+        else
+        {
+            Debug.Log("持ってない");
+        }
+    }
 }

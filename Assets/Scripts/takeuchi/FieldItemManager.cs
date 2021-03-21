@@ -21,6 +21,7 @@ public class FieldItemManager : MonoBehaviour
         for (int i = 0; i < allFieldItemsNumber; i++)
         {
             GameObject item = Instantiate<GameObject>(itemPrefab);
+            item.transform.SetParent(transform);
             FieldItem fieldItem = item.GetComponent<FieldItem>();
             fieldItems.Add(fieldItem);
         }

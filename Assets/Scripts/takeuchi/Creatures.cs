@@ -13,9 +13,13 @@ public class Creatures : MonoBehaviour
     /// <summary> 描画される当たり判定を持った画像 </summary>
     [SerializeField] protected GameObject creature;
     /// <summary> 落とすアイテム </summary>
-    [SerializeField] ItemEnum[] haveItems;
+    [SerializeField] protected ItemEnum[] haveItems;
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
+    private void Start()
+    {
+        StartSpawn();
+    }
     /// <summary>
     /// スポーン時の初期化
     /// </summary>

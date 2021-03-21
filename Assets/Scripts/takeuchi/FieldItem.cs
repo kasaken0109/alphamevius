@@ -23,16 +23,56 @@ public class FieldItem : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
+        if (startMoveTimer > 0)
+        {
+            startMoveTimer -= Time.deltaTime;
+            transform.position += moveDir * moveSpeed * 2 * Time.deltaTime;
+            xxx = true;
+        }
+        else if (xxx)
+        {
+            transform.position -= new Vector3(0, moveSpeed * 2 * Time.deltaTime);
+            if (transform.position.y <= earthPosY)
+            {
+                xxx = false;
+            }
+        }
     }
     /// <summary>
     /// アイテムを落とす為の関数
     /// </summary>
     /// <param name="item">アイテムの種類</param>
     /// <param name="pos">落とす場所</param>
-    public void DropItem(ItemBaseMain item,Vector3 pos)
+    public void DropItem(ItemBaseMain item, Vector3 pos)
     {
         this.item = item;
         transform.position = pos;
+        getFlag = false;
+        ExistTimer = toExistTime;
+        this.gameObject.SetActive(true);
+    }
+    private float moveTime = 0.5f;
+    private float startMoveTimer;
+    [SerializeField]
+    private float moveSpeed = 10.0f;
+    Vector3 moveDir = Vector3.zero;
+    private bool xxx;
+    private float earthPosY;
+    /// <summary>
+    /// アイテムを落とす為の関数
+    /// </summary>
+    /// <param name="item">アイテムの種類</param>
+    /// <param name="pos">落とす場所</param>
+    public void DropItem(ItemBaseMain item, Vector3 pos, Vector3 moveDir)
+    {
+        this.item = item;
+        transform.position = pos;
+        this.moveDir = moveDir;
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
+        startMoveTimer = moveTime;
+        earthPosY = pos.y - 0.5f;
+        xxx = false;
         getFlag = false;
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);

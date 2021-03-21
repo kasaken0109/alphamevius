@@ -49,10 +49,11 @@ public class Creatures : MonoBehaviour
     protected virtual void Dead()
     {
         ActionStop();
-        foreach (var item in haveItems)
-        {
-            FieldItemManager.Instance.DropItem(item, transform.position);
-        }
+        FieldItemManager.Instance.DropMaterial(haveItems, transform.position);
+        //foreach (var item in haveItems)
+        //{
+        //    FieldItemManager.Instance.DropItem(item, transform.position);
+        //}
         creature.SetActive(false);
     }
     /// <summary>

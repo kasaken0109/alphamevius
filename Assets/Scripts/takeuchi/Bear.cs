@@ -10,5 +10,9 @@ public class Bear : Creatures
         {
             Dead();
         }
+        if (Input.GetButtonDown("Jump"))
+        {
+            StartSpawn();
+        }
     }
 }

@@ -17,7 +17,7 @@ public class HaveItemManager : MonoBehaviour
     /// 7:ハンマー
     /// </summary>
     [SerializeField] HaveItem[] items;
-    List<int> itemsCurrentHP;
+    public List<int> itemsCurrentHP;
     [SerializeField] Slider[] sliders;
     private void Awake()
     {

@@ -21,7 +21,6 @@ public class InventoryIconManager : MonoBehaviour
     }
     private void Update()
     {
-        
         if (m_itemPossessionCount != ItemManage.Instance.itemList[m_itemEnum])
         {
             InventoryNumChange();

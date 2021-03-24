@@ -60,26 +60,8 @@ public class ItemManage : MonoBehaviour
     }
     private void Start()
     {
-        //ステータスの設定
-        for (int i = 0; i < itemList.Count; i++)
-        {
-            if (i <= (int)ItemEnum.EndMaterial)
-            {
-                states[i] = ItemStates.UseItem;
-            }
-            else if(i <= (int)ItemEnum.AxeCore)
-            {
-                states[i] = ItemStates.MaterialItem;
-            }
-            else if (i <= (int)ItemEnum.Hammer)
-            {
-                states[i] = ItemStates.HaveOne;
-            }
-            else
-            {
-                states[i] = ItemStates.EventItem;
-            }
-        }
+        
+        
     }
     public void SetItem(ItemBaseMain item)
     {
@@ -115,11 +97,11 @@ public class ItemManage : MonoBehaviour
             itemList[item.GetItemType()] += addNum;
         }
     }
-    public void UseItem(ItemEnum ID)
+    public void UseItem(ItemEnum type)
     {
-        if (itemList[ID] != 0)
+        if (itemList[type] != 0)
         {
-            itemList[ID]--;
+            itemList[type]--;
             Debug.Log("使った");
         }
         else

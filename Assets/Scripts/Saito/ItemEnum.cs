@@ -95,7 +95,7 @@ public enum ItemStates
 {
     UseItem,
     MaterialItem,
-    HaveOne,
+    HaveItem,
     EventItem
 }
 

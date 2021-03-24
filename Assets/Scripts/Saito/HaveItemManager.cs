@@ -16,6 +16,7 @@ public class HaveItemManager : MonoBehaviour
     /// 6:斧
     /// 7:ハンマー
     /// </summary>
+
     [SerializeField] HaveItem[] items;
     public List<int> itemsCurrentHP;
     [SerializeField] Slider[] sliders;
@@ -30,7 +31,7 @@ public class HaveItemManager : MonoBehaviour
     }
     public int GetItemMaxHP(int ID) { return items[ID].GetMaxHP(); }
     public int GetItemCurrentHP(int ID) { return itemsCurrentHP[ID]; }
-    public void UseItem(int ID) 
+    public void UseWeapon(int ID) 
     { 
         itemsCurrentHP[ID]--;
         sliders[ID].value = itemsCurrentHP[ID] / items[ID].GetMaxHP();

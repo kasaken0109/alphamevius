@@ -29,14 +29,8 @@ public class InventoryIconManager : MonoBehaviour
     {
         m_text.text = m_itemEnum.ToString() + " : " +  ItemManage.Instance.itemList[m_itemEnum].ToString();
     }
-    public void DebugTest()
+    public void SelectItem()
     {
-        Debug.Log("動いてくれ");
-    }
-    public void SelectItem(int ID)
-    {
-        //ItemEnum type = (ItemEnum)Enum.ToObject(typeof(ItemEnum), ID);
-        //Debug.Log("選択");
-        //HotBarManager.Instance.SetHotBar(ID);
+        HotBarManager.Instance.SetHotBar(m_itemEnum);
     }
 }

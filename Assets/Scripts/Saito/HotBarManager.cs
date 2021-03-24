@@ -13,11 +13,10 @@ public class HotBarManager : MonoBehaviour
         Instance = this;
     }
     
-    public void SetHotBar(int ID)
+    public void SetHotBar(ItemEnum type)
     {
-        if (m_hotBarList.Count < 8 && ItemManage.Instance.states[(int)ID] != ItemStates.MaterialItem)
+        if (m_hotBarList.Count < 8 && ItemManage.Instance.states[(int)type] != ItemStates.MaterialItem)
         {
-            ItemEnum type = (ItemEnum)Enum.ToObject(typeof(ItemEnum), ID);
             m_hotBarList.Add(type);
             Debug.Log("ホットバーに" + type.ToString() + "を加えました");
             for (int i = 0; i < m_hotBarList.Count; i++)

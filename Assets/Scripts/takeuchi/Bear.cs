@@ -17,7 +17,14 @@ public class Bear : Creatures
     }
     private void LateUpdate()
     {
-        moveX = 2;
+        if (actionRange.InPlayer)
+        {
+            FindPlayerAction();
+        }
+        else
+        {
+            NormalAction();
+        }
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;

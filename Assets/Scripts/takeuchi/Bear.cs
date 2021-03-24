@@ -15,4 +15,11 @@ public class Bear : Creatures
             StartSpawn();
         }
     }
+    private void LateUpdate()
+    {
+        moveX = 2;
+        rB.velocity = new Vector2(moveX, moveY);
+        moveX = 0;
+        moveY = 0;
+    }
 }

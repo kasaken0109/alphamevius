@@ -16,9 +16,18 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected ItemEnum[] haveItems;
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
+    [SerializeField] protected ActionRange actionRange;
+    protected Rigidbody2D rB = null;
+    /// <summary> 移動速度 </summary>
+    [SerializeField] private float moveSpeed = 1.0f;
+    /// <summary> X座標移動力 </summary>
+    protected float moveX;
+    /// <summary> Y座標移動力 </summary>
+    protected float moveY;
     private void Start()
     {
-        StartSpawn();
+        rB = GetComponent<Rigidbody2D>();
+        actionRange.SetOwner(this);
     }
     /// <summary>
     /// スポーン時の初期化
@@ -66,6 +75,15 @@ public class Creatures : MonoBehaviour
     public virtual void ActionStart() { action = true; }
     protected virtual void NormalAction()
     {
+        if (actionRange.OnActionRange)
+        {
+            rB.velocity = new Vector2(moveX, moveY);
+            moveX = 0;
+            moveY = 0;
+        }
+        else
+        {
 
+        }
     }
 }

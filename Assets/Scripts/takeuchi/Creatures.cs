@@ -64,4 +64,8 @@ public class Creatures : MonoBehaviour
     /// Creatureを行動可能にする
     /// </summary>
     public virtual void ActionStart() { action = true; }
+    protected virtual void NormalAction()
+    {
+
+    }
 }

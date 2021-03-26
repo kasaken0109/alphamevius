@@ -41,6 +41,7 @@ public class Creatures : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         actionRange.SetOwner(this);
+        CurrentHP = maxHP;
     }
     /// <summary>
     /// スポーン時の初期化
@@ -177,6 +178,8 @@ public class Creatures : MonoBehaviour
     {
         if (collision.tag == "Attack" && !stan)
         {
+            stan = true;
+            stanTimer = stanTime;
             Damage(PlayerManager.Instance.CurrentPower);
         }
     }

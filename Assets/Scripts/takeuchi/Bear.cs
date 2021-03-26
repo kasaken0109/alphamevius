@@ -6,10 +6,6 @@ public class Bear : Creatures
 {
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Dead();
-        }
         if (Input.GetButtonDown("Jump"))
         {
             StartSpawn();
@@ -36,11 +32,5 @@ public class Bear : Creatures
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;
-    }
-    public override void Damage(int damage)
-    {
-        stan = true;
-        stanTimer = stanTime;
-        base.Damage(damage);
     }
 }

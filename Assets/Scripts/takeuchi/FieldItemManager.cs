@@ -21,6 +21,7 @@ public class FieldItemManager : MonoBehaviour
         for (int i = 0; i < allFieldItemsNumber; i++)
         {
             GameObject item = Instantiate<GameObject>(itemPrefab);
+            item.transform.SetParent(transform);
             FieldItem fieldItem = item.GetComponent<FieldItem>();
             fieldItems.Add(fieldItem);
         }
@@ -44,5 +45,46 @@ public class FieldItemManager : MonoBehaviour
             return;
         }
         fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(this.item, pos);
+    }
+   
+    /// <summary>
+    /// アイテムが飛び散るようにドロップする関数
+    /// </summary>
+    /// <param name="itemType"></param>
+    /// <param name="pos"></param>
+    public void DropMaterial(ItemEnum[] itemType,Vector3 pos)
+    {
+        int angleNumber = itemType.Length;
+        float allAngle = 90f / angleNumber;
+        float span = -45f + allAngle / 2;
+        for (int i = 0; i < itemType.Length; i++)
+        {
+            DropItem(itemType[i], pos, GetDirection(span));
+            span += allAngle;
+        }
+
+    }
+    public void DropItem(ItemEnum itemType, Vector3 pos, Vector3 dir)
+    {
+        this.item = new ItemBaseMain(itemType);
+        foreach (var item in fieldItems)
+        {
+            if (item.IsActive())
+            {
+                continue;
+            }
+            item.DropItem(this.item, pos, dir);
+            return;
+        }
+        fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(this.item, pos, dir);
+    }
+    Vector3 GetDirection(float angle)
+    {
+        return new Vector3
+        (
+            Mathf.Sin(angle * Mathf.Deg2Rad),
+            Mathf.Cos(angle * Mathf.Deg2Rad),
+            0.0f
+        ).normalized;
     }
 }

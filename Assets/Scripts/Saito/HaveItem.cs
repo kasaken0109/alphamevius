@@ -10,6 +10,7 @@ public class HaveItem : ItemBaseMain
     }
     [SerializeField] int maxHP;
     [SerializeField] int attackPoint;
+    [SerializeField] int ID;
     public int GetMaxHP()
     {
         return maxHP;
@@ -18,4 +19,9 @@ public class HaveItem : ItemBaseMain
     {
         return attackPoint;
     }
+    public int GetID()
+    {
+        return ID;
+    }
+
 }

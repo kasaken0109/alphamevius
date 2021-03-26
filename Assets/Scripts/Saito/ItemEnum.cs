@@ -98,5 +98,25 @@ public enum ItemStates
     HaveItem,
     EventItem
 }
+public enum EquipmentID 
+{
+    ///<summary>アルミナイフ</summary>
+    AluminiumKnife,
+    ///<summary>脆いナイフ</summary>
+    FragileKnife,
+    ///<summary>小型ナイフ</summary>
+    SmallKnife,
+    ///<summary>マチェット</summary>
+    Machete,
+    ///<summary>ピッケル1</summary>
+    Pickaxe1,
+    ///<summary>ピッケル2</summary>
+    Pickaxe2,
+    ///<summary>斧</summary>
+    Axe,
+    ///<summary>ハンマー</summary>
+    Hammer
+}
+
 
 

@@ -9,6 +9,9 @@ public class ItemManage : MonoBehaviour
     public int m_ricyclePoints = 0;
     public int m_playerLevel = 1;
     public int m_playerExp = 0;
+    public HaveItem m_equipment;
+    public Text m_equipmentText;
+    public Slider m_equipmentDurable;
     public Dictionary<ItemEnum, int> itemList = new Dictionary<ItemEnum, int>()
     {
         #region ディクショナリーの初期化
@@ -58,10 +61,12 @@ public class ItemManage : MonoBehaviour
     {
         Instance = this;
     }
-    private void Start()
+    private void Update()
     {
-        
-        
+        if (m_equipment)
+        {
+            m_equipmentDurable.value = HaveItemManager.Instance.GetItemCurrentHP(m_equipment.GetID()) / HaveItemManager.Instance.GetItemMaxHP(m_equipment.GetID());
+        }
     }
     public void SetItem(ItemBaseMain item)
     {
@@ -78,6 +83,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()]++;
+            HotBarManager.Instance.ChangeHotBarText();
         }
     }
     public void SetItem(ItemBaseMain item, int addNum)
@@ -95,18 +101,40 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()] += addNum;
+            HotBarManager.Instance.ChangeHotBarText();
         }
     }
-    public void UseItem(ItemEnum type)
+    /// <summary>
+    /// アイテムを所持してるか確認し、所持していたら所持数を1減らしつつtrueを返す
+    /// </summary>
+    /// <param name="type">使うアイテムのタイプ</param>
+    /// <returns>使ったかどうか</returns>
+    public bool UseItem(ItemEnum type)
     {
-        if (itemList[type] != 0)
+        if (itemList[type] > 0)
         {
             itemList[type]--;
             Debug.Log("使った");
+            HotBarManager.Instance.ChangeHotBarText();
+            return true;
         }
         else
         {
             Debug.Log("持ってない");
+            return false;
         }
     }
+    public void EquipItem(ItemBaseMain item)
+    {
+        if (states[(int)item.GetItemType()] == ItemStates.HaveItem)
+        {
+            m_equipment = (HaveItem)item;
+            m_equipmentText.text = m_equipment.GetItemType().ToString();
+        }
+        else
+        {
+            Debug.Log("装備品ではありません");
+        }
+    }
+    
 }

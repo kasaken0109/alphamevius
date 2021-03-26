@@ -31,6 +31,6 @@ public class InventoryIconManager : MonoBehaviour
     }
     public void SelectItem()
     {
-        HotBarManager.Instance.SetHotBar(m_itemEnum);
+        HotBarManager.Instance.SetHotBar(m_item);
     }
 }

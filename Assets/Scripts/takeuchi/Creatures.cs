@@ -96,7 +96,7 @@ public class Creatures : MonoBehaviour
     {
         if (!move)
         {
-            if (actionRange.OnActionRange)
+            if (actionRange.ONCreatures())
             {
                 testCount++;
                 if (testCount > 600)
@@ -163,7 +163,7 @@ public class Creatures : MonoBehaviour
 
     protected virtual void FindPlayerAction()
     {
-        if (actionRange.OnActionRange)
+        if (actionRange.ONCreatures())
         {
             moveDir = Player.Instance.transform.position - transform.position;
             moveX = moveDir.normalized.x * moveSpeed;

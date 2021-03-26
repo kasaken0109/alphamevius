@@ -10,6 +10,44 @@ public class ActionRange : MonoBehaviour
     Creatures owner;
     /// <summary> 行動範囲内にプレイヤーがいる場合trueを返す </summary>
     public bool InPlayer { get; private set; }
+
+    private bool Enter = false;
+    private bool Stay = false;
+    private bool Exit = false;
+    public bool ONCreatures()
+    {
+        if (Enter || Stay)
+        {
+            OnActionRange = true;
+        }
+        else if (Exit)
+        {
+            OnActionRange = false;
+        }
+        Enter = false;
+        Stay = false;
+        Exit = false;
+
+        return OnActionRange;
+    }
+    private bool PEnter = false;
+    private bool PStay = false;
+    private bool PExit = false;
+    public bool ONPlayer()
+    {
+        if (PEnter || PStay)
+        {
+            InPlayer = true;
+        }
+        else if (PExit)
+        {
+            InPlayer = false;
+        }
+        PEnter = false;
+        PStay = false;
+        PExit = false;
+        return InPlayer;
+    }
     /// <summary>
     /// 縄張りの主を設定する
     /// </summary>
@@ -20,56 +58,38 @@ public class ActionRange : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!OnActionRange)
+
+        if (collision.gameObject.GetComponent<Creatures>() == owner)
         {
-            if (collision.gameObject.GetComponent<Creatures>() == owner)
-            {
-                OnActionRange = true;
-                return;
-            }
+            Enter = true;
         }
-        if (!InPlayer)
+
+        if (collision.tag == "Player")
         {
-            if (collision.tag == "Player")
-            {
-                InPlayer = true;
-            }
+            PEnter = true;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!OnActionRange)
+
+        if (collision.gameObject.GetComponent<Creatures>() == owner)
         {
-            if (collision.gameObject.GetComponent<Creatures>() == owner)
-            {
-                OnActionRange = true;
-                return;
-            }
+            Stay = true;
         }
-        if (!InPlayer)
+        if (collision.tag == "Player")
         {
-            if (collision.tag == "Player")
-            {
-                InPlayer = true;
-            }
+            PStay = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (OnActionRange)
+        if (collision.gameObject.GetComponent<Creatures>() == owner)
         {
-            if (collision.gameObject.GetComponent<Creatures>() == owner)
-            {
-                OnActionRange = false;
-                return;
-            }
+            Exit = true;
         }
-        if (InPlayer)
+        if (collision.tag == "Player")
         {
-            if (collision.tag == "Player")
-            {
-                InPlayer = false;
-            }
+            PExit = true;
         }
     }
 }

@@ -15,14 +15,12 @@ public class CampMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actionRange.InPlayer)
+        if (actionRange.ONPlayer())
         {
-            Debug.Log("表示");
             m_message.SetActive(true);
         }
         else
         {
-            Debug.Log("非表示");
             m_message.SetActive(false);
         }
     }

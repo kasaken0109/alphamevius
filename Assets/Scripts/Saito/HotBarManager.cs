@@ -56,6 +56,10 @@ public class HotBarManager : MonoBehaviour
         {
             ItemManage.Instance.EquipItem((HaveItem)m_hotBarList[ID]);
         }
+        else if (m_hotBarList[ID].GetItemType() == ItemEnum.Bridge)
+        {
+            CreateBridge.Instance.BridgeCreate();
+        }
         else if (ItemManage.Instance.UseItem(m_hotBarList[ID].GetItemType()))
         {
             if (ItemManage.Instance.states[(int)m_hotBarList[ID].GetItemType()] == ItemStates.UseItem)

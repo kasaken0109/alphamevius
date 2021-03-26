@@ -60,6 +60,7 @@ public class Creatures : MonoBehaviour
     /// <param name="damage"></param>
     public virtual void Damage(int damage)
     {
+        Debug.Log(damage);
         CurrentHP -= damage;
         if (CurrentHP <= 0)
         {

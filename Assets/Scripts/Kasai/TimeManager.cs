@@ -70,18 +70,16 @@ public class TimeManager : MonoBehaviour
             text.text = m_dayNum + "日目　昼:" + m_hour;
         }
         ///一時的にメニューのSetActiveを追加、後で削除予定
-        if (Input.GetButtonDown("Menu"))
-        {
-            if (!GameObject.Find("CraftButtonCanvas"))
-            {
-                m_menu.SetActive(true);
-            }
-            else
-            {
-                m_menu.SetActive(false);
-            }
-        }
-
-        Debug.Log(ItemManage.Instance.itemList[ItemEnum.Wood]+ ","+ItemManage.Instance.itemList[ItemEnum.DurableIvy]);
+        //if (Input.GetButtonDown("Menu"))
+        //{
+        //    if (!GameObject.Find("CraftButtonCanvas"))
+        //    {
+        //        m_menu.SetActive(true);
+        //    }
+        //    else
+        //    {
+        //        m_menu.SetActive(false);
+        //    }
+        //}
     }
 }

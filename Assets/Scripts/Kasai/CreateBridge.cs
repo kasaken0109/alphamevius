@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class CreateBridge : MonoBehaviour
 {
+    public static CreateBridge Instance { get; private set; }
     [SerializeField] GameObject m_bridge;
     [SerializeField] GameObject m_bridgeCollider;
     bool m_touchFlag = false;
+    [SerializeField] ActionRange actionRange = null;
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -15,20 +21,15 @@ public class CreateBridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ItemManage.Instance.itemList[ItemEnum.Bridge]);
-        if (ItemManage.Instance.itemList[ItemEnum.Bridge] == 1 && Input.GetButtonDown("Craft") && m_touchFlag)
+        
+    }
+    public void BridgeCreate()
+    {
+        if (actionRange.ONPlayer())
         {
+            ItemManage.Instance.itemList[ItemEnum.Bridge]--;
             m_bridge.SetActive(true);
             m_bridgeCollider.SetActive(false);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name == "KeyCollider")
-        {
-            Debug.Log("プレイヤーが入った");
-            m_touchFlag = true;
         }
     }
 }

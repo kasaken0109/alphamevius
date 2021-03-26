@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
             }
             if (Input.GetButtonDown("Attack") && attackTimer <= 0)
             {
+                Debug.Log("attack");
                 attackScale.SetActive(true);
                 attackTimer = 0.5f;
             }

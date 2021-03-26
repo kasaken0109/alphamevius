@@ -9,6 +9,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] public float timeRate = 0.6f;
     [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
+    bool m_dayswitch = false;
     ItemBaseMain itemWood;
     ItemBaseMain itemDurableIvy;
     ItemCraft m_craft;

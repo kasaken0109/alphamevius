@@ -7,12 +7,22 @@ public class RandomMaterialController : MonoBehaviour
     [SerializeField] int m_MaxDropNum = 5;
     [SerializeField] ItemEnum[] m_items;
     [SerializeField] Transform[] m_dropPoint;
-    int m_size = Random.Range(0, 10);
     int m_materialNum;
     ItemEnum m_item;
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void RandomNum()
+    {
+        int m_size = Random.Range(0, 10);
         if (m_size <= 4)
         {
             m_materialNum = 3;
@@ -25,12 +35,6 @@ public class RandomMaterialController : MonoBehaviour
         {
             m_materialNum = 5;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     ItemEnum RandomSelect()
@@ -65,6 +69,7 @@ public class RandomMaterialController : MonoBehaviour
         if (collision.tag == "Player")
         {
             Debug.Log("itemcollect");
+            RandomNum();
             for (int i = 0; i < m_materialNum; i++)
             {
                 FieldItemManager.Instance.DropItem(RandomSelect(), m_dropPoint[i].position);

@@ -36,6 +36,7 @@ public class FieldItem : MonoBehaviour
             if (transform.position.y <= earthPosY)
             {
                 xxx = false;
+                getFlag = false;
             }
         }
     }
@@ -73,7 +74,7 @@ public class FieldItem : MonoBehaviour
         startMoveTimer = moveTime;
         earthPosY = pos.y - 0.5f;
         xxx = false;
-        getFlag = false;
+        getFlag = true;
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
     }

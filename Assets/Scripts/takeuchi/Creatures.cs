@@ -33,11 +33,15 @@ public class Creatures : MonoBehaviour
     protected float moveY;
     protected Vector3 moveDir = Vector3.zero;
     protected CircleCollider2D circleCollider;
+    [SerializeField] protected float stanTime = 1f;
+    protected float stanTimer;
+    protected bool stan;
     private void Start()
     {
         rB = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         actionRange.SetOwner(this);
+        CurrentHP = maxHP;
     }
     /// <summary>
     /// スポーン時の初期化
@@ -168,6 +172,15 @@ public class Creatures : MonoBehaviour
         else
         {
 
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Attack" && !stan)
+        {
+            stan = true;
+            stanTimer = stanTime;
+            Damage(PlayerManager.Instance.CurrentPower);
         }
     }
 }

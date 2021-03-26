@@ -19,7 +19,11 @@ public class PlayerManager : MonoBehaviour
     /// <summary> 現在の水分値 </summary>
     public int CurrentHydrate { get; private set; }
     /// <summary> 現在の攻撃力 </summary>
-    public int CurrentPower { get; private set; }
+    public int CurrentPower { get; private set; } = 40;
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         #region 体力関係の初期化
@@ -48,4 +52,50 @@ public class PlayerManager : MonoBehaviour
     {
         Player.Instance.ActionStop();
     }
+    public void SetPower(int power)
+    {
+        CurrentPower = power; 
+    }
+    /// <summary>
+    /// HPを回復する
+    /// </summary>
+    /// <param name="point"></param>
+    public void HealingHP(int point)
+    {
+        CurrentHP += point;
+        if (CurrentHP > playerMaxHP)
+        {
+            CurrentHP = playerMaxHP;
+        }
+    }
+    /// <summary>
+    /// 空腹度を回復する
+    /// </summary>
+    /// <param name="point"></param>
+    public void HealingHunger(int point)
+    {
+        CurrentHunger += point;
+        if (CurrentHunger > playerMaxHunger)
+        {
+            CurrentHunger = playerMaxHunger;
+        }
+    }
+    /// <summary>
+    /// 水分値を回復する
+    /// </summary>
+    /// <param name="point"></param>
+    public void HealingHydrate(int point)
+    {
+        CurrentHydrate += point;
+        if (CurrentHydrate > playerMaxHydrate)
+        {
+            CurrentHydrate = playerMaxHydrate;
+        }
+    }
+    /// <summary> 最大HPを返す </summary>
+    public int GetMaxHP() { return playerMaxHP; }
+    /// <summary> 最大空腹度を返す </summary>
+    public int GetMaxHunger() { return playerMaxHunger; }
+    /// <summary> 最大水分値を返す </summary>
+    public int GetMaxHydrate() { return playerMaxHydrate; }
 }

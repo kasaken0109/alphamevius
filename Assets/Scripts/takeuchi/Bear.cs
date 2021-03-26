@@ -6,13 +6,17 @@ public class Bear : Creatures
 {
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Dead();
-        }
         if (Input.GetButtonDown("Jump"))
         {
             StartSpawn();
+        }
+        if (stanTimer > 0)
+        {
+            stanTimer -= Time.deltaTime;
+            if (stanTimer <= 0)
+            {
+                stan = false;
+            }
         }
     }
     private void LateUpdate()

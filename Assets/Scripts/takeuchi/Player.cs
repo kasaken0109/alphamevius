@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private bool angleChange;
     /// <summary> 行動可能かのフラグ </summary>
     private bool action;
+    [SerializeField] GameObject attackScale;
+    private float attackTimer;
     private enum MoveAngle
     {
         Left,
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
     {
         rB = GetComponent<Rigidbody2D>();
         action = true;
+        attackScale.SetActive(false);
     }
 
     void Update()
@@ -48,6 +51,19 @@ public class Player : MonoBehaviour
                     transform.localScale = new Vector3(-1, 1, 1);
                 }
                 angleChange = false;
+            }
+            if (Input.GetButtonDown("Attack") && attackTimer <= 0)
+            {
+                attackScale.SetActive(true);
+                attackTimer = 0.5f;
+            }
+            if (attackTimer > 0)
+            {
+                attackTimer -= Time.deltaTime;
+                if (attackTimer < 0.3f)
+                {
+                    attackScale.SetActive(false);
+                }
             }
         }
     }

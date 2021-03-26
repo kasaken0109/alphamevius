@@ -13,10 +13,12 @@ public class ItemBaseMain : MonoBehaviour
     {
         return this.itemType;
     }
-    //public virtual void SetItemHotBar()
-    //{
-    //    Debug.Log("nann");
-    //    HotBarManager.Instance.SetHotBar(this.itemType);
-    //}
+    public virtual void UseHeal()
+    {
+    }
+    public virtual void UseTrap()
+    {
+
+    }
     public virtual bool CheckHaveOne() { return false; }
 }

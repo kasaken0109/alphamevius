@@ -9,7 +9,10 @@ public class DebugScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            ItemManage.Instance.itemList[ItemEnum.SmallKnife]++;
+            Materialitem materialitem = new Materialitem(ItemEnum.AluminumCan);
+            Materialitem materialitem1 = new Materialitem(ItemEnum.PieceOfCloth);
+            ItemManage.Instance.SetItem(materialitem);
+            ItemManage.Instance.SetItem(materialitem1);
         }
     }
 }

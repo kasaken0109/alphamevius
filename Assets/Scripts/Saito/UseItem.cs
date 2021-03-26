@@ -21,6 +21,24 @@ public class UseItem : ItemBaseMain
     {
         itemType = type;
     }
+    public override void UseHeal()
+    {
+        switch (m_healType)
+        {
+            case UseType.Thirst:
+                break;
+            case UseType.Hunger:
+                break;
+            case UseType.Damage:
+                break;
+            default:
+                break;
+        }
+    }
+    public override void UseTrap()
+    {
+
+    }
     public UseType GetHealType() { return m_healType; }
     public int GetHealPercentage() { return m_healPercentage; }
 }

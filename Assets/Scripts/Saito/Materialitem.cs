@@ -8,4 +8,5 @@ public class Materialitem : ItemBaseMain
     {
         itemType = type;
     }
+    public override bool CheckHaveOne() { return false; }
 }

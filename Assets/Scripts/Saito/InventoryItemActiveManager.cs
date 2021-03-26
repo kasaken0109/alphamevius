@@ -232,7 +232,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[26].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.AluminiumKnife] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.AluminiumKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[0] <= 0)
         {
             m_buttons[27].gameObject.SetActive(false);
         }
@@ -240,7 +240,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[27].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.FragileKnife] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.FragileKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[1] <= 0)
         {
             m_buttons[28].gameObject.SetActive(false);
         }
@@ -248,7 +248,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[28].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.SmallKnife] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.SmallKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[2] <= 0)
         {
             m_buttons[29].gameObject.SetActive(false);
         }
@@ -256,7 +256,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[29].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.Machete] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.Machete] <= 0 || HaveItemManager.Instance.itemsCurrentHP[3] <= 0)
         {
             m_buttons[30].gameObject.SetActive(false);
         }
@@ -264,7 +264,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[30].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.Pickaxe1] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.Pickaxe1] <= 0 || HaveItemManager.Instance.itemsCurrentHP[4] <= 0)
         {
             m_buttons[31].gameObject.SetActive(false);
         }
@@ -272,7 +272,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[31].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.Pickaxe2] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.Pickaxe2] <= 0 || HaveItemManager.Instance.itemsCurrentHP[5] <= 0)
         {
             m_buttons[32].gameObject.SetActive(false);
         }
@@ -288,7 +288,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[33].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.Axe] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.Axe] <= 0 || HaveItemManager.Instance.itemsCurrentHP[6] <= 0)
         {
             m_buttons[34].gameObject.SetActive(false);
         }
@@ -296,7 +296,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[34].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.Hammer] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.Hammer] <= 0 || HaveItemManager.Instance.itemsCurrentHP[7] <= 0)
         {
             m_buttons[35].gameObject.SetActive(false);
         }

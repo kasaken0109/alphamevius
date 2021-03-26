@@ -7,6 +7,7 @@ public class RandomMaterialController : MonoBehaviour
     [SerializeField] int m_MaxDropNum = 5;
     [SerializeField] ItemEnum[] m_items;
     [SerializeField] Transform[] m_dropPoint;
+    List<ItemEnum> itemList = new List<ItemEnum>();
     int m_materialNum;
     ItemEnum m_item;
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class RandomMaterialController : MonoBehaviour
         }
     }
 
-    ItemEnum RandomSelect()
+    List<ItemEnum> RandomSelect()
     {
         int m_randomNum = Random.Range(0,5);
         switch (m_randomNum)
@@ -60,7 +61,8 @@ public class RandomMaterialController : MonoBehaviour
             default:
                 break;
         }
-        return m_item;
+        itemList.Add(m_item);
+        return itemList;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,9 +74,12 @@ public class RandomMaterialController : MonoBehaviour
             RandomNum();
             for (int i = 0; i < m_materialNum; i++)
             {
-                FieldItemManager.Instance.DropItem(RandomSelect(), m_dropPoint[i].position);
+                //FieldItemManager.Instance.DropItem(RandomSelect()[i], m_dropPoint[i].position);
+                RandomSelect();
             }
-            Destroy(this.gameObject);
+            ItemEnum[] itemArray = itemList.ToArray();
+            FieldItemManager.Instance.DropMaterial(itemArray,this.transform.position);
+            gameObject.SetActive(false);
         }
     }
 }

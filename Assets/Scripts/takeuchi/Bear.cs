@@ -14,6 +14,14 @@ public class Bear : Creatures
         {
             StartSpawn();
         }
+        if (stanTimer > 0)
+        {
+            stanTimer -= Time.deltaTime;
+            if (stanTimer <= 0)
+            {
+                stan = false;
+            }
+        }
     }
     private void LateUpdate()
     {
@@ -28,5 +36,11 @@ public class Bear : Creatures
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;
+    }
+    public override void Damage(int damage)
+    {
+        stan = true;
+        stanTimer = stanTime;
+        base.Damage(damage);
     }
 }

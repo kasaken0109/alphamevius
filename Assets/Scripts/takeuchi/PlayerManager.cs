@@ -48,4 +48,8 @@ public class PlayerManager : MonoBehaviour
     {
         Player.Instance.ActionStop();
     }
+    public void SetPower(int power)
+    {
+        CurrentPower = power; 
+    }
 }

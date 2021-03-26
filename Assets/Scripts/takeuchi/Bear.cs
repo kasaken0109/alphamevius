@@ -21,7 +21,7 @@ public class Bear : Creatures
     }
     private void LateUpdate()
     {
-        if (actionRange.InPlayer)
+        if (actionRange.ONPlayer())
         {
             FindPlayerAction();
         }

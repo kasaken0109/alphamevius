@@ -20,6 +20,11 @@ public class PlayerManager : MonoBehaviour
     public int CurrentHydrate { get; private set; }
     /// <summary> 現在の攻撃力 </summary>
     public int CurrentPower { get; private set; } = 40;
+    /// <summary> 状態異常フラグ：飢餓 </summary>
+    public bool StatusEffectHunger { get; private set; }
+
+    /// <summary> 状態異常フラグ：脱水 </summary>
+    public bool StatusEffectDehydration { get; private set; }
     private void Awake()
     {
         Instance = this;
@@ -43,6 +48,32 @@ public class PlayerManager : MonoBehaviour
         {
             CurrentHP = 0;
             Dead();
+        }
+    }
+    /// <summary>
+    /// 満腹度を減少させる
+    /// </summary>
+    /// <param name="point"></param>
+    public void ExpendHunger(int point)
+    {
+        CurrentHunger -= point;
+        if (CurrentHunger <= 0)
+        {
+            CurrentHunger = 0;
+            StatusEffectHunger = true;
+        }
+    }
+    /// <summary>
+    /// 水分値を減少させる
+    /// </summary>
+    /// <param name="point"></param>
+    public void ExpendHydrate(int point)
+    {
+        CurrentHydrate -= point;
+        if (CurrentHydrate <= 0)
+        {
+            CurrentHydrate = 0;
+            StatusEffectDehydration = true;
         }
     }
     /// <summary>
@@ -75,6 +106,7 @@ public class PlayerManager : MonoBehaviour
     public void HealingHunger(int point)
     {
         CurrentHunger += point;
+        StatusEffectHunger = false;
         if (CurrentHunger > playerMaxHunger)
         {
             CurrentHunger = playerMaxHunger;
@@ -87,6 +119,7 @@ public class PlayerManager : MonoBehaviour
     public void HealingHydrate(int point)
     {
         CurrentHydrate += point;
+        StatusEffectDehydration = false;
         if (CurrentHydrate > playerMaxHydrate)
         {
             CurrentHydrate = playerMaxHydrate;

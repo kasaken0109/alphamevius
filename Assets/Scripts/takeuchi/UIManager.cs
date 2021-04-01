@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        HPtest();
+        //HPtest();
         HPGaugeControl();
         HungerGaugeControl();
         WaterGaugeControl();
@@ -141,7 +141,7 @@ public class UIManager : MonoBehaviour
     private void HungerGaugeControl()
     {
         int p = PlayerManager.Instance.CurrentHunger;
-        float pm = p / playerMaxW;
+        float pm = p / playerMaxH;
         HGauge.fillAmount = pm;
     }
     void HPtest()

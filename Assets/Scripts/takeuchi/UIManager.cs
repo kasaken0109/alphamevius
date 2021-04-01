@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image HGauge;
     private bool open;
     private float playerMaxHP;
+    private float playerMaxW;
+    private float playerMaxH;
     private float R = 0;
     private float G = 1;
     private int B = 0;
@@ -21,6 +23,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         playerMaxHP = PlayerManager.Instance.GetMaxHP();
+        playerMaxW = PlayerManager.Instance.GetMaxHydrate();
+        playerMaxH = PlayerManager.Instance.GetMaxHunger();
         ItemInventory.SetActive(false);
         CraftInventory.SetActive(false);
         RecycleInventory.SetActive(false);
@@ -29,8 +33,10 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        //HPtest();
+        HPtest();
         HPGaugeControl();
+        HungerGaugeControl();
+        WaterGaugeControl();
         if (Input.GetButtonDown("Menu"))
         {
             if (!open)
@@ -126,6 +132,18 @@ public class UIManager : MonoBehaviour
         }
         HPGauge.color = new Color(R, G, B);
     }
+    private void WaterGaugeControl()
+    {
+        int p = PlayerManager.Instance.CurrentHydrate;
+        float pm = p / playerMaxW;
+        WGauge.fillAmount = pm;
+    }
+    private void HungerGaugeControl()
+    {
+        int p = PlayerManager.Instance.CurrentHunger;
+        float pm = p / playerMaxW;
+        HGauge.fillAmount = pm;
+    }
     void HPtest()
     {
         int i = PlayerManager.Instance.CurrentHP;
@@ -133,13 +151,17 @@ public class UIManager : MonoBehaviour
         if (testTimer >= 0.1f)
         {
             testTimer = 0;
-            if (i == 100)
+            if (i > 0)
             {
-                PlayerManager.Instance.Damage(100);
+                PlayerManager.Instance.Damage(1);
+                PlayerManager.Instance.ExpendHunger(1);
+                PlayerManager.Instance.ExpendHydrate(1);
             }
             else
             {
-                PlayerManager.Instance.HealingHP(1);
+                PlayerManager.Instance.HealingHP(100);
+                PlayerManager.Instance.HealingHunger(100);
+                PlayerManager.Instance.HealingHydrate(100);
             }
         }
     }

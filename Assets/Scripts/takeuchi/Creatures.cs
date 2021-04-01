@@ -24,6 +24,7 @@ public class Creatures : MonoBehaviour
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
     [SerializeField] protected ActionRange actionRange;
+    [SerializeField] protected ActionRange searchRange;
     protected Rigidbody2D rB = null;
     /// <summary> 移動速度 </summary>
     [SerializeField] protected float moveSpeed = 1.0f;

@@ -13,11 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image WGauge;
     [SerializeField] Image HGauge;
     private bool open;
-    private int playerMaxHP;
+    private float playerMaxHP;
     private float R = 0;
-    private float G = 255;
+    private float G = 1;
     private int B = 0;
-
+    float testTimer = 0;
     void Start()
     {
         playerMaxHP = PlayerManager.Instance.GetMaxHP();
@@ -29,15 +29,12 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        int p = PlayerManager.Instance.CurrentHP;
-        float pm = playerMaxHP;
-        HPGauge.fillAmount = p / pm;
-        HPGauge.color = new Color(R, G, B);
+        //HPtest();
+        HPGaugeControl();
         if (Input.GetButtonDown("Menu"))
         {
             if (!open)
             {
-                PlayerManager.Instance.Damage(10);
                 ItemInventory.SetActive(true);
                 CraftInventory.SetActive(false);
                 RecycleInventory.SetActive(false);
@@ -110,6 +107,40 @@ public class UIManager : MonoBehaviour
             RecycleInventory.SetActive(false);
             CookingInventory.SetActive(false);
             open = false;
+        }
+    }
+    private void HPGaugeControl()
+    {
+        int p = PlayerManager.Instance.CurrentHP;
+        float pm = p / playerMaxHP;
+        HPGauge.fillAmount = pm;
+        if (pm >= 0.5f)
+        {
+            R = 2 - 2 * pm;
+            G = 1;
+        }
+        else
+        {
+            R = 1;
+            G = 2 * pm;
+        }
+        HPGauge.color = new Color(R, G, B);
+    }
+    void HPtest()
+    {
+        int i = PlayerManager.Instance.CurrentHP;
+        testTimer += Time.deltaTime;
+        if (testTimer >= 0.1f)
+        {
+            testTimer = 0;
+            if (i == 100)
+            {
+                PlayerManager.Instance.Damage(100);
+            }
+            else
+            {
+                PlayerManager.Instance.HealingHP(1);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject CraftInventory;
     [SerializeField] GameObject RecycleInventory;
     [SerializeField] GameObject CookingInventory;
+    [SerializeField] GameObject[] butStatusIcons;
     [SerializeField] Image HPGauge;
     [SerializeField] Image WGauge;
     [SerializeField] Image HGauge;
@@ -29,6 +31,7 @@ public class UIManager : MonoBehaviour
         CraftInventory.SetActive(false);
         RecycleInventory.SetActive(false);
         CookingInventory.SetActive(false);
+        //butStatusIcons.ToList().ForEach(i => i.SetActive(false));
     }
 
     void Update()

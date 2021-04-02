@@ -15,6 +15,7 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected int maxHP = 100;
     /// <summary> 現在の体力 </summary>
     public int CurrentHP { get; protected set; }
+    [SerializeField] protected int power = 5;
     /// <summary> 出現位置 </summary>
     [SerializeField] protected Transform spawnPoint;
     /// <summary> 描画される画像 </summary>
@@ -25,6 +26,7 @@ public class Creatures : MonoBehaviour
     protected bool action;
     [SerializeField] protected ActionRange actionRange;
     [SerializeField] protected ActionRange searchRange;
+    [SerializeField] protected ActionRange attackRange;
     protected Rigidbody2D rB = null;
     /// <summary> 移動速度 </summary>
     [SerializeField] protected float moveSpeed = 1.0f;
@@ -168,7 +170,6 @@ public class Creatures : MonoBehaviour
             moveY = moveDir.normalized.y * moveSpeed;
         }
     }
-
     protected virtual void FindPlayerAction()
     {
         if (actionRange.ONCreatures())
@@ -189,6 +190,10 @@ public class Creatures : MonoBehaviour
         {
             NormalAction();
         }
+    }
+    protected virtual void AttackAction()
+    {
+        PlayerManager.Instance.Damage(power);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

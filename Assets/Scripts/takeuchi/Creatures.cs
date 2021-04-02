@@ -27,6 +27,8 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected ActionRange actionRange;
     [SerializeField] protected ActionRange searchRange;
     [SerializeField] protected ActionRange attackRange;
+    [SerializeField] protected float attackInterval = 1f;
+    protected float attackTimer;
     protected Rigidbody2D rB = null;
     /// <summary> 移動速度 </summary>
     [SerializeField] protected float moveSpeed = 1.0f;

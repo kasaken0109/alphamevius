@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] int playerMaxHunger = 100;
     /// <summary> 水分最大値 </summary>
     [SerializeField] int playerMaxHydrate = 100;
+    /// <summary> 初期攻撃力 </summary>
+    [SerializeField] int startPower;
     /// <summary> 現在の体力 </summary>
     public int CurrentHP { get; private set; }
     /// <summary> 現在の空腹度 </summary>
@@ -20,9 +22,10 @@ public class PlayerManager : MonoBehaviour
     public int CurrentHydrate { get; private set; }
     /// <summary> 現在の攻撃力 </summary>
     public int CurrentPower { get; private set; } = 40;
+    /// <summary> 基礎攻撃力 </summary>
+    public int BasePower { get; private set; }
     /// <summary> 状態異常フラグ：飢餓 </summary>
     public bool StatusEffectHunger { get; private set; }
-
     /// <summary> 状態異常フラグ：脱水 </summary>
     public bool StatusEffectDehydration { get; private set; }
     private void Awake()

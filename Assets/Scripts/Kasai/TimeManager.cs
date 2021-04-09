@@ -18,7 +18,7 @@ public class TimeManager : MonoBehaviour
     public float m_time;
     public float m_second;
     public int m_hour = 0;
-    int m_dayNum = 1;
+    public int m_dayNum = 1;
     GameObject m_gameObject;
     DayStatus dayStatus;
     // Start is called before the first frame update

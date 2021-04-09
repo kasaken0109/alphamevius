@@ -9,6 +9,7 @@ public class SleepBagManager : MonoBehaviour
     [SerializeField] int nightTime = 20;
     [SerializeField] int morningTime = 6;
     [SerializeField] ActionRange actionRange = null;
+    [SerializeField] GameObject m_Button = null;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class SleepBagManager : MonoBehaviour
     {
         if (actionRange.ONPlayer())
         {
+
             if (time.m_hour >= nightTime && time.m_hour <= 24)
             {
                 time.m_dayNum += 1;

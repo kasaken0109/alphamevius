@@ -23,11 +23,15 @@ public class SleepBagManager : MonoBehaviour
     void Update()
     {
     }
+    public void CreateSleepBag(Transform m_player)
+    {
+        Instantiate(this.gameObject, m_player.position, m_player.rotation);
+    }
     /// <summary>
     /// 寝袋を設置するときに呼ばれる関数
     /// </summary>
     /// <param name="m_player">プレイヤーの位置</param>
-    public void UseSleepBag(Transform m_player)
+    public void UseSleepBag()
     {
         if (actionRange.ONPlayer())
         {

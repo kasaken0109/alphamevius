@@ -6,7 +6,14 @@ public class SleepBagManager : MonoBehaviour
 {
     public static SleepBagManager Instance { get; private set;}
     TimeManager time;
+    [SerializeField] int nightTime = 20;
+    [SerializeField] int morningTime = 6;
+    [SerializeField] ActionRange actionRange = null;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         
@@ -16,14 +23,28 @@ public class SleepBagManager : MonoBehaviour
     void Update()
     {
     }
-
-    public void SleepBagCreate()
+    /// <summary>
+    /// 寝袋を設置するときに呼ばれる関数
+    /// </summary>
+    /// <param name="m_player">プレイヤーの位置</param>
+    public void UseSleepBag(Transform m_player)
     {
+        if (actionRange.ONPlayer())
+        {
+            if (time.m_hour >= nightTime && time.m_hour <= 24)
+            {
+                time.m_dayNum += 1;
+                time.m_hour = morningTime;
 
-    }
-
-    public void UseSleepBag()
-    {
-
+            }
+            else if (time.m_hour >= 0 && time.m_hour <= morningTime)
+            {
+                time.m_hour = morningTime;
+            }
+            else
+            {
+                Debug.Log("寝袋は今使えません");
+            }
+        }
     }
 }

@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        //HPtest();
+        HPtest();
         HPGaugeControl();
         HungerGaugeControl();
         WaterGaugeControl();

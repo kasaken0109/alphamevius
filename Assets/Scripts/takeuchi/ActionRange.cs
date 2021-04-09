@@ -20,14 +20,13 @@ public class ActionRange : MonoBehaviour
         {
             OnActionRange = true;
         }
-        else if (Exit)
+        if (Exit)
         {
             OnActionRange = false;
         }
         Enter = false;
         Stay = false;
         Exit = false;
-
         return OnActionRange;
     }
     private bool PEnter = false;

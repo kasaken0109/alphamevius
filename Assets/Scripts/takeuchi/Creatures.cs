@@ -15,6 +15,7 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected int maxHP = 100;
     /// <summary> 現在の体力 </summary>
     public int CurrentHP { get; protected set; }
+    [SerializeField] protected int power = 5;
     /// <summary> 出現位置 </summary>
     [SerializeField] protected Transform spawnPoint;
     /// <summary> 描画される画像 </summary>
@@ -24,6 +25,10 @@ public class Creatures : MonoBehaviour
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
     [SerializeField] protected ActionRange actionRange;
+    [SerializeField] protected ActionRange searchRange;
+    [SerializeField] protected ActionRange attackRange;
+    [SerializeField] protected float attackInterval = 1f;
+    protected float attackTimer;
     protected Rigidbody2D rB = null;
     /// <summary> 移動速度 </summary>
     [SerializeField] protected float moveSpeed = 1.0f;
@@ -97,62 +102,68 @@ public class Creatures : MonoBehaviour
     {
         if (!move)
         {
-            if (actionRange.ONCreatures())
+            testCount++;
+            if (testCount >= 600)
             {
-                testCount++;
-                if (testCount > 600)
+                int a = Random.Range(0, 4);
+                switch (a)
                 {
-                    int a = Random.Range(0, 4);
-                    switch (a)
+                    case 0:
+                        angle = MoveAngle.Up;
+                        break;
+                    case 1:
+                        angle = MoveAngle.Left;
+                        break;
+                    case 2:
+                        angle = MoveAngle.Right;                       
+                        break;
+                    case 3:
+                        angle = MoveAngle.Down;
+                        break;
+                    default:
+                        break;
+                }
+                move = true;                
+                if (actionRange.ONCreatures())
+                {
+                    switch (angle)
                     {
-                        case 0:
-                            angle = MoveAngle.Up;
+                        case MoveAngle.Up:
+                            moveDir = Vector3.up;
                             break;
-                        case 1:
-                            angle = MoveAngle.Left;
+                        case MoveAngle.Left:
+                            moveDir = Vector3.left;
+                            transform.localScale = new Vector3(1, 1, 1);
                             break;
-                        case 2:
-                            angle = MoveAngle.Right;
+                        case MoveAngle.Right:
+                            moveDir = Vector3.right;
+                            transform.localScale = new Vector3(-1, 1, 1);
                             break;
-                        case 3:
-                            angle = MoveAngle.Down;
+                        case MoveAngle.Down:
+                            moveDir = Vector3.down;
                             break;
                         default:
                             break;
                     }
-                    move = true;
                 }
-            }
-            else
-            {
-                testCount = 0;
-                move = false;
-                moveDir = spawnPoint.position - transform.position;
-                moveX = moveDir.normalized.x * moveSpeed;
-                moveY = moveDir.normalized.y * moveSpeed;
+                else
+                {
+                    moveDir = spawnPoint.position - transform.position;
+                    if (moveDir.normalized.x > 0)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                }
             }
         }
         else
         {
-            switch (angle)
-            {
-                case MoveAngle.Up:
-                    moveDir = Vector3.up;
-                    break;
-                case MoveAngle.Left:
-                    moveDir = Vector3.left;
-                    break;
-                case MoveAngle.Right:
-                    moveDir = Vector3.right;
-                    break;
-                case MoveAngle.Down:
-                    moveDir = Vector3.down;
-                    break;
-                default:
-                    break;
-            }
             testCount -= 5;
-            if (testCount < 0)
+            if (testCount <= 0)
             {
                 testCount = 0;
                 move = false;
@@ -161,19 +172,30 @@ public class Creatures : MonoBehaviour
             moveY = moveDir.normalized.y * moveSpeed;
         }
     }
-
     protected virtual void FindPlayerAction()
     {
         if (actionRange.ONCreatures())
         {
             moveDir = Player.Instance.transform.position - transform.position;
+            if (moveDir.normalized.x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
             moveX = moveDir.normalized.x * moveSpeed;
             moveY = moveDir.normalized.y * moveSpeed;
         }
         else
         {
-
+            NormalAction();
         }
+    }
+    protected virtual void AttackAction()
+    {
+        PlayerManager.Instance.Damage(power);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

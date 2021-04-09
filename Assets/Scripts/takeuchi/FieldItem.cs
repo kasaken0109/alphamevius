@@ -12,8 +12,11 @@ public class FieldItem : MonoBehaviour
     float toExistTime = 8f;
     /// <summary> 存在時間のタイマー </summary>
     public float ExistTimer { get; private set; } = 0f;
+    SpriteRenderer itemImage;
     private void Start()
     {
+        itemImage = gameObject.GetComponent<SpriteRenderer>();
+        Debug.Log(itemImage.sprite);
         this.gameObject.SetActive(false);
     }
     private void Update()

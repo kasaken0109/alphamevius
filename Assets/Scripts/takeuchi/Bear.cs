@@ -21,13 +21,16 @@ public class Bear : Creatures
     }
     private void LateUpdate()
     {
-        if (actionRange.ONPlayer())
+        if (searchRange)
         {
-            FindPlayerAction();
-        }
-        else
-        {
-            NormalAction();
+            if (searchRange.ONPlayer())
+            {
+                FindPlayerAction();
+            }
+            else
+            {
+                NormalAction();
+            }
         }
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;

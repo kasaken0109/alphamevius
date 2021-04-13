@@ -26,10 +26,13 @@ public class UseItem : ItemBaseMain
         switch (m_healType)
         {
             case UseType.Thirst:
+                PlayerManager.Instance.HealingHydrate(m_healPercentage);
                 break;
             case UseType.Hunger:
+                PlayerManager.Instance.HealingHunger(m_healPercentage);
                 break;
             case UseType.Damage:
+                PlayerManager.Instance.HealingHP(m_healPercentage);
                 break;
             default:
                 break;

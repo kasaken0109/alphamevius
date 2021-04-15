@@ -29,33 +29,32 @@ public class SleepBagManager : MonoBehaviour
             m_Button.SetActive(true);
         }
     }
-    public void CreateSleepBag(Transform m_player)
-    {
-        Instantiate(this.gameObject, m_player.position, m_player.rotation);
-    }
     /// <summary>
     /// 寝袋を設置するときに呼ばれる関数
     /// </summary>
     /// <param name="m_player">プレイヤーの位置</param>
+    public void CreateSleepBag(Transform m_player)
+    {
+        Instantiate(this.gameObject, m_player.position, m_player.rotation);
+    }
+    
     public void UseSleepBag()
     {
-        if (actionRange.ONPlayer())
+        if (time.m_hour >= nightTime && time.m_hour <= 24)
         {
+            Debug.Log("nightleap");
+            time.m_dayNum += 1;
+            time.m_hour = morningTime;
 
-            if (time.m_hour >= nightTime && time.m_hour <= 24)
-            {
-                time.m_dayNum += 1;
-                time.m_hour = morningTime;
-
-            }
-            else if (time.m_hour >= 0 && time.m_hour <= morningTime)
-            {
-                time.m_hour = morningTime;
-            }
-            else
-            {
-                Debug.Log("寝袋は今使えません");
-            }
+        }
+        else if (time.m_hour >= 0 && time.m_hour <= morningTime)
+        {
+            Debug.Log("morningleap");
+            time.m_hour = morningTime;
+        }
+        else
+        {
+            Debug.Log("寝袋は今使えません");
         }
     }
 }

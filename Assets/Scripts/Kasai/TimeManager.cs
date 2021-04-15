@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager Instance { get; private set; }
     [SerializeField]Text text = null;
     [SerializeField] public float timeRate = 0.6f;
     [SerializeField] int timeScale = 10;
@@ -26,6 +27,11 @@ public class TimeManager : MonoBehaviour
     {
         NOON,
         NIGHT,
+    }
+
+    private void Awake()
+    {
+        Instance = this;
     }
     void Start()
     {

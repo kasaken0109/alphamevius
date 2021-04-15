@@ -14,6 +14,7 @@ public class SleepBagManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        time = GetComponent<TimeManager>();
     }
     void Start()
     {
@@ -40,17 +41,17 @@ public class SleepBagManager : MonoBehaviour
     
     public void UseSleepBag()
     {
-        if (time.m_hour >= nightTime && time.m_hour <= 24)
+        if (TimeManager.Instance.m_hour >= nightTime && TimeManager.Instance.m_hour <= 24)
         {
             Debug.Log("nightleap");
-            time.m_dayNum += 1;
-            time.m_hour = morningTime;
+            TimeManager.Instance.m_dayNum += 1;
+            TimeManager.Instance.m_hour = morningTime;
 
         }
-        else if (time.m_hour >= 0 && time.m_hour <= morningTime)
+        else if (TimeManager.Instance.m_hour >= 0 && TimeManager.Instance.m_hour <= morningTime)
         {
             Debug.Log("morningleap");
-            time.m_hour = morningTime;
+            TimeManager.Instance.m_hour = morningTime;
         }
         else
         {

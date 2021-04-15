@@ -17,12 +17,17 @@ public class SleepBagManager : MonoBehaviour
     }
     void Start()
     {
-        
+        m_Button.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(actionRange.ONPlayer());
+        if (actionRange.ONPlayer())
+        {
+            m_Button.SetActive(true);
+        }
     }
     public void CreateSleepBag(Transform m_player)
     {

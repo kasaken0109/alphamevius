@@ -38,7 +38,7 @@ public class ActionRange : MonoBehaviour
         {
             InPlayer = true;
         }
-        else if (PExit)
+        if (PExit)
         {
             InPlayer = false;
         }

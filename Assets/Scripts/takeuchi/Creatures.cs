@@ -41,12 +41,14 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected float stanTime = 1f;
     protected float stanTimer;
     protected bool stan;
+    [SerializeField] protected Animator CreaturesAnimation = null;
     private void Start()
     {
         rB = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         actionRange.SetOwner(this);
         CurrentHP = maxHP;
+        ActionStart();
     }
     /// <summary>
     /// スポーン時の初期化
@@ -84,8 +86,13 @@ public class Creatures : MonoBehaviour
         //{
         //    FieldItemManager.Instance.DropItem(item, transform.position);
         //}
-        creature.SetActive(false);
+        //creature.SetActive(false);
+        rB.velocity = Vector3.zero;
         circleCollider.enabled = false;
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Dead", true);
+        }
     }
     /// <summary>
     /// Creatureを行動不能にする
@@ -95,15 +102,16 @@ public class Creatures : MonoBehaviour
     /// Creatureを行動可能にする
     /// </summary>
     public virtual void ActionStart() { action = true; }
-    private int testCount;
+    [SerializeField] protected float actionTime = 3f;
+    private float actionTimer;
     private MoveAngle angle = MoveAngle.Down;
     private bool move;
     protected virtual void NormalAction()
     {
         if (!move)
         {
-            testCount++;
-            if (testCount >= 600)
+            actionTimer += Time.deltaTime;
+            if (actionTimer >= actionTime)
             {
                 int a = Random.Range(0, 4);
                 switch (a)
@@ -147,7 +155,7 @@ public class Creatures : MonoBehaviour
                     }
                 }
                 else
-                {
+                {                    
                     moveDir = spawnPoint.position - transform.position;
                     if (moveDir.normalized.x > 0)
                     {
@@ -162,10 +170,10 @@ public class Creatures : MonoBehaviour
         }
         else
         {
-            testCount -= 5;
-            if (testCount <= 0)
+            actionTimer -= 5f * Time.deltaTime;
+            if (actionTimer <= 0)
             {
-                testCount = 0;
+                actionTimer = 0;
                 move = false;
             }
             moveX = moveDir.normalized.x * moveSpeed;
@@ -185,8 +193,16 @@ public class Creatures : MonoBehaviour
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-            moveX = moveDir.normalized.x * moveSpeed;
-            moveY = moveDir.normalized.y * moveSpeed;
+            if (attackRange.ONPlayer())
+            {
+                moveX = 0;
+                moveY = 0;
+            }
+            else
+            {
+                moveX = moveDir.normalized.x * moveSpeed;
+                moveY = moveDir.normalized.y * moveSpeed;
+            }
         }
         else
         {
@@ -195,6 +211,10 @@ public class Creatures : MonoBehaviour
     }
     protected virtual void AttackAction()
     {
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Attack", true);
+        }
         PlayerManager.Instance.Damage(power);
     }
     private void OnTriggerEnter2D(Collider2D collision)

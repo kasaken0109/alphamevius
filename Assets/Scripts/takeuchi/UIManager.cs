@@ -12,10 +12,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject CookingInventory;
     [SerializeField] GameObject[] butStatusIcons;
     [SerializeField] Image HPGauge;
+    [SerializeField] Image HPGauge2;
     [SerializeField] Image WGauge;
     [SerializeField] Image HGauge;
+    [SerializeField] float x = 1f;
     private bool open;
     private float playerMaxHP;
+    private float playerViewHp;
     private float playerMaxW;
     private float playerMaxH;
     private float R = 0;
@@ -36,7 +39,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        HPtest();
+        //HPtest();
         HPGaugeControl();
         HungerGaugeControl();
         WaterGaugeControl();
@@ -120,9 +123,17 @@ public class UIManager : MonoBehaviour
     }
     private void HPGaugeControl()
     {
-        int p = PlayerManager.Instance.CurrentHP;
+        int p = PlayerManager.Instance.CurrentHP;       
         float pm = p / playerMaxHP;
         HPGauge.fillAmount = pm;
+        if (p < playerViewHp)
+        {
+            playerViewHp -= x * Time.deltaTime;
+        }
+        else
+        {
+            playerViewHp = p;
+        }
         if (pm >= 0.5f)
         {
             R = 2 - 2 * pm;
@@ -133,6 +144,8 @@ public class UIManager : MonoBehaviour
             R = 1;
             G = 2 * pm;
         }
+        pm = playerViewHp / playerMaxHP;
+        HPGauge2.fillAmount = pm;
         HPGauge.color = new Color(R, G, B);
     }
     private void WaterGaugeControl()

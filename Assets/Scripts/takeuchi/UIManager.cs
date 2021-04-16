@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         CraftInventory.SetActive(false);
         RecycleInventory.SetActive(false);
         CookingInventory.SetActive(false);
-        //butStatusIcons.ToList().ForEach(i => i.SetActive(false));
+        butStatusIcons.ToList().ForEach(i => i.SetActive(false));
     }
 
     void Update()
@@ -100,6 +100,22 @@ public class UIManager : MonoBehaviour
                 open = false;
             }
         }
+        if (PlayerManager.Instance.StatusEffectDehydration)
+        {
+            butStatusIcons[0].SetActive(true);
+        }
+        else
+        {
+            butStatusIcons[0].SetActive(false);
+        }
+        if (PlayerManager.Instance.StatusEffectHunger)
+        {
+            butStatusIcons[1].SetActive(true);
+        }
+        else
+        {
+            butStatusIcons[1].SetActive(false);
+        }
     }
 
     public void OnClickCooking()
@@ -162,23 +178,24 @@ public class UIManager : MonoBehaviour
     }
     void HPtest()
     {
-        int i = PlayerManager.Instance.CurrentHP;
+        //int i = PlayerManager.Instance.CurrentHP;
         testTimer += Time.deltaTime;
-        if (testTimer >= 0.1f)
+        if (testTimer >= 1f)
         {
             testTimer = 0;
-            if (i > 0)
-            {
-                PlayerManager.Instance.Damage(1);
-                PlayerManager.Instance.ExpendHunger(1);
-                PlayerManager.Instance.ExpendHydrate(1);
-            }
-            else
-            {
-                PlayerManager.Instance.HealingHP(100);
-                PlayerManager.Instance.HealingHunger(100);
-                PlayerManager.Instance.HealingHydrate(100);
-            }
+            PlayerManager.Instance.OneSecondStatusUpdate();
+        //    if (i > 0)
+        //    {
+        //        PlayerManager.Instance.Damage(1);
+        //        PlayerManager.Instance.ExpendHunger(1);
+        //        PlayerManager.Instance.ExpendHydrate(1);
+        //    }
+        //    else
+        //    {
+        //        PlayerManager.Instance.HealingHP(100);
+        //        PlayerManager.Instance.HealingHunger(100);
+        //        PlayerManager.Instance.HealingHydrate(100);
+        //    }
         }
     }
 }

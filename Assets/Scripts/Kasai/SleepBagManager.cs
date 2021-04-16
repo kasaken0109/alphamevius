@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class SleepBagManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class SleepBagManager : MonoBehaviour
     [SerializeField] int morningTime = 6;
     [SerializeField] ActionRange actionRange = null;
     [SerializeField] GameObject m_Button = null;
+    [SerializeField] GameObject m_animSleepBag = null;
+    [SerializeField] GameObject m_SleepBag = null;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,7 +27,7 @@ public class SleepBagManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(actionRange.ONPlayer());
+        //Debug.Log(actionRange.ONPlayer());
         if (actionRange.ONPlayer())
         {
             m_Button.SetActive(true);
@@ -36,7 +39,13 @@ public class SleepBagManager : MonoBehaviour
     /// <param name="m_player">プレイヤーの位置</param>
     public void CreateSleepBag(Transform m_player)
     {
-        Instantiate(this.gameObject, m_player.position, m_player.rotation);
+        if (GameObject.Find("SleepBag"))
+        {
+            m_SleepBag.SetActive(false);
+            Instantiate(m_animSleepBag, transform.position, transform.rotation);
+        }
+        transform.position = m_player.position;
+        m_SleepBag.SetActive(true);
     }
     
     public void UseSleepBag()
@@ -44,6 +53,8 @@ public class SleepBagManager : MonoBehaviour
         if (TimeManager.Instance.m_hour >= nightTime && TimeManager.Instance.m_hour <= 24)
         {
             Debug.Log("nightleap");
+            m_SleepBag.SetActive(false);
+            Instantiate(m_animSleepBag, transform.position, transform.rotation);
             TimeManager.Instance.m_dayNum += 1;
             TimeManager.Instance.m_hour = morningTime;
 
@@ -51,6 +62,8 @@ public class SleepBagManager : MonoBehaviour
         else if (TimeManager.Instance.m_hour >= 0 && TimeManager.Instance.m_hour <= morningTime)
         {
             Debug.Log("morningleap");
+            m_SleepBag.SetActive(false);
+            Instantiate(m_animSleepBag, transform.position, transform.rotation);
             TimeManager.Instance.m_hour = morningTime;
         }
         else

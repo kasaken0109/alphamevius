@@ -427,7 +427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &20169436
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -508,6 +508,9 @@ MonoBehaviour:
   morningTime: 6
   actionRange: {fileID: 20169439}
   m_Button: {fileID: 618498594}
+  m_animSleepBag: {fileID: 5038699321405864070, guid: 934eda6271abf234ba41d22a5d7b98b4,
+    type: 3}
+  m_SleepBag: {fileID: 20169435}
 --- !u!114 &20169439
 MonoBehaviour:
   m_ObjectHideFlags: 0

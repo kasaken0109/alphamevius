@@ -29,6 +29,15 @@ public class Bear : Creatures
                 rB.velocity = Vector3.zero;
                 if (attackTimer <= 0)
                 {
+                    Vector2 dir = Player.Instance.transform.position - transform.position;
+                    if (dir.normalized.x > 0)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
                     AttackAction();
                     attackTimer = attackInterval;
                 }

@@ -67,10 +67,11 @@ public class RandomMaterialController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter Player");
+        //Debug.Log("Enter Player");
         if (collision.tag == "Player")
         {
-            Debug.Log("itemcollect");
+            itemList.Clear();
+            //Debug.Log("itemcollect");
             RandomNum();
             for (int i = 0; i < m_materialNum; i++)
             {
@@ -78,8 +79,9 @@ public class RandomMaterialController : MonoBehaviour
                 RandomSelect();
             }
             ItemEnum[] itemArray = itemList.ToArray();
-            FieldItemManager.Instance.DropMaterial(itemArray,this.transform.position);
+            FieldItemManager.Instance.DropMaterial(itemArray, this.transform.position);
             gameObject.SetActive(false);
+            
         }
     }
 }

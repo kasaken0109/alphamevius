@@ -215,7 +215,17 @@ public class Creatures : MonoBehaviour
         {
             CreaturesAnimation.SetBool("Attack", true);
         }
-        PlayerManager.Instance.Damage(power);
+        AttackPlayer();
+    }
+    public virtual void AttackPlayer()
+    {
+        if (actionRange)
+        {
+            if (actionRange.ONPlayer())
+            {
+                PlayerManager.Instance.Damage(power);
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

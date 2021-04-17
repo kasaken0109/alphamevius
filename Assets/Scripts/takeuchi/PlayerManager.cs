@@ -24,21 +24,80 @@ public class PlayerManager : MonoBehaviour
     public int CurrentPower { get; private set; } = 40;
     /// <summary> 基礎攻撃力 </summary>
     public int BasePower { get; private set; }
+    /// <summary> ステータス反映初期時間：空腹 </summary>
+    [SerializeField] int startOneHungerTime = 9;
+    /// <summary> ステータス反映時間：空腹 </summary>
+    int oneHungerTime;
+    /// <summary> 反映時間カウント：空腹 </summary>
+    int hungerCounter;
+    /// <summary> ステータス反映初期時間：水分 </summary>
+    [SerializeField] int startOneDehydrationTime = 6;
+    /// <summary> ステータス反映時間：水分 </summary>
+    int oneDehydrationTime;
+    /// <summary> 反映時間カウント：空腹 </summary>
+    int hydrateCounter;
     /// <summary> 状態異常フラグ：飢餓 </summary>
     public bool StatusEffectHunger { get; private set; }
+    /// <summary> 状態異常反映時間：飢餓 </summary>
+    [SerializeField] int sEHungerTime = 10;
+    /// <summary> 状態異常カウント：飢餓 </summary>
+    int sEHungerCounter;
     /// <summary> 状態異常フラグ：脱水 </summary>
     public bool StatusEffectDehydration { get; private set; }
+    /// <summary> 状態異常反映時間：脱水 </summary>
+    [SerializeField] int sEDehydrationTime = 10;
+    /// <summary> 状態異常カウント：脱水 </summary>
+    int sEDehydrationCounter;
+    
     private void Awake()
     {
         Instance = this;
     }
     private void Start()
     {
-        #region 体力関係の初期化
+        #region ステータス関係の初期化
         CurrentHP = playerMaxHP;
         CurrentHunger = playerMaxHunger;
         CurrentHydrate = playerMaxHydrate;
+        oneHungerTime = startOneHungerTime;
+        oneDehydrationTime = startOneDehydrationTime;
         #endregion
+    }
+    /// <summary>
+    /// ゲーム内時間一秒ごとにステータス関係を更新する
+    /// </summary>
+    public void OneSecondStatusUpdate()
+    {
+        hungerCounter++;
+        if (hungerCounter >= oneHungerTime)
+        {
+            hungerCounter = 0;
+            ExpendHunger(1);
+        }
+        hydrateCounter++;
+        if (hydrateCounter >= oneDehydrationTime)
+        {
+            hydrateCounter = 0;
+            ExpendHydrate(1);
+        }
+        if (StatusEffectHunger)
+        {
+            sEHungerCounter++;
+            if (sEHungerCounter >= sEHungerTime)
+            {
+                sEHungerCounter = 0;
+                Damage(1);
+            }
+        }
+        if (StatusEffectDehydration)
+        {
+            sEDehydrationCounter++;
+            if (sEDehydrationCounter >= sEDehydrationTime)
+            {
+                sEDehydrationCounter = 0;
+                Damage(1);
+            }
+        }
     }
     /// <summary>
     /// プレイヤーにダメージを与える
@@ -109,7 +168,9 @@ public class PlayerManager : MonoBehaviour
     public void HealingHunger(int point)
     {
         CurrentHunger += point;
+        hungerCounter = 0;
         StatusEffectHunger = false;
+        sEHungerCounter = 0;
         if (CurrentHunger > playerMaxHunger)
         {
             CurrentHunger = playerMaxHunger;
@@ -122,7 +183,9 @@ public class PlayerManager : MonoBehaviour
     public void HealingHydrate(int point)
     {
         CurrentHydrate += point;
+        hydrateCounter = 0;
         StatusEffectDehydration = false;
+        sEDehydrationCounter = 0;
         if (CurrentHydrate > playerMaxHydrate)
         {
             CurrentHydrate = playerMaxHydrate;
@@ -134,4 +197,6 @@ public class PlayerManager : MonoBehaviour
     public int GetMaxHunger() { return playerMaxHunger; }
     /// <summary> 最大水分値を返す </summary>
     public int GetMaxHydrate() { return playerMaxHydrate; }
+    public void SetOneDehydrationTime(int time) { oneDehydrationTime = time; }
+    public void SetOneHungerTime(int time) { oneHungerTime = time; }
 }

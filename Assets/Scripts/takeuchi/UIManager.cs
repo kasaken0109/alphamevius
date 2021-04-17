@@ -12,10 +12,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject CookingInventory;
     [SerializeField] GameObject[] butStatusIcons;
     [SerializeField] Image HPGauge;
+    [SerializeField] Image HPGauge2;
     [SerializeField] Image WGauge;
     [SerializeField] Image HGauge;
+    [SerializeField] float x = 1f;
     private bool open;
     private float playerMaxHP;
+    private float playerViewHp;
     private float playerMaxW;
     private float playerMaxH;
     private float R = 0;
@@ -31,7 +34,7 @@ public class UIManager : MonoBehaviour
         CraftInventory.SetActive(false);
         RecycleInventory.SetActive(false);
         CookingInventory.SetActive(false);
-        //butStatusIcons.ToList().ForEach(i => i.SetActive(false));
+        butStatusIcons.ToList().ForEach(i => i.SetActive(false));
     }
 
     void Update()
@@ -97,6 +100,22 @@ public class UIManager : MonoBehaviour
                 open = false;
             }
         }
+        if (PlayerManager.Instance.StatusEffectDehydration)
+        {
+            butStatusIcons[0].SetActive(true);
+        }
+        else
+        {
+            butStatusIcons[0].SetActive(false);
+        }
+        if (PlayerManager.Instance.StatusEffectHunger)
+        {
+            butStatusIcons[1].SetActive(true);
+        }
+        else
+        {
+            butStatusIcons[1].SetActive(false);
+        }
     }
 
     public void OnClickCooking()
@@ -120,9 +139,17 @@ public class UIManager : MonoBehaviour
     }
     private void HPGaugeControl()
     {
-        int p = PlayerManager.Instance.CurrentHP;
+        int p = PlayerManager.Instance.CurrentHP;       
         float pm = p / playerMaxHP;
         HPGauge.fillAmount = pm;
+        if (p < playerViewHp)
+        {
+            playerViewHp -= x * Time.deltaTime;
+        }
+        else
+        {
+            playerViewHp = p;
+        }
         if (pm >= 0.5f)
         {
             R = 2 - 2 * pm;
@@ -133,6 +160,8 @@ public class UIManager : MonoBehaviour
             R = 1;
             G = 2 * pm;
         }
+        pm = playerViewHp / playerMaxHP;
+        HPGauge2.fillAmount = pm;
         HPGauge.color = new Color(R, G, B);
     }
     private void WaterGaugeControl()
@@ -149,23 +178,24 @@ public class UIManager : MonoBehaviour
     }
     void HPtest()
     {
-        int i = PlayerManager.Instance.CurrentHP;
+        //int i = PlayerManager.Instance.CurrentHP;
         testTimer += Time.deltaTime;
-        if (testTimer >= 0.1f)
+        if (testTimer >= 1f)
         {
             testTimer = 0;
-            if (i > 0)
-            {
-                PlayerManager.Instance.Damage(1);
-                PlayerManager.Instance.ExpendHunger(1);
-                PlayerManager.Instance.ExpendHydrate(1);
-            }
-            else
-            {
-                PlayerManager.Instance.HealingHP(100);
-                PlayerManager.Instance.HealingHunger(100);
-                PlayerManager.Instance.HealingHydrate(100);
-            }
+            PlayerManager.Instance.OneSecondStatusUpdate();
+        //    if (i > 0)
+        //    {
+        //        PlayerManager.Instance.Damage(1);
+        //        PlayerManager.Instance.ExpendHunger(1);
+        //        PlayerManager.Instance.ExpendHydrate(1);
+        //    }
+        //    else
+        //    {
+        //        PlayerManager.Instance.HealingHP(100);
+        //        PlayerManager.Instance.HealingHunger(100);
+        //        PlayerManager.Instance.HealingHydrate(100);
+        //    }
         }
     }
 }

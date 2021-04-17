@@ -24,6 +24,7 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected ItemEnum[] haveItems;
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
+    protected bool moveStop;
     [SerializeField] protected ActionRange actionRange;
     [SerializeField] protected ActionRange searchRange;
     [SerializeField] protected ActionRange attackRange;
@@ -41,12 +42,14 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected float stanTime = 1f;
     protected float stanTimer;
     protected bool stan;
+    [SerializeField] protected Animator CreaturesAnimation = null;
     private void Start()
     {
         rB = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         actionRange.SetOwner(this);
         CurrentHP = maxHP;
+        ActionStart();
     }
     /// <summary>
     /// スポーン時の初期化
@@ -84,8 +87,13 @@ public class Creatures : MonoBehaviour
         //{
         //    FieldItemManager.Instance.DropItem(item, transform.position);
         //}
-        creature.SetActive(false);
+        //creature.SetActive(false);
+        rB.velocity = Vector3.zero;
         circleCollider.enabled = false;
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Dead", true);
+        }
     }
     /// <summary>
     /// Creatureを行動不能にする
@@ -95,15 +103,20 @@ public class Creatures : MonoBehaviour
     /// Creatureを行動可能にする
     /// </summary>
     public virtual void ActionStart() { action = true; }
-    private int testCount;
+    [SerializeField] protected float actionTime = 3f;
+    private float actionTimer;
     private MoveAngle angle = MoveAngle.Down;
     private bool move;
     protected virtual void NormalAction()
     {
+        if (moveStop)
+        {
+            return;
+        }
         if (!move)
         {
-            testCount++;
-            if (testCount >= 600)
+            actionTimer += Time.deltaTime;
+            if (actionTimer >= actionTime)
             {
                 int a = Random.Range(0, 4);
                 switch (a)
@@ -115,7 +128,7 @@ public class Creatures : MonoBehaviour
                         angle = MoveAngle.Left;
                         break;
                     case 2:
-                        angle = MoveAngle.Right;                       
+                        angle = MoveAngle.Right;
                         break;
                     case 3:
                         angle = MoveAngle.Down;
@@ -123,7 +136,7 @@ public class Creatures : MonoBehaviour
                     default:
                         break;
                 }
-                move = true;                
+                move = true;
                 if (actionRange.ONCreatures())
                 {
                     switch (angle)
@@ -162,10 +175,10 @@ public class Creatures : MonoBehaviour
         }
         else
         {
-            testCount -= 5;
-            if (testCount <= 0)
+            actionTimer -= 5f * Time.deltaTime;
+            if (actionTimer <= 0)
             {
-                testCount = 0;
+                actionTimer = 0;
                 move = false;
             }
             moveX = moveDir.normalized.x * moveSpeed;
@@ -174,8 +187,13 @@ public class Creatures : MonoBehaviour
     }
     protected virtual void FindPlayerAction()
     {
+        
         if (actionRange.ONCreatures())
         {
+            if (moveStop)
+            {
+                return;
+            }
             moveDir = Player.Instance.transform.position - transform.position;
             if (moveDir.normalized.x > 0)
             {
@@ -190,12 +208,38 @@ public class Creatures : MonoBehaviour
         }
         else
         {
+            if (moveStop)
+            {
+                return;
+            }
             NormalAction();
         }
     }
     protected virtual void AttackAction()
     {
-        PlayerManager.Instance.Damage(power);
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Attack", true);
+        }
+    }
+    public virtual void AttackPlayer()
+    {
+        if (attackRange)
+        {
+            if (attackRange.ONPlayer())
+            {
+                PlayerManager.Instance.Damage(power);
+            }
+        }
+    }
+    public void MoveStop()
+    {
+        moveStop = true;
+        rB.velocity = Vector2.zero;
+    }
+    public void MoveStart()
+    {
+        moveStop = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -206,4 +250,6 @@ public class Creatures : MonoBehaviour
             Damage(PlayerManager.Instance.CurrentPower);
         }
     }
+
+    public int GetPower() { return power; }
 }

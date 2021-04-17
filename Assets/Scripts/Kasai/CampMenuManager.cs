@@ -7,6 +7,7 @@ public class CampMenuManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]ActionRange actionRange;
     [SerializeField] GameObject m_message = null;
+    [SerializeField] UIManager UIManager = null;
     void Start()
     {
         m_message.SetActive(false);

@@ -77,7 +77,7 @@ public class TimeManager : MonoBehaviour
             text.text = m_dayNum + "日目　昼:" + m_hour;
         }
 
-        if (m_secondCount >= 1)
+        if (m_secondCount >= 0.1)
         {
             m_secondCount = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();

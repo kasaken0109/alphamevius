@@ -6,10 +6,11 @@ public class FieldObjectManager : MonoBehaviour
 {
     [SerializeField] ItemEnum item = ItemEnum.Wood;
     [SerializeField] Transform m_dropPosition = null;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,12 +21,17 @@ public class FieldObjectManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter Player");
+        //Debug.Log("Enter Player");
         if (collision.tag == "Player")
         {
-            Debug.Log("itemcollect");
-            FieldItemManager.Instance.DropItem(item, m_dropPosition.position);
-            this.gameObject.SetActive(false);
+            //Debug.Log("itemcollect");
+            animator.SetBool("Get", true);  
         }
+    }
+
+    public void SetActive()
+    {
+        this.gameObject.SetActive(false);
+        FieldItemManager.Instance.DropItem(item, m_dropPosition.position);
     }
 }

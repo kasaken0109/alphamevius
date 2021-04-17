@@ -25,7 +25,7 @@ public class FieldObjectManager : MonoBehaviour
         {
             Debug.Log("itemcollect");
             FieldItemManager.Instance.DropItem(item, m_dropPosition.position);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }

@@ -7,7 +7,6 @@ public class CreateBridge : MonoBehaviour
     public static CreateBridge Instance { get; private set; }
     [SerializeField] GameObject m_bridge;
     [SerializeField] GameObject m_bridgeCollider;
-    bool m_touchFlag = false;
     [SerializeField] ActionRange actionRange = null;
     private void Awake()
     {

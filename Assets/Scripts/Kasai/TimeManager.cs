@@ -17,10 +17,10 @@ public class TimeManager : MonoBehaviour
     ItemBaseMain itemDurableIvy;
     ItemCraft m_craft;
     public float m_time;
+    private float m_secondCount;
     public float m_second;
     public int m_hour = 0;
     public int m_dayNum = 1;
-    GameObject m_gameObject;
     DayStatus dayStatus;
     // Start is called before the first frame update
     enum DayStatus
@@ -48,6 +48,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         //m_time += Time.deltaTime / 60;
+        m_secondCount += Time.deltaTime;
         m_time += Time.deltaTime;
         m_second += Time.deltaTime;
         if (m_second >= 0.5f)
@@ -75,17 +76,11 @@ public class TimeManager : MonoBehaviour
             dayStatus = DayStatus.NOON;
             text.text = m_dayNum + "日目　昼:" + m_hour;
         }
-        ///一時的にメニューのSetActiveを追加、後で削除予定
-        //if (Input.GetButtonDown("Menu"))
-        //{
-        //    if (!GameObject.Find("CraftButtonCanvas"))
-        //    {
-        //        m_menu.SetActive(true);
-        //    }
-        //    else
-        //    {
-        //        m_menu.SetActive(false);
-        //    }
-        //}
+
+        if (m_secondCount >= 1)
+        {
+            m_secondCount = 0;
+            PlayerManager.Instance.OneSecondStatusUpdate();
+        }
     }
 }

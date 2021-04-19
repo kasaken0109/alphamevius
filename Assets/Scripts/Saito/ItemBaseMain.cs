@@ -13,5 +13,12 @@ public class ItemBaseMain : MonoBehaviour
     {
         return this.itemType;
     }
+    public virtual void UseHeal()
+    {
+    }
+    public virtual void UseTrap()
+    {
+
+    }
     public virtual bool CheckHaveOne() { return false; }
 }

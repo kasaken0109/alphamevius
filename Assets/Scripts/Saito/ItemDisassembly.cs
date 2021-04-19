@@ -14,6 +14,7 @@ public class ItemDisassembly : MonoBehaviour
             Materialitem item = new Materialitem(disassemblyData);
             ItemManage.Instance.m_playerExp++;
             ItemManage.Instance.SetItem(item, ItemManage.Instance.m_playerLevel);
+            ItemManage.Instance.itemList[disassemblyItem]--;
         }
         else
         {

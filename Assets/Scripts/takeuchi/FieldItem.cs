@@ -12,8 +12,11 @@ public class FieldItem : MonoBehaviour
     float toExistTime = 8f;
     /// <summary> 存在時間のタイマー </summary>
     public float ExistTimer { get; private set; } = 0f;
+    SpriteRenderer itemImage;
     private void Start()
     {
+        itemImage = gameObject.GetComponent<SpriteRenderer>();
+        Debug.Log(itemImage.sprite);
         this.gameObject.SetActive(false);
     }
     private void Update()
@@ -36,6 +39,7 @@ public class FieldItem : MonoBehaviour
             if (transform.position.y <= earthPosY)
             {
                 xxx = false;
+                getFlag = false;
             }
         }
     }
@@ -73,7 +77,7 @@ public class FieldItem : MonoBehaviour
         startMoveTimer = moveTime;
         earthPosY = pos.y - 0.5f;
         xxx = false;
-        getFlag = false;
+        getFlag = true;
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
     }

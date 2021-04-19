@@ -12,6 +12,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] GameObject m_menu = null;
     [SerializeField] GameObject m_drift = null;
     [SerializeField] Transform m_spawn = null;
+    [SerializeField] float m_gameSpeed = 1;
     //bool m_dayswitch = false;
     ItemBaseMain itemWood;
     ItemBaseMain itemDurableIvy;
@@ -51,7 +52,7 @@ public class TimeManager : MonoBehaviour
         m_secondCount += Time.deltaTime;
         m_time += Time.deltaTime;
         m_second += Time.deltaTime;
-        if (m_second >= 0.5f)
+        if (m_second >= 40f * m_gameSpeed)
         {
             m_hour += 1;
             if (m_hour == 6)
@@ -77,7 +78,7 @@ public class TimeManager : MonoBehaviour
             text.text = m_dayNum + "日目　昼:" + m_hour;
         }
 
-        if (m_secondCount >= 0.1)
+        if (m_secondCount >= 40f * m_gameSpeed)
         {
             m_secondCount = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();

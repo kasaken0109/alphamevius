@@ -134,7 +134,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("装備した");
             m_equipment = (HaveItem)item;
-            m_equipmentText.text = m_equipment.GetItemType().ToString();
+            //m_equipmentText.text = m_equipment.GetItemType().ToString();
             //PlayerManager.Instance.SetPower(m_equipment.GetAttack());
         }
         else

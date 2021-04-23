@@ -134,7 +134,7 @@ public class ItemManage : MonoBehaviour
         {
             m_equipment = (HaveItem)item;
             m_equipmentText.text = m_equipment.GetItemType().ToString();
-            PlayerManager.Instance.SetPower(m_equipment.GetAttack());
+            //PlayerManager.Instance.SetPower(m_equipment.GetAttack());
         }
         else
         {

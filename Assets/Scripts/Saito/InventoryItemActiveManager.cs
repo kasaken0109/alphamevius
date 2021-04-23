@@ -18,19 +18,19 @@ public class InventoryItemActiveManager : MonoBehaviour
     {
         if (ItemManage.Instance.itemList[ItemEnum.Chicken] <= 0)
         {
-            m_buttons[0].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Chicken].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[0].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Chicken].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Venison] <= 0)
         {
-            m_buttons[1].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Venison].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[1].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Venison].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.BakedChicken] <= 0)
         {
@@ -234,91 +234,91 @@ public class InventoryItemActiveManager : MonoBehaviour
         }
         if (ItemManage.Instance.itemList[ItemEnum.AluminiumKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[0] <= 0)
         {
-            m_buttons[27].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.AluminiumKnife].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[27].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.AluminiumKnife].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.FragileKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[1] <= 0)
         {
-            m_buttons[28].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.FragileKnife].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[28].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.FragileKnife].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.SmallKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[2] <= 0)
         {
-            m_buttons[29].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.SmallKnife].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[29].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.SmallKnife].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Machete] <= 0 || HaveItemManager.Instance.itemsCurrentHP[3] <= 0)
         {
-            m_buttons[30].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Machete].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[30].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Machete].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.GlassPickaxe] <= 0 || HaveItemManager.Instance.itemsCurrentHP[4] <= 0)
         {
-            m_buttons[31].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.GlassPickaxe].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[31].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.GlassPickaxe].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Pickaxe2] <= 0 || HaveItemManager.Instance.itemsCurrentHP[5] <= 0)
         {
-            m_buttons[32].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Pickaxe2].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[32].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Pickaxe2].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Trap] <= 0)
         {
-            m_buttons[33].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Trap].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[33].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Trap].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Axe] <= 0 || HaveItemManager.Instance.itemsCurrentHP[6] <= 0)
         {
-            m_buttons[34].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Axe].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[34].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Axe].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Hammer] <= 0 || HaveItemManager.Instance.itemsCurrentHP[7] <= 0)
         {
-            m_buttons[35].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Hammer].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[35].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Hammer].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Bridge] <= 0)
         {
-            m_buttons[36].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Bridge].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[36].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Bridge].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Fire] <= 0)
         {
-            m_buttons[37].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Fire].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[37].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Fire].gameObject.SetActive(true);
         }
     }
 }

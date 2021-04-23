@@ -9,6 +9,9 @@ public class ItemManage : MonoBehaviour
     public int m_ricyclePoints = 0;
     public int m_playerLevel = 1;
     public int m_playerExp = 0;
+    /// <summary>
+    /// 装備中のアイテム
+    /// </summary>
     public HaveItem m_equipment;
     public Text m_equipmentText;
     public Slider m_equipmentDurable;
@@ -42,11 +45,12 @@ public class ItemManage : MonoBehaviour
         {ItemEnum.KnifeCore,0 },
         {ItemEnum.PickaxeCore,0 },
         {ItemEnum.AxeCore,0 },
+        {ItemEnum.Glass,0 },
         {ItemEnum.AluminiumKnife,0 },
         {ItemEnum.FragileKnife,0 },
         {ItemEnum.SmallKnife,0 },
         {ItemEnum.Machete,0 },
-        {ItemEnum.Pickaxe1,0 },
+        {ItemEnum.GlassPickaxe,0 },
         {ItemEnum.Pickaxe2,0 },
         {ItemEnum.Trap,0 },
         {ItemEnum.Axe,0 },
@@ -83,7 +87,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()]++;
-            HotBarManager.Instance.ChangeHotBarText();
+            //HotBarManager.Instance.ChangeHotBarText();
         }
     }
     public void SetItem(ItemBaseMain item, int addNum)
@@ -101,7 +105,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()] += addNum;
-            HotBarManager.Instance.ChangeHotBarText();
+            //HotBarManager.Instance.ChangeHotBarText();
         }
     }
     /// <summary>
@@ -115,7 +119,7 @@ public class ItemManage : MonoBehaviour
         {
             itemList[type]--;
             Debug.Log("使った");
-            HotBarManager.Instance.ChangeHotBarText();
+            //HotBarManager.Instance.ChangeHotBarText();
             return true;
         }
         else
@@ -128,14 +132,30 @@ public class ItemManage : MonoBehaviour
     {
         if (states[(int)item.GetItemType()] == ItemStates.HaveItem)
         {
+            Debug.Log("装備した");
             m_equipment = (HaveItem)item;
             m_equipmentText.text = m_equipment.GetItemType().ToString();
-            PlayerManager.Instance.SetPower(m_equipment.GetAttack());
+            //PlayerManager.Instance.SetPower(m_equipment.GetAttack());
         }
         else
         {
             Debug.Log("装備品ではありません");
         }
     }
-    
+    /// <summary>
+    /// 装備してるアイテムを返す
+    /// </summary>
+    /// <returns></returns>
+    public ItemEnum GetEquipment()
+    {
+        return m_equipment.GetItemType();
+    }
+    /// <summary>
+    /// 装備してるアイテムのIDを返す
+    /// </summary>
+    /// <returns></returns>
+    public int GetEquipmentID()
+    {
+        return m_equipment.GetID();
+    }
 }

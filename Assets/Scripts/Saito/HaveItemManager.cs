@@ -36,4 +36,10 @@ public class HaveItemManager : MonoBehaviour
         itemsCurrentHP[ID]--;
         sliders[ID].value = itemsCurrentHP[ID] / items[ID].GetMaxHP();
     }
+    public void UseWeapon()
+    {
+        int ID = ItemManage.Instance.GetEquipmentID();
+        itemsCurrentHP[ID]--;
+        sliders[ID].value = itemsCurrentHP[ID] / items[ID].GetMaxHP();
+    }
 }

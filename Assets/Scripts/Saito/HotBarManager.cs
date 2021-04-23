@@ -52,7 +52,11 @@ public class HotBarManager : MonoBehaviour
     }
     public void UseHotBarItem(int ID)
     {
-        if (ItemManage.Instance.states[(int)m_hotBarList[ID].GetItemType()] == ItemStates.HaveItem)
+        if (m_hotBarList.Count < ID)
+        {
+            Debug.Log("アイテムが設定されていません");
+        }
+        else if (ItemManage.Instance.states[(int)m_hotBarList[ID].GetItemType()] == ItemStates.HaveItem)
         {
             ItemManage.Instance.EquipItem((HaveItem)m_hotBarList[ID]);
         }

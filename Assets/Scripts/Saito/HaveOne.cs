@@ -29,7 +29,7 @@ public class HaveOne : ItemBaseMain
             m_attackPoint = 10;
             m_durableValue = 20;
         }
-        else if (type == ItemEnum.Pickaxe1)
+        else if (type == ItemEnum.GlassAxe)
         {
 
         }

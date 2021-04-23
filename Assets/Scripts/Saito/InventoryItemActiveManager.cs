@@ -264,7 +264,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         {
             m_buttons[30].gameObject.SetActive(true);
         }
-        if (ItemManage.Instance.itemList[ItemEnum.Pickaxe1] <= 0 || HaveItemManager.Instance.itemsCurrentHP[4] <= 0)
+        if (ItemManage.Instance.itemList[ItemEnum.GlassPickaxe] <= 0 || HaveItemManager.Instance.itemsCurrentHP[4] <= 0)
         {
             m_buttons[31].gameObject.SetActive(false);
         }

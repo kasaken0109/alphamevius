@@ -178,7 +178,7 @@ public class InventoryItemActiveManager : MonoBehaviour
         }
         if (ItemManage.Instance.itemList[ItemEnum.HardOre] <= 0)
         {
-            m_buttons[20].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.HardOre].gameObject.SetActive(false);
         }
         else
         {
@@ -186,51 +186,51 @@ public class InventoryItemActiveManager : MonoBehaviour
         }
         if (ItemManage.Instance.itemList[ItemEnum.DurableIvy] <= 0)
         {
-            m_buttons[21].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.DurableIvy].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[21].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.DurableIvy].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Wood] <= 0)
         {
-            m_buttons[22].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Wood].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[22].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Wood].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.Aluminium] <= 0)
         {
-            m_buttons[23].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.Aluminium].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[23].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.Aluminium].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.KnifeCore] <= 0)
         {
-            m_buttons[24].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.KnifeCore].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[24].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.KnifeCore].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.PickaxeCore] <= 0)
         {
-            m_buttons[25].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.PickaxeCore].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[25].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.PickaxeCore].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.AxeCore] <= 0)
         {
-            m_buttons[26].gameObject.SetActive(false);
+            m_buttons[(int)ItemEnum.AxeCore].gameObject.SetActive(false);
         }
         else
         {
-            m_buttons[26].gameObject.SetActive(true);
+            m_buttons[(int)ItemEnum.AxeCore].gameObject.SetActive(true);
         }
         if (ItemManage.Instance.itemList[ItemEnum.AluminiumKnife] <= 0 || HaveItemManager.Instance.itemsCurrentHP[0] <= 0)
         {

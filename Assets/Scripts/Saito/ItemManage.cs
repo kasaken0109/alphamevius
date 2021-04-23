@@ -87,7 +87,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()]++;
-            HotBarManager.Instance.ChangeHotBarText();
+            //HotBarManager.Instance.ChangeHotBarText();
         }
     }
     public void SetItem(ItemBaseMain item, int addNum)
@@ -105,7 +105,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()] += addNum;
-            HotBarManager.Instance.ChangeHotBarText();
+            //HotBarManager.Instance.ChangeHotBarText();
         }
     }
     /// <summary>
@@ -119,7 +119,7 @@ public class ItemManage : MonoBehaviour
         {
             itemList[type]--;
             Debug.Log("使った");
-            HotBarManager.Instance.ChangeHotBarText();
+            //HotBarManager.Instance.ChangeHotBarText();
             return true;
         }
         else
@@ -132,6 +132,7 @@ public class ItemManage : MonoBehaviour
     {
         if (states[(int)item.GetItemType()] == ItemStates.HaveItem)
         {
+            Debug.Log("装備した");
             m_equipment = (HaveItem)item;
             m_equipmentText.text = m_equipment.GetItemType().ToString();
             //PlayerManager.Instance.SetPower(m_equipment.GetAttack());

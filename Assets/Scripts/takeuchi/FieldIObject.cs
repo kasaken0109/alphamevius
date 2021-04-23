@@ -11,9 +11,10 @@ public class FieldIObject : MonoBehaviour
     {
         if (collision.tag == "Attack")
         {
-            if (true)
+            if (ObjectType == ItemManage.Instance.GetEquipment())
             {
                 strengthPoint--;
+                HaveItemManager.Instance.UseWeapon();
                 if (strengthPoint <= 0)
                 {
                     FieldItemManager.Instance.DropMaterial(DropItems, transform.position);

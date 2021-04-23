@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4904436801470923219}
   - component: {fileID: 4904436801470923216}
-  - component: {fileID: 4904436801470923221}
   - component: {fileID: 4904436801470923218}
+  - component: {fileID: 5912147784264912118}
   m_Layer: 0
   m_Name: ironstone
   m_TagString: Untagged
@@ -83,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4904436801470923221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4904436801470923217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec56b46592c49514e9e94b64e5a940f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: 17
-  m_dropPosition: {fileID: 4904436801470923219}
 --- !u!61 &4904436801470923218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,3 +109,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.71, y: 2.8958664}
   m_EdgeRadius: 0
+--- !u!114 &5912147784264912118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904436801470923217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectType: 32
+  strengthPoint: 5
+  DropItems: 110000001100000011000000

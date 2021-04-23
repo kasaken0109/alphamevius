@@ -11,6 +11,7 @@ public class FieldIObject : MonoBehaviour
     {
         if (collision.tag == "Attack")
         {
+            Debug.Log(ItemManage.Instance.GetEquipment());
             if (ObjectType == ItemManage.Instance.GetEquipment())
             {
                 strengthPoint--;

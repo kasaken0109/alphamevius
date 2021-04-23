@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6290581461505615791}
   - component: {fileID: 6290581461505615790}
   - component: {fileID: 1903051323837266664}
-  - component: {fileID: 2665717566767679585}
   - component: {fileID: 1516356239989868052}
+  - component: {fileID: -363181936565250167}
   m_Layer: 0
   m_Name: tree (1)
   m_TagString: Untagged
@@ -110,20 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8054748, y: 2.5793715}
   m_EdgeRadius: 0
---- !u!114 &2665717566767679585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6290581461505615789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec56b46592c49514e9e94b64e5a940f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: 22
-  m_dropPosition: {fileID: 6290581461505615791}
 --- !u!95 &1516356239989868052
 Animator:
   serializedVersion: 3
@@ -132,7 +118,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6290581461505615789}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8c11af5cae80c6849ae86986ddca9474, type: 2}
   m_CullingMode: 0
@@ -143,3 +129,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-363181936565250167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6290581461505615789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectType: 35
+  strengthPoint: 5
+  DropItems: 00000000160000001600000016000000

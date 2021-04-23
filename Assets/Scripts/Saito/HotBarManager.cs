@@ -7,7 +7,7 @@ public class HotBarManager : MonoBehaviour
 {
     public static HotBarManager Instance { get; private set; }
     //List<ItemEnum> m_hotBarList = new List<ItemEnum>();
-    List<ItemBaseMain> m_hotBarList = new List<ItemBaseMain>();
+    [SerializeField] List<ItemBaseMain> m_hotBarList = new List<ItemBaseMain>();
     [SerializeField] Text[] texts;
     public void Awake()
     {

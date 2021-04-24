@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
                 }
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    moveX = moveSpeed;
+                    moveX = 1;
                     if (angle != MoveAngle.Right)
                     {
                         angle = MoveAngle.Right;
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
                 }
                 else if (Input.GetAxisRaw("Horizontal") < 0)
                 {
-                    moveX = -moveSpeed;
+                    moveX = -1;
                     if (angle != MoveAngle.Left)
                     {
                         angle = MoveAngle.Left;
@@ -108,11 +108,11 @@ public class Player : MonoBehaviour
                 }
                 if (Input.GetAxisRaw("Vertical") > 0)
                 {
-                    moveY = moveSpeed;
+                    moveY = 1;
                 }
                 else if (Input.GetAxisRaw("Vertical") < 0)
                 {
-                    moveY = -moveSpeed;
+                    moveY = -1;
                 }
             }
             else
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        rB.velocity = new Vector2(moveX, moveY);
+        rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
         moveY = 0;
     }

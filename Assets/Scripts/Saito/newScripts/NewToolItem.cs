@@ -12,4 +12,8 @@ public class NewToolItem : NewItem
     [SerializeField] int m_toolEfficiency;
     /// <summary>必要レベル,初期値0</summary>
     [SerializeField] int m_craftLevel;    
+    public override ToolType GetToolType()
+    {
+        return m_toolType;
+    }
 }

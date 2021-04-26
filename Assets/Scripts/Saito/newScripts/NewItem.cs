@@ -95,4 +95,8 @@ public class NewItem : ScriptableObject
     {
         haveNumber = 0;
     }
+    public virtual ToolType GetToolType()
+    {
+        return ToolType.None;
+    }
 }

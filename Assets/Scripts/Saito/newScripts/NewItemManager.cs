@@ -6,12 +6,14 @@ using System.Linq;
 
 public class NewItemManager : MonoBehaviour
 {
-    ToolType m_equipmentItem = ToolType.None;
-    int[] m_hotbarID = new int[10];
+    public static NewItemManager Instance { get; private set; }
+    int m_equipmentItemID = 0;
+    NewItemEffectManager[] m_hotbar = new NewItemEffectManager[10];
     [SerializeField] NewItemLibrary m_library = null;
     List<NewItem> m_itemLiblary = new List<NewItem>();
     private void Awake()
     {
+        Instance = this;
         foreach (var item in m_library.GetMaterialItem())
         {
             m_itemLiblary.Add(item);
@@ -35,15 +37,22 @@ public class NewItemManager : MonoBehaviour
             Debug.Log(HaveItemNumber(8));
         }
     }
-    public ToolType GetEquipmentItem()
+    public NewItemEffectManager Hotber(int Number)
     {
-        return m_equipmentItem;
+        return m_hotbar[Number];
     }
-    public void SetEquipmentItem(ToolType toolType)
+    public int GetEquipmentItem()
     {
-        m_equipmentItem = toolType;
+        return m_equipmentItemID;
     }
-    
+    public void SetEquipmentItem(int ID)
+    {
+        m_equipmentItemID = ID;
+    }
+    public ToolType GetToolType(int ID)
+    {
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetToolType();
+    }
     
     public Sprite GetSpriteLiblary(int ID)
     {

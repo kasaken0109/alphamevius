@@ -4,12 +4,54 @@ using UnityEngine;
 
 public enum MaterialType
 {
-
+    None,
+    Cloth,
+    Plastic,
+    Aluminium,
+    Glass,
+    Wood,
+    Stone,
+    Metal,
+    Feathers,
+    Bone,
+    Fur,
+    Copper,
+    Herbs,
+    Yarn,
+    Cement,
+    Charcoal,
+    Gunpowder,
+    RagCloth,
+    Bottle,
+    vinyl,
+    Can,
+    GqFeathers,
+    GqFur,
+    GqYarn,
+    Gold,
+    Crystal,
+    Titanium,
+    MeatBird,
+    MeatDeer,
+    BigMeat,
+    MeatSpider
 }
 public enum ToolType
 {
     None,
-
+    Knife,
+    Bow,
+    Axe,
+    Hammer,
+    Machete,
+    Pickaxe,
+    Clothes,
+    Trap,
+    HealingHP,
+    Torch,
+    HealingWater,
+    Bridge,
+    Cooking
 }
 
 public class NewItem : ScriptableObject
@@ -19,6 +61,7 @@ public class NewItem : ScriptableObject
     [SerializeField] MaterialType[] m_needMaterials;
     [SerializeField] MaterialType[] m_getMaterials;
     [SerializeField] int ID;
+    int haveNumber = 0;
     public string GetName()
     {
         return m_name;
@@ -38,5 +81,18 @@ public class NewItem : ScriptableObject
     public int GetID()
     {
         return ID;
+    }
+    public int GetHaveNumber() { return haveNumber; }
+    public void AddHaveNumber(int getNumber)
+    {
+        haveNumber += getNumber;
+    }
+    public void SubHaveNumber(int number)
+    {
+        haveNumber -= number;
+    }
+    public void Zero()
+    {
+        haveNumber = 0;
     }
 }

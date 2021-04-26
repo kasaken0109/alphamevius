@@ -12,5 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e237b307eef2d54d82a1818584cc68a, type: 3}
   m_Name: ItemLibrary
   m_EditorClassIdentifier: 
-  m_materialItemData: []
-  m_toolItemData: []
+  m_materialItemData:
+  - {fileID: 11400000, guid: 11796f06bb6d95f42835a03b318d4fe9, type: 2}
+  - {fileID: 11400000, guid: cbe2183d1f0378a4db684fe7c5fc6fe5, type: 2}
+  - {fileID: 11400000, guid: 56531986ec510fc4ea50681f561dfa29, type: 2}
+  - {fileID: 11400000, guid: 018fa56307ab9fd4eb701350098897f2, type: 2}
+  - {fileID: 11400000, guid: dc354e04bac70924dbc87aeff703713b, type: 2}
+  - {fileID: 11400000, guid: 29965c3bc0b55e341b2c76c04280c1a8, type: 2}
+  - {fileID: 11400000, guid: 2a3465c6092131546bb02cf2892c9c6f, type: 2}
+  - {fileID: 11400000, guid: 132a1c4e2b7ef8849ac5a6dcdfb3db24, type: 2}
+  - {fileID: 11400000, guid: b1012f10e2cd42741a4456823bfcf83c, type: 2}
+  - {fileID: 11400000, guid: 660cd9329c7a0cc44ba221e7cc9476a7, type: 2}
+  - {fileID: 11400000, guid: 3ce17644f51141f49acb472fe706e141, type: 2}
+  - {fileID: 11400000, guid: 43d1cbb01f506be45afd1f504bf21864, type: 2}
+  m_toolItemData:
+  - {fileID: 11400000, guid: f884c104313e5e64ea1083b41d4dae1b, type: 2}
+  - {fileID: 11400000, guid: 87b79793c014c1c4e9b9aaa55aa48392, type: 2}
+  - {fileID: 11400000, guid: b4dd6f60d0fdb6147aa064d97382a5f9, type: 2}
+  - {fileID: 11400000, guid: 6546313c818725740ac822bbc3da4d02, type: 2}
+  - {fileID: 11400000, guid: 668ab7723a9a1a74f8982904752c191c, type: 2}

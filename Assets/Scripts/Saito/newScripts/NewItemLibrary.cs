@@ -5,51 +5,43 @@ using System.Linq;
 [CreateAssetMenu(fileName = "ItemLibrary" , menuName = "Library")]
 public class NewItemLibrary : ScriptableObject
 {
-    private void Awake()
-    {
-        return;
-        foreach (var item in m_materialItemData)
-        {
-            m_itemLiblary.Add(item);
-        }
-        foreach (var item in m_toolItemData)
-        {
-            m_itemLiblary.Add(item);
-        }
-        m_itemLiblary.OrderBy(item => item.GetID());
-    }
+    
     [SerializeField] NewMaterialItem[] m_materialItemData;
     [SerializeField] NewToolItem[] m_toolItemData;
-    List<NewItem> m_itemLiblary = new List<NewItem>();
-    public NewToolItem GetToolItem()
+    //List<NewItem> m_itemLiblary = new List<NewItem>();
+    public NewToolItem[] GetToolItem()
     {
-        return m_toolItemData[0];
+        return m_toolItemData;
     }
-    public NewMaterialItem GetMaterialItem()
+    public NewMaterialItem[] GetMaterialItem()
     {
-        return m_materialItemData[0];
+        return m_materialItemData;
     }
     public int GetAllItemsNumber()
     {
         return m_materialItemData.Length + m_toolItemData.Length;
     }
-    public Sprite GetSpriteLiblary(int ID)
-    {
-        return m_itemLiblary[ID].GetSprite();
-    }
-        public Sprite GetSprite(int ID)
-    {
-        if (ID < m_materialItemData.Length)
-        {
-            return m_materialItemData[ID].GetSprite();
-        }
-        else if (ID < m_materialItemData.Length + m_toolItemData.Length)
-        {
-            return m_toolItemData[ID - m_materialItemData.Length].GetSprite();
-        }
-        else
-        {
-            return null;
-        }
-    }
+    //public Sprite GetSpriteLiblary(int ID)
+    //{
+    //    return m_itemLiblary[ID].GetSprite();
+    //}
+    //public Sprite GetSprite(int ID)
+    //{
+    //    Sprite sprite;
+    //    sprite = m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetSprite();
+    //    return sprite;
+    //}
+    //public string GetName(int ID)
+    //{
+    //    string name;
+    //    name = m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetName();
+    //    return name;
+    //}
+    //public void AllItemName()
+    //{
+    //    foreach (var item in m_itemLiblary)
+    //    {
+    //        Debug.Log(item.GetName());
+    //    }
+    //}
 }

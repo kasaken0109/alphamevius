@@ -1,18 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class NewItemManager : MonoBehaviour
 {
     ToolType m_equipmentItem = ToolType.None;
-    List<int> m_itemList = new List<int>();
     int[] m_hotbarID = new int[10];
     [SerializeField] NewItemLibrary m_library = null;
-    private void Start()
+    List<NewItem> m_itemLiblary = new List<NewItem>();
+    private void Awake()
     {
-        for (int i = 0; i < m_library.GetAllItemsNumber(); i++)
+        foreach (var item in m_library.GetMaterialItem())
         {
-            m_itemList.Add(0);
+            m_itemLiblary.Add(item);
+        }
+        foreach (var item in m_library.GetToolItem())
+        {
+            m_itemLiblary.Add(item);
+        }
+        Allzero();
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(GetName(8));
+            AddItem(8, 10);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(HaveItemNumber(8));
         }
     }
     public ToolType GetEquipmentItem()
@@ -23,20 +43,38 @@ public class NewItemManager : MonoBehaviour
     {
         m_equipmentItem = toolType;
     }
+    
+    
+    public Sprite GetSpriteLiblary(int ID)
+    {
+        return m_itemLiblary[ID].GetSprite();
+    }
+    public Sprite GetSprite(int ID)
+    {
+        Sprite sprite;
+        sprite = m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetSprite();
+        return sprite;
+    }
+    public string GetName(int ID)
+    {
+        string name;
+        name = m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetName();
+        return name;
+    }
     public void AddItem(int ID,int number)
     {
-        m_itemList[ID] += number;      
+        m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().AddHaveNumber(number);
     }
     public void SubItem(int ID, int number)
     {
-        m_itemList[ID] -= number;
+        m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().SubHaveNumber(number);
     }
-    public int GetHaveItem(int ID)
+    public int HaveItemNumber(int ID)
     {
-        return m_itemList[ID];
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetHaveNumber();
     }
-    //public Sprite GetSprite(int ID)
-    //{
-    //    return m_library.GetS
-    //}
+    private void Allzero()
+    {
+        m_itemLiblary.ForEach(i => i.Zero());
+    }
 }

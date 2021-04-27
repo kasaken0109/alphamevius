@@ -61,7 +61,7 @@ public class NewItem : ScriptableObject
     [SerializeField] MaterialType[] m_needMaterials;
     [SerializeField] MaterialType[] m_getMaterials;
     [SerializeField] int ID;
-    int haveNumber = 0;
+    [SerializeField] int haveNumber = 0;
     public string GetName()
     {
         return m_name;
@@ -99,4 +99,5 @@ public class NewItem : ScriptableObject
     {
         return ToolType.None;
     }
+
 }

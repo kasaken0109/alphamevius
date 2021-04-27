@@ -18,9 +18,14 @@ public class Player : MonoBehaviour
     private bool angleChange;
     /// <summary> 行動可能かのフラグ </summary>
     private bool action;
+    private bool move;
+    private bool arrowMode = true;
+    private bool arrow;
+    [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;
     private float attackTimer;
     [SerializeField] Animator playerAnimation = null;
+    Vector2 arrowDir = Vector2.right;
     private enum MoveAngle
     {
         Left,
@@ -34,103 +39,170 @@ public class Player : MonoBehaviour
     {
         rB = GetComponent<Rigidbody2D>();
         action = true;
+        move = true;
         attackScale.SetActive(false);
         angleChange = true;
     }
 
     void Update()
     {
-        if (action)
+        if (!action)
         {
-            if (angleChange)
+            return;
+        }
+        if (angleChange)
+        {
+            if (angle == MoveAngle.Right)
             {
-                if (angle == MoveAngle.Right)
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            angleChange = false;
+        }
+        if (playerAnimation)
+        {
+            playerAnimation.SetBool("Collection", false);
+        }
+        if (Input.GetButtonDown("Attack") && attackTimer <= 0)
+        {
+            if (arrowMode)
+            {
+                attackTimer = 0.1f;
+                if (arrow)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    GameObject arrowObiect = Instantiate(arrowPrefab);
+                    arrowObiect.transform.position = attackScale.transform.position;
+                    arrowObiect.GetComponent<Arrow>().SetArrowDir(arrowDir);
+                    playerAnimation.SetBool("Arrow", false);
+                    arrow = false;
+                    move = true;
+                    attackTimer = 0.5f;
+                    return;
                 }
-                else
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-                angleChange = false;
+            }
+            else
+            {
+                attackScale.SetActive(true);
+                attackTimer = 0.5f;
             }
             if (playerAnimation)
             {
-                playerAnimation.SetBool("Collection", false);
-            }
-            if (Input.GetButtonDown("Attack") && attackTimer <= 0)
-            {
-                if (playerAnimation)
+                if (arrowMode)
+                {
+                    playerAnimation.SetBool("Arrow", true);
+                    arrow = true;
+                    MoveStop();
+                }
+                else
                 {
                     playerAnimation.SetBool("Collection", true);
                 }
-                attackScale.SetActive(true);
-                attackTimer = 0.5f;
-            }            
-            if (attackTimer > 0)
+            }         
+        }
+        if (arrow)
+        {
+            Vector2 myPos = transform.position;
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = -10;
+            Vector2 cPos = Camera.main.ScreenToWorldPoint(mousePos);
+            arrowDir = -cPos - myPos;
+            if (arrowDir.normalized.x > 0)
             {
-                attackTimer -= Time.deltaTime;
-                if (attackTimer < 0.3f)
+                if (angle != MoveAngle.Right)
                 {
-                    attackScale.SetActive(false);
+                    angle = MoveAngle.Right;
+                    angleChange = true;
                 }
+            }
+            else
+            {
+                if (angle != MoveAngle.Left)
+                {
+                    angle = MoveAngle.Left;
+                    angleChange = true;
+                }
+            }
+        }
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+            if (attackTimer < 0.3f)
+            {
+                attackScale.SetActive(false);
             }
         }
     }
 
     private void LateUpdate()
     {
-        if (action)
+        if (!action || !move)
         {
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            return;
+        }
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        {
+            if (playerAnimation)
             {
-                if (playerAnimation)
+                playerAnimation.SetBool("Move", true);
+            }
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                moveX = 1;
+                if (angle != MoveAngle.Right)
                 {
-                    playerAnimation.SetBool("Move", true);
-                }
-                if (Input.GetAxisRaw("Horizontal") > 0)
-                {
-                    moveX = moveSpeed;
-                    if (angle != MoveAngle.Right)
-                    {
-                        angle = MoveAngle.Right;
-                        angleChange = true;
-                    }
-                }
-                else if (Input.GetAxisRaw("Horizontal") < 0)
-                {
-                    moveX = -moveSpeed;
-                    if (angle != MoveAngle.Left)
-                    {
-                        angle = MoveAngle.Left;
-                        angleChange = true;
-                    }
-                }
-                if (Input.GetAxisRaw("Vertical") > 0)
-                {
-                    moveY = moveSpeed;
-                }
-                else if (Input.GetAxisRaw("Vertical") < 0)
-                {
-                    moveY = -moveSpeed;
+                    angle = MoveAngle.Right;
+                    angleChange = true;
                 }
             }
-            else
+            else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                if (playerAnimation)
+                moveX = -1;
+                if (angle != MoveAngle.Left)
                 {
-                    playerAnimation.SetBool("Move", false);
+                    angle = MoveAngle.Left;
+                    angleChange = true;
                 }
+            }
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                moveY = 1;
+            }
+            else if (Input.GetAxisRaw("Vertical") < 0)
+            {
+                moveY = -1;
             }
         }
-        rB.velocity = new Vector2(moveX, moveY);
+        else
+        {
+            if (playerAnimation)
+            {
+                playerAnimation.SetBool("Move", false);
+            }
+        }        
+        rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
         moveY = 0;
+    }
+    public void MoveStop()
+    {
+        rB.velocity = Vector2.zero;
+        move = false;
+    }
+    public void MoveStart()
+    {
+        move = true;
     }
     /// <summary>
     /// プレイヤーを行動不能にする
     /// </summary>
-    public void ActionStop() { action = false; }
+    public void ActionStop()
+    {
+        rB.velocity = Vector2.zero;
+        action = false; 
+    }
     /// <summary>
     /// プレイヤーを行動可能にする
     /// </summary>

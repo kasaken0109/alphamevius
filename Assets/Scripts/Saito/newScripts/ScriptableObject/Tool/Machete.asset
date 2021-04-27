@@ -16,7 +16,7 @@ MonoBehaviour:
   m_sprite: {fileID: 0}
   m_needMaterials: 0300000003000000090000000b0000000b000000
   m_getMaterials: 030000001a000000
-  ID: 57
+  ID: 58
   m_toolType: 5
   m_attackPoint: 5
   m_toolEfficiency: 120

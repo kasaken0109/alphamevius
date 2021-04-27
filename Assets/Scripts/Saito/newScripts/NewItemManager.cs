@@ -22,7 +22,7 @@ public class NewItemManager : MonoBehaviour
         {
             m_itemLiblary.Add(item);
         }
-        Allzero();
+        //Allzero();
     }
     
     private void Update()
@@ -85,5 +85,17 @@ public class NewItemManager : MonoBehaviour
     private void Allzero()
     {
         m_itemLiblary.ForEach(i => i.Zero());
+    }
+    public List<int> GetHaveItemID()
+    {
+        List<int> IDlist = new List<int>();
+        foreach (var item in m_itemLiblary)
+        {
+            if (item.GetHaveNumber() > 0)
+            {
+                IDlist.Add(item.GetID());
+            }
+        }
+        return IDlist;
     }
 }

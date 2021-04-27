@@ -7,7 +7,7 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
     [SerializeField]Text text = null;
-    [SerializeField] public float timeRate = 0.6f;
+    [SerializeField] public float timeRate = 0.5f;
     [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
     [SerializeField] GameObject m_drift = null;

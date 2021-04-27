@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
     float flyTimer = 0;
     Vector2 dir = Vector2.zero;
     [SerializeField] Rigidbody2D rB = null;
+    bool hit = false;
     void Update()
     {
         flyTimer += Time.deltaTime;
@@ -22,5 +23,16 @@ public class Arrow : MonoBehaviour
     {
         this.dir = dir;
         transform.rotation = Quaternion.FromToRotation(Vector2.left, dir);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            if (!hit)
+            {
+                flyTimer = 0.05f;
+                hit = true;
+            }
+        }
     }
 }

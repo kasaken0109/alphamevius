@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8109043281919153517}
   - component: {fileID: 5518244325151176277}
   - component: {fileID: 1697731501150816755}
-  - component: {fileID: 2389881561296452294}
+  - component: {fileID: 1313994779946881505}
   m_Layer: 0
   m_Name: SmallStone
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.76, y: 1.31}
   m_EdgeRadius: 0
---- !u!114 &2389881561296452294
+--- !u!114 &1313994779946881505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6743541903237667140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 004f59c166b4a4641b1c2df44411c4a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropItems: 0c000000
+  ObjectType: 0
+  strengthPoint: 5
+  DropItems: 

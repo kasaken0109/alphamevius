@@ -7,9 +7,13 @@ TagManager:
   - Attack
   - Walkable
   - NotWalkable
+<<<<<<< HEAD
   - Goal
   - Tilemap
   - PlayerTile
+=======
+  - Hotbar
+>>>>>>> bc48f5b558b924b75fdca0737b02c83f8348a139
   layers:
   - Default
   - TransparentFX

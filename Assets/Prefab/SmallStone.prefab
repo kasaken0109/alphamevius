@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8109043281919153517}
   - component: {fileID: 5518244325151176277}
-  - component: {fileID: 2890477079709537669}
   - component: {fileID: 1697731501150816755}
+  - component: {fileID: 2389881561296452294}
   m_Layer: 0
   m_Name: SmallStone
   m_TagString: Untagged
@@ -83,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2890477079709537669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6743541903237667140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec56b46592c49514e9e94b64e5a940f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: 12
-  m_dropPosition: {fileID: 8109043281919153517}
 --- !u!61 &1697731501150816755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,3 +109,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.76, y: 1.31}
   m_EdgeRadius: 0
+--- !u!114 &2389881561296452294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743541903237667140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004f59c166b4a4641b1c2df44411c4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropItems: 0c000000

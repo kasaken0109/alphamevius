@@ -7,10 +7,12 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
     [SerializeField]Text text = null;
-    [SerializeField] public float timeRate = 0.6f;
+    [SerializeField] public float timeRate = 0.5f;
     [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
     [SerializeField] GameObject m_drift = null;
+    [SerializeField] GameObject m_sun = null;
+    [SerializeField] GameObject m_moon = null;
     [SerializeField] Transform m_spawn = null;
     [SerializeField] float m_gameSpeed = 1;
     //bool m_dayswitch = false;
@@ -67,7 +69,7 @@ public class TimeManager : MonoBehaviour
             m_hour = 0;
         }
 
-        if ((m_time / 60) >= timeScale * timeRate)
+        if (m_hour >= 0 && m_hour <= 6 || m_hour >= 18 && m_hour <= 24)
         {
             dayStatus = DayStatus.NIGHT;
             text.text = m_dayNum + "日目　夜:" + m_hour;
@@ -82,6 +84,17 @@ public class TimeManager : MonoBehaviour
         {
             m_secondCount = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();
+        }
+
+        if (dayStatus == DayStatus.NOON)
+        {
+            m_moon.SetActive(false);
+            m_sun.SetActive(true);
+        }
+        else
+        {
+            m_moon.SetActive(true);
+            m_sun.SetActive(false);
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - NotWalkable
   - Goal
   - Tilemap
+  - PlayerTile
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Bird
   - MiniMap
   - Camera
-  - 
+  - Tilefinder
   - 
   - 
   - 

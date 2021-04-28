@@ -7,6 +7,7 @@ public class NewInventoryManager : MonoBehaviour
 {
     public static NewInventoryManager Instance { get; private set; }
     [SerializeField] NewCraftListPage[] m_craftPage;
+    [SerializeField] NewPageController m_allCraftPage;
     [SerializeField] NewItemListPage[] m_itemPage;
     [SerializeField] NewPageController m_inventoryPage;
     [SerializeField] NewInventoryItem[] m_recycleList;
@@ -144,7 +145,8 @@ public class NewInventoryManager : MonoBehaviour
     }
     public void OnClickClose()
     {
-        m_inventoryPage.ClosePage(); 
+        m_inventoryPage.ClosePage();
+        m_allCraftPage.ClosePage();
         m_inventoryGuide.CloseGuide();
         m_craftGuide.CloseGuide();
         m_cookingGuide.CloseGuide();

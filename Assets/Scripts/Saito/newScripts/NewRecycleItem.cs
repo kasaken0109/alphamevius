@@ -6,15 +6,19 @@ using UnityEngine.EventSystems;
 
 public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
 {
-    int ID;
+    int ID = 0;
     [SerializeField] Image image;
     [SerializeField] Text haveNumber;
-
+    private void Start()
+    {
+        image.sprite = NewItemManager.Instance.GetSprite(ID);
+        haveNumber.text = "";
+    }
     public void ChangeImage(int ID)
     {
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
-
+        haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
     }
     
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)

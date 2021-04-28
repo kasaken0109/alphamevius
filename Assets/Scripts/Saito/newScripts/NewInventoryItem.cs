@@ -7,7 +7,7 @@ using System.Linq;
 
 public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler ,IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    int ID;
+    int ID = 0;
     bool check;
     [SerializeField] Image image;
     [SerializeField] GameObject guide;
@@ -20,12 +20,15 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     bool checkTool;
     private void Start()
     {
+        image.sprite = NewItemManager.Instance.GetSprite(ID);
         canvasTransform = GameObject.Find("Canvas").transform;
+        haveNumber.text = "";
     }
     public void ChangeImage(int ID)
     {
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
+        haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
         if(NewItemManager.Instance.GetToolType(ID)== ToolType.None)
         {
             checkTool = false;
@@ -37,11 +40,11 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        ViewGuide();
+        //ViewGuide();
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        CloseGuide();
+        //CloseGuide();
     }
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
@@ -80,10 +83,13 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        //NewInventoryManager.Instance.OpenItemGuide(ID);
+        if (ID > 0) 
+        { 
+            NewInventoryManager.Instance.OpenItemGuide(ID);
+        }
         //NewInventoryManager.Instance.OpenCraftGuide(ID);
         //NewInventoryManager.Instance.OpenRecycleGuide(ID);
-        NewInventoryManager.Instance.OpenCookingGuide(ID);
+        //NewInventoryManager.Instance.OpenCookingGuide(ID);
     }
     public void ViewGuide()
     {

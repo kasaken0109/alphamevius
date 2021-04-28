@@ -24,7 +24,7 @@ public class NewItemManager : MonoBehaviour
         }
         //Allzero();
     }
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -53,7 +53,7 @@ public class NewItemManager : MonoBehaviour
     {
         return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetToolType();
     }
-    
+
     public Sprite GetSpriteLiblary(int ID)
     {
         return m_itemLiblary[ID].GetSprite();
@@ -70,7 +70,7 @@ public class NewItemManager : MonoBehaviour
         name = m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetName();
         return name;
     }
-    public void AddItem(int ID,int number)
+    public void AddItem(int ID, int number)
     {
         m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().AddHaveNumber(number);
     }
@@ -85,6 +85,27 @@ public class NewItemManager : MonoBehaviour
     private void Allzero()
     {
         m_itemLiblary.ForEach(i => i.Zero());
+    }
+    public List<int> GetAllItemID()
+    {
+        List<int> IDlist = new List<int>();
+        foreach (var item in m_itemLiblary)
+        {
+            IDlist.Add(item.GetID());
+        }
+        return IDlist;
+    }
+    public List<int> GetAllToolItemID()
+    {
+        List<int> IDlist = new List<int>();
+        foreach (var item in m_itemLiblary)
+        {
+            if (item.GetToolType() != ToolType.None)
+            {
+                IDlist.Add(item.GetID());
+            }
+        }
+        return IDlist;
     }
     public List<int> GetHaveItemID()
     {
@@ -119,7 +140,7 @@ public class NewItemManager : MonoBehaviour
         NewItem item = m_itemLiblary.Where(i => i.GetMaterialType() == type).FirstOrDefault();
         if (item)
         {
-              return item.GetID();
+            return item.GetID();
         }
         return 0;
     }

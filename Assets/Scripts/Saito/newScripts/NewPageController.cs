@@ -39,6 +39,25 @@ public class NewPageController : MonoBehaviour
         }
         m_pages[m_pageNum].GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
     }
+    public void OpenPage(int pageNum,int numBer)
+    {
+        m_totalPageNum = pageNum;
+        if (m_totalPageNum > 0)
+        {
+            m_nextPageBottun.SetActive(true);
+        }
+        else
+        {
+            m_nextPageBottun.SetActive(false);
+        }
+        m_pageNum = 0;
+        m_backPageBottun.SetActive(false);
+        foreach (var item in m_pages)
+        {
+            item.GetComponent<RectTransform>().localPosition = new Vector2(2000, 2000);
+        }
+        m_pages[m_pageNum].GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+    }
     public void NextPage()
     {
         m_backPageBottun.SetActive(true);

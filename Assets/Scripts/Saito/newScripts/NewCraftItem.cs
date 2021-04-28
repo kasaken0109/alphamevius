@@ -13,7 +13,6 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Image guideImage;
     [SerializeField] Text[] texts;
     [SerializeField] Text haveNumber;
-    [SerializeField] GameObject item;
     
     public void ChangeImage(int ID)
     {
@@ -31,7 +30,7 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-
+        NewInventoryManager.Instance.OpenCraftGuide(ID);
     }
     
     public void ViewGuide()

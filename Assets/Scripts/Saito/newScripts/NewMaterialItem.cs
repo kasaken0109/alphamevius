@@ -11,4 +11,8 @@ public class NewMaterialItem : NewItem
     {
         return m_fieldSprite;
     }
+    public override MaterialType GetMaterialType()
+    {
+        return m_materialType;
+    }
 }

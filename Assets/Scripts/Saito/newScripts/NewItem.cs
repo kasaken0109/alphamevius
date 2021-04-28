@@ -62,6 +62,8 @@ public class NewItem : ScriptableObject
     [SerializeField] MaterialType[] m_getMaterials;
     [SerializeField] int ID;
     [SerializeField] int haveNumber = 0;
+    [SerializeField] bool toolCheck = false;
+    [SerializeField] string guideText;
     public string GetName()
     {
         return m_name;
@@ -74,7 +76,7 @@ public class NewItem : ScriptableObject
     {
         return m_needMaterials;
     }
-    public MaterialType[] GetGetMaterials()
+    public MaterialType[] GetRecycleMaterials()
     {
         return m_getMaterials;
     }
@@ -99,5 +101,16 @@ public class NewItem : ScriptableObject
     {
         return ToolType.None;
     }
-
+    public bool GetToolCheck()
+    {
+        return toolCheck;
+    }
+    public string GetGuideText()
+    {
+        return guideText;
+    }
+    public virtual MaterialType GetMaterialType()
+    {
+        return MaterialType.None;
+    }
 }

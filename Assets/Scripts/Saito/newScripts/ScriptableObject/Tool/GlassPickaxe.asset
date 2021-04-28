@@ -17,6 +17,9 @@ MonoBehaviour:
   m_needMaterials: 0400000006000000
   m_getMaterials: 04000000
   ID: 59
+  haveNumber: 9
+  toolCheck: 1
+  guideText: 
   m_toolType: 6
   m_attackPoint: 1
   m_toolEfficiency: 12

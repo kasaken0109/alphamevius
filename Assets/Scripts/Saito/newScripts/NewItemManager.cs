@@ -98,4 +98,29 @@ public class NewItemManager : MonoBehaviour
         }
         return IDlist;
     }
+    public string GetGuideText(int ID)
+    {
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetGuideText();
+    }
+    public bool GetToolCheck(int ID)
+    {
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetToolCheck();
+    }
+    public MaterialType[] GetNeedMaterialItems(int ID)
+    {
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetNeedMaterials();
+    }
+    public MaterialType[] GetRecycleMaterialItems(int ID)
+    {
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetRecycleMaterials();
+    }
+    public int GetMaterialId(MaterialType type)
+    {
+        NewItem item = m_itemLiblary.Where(i => i.GetMaterialType() == type).FirstOrDefault();
+        if (item)
+        {
+              return item.GetID();
+        }
+        return 0;
+    }
 }

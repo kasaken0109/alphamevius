@@ -80,7 +80,10 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-
+        //NewInventoryManager.Instance.OpenItemGuide(ID);
+        //NewInventoryManager.Instance.OpenCraftGuide(ID);
+        //NewInventoryManager.Instance.OpenRecycleGuide(ID);
+        NewInventoryManager.Instance.OpenCookingGuide(ID);
     }
     public void ViewGuide()
     {

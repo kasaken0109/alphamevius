@@ -17,5 +17,8 @@ MonoBehaviour:
   m_needMaterials: 
   m_getMaterials: 
   ID: 0
+  haveNumber: 0
+  toolCheck: 0
+  guideText: 
   m_materialType: 0
   m_fieldSprite: {fileID: 21300000, guid: dcfb63c5af7759d46a50b0da9b91d2f6, type: 3}

@@ -18,11 +18,14 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     GameObject dragItem;
     Transform canvasTransform;
     bool checkTool;
+    private void Awake()
+    {
+        haveNumber.text = "";
+    }
     private void Start()
     {
         image.sprite = NewItemManager.Instance.GetSprite(ID);
         canvasTransform = GameObject.Find("Canvas").transform;
-        haveNumber.text = "";
     }
     public void ChangeImage(int ID)
     {

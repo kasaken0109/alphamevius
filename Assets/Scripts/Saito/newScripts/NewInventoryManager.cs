@@ -26,6 +26,7 @@ public class NewInventoryManager : MonoBehaviour
         ItemListUpdate();
         CraftSet();
     }
+    
     public void ItemListUpdate()
     {
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
@@ -63,7 +64,6 @@ public class NewInventoryManager : MonoBehaviour
         int[] page = new int[7];
         foreach (var item in itemList)
         {
-            Debug.Log(item);
             switch (NewItemManager.Instance.GetToolType(item))
             {
                 case ToolType.None:

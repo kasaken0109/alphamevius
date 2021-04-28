@@ -9,10 +9,13 @@ public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
     int ID = 0;
     [SerializeField] Image image;
     [SerializeField] Text haveNumber;
+    private void Awake()
+    {
+        haveNumber.text = "";
+    }
     private void Start()
     {
         image.sprite = NewItemManager.Instance.GetSprite(ID);
-        haveNumber.text = "";
     }
     public void ChangeImage(int ID)
     {

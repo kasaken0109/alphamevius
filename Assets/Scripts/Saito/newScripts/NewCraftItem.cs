@@ -13,10 +13,13 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Image guideImage;
     [SerializeField] Text[] texts;
     [SerializeField] Text haveNumber;
+    private void Awake()
+    {
+        haveNumber.text = "";
+    }
     private void Start()
     {
         image.sprite = NewItemManager.Instance.GetSprite(ID);
-        haveNumber.text = "";
     }
     public void ChangeImage(int ID)
     {

@@ -9,6 +9,12 @@ public class ItemManage : MonoBehaviour
     public int m_ricyclePoints = 0;
     public int m_playerLevel = 1;
     public int m_playerExp = 0;
+    /// <summary>
+    /// 装備中のアイテム
+    /// </summary>
+    public HaveItem m_equipment;
+    public Text m_equipmentText;
+    public Slider m_equipmentDurable;
     public Dictionary<ItemEnum, int> itemList = new Dictionary<ItemEnum, int>()
     {
         #region ディクショナリーの初期化
@@ -39,11 +45,12 @@ public class ItemManage : MonoBehaviour
         {ItemEnum.KnifeCore,0 },
         {ItemEnum.PickaxeCore,0 },
         {ItemEnum.AxeCore,0 },
+        {ItemEnum.Glass,0 },
         {ItemEnum.AluminiumKnife,0 },
         {ItemEnum.FragileKnife,0 },
         {ItemEnum.SmallKnife,0 },
         {ItemEnum.Machete,0 },
-        {ItemEnum.Pickaxe1,0 },
+        {ItemEnum.GlassPickaxe,0 },
         {ItemEnum.Pickaxe2,0 },
         {ItemEnum.Trap,0 },
         {ItemEnum.Axe,0 },
@@ -58,27 +65,11 @@ public class ItemManage : MonoBehaviour
     {
         Instance = this;
     }
-    private void Start()
+    private void Update()
     {
-        //ステータスの設定
-        for (int i = 0; i < itemList.Count; i++)
+        if (m_equipment)
         {
-            if (i <= (int)ItemEnum.EndMaterial)
-            {
-                states[i] = ItemStates.UseItem;
-            }
-            else if(i <= (int)ItemEnum.AxeCore)
-            {
-                states[i] = ItemStates.MaterialItem;
-            }
-            else if (i <= (int)ItemEnum.Hammer)
-            {
-                states[i] = ItemStates.HaveOne;
-            }
-            else
-            {
-                states[i] = ItemStates.EventItem;
-            }
+            m_equipmentDurable.value = HaveItemManager.Instance.GetItemCurrentHP(m_equipment.GetID()) / HaveItemManager.Instance.GetItemMaxHP(m_equipment.GetID());
         }
     }
     public void SetItem(ItemBaseMain item)
@@ -96,6 +87,7 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()]++;
+            //HotBarManager.Instance.ChangeHotBarText();
         }
     }
     public void SetItem(ItemBaseMain item, int addNum)
@@ -113,18 +105,57 @@ public class ItemManage : MonoBehaviour
         {
             Debug.Log("入手");
             itemList[item.GetItemType()] += addNum;
+            //HotBarManager.Instance.ChangeHotBarText();
         }
     }
-    public void UseItem(ItemEnum ID)
+    /// <summary>
+    /// アイテムを所持してるか確認し、所持していたら所持数を1減らしつつtrueを返す
+    /// </summary>
+    /// <param name="type">使うアイテムのタイプ</param>
+    /// <returns>使ったかどうか</returns>
+    public bool UseItem(ItemEnum type)
     {
-        if (itemList[ID] != 0)
+        if (itemList[type] > 0)
         {
-            itemList[ID]--;
+            itemList[type]--;
             Debug.Log("使った");
+            //HotBarManager.Instance.ChangeHotBarText();
+            return true;
         }
         else
         {
             Debug.Log("持ってない");
+            return false;
         }
+    }
+    public void EquipItem(ItemBaseMain item)
+    {
+        if (states[(int)item.GetItemType()] == ItemStates.HaveItem)
+        {
+            Debug.Log("装備した");
+            m_equipment = (HaveItem)item;
+            //m_equipmentText.text = m_equipment.GetItemType().ToString();
+            //PlayerManager.Instance.SetPower(m_equipment.GetAttack());
+        }
+        else
+        {
+            Debug.Log("装備品ではありません");
+        }
+    }
+    /// <summary>
+    /// 装備してるアイテムを返す
+    /// </summary>
+    /// <returns></returns>
+    public ItemEnum GetEquipment()
+    {
+        return m_equipment.GetItemType();
+    }
+    /// <summary>
+    /// 装備してるアイテムのIDを返す
+    /// </summary>
+    /// <returns></returns>
+    public int GetEquipmentID()
+    {
+        return m_equipment.GetID();
     }
 }

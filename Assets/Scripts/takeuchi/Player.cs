@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     private bool angleChange;
     /// <summary> 行動可能かのフラグ </summary>
     private bool action;
+    [SerializeField] GameObject attackScale;
+    private float attackTimer;
+    [SerializeField] Animator playerAnimation = null;
     private enum MoveAngle
     {
         Left,
@@ -31,6 +34,8 @@ public class Player : MonoBehaviour
     {
         rB = GetComponent<Rigidbody2D>();
         action = true;
+        attackScale.SetActive(false);
+        angleChange = true;
     }
 
     void Update()
@@ -49,6 +54,27 @@ public class Player : MonoBehaviour
                 }
                 angleChange = false;
             }
+            if (playerAnimation)
+            {
+                playerAnimation.SetBool("Collection", false);
+            }
+            if (Input.GetButtonDown("Attack") && attackTimer <= 0)
+            {
+                if (playerAnimation)
+                {
+                    playerAnimation.SetBool("Collection", true);
+                }
+                attackScale.SetActive(true);
+                attackTimer = 0.5f;
+            }            
+            if (attackTimer > 0)
+            {
+                attackTimer -= Time.deltaTime;
+                if (attackTimer < 0.3f)
+                {
+                    attackScale.SetActive(false);
+                }
+            }
         }
     }
 
@@ -58,6 +84,10 @@ public class Player : MonoBehaviour
         {
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
+                if (playerAnimation)
+                {
+                    playerAnimation.SetBool("Move", true);
+                }
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
                     moveX = moveSpeed;
@@ -84,7 +114,14 @@ public class Player : MonoBehaviour
                 {
                     moveY = -moveSpeed;
                 }
-            }            
+            }
+            else
+            {
+                if (playerAnimation)
+                {
+                    playerAnimation.SetBool("Move", false);
+                }
+            }
         }
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;

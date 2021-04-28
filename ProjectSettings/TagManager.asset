@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Attack
+  - Walkable
+  - NotWalkable
+  - Goal
+  - Tilemap
   layers:
   - Default
   - TransparentFX
@@ -13,13 +18,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Walkable
+  - NotWalkable
+  - Player
+  - Enemy
+  - Bird
+  - MiniMap
+  - Camera
   - 
   - 
   - 

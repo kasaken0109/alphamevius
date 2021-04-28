@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DebugScript : MonoBehaviour
 {
+    List<int> list = new List<int>();
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
-            ItemManage.Instance.itemList[ItemEnum.Chicken]++;
-        }
-        else if (Input.GetButtonDown("Fire2"))
-        {
-            ItemManage.Instance.itemList[ItemEnum.Chicken]--;
+            Materialitem materialitem = new Materialitem(ItemEnum.AluminumCan);
+            Materialitem materialitem1 = new Materialitem(ItemEnum.PieceOfCloth);
+            ItemManage.Instance.SetItem(materialitem);
+            ItemManage.Instance.SetItem(materialitem1);
         }
     }
 }

@@ -15,6 +15,7 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected int maxHP = 100;
     /// <summary> 現在の体力 </summary>
     public int CurrentHP { get; protected set; }
+    [SerializeField] protected int power = 5;
     /// <summary> 出現位置 </summary>
     [SerializeField] protected Transform spawnPoint;
     /// <summary> 描画される画像 </summary>
@@ -23,7 +24,12 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected ItemEnum[] haveItems;
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
+    protected bool moveStop;
     [SerializeField] protected ActionRange actionRange;
+    [SerializeField] protected ActionRange searchRange;
+    [SerializeField] protected ActionRange attackRange;
+    [SerializeField] protected float attackInterval = 1f;
+    protected float attackTimer;
     protected Rigidbody2D rB = null;
     /// <summary> 移動速度 </summary>
     [SerializeField] protected float moveSpeed = 1.0f;
@@ -33,11 +39,17 @@ public class Creatures : MonoBehaviour
     protected float moveY;
     protected Vector3 moveDir = Vector3.zero;
     protected CircleCollider2D circleCollider;
+    [SerializeField] protected float stanTime = 1f;
+    protected float stanTimer;
+    protected bool stan;
+    [SerializeField] protected Animator CreaturesAnimation = null;
     private void Start()
     {
         rB = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         actionRange.SetOwner(this);
+        CurrentHP = maxHP;
+        ActionStart();
     }
     /// <summary>
     /// スポーン時の初期化
@@ -56,6 +68,7 @@ public class Creatures : MonoBehaviour
     /// <param name="damage"></param>
     public virtual void Damage(int damage)
     {
+        Debug.Log(damage);
         CurrentHP -= damage;
         if (CurrentHP <= 0)
         {
@@ -74,8 +87,13 @@ public class Creatures : MonoBehaviour
         //{
         //    FieldItemManager.Instance.DropItem(item, transform.position);
         //}
-        creature.SetActive(false);
+        //creature.SetActive(false);
+        rB.velocity = Vector3.zero;
         circleCollider.enabled = false;
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Dead", true);
+        }
     }
     /// <summary>
     /// Creatureを行動不能にする
@@ -85,89 +103,153 @@ public class Creatures : MonoBehaviour
     /// Creatureを行動可能にする
     /// </summary>
     public virtual void ActionStart() { action = true; }
-    private int testCount;
+    [SerializeField] protected float actionTime = 3f;
+    private float actionTimer;
     private MoveAngle angle = MoveAngle.Down;
     private bool move;
     protected virtual void NormalAction()
     {
+        if (moveStop)
+        {
+            return;
+        }
         if (!move)
         {
-            if (actionRange.OnActionRange)
+            actionTimer += Time.deltaTime;
+            if (actionTimer >= actionTime)
             {
-                testCount++;
-                if (testCount > 600)
+                int a = Random.Range(0, 4);
+                switch (a)
                 {
-                    int a = Random.Range(0, 4);
-                    switch (a)
+                    case 0:
+                        angle = MoveAngle.Up;
+                        break;
+                    case 1:
+                        angle = MoveAngle.Left;
+                        break;
+                    case 2:
+                        angle = MoveAngle.Right;
+                        break;
+                    case 3:
+                        angle = MoveAngle.Down;
+                        break;
+                    default:
+                        break;
+                }
+                move = true;
+                if (actionRange.ONCreatures())
+                {
+                    switch (angle)
                     {
-                        case 0:
-                            angle = MoveAngle.Up;
+                        case MoveAngle.Up:
+                            moveDir = Vector3.up;
                             break;
-                        case 1:
-                            angle = MoveAngle.Left;
+                        case MoveAngle.Left:
+                            moveDir = Vector3.left;
+                            transform.localScale = new Vector3(1, 1, 1);
                             break;
-                        case 2:
-                            angle = MoveAngle.Right;
+                        case MoveAngle.Right:
+                            moveDir = Vector3.right;
+                            transform.localScale = new Vector3(-1, 1, 1);
                             break;
-                        case 3:
-                            angle = MoveAngle.Down;
+                        case MoveAngle.Down:
+                            moveDir = Vector3.down;
                             break;
                         default:
                             break;
                     }
-                    move = true;
                 }
+                else
+                {
+                    moveDir = spawnPoint.position - transform.position;
+                    if (moveDir.normalized.x > 0)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                }
+            }
+        }
+        else
+        {
+            actionTimer -= 5f * Time.deltaTime;
+            if (actionTimer <= 0)
+            {
+                actionTimer = 0;
+                move = false;
+            }
+            moveX = moveDir.normalized.x * moveSpeed;
+            moveY = moveDir.normalized.y * moveSpeed;
+        }
+    }
+    protected virtual void FindPlayerAction()
+    {
+        
+        if (actionRange.ONCreatures())
+        {
+            if (moveStop)
+            {
+                return;
+            }
+            moveDir = Player.Instance.transform.position - transform.position;
+            if (moveDir.normalized.x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
             }
             else
             {
-                testCount = 0;
-                move = false;
-                moveDir = spawnPoint.position - transform.position;
-                moveX = moveDir.normalized.x * moveSpeed;
-                moveY = moveDir.normalized.y * moveSpeed;
-            }
-        }
-        else
-        {
-            switch (angle)
-            {
-                case MoveAngle.Up:
-                    moveDir = Vector3.up;
-                    break;
-                case MoveAngle.Left:
-                    moveDir = Vector3.left;
-                    break;
-                case MoveAngle.Right:
-                    moveDir = Vector3.right;
-                    break;
-                case MoveAngle.Down:
-                    moveDir = Vector3.down;
-                    break;
-                default:
-                    break;
-            }
-            testCount -= 5;
-            if (testCount < 0)
-            {
-                testCount = 0;
-                move = false;
+                transform.localScale = new Vector3(1, 1, 1);
             }
             moveX = moveDir.normalized.x * moveSpeed;
             moveY = moveDir.normalized.y * moveSpeed;
         }
+        else
+        {
+            if (moveStop)
+            {
+                return;
+            }
+            NormalAction();
+        }
     }
-
-    protected virtual void FindPlayerAction()
+    protected virtual void AttackAction()
     {
-        if (actionRange.OnActionRange)
+        if (CreaturesAnimation)
         {
-            moveDir = Player.Instance.transform.position - transform.position;
-            moveX = moveDir.normalized.x * moveSpeed;
-            moveY = moveDir.normalized.y * moveSpeed;
-        }
-        else
-        {
-
+            CreaturesAnimation.SetBool("Attack", true);
         }
     }
+    public virtual void AttackPlayer()
+    {
+        if (attackRange)
+        {
+            if (attackRange.ONPlayer())
+            {
+                PlayerManager.Instance.Damage(power);
+            }
+        }
+    }
+    public void MoveStop()
+    {
+        moveStop = true;
+        rB.velocity = Vector2.zero;
+    }
+    public void MoveStart()
+    {
+        moveStop = false;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Attack" && !stan)
+        {
+            stan = true;
+            stanTimer = stanTime;
+            Damage(PlayerManager.Instance.CurrentPower);
+        }
+    }
+
+    public int GetPower() { return power; }
 }

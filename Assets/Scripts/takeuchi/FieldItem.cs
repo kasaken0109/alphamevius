@@ -98,6 +98,7 @@ public class FieldItem : MonoBehaviour
     public void DropItem(MaterialType type, Vector3 pos, Vector3 moveDir)
     {
         materialType = type;
+        itemImage.sprite = NewItemManager.Instance.GetSprite(NewItemManager.Instance.GetMaterialId(type));
         transform.position = pos;
         this.moveDir = moveDir;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);

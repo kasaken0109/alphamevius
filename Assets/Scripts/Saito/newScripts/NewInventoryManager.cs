@@ -13,7 +13,7 @@ public class NewInventoryManager : MonoBehaviour
     [SerializeField] NewPageController m_inventoryPage;
     [SerializeField] NewRecycleListPage[] m_recyclePage;
     [SerializeField] NewPageController m_allRecyclPage;
-    [SerializeField] NewInventoryItem[] m_cookingList;
+    [SerializeField] NewPageController m_cookingPage;
     [SerializeField] NewInventoryGuide m_inventoryGuide;
     [SerializeField] NewCraftGuide m_craftGuide;
     [SerializeField] NewCraftGuide m_cookingGuide;
@@ -175,6 +175,7 @@ public class NewInventoryManager : MonoBehaviour
         m_craftGuide.CloseGuide();
         m_cookingGuide.CloseGuide();
         m_recycleGuide.CloseGuide();
+        m_cookingPage.ClosePage();
     }
 
     public void OnClickOpenInventory()
@@ -233,5 +234,9 @@ public class NewInventoryManager : MonoBehaviour
             i = 2;
         }
         m_allRecyclPage.OpenPage(i);
+    }
+    public void OnClickOpenCooking()
+    {
+        m_cookingPage.OpenPage(0);
     }
 }

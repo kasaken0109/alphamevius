@@ -8,24 +8,23 @@ public class NewCookingItem : MonoBehaviour, IPointerClickHandler
 {
     int ID = 0;
     [SerializeField] Image image;
-    [SerializeField] Text haveNumber;
-    private void Awake()
-    {
-        haveNumber.text = "";
-    }
+    [SerializeField] NewItem item;
+    
     private void Start()
     {
-        image.sprite = NewItemManager.Instance.GetSprite(ID);
-    }
-    public void ChangeImage(int ID)
-    {
-        this.ID = ID;
-        image.sprite = NewItemManager.Instance.GetSprite(ID);
-        haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
+        if (!item)
+        {
+            return;
+        }
+        image.sprite = item.GetSprite();
+        ID = item.GetID();
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-
+        if (ID > 0)
+        {
+            NewInventoryManager.Instance.OpenCookingGuide(ID);
+        }
     }
 }

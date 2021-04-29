@@ -180,7 +180,7 @@ public class UIManager : MonoBehaviour
     {
         //int i = PlayerManager.Instance.CurrentHP;
         testTimer += Time.deltaTime;
-        if (testTimer >= 1f)
+        if (testTimer >= 0.05f)
         {
             testTimer = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();

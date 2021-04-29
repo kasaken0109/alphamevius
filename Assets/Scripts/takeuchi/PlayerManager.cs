@@ -48,7 +48,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] int sEDehydrationTime = 10;
     /// <summary> 状態異常カウント：脱水 </summary>
     int sEDehydrationCounter;
-    
+    [SerializeField] int[] needEXPList;
+    int maxLevel;
+    public int CurrentLevel { get; private set; }
+    public int TotalEXP { get; private set; }
+    public ToolType EquipmentTool { get; private set; } = ToolType.None;
+    public int EquipmentPower { get; private set; } = 0;
     private void Awake()
     {
         Instance = this;
@@ -61,6 +66,7 @@ public class PlayerManager : MonoBehaviour
         CurrentHydrate = playerMaxHydrate;
         oneHungerTime = startOneHungerTime;
         oneDehydrationTime = startOneDehydrationTime;
+        maxLevel = needEXPList.Length;
         #endregion
     }
     /// <summary>
@@ -199,4 +205,29 @@ public class PlayerManager : MonoBehaviour
     public int GetMaxHydrate() { return playerMaxHydrate; }
     public void SetOneDehydrationTime(int time) { oneDehydrationTime = time; }
     public void SetOneHungerTime(int time) { oneHungerTime = time; }
+    public void EXPGet(int exp)
+    {
+        if (CurrentLevel >= maxLevel)
+        {
+            return;
+        }
+        TotalEXP += exp;
+        if (needEXPList[CurrentLevel] >= TotalEXP)
+        {
+            CurrentLevel++;            
+        }
+    }
+    public void SetEquipmentTool(NewItem item)
+    {
+        EquipmentTool = item.GetToolType();
+        SetPower(item.GetAttackPoint());
+        EquipmentPower = item.GetEfficiency();
+        Debug.Log(EquipmentTool + "を装備した");
+    }
+    public void PurgeEquipmentTool()
+    {
+        EquipmentTool = ToolType.None; 
+        SetPower(BasePower);
+        EquipmentPower = 0;
+    }
 }

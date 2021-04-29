@@ -14,4 +14,5 @@ public class NewHotbarItem : MonoBehaviour
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
     }
+    public int GetID(){ return ID; }
 }

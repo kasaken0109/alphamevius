@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,12 @@ public class NewInventoryManager : MonoBehaviour
 {
     public static NewInventoryManager Instance { get; private set; }
     [SerializeField] NewCraftListPage[] m_craftPage;
+    [SerializeField] NewPageController m_allCraftPage;
     [SerializeField] NewItemListPage[] m_itemPage;
     [SerializeField] NewPageController m_inventoryPage;
-    [SerializeField] NewInventoryItem[] m_recycleList;
-    [SerializeField] NewInventoryItem[] m_cookingList;
+    [SerializeField] NewRecycleListPage[] m_recyclePage;
+    [SerializeField] NewPageController m_allRecyclPage;
+    [SerializeField] NewPageController m_cookingPage;
     [SerializeField] NewInventoryGuide m_inventoryGuide;
     [SerializeField] NewCraftGuide m_craftGuide;
     [SerializeField] NewCraftGuide m_cookingGuide;
@@ -24,7 +27,9 @@ public class NewInventoryManager : MonoBehaviour
         //m_inventoryGuide.OpenGuide();
         ItemListUpdate();
         CraftSet();
+        RecycleListUpdate();
     }
+
     public void ItemListUpdate()
     {
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
@@ -56,13 +61,138 @@ public class NewInventoryManager : MonoBehaviour
             }
         }
     }
+    public void ItemListUpdate(int getID)
+    {
+        RecycleListUpdate();
+        List<int> itemList = NewItemManager.Instance.GetHaveItemID();
+        NewInventoryItem page = null;
+        if (itemList.Count < 15)
+        {
+            page = m_itemPage[0].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+            if (page)
+            {
+                page.ChangeImage(getID);
+                return;
+            }
+            else
+            {
+                page = m_itemPage[0].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                page.ChangeImage(getID);
+                return;
+            }
+        }
+        else if (itemList.Count < 30)
+        {
+            for (int a = 0; a < 2; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 2; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 45)
+        {
+            for (int a = 0; a < 3; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 3; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 60)
+        {
+            for (int a = 0; a < 4; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 4; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 75)
+        {
+            for (int a = 0; a < 5; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 5; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 90)
+        {
+            for (int a = 0; a < 6; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 6; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+    }
     public void CraftSet()
     {
         List<int> itemList = NewItemManager.Instance.GetAllToolItemID();
         int[] page = new int[7];
         foreach (var item in itemList)
         {
-            Debug.Log(item);
             switch (NewItemManager.Instance.GetToolType(item))
             {
                 case ToolType.None:
@@ -126,6 +256,32 @@ public class NewInventoryManager : MonoBehaviour
             }
         }
     }
+    public void RecycleListUpdate()
+    {
+        List<int> RecycleList = NewItemManager.Instance.GetHaveItemID();
+        List<int> itemList = RecycleList.Where(r => NewItemManager.Instance.GetRecycleMaterialItems(r).Length > 0).ToList();
+        for (int a = 0; a < 15; a++)
+        {
+            m_recyclePage[0].UpdatePage(a, 0);
+            m_recyclePage[1].UpdatePage(a, 0);
+            m_recyclePage[2].UpdatePage(a, 0);
+        }
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            if (i < 15)
+            {
+                m_recyclePage[0].UpdatePage(i, itemList[i]);
+            }
+            else if (i < 30)
+            {
+                m_recyclePage[1].UpdatePage(i - 15, itemList[i]);
+            }
+            else if (i < 45)
+            {
+                m_recyclePage[2].UpdatePage(i - 30, itemList[i]);
+            }
+        }
+    }
     public void OpenItemGuide(int ID)
     {
         m_inventoryGuide.OpenGuide(ID);
@@ -144,15 +300,20 @@ public class NewInventoryManager : MonoBehaviour
     }
     public void OnClickClose()
     {
-        m_inventoryPage.ClosePage(); 
+        m_inventoryPage.ClosePage();
+        m_allCraftPage.ClosePage();
+        m_allRecyclPage.ClosePage();
         m_inventoryGuide.CloseGuide();
         m_craftGuide.CloseGuide();
         m_cookingGuide.CloseGuide();
         m_recycleGuide.CloseGuide();
+        m_cookingPage.ClosePage();
+        NewCraftManager.Instance.SetTargetID(0);
     }
 
     public void OnClickOpenInventory()
     {
+        OnClickClose();
         int a = 0;
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
         int b = itemList.Count;
@@ -181,5 +342,34 @@ public class NewInventoryManager : MonoBehaviour
             a = 5;
         }
         m_inventoryPage.OpenPage(a);
+    }
+    public void OnClickOpenCraft(int page)
+    {
+        OnClickClose();
+        m_allCraftPage.OpenChoicePage(page);
+    }
+    public void OnClickOpenRecycle()
+    {
+        OnClickClose();
+        List<int> RecycleList = NewItemManager.Instance.GetHaveItemID();
+        List<int> itemList = RecycleList.Where(r => NewItemManager.Instance.GetRecycleMaterialItems(r).Length > 0).ToList();
+        int i = 0;
+        if (itemList.Count < 15)
+        {
+            i = 0;
+        }
+        else if (itemList.Count < 30)
+        {
+            i = 1;
+        }
+        else if (itemList.Count < 45)
+        {
+            i = 2;
+        }
+        m_allRecyclPage.OpenPage(i);
+    }
+    public void OnClickOpenCooking()
+    {
+        m_cookingPage.OpenPage(0);
     }
 }

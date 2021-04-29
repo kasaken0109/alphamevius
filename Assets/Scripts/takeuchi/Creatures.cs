@@ -192,6 +192,8 @@ public class Creatures : MonoBehaviour
         {
             if (moveStop)
             {
+                moveX = 0;
+                moveY = 0;
                 return;
             }
             moveDir = Player.Instance.transform.position - transform.position;
@@ -210,6 +212,8 @@ public class Creatures : MonoBehaviour
         {
             if (moveStop)
             {
+                moveX = 0;
+                moveY = 0;
                 return;
             }
             NormalAction();

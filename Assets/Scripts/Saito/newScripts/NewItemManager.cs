@@ -7,7 +7,6 @@ using System.Linq;
 public class NewItemManager : MonoBehaviour
 {
     public static NewItemManager Instance { get; private set; }
-    int m_equipmentItemID = 0;
     NewItemEffectManager[] m_hotbar = new NewItemEffectManager[10];
     [SerializeField] NewItemLibrary m_library = null;
     List<NewItem> m_itemLiblary = new List<NewItem>();
@@ -29,31 +28,25 @@ public class NewItemManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(GetName(8));
             AddItem(8, 10);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log(HaveItemNumber(8));
+            SubItem(8, 10);
         }
     }
     public NewItemEffectManager Hotber(int Number)
     {
         return m_hotbar[Number];
     }
-    public int GetEquipmentItem()
-    {
-        return m_equipmentItemID;
-    }
-    public void SetEquipmentItem(int ID)
-    {
-        m_equipmentItemID = ID;
-    }
     public ToolType GetToolType(int ID)
     {
         return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().GetToolType();
     }
-
+    public NewItem GetItem(int ID)
+    {
+        return m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault();
+    }
     public Sprite GetSpriteLiblary(int ID)
     {
         return m_itemLiblary[ID].GetSprite();
@@ -73,10 +66,12 @@ public class NewItemManager : MonoBehaviour
     public void AddItem(int ID, int number)
     {
         m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().AddHaveNumber(number);
+        NewInventoryManager.Instance.ItemListUpdate(ID);
     }
     public void SubItem(int ID, int number)
     {
         m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().SubHaveNumber(number);
+        NewInventoryManager.Instance.ItemListUpdate(ID);
     }
     public int HaveItemNumber(int ID)
     {

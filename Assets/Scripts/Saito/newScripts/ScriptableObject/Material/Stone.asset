@@ -17,7 +17,7 @@ MonoBehaviour:
   m_needMaterials: 
   m_getMaterials: 
   ID: 11
-  haveNumber: 5
+  haveNumber: 10
   toolCheck: 0
   guideText: 
   m_materialType: 6

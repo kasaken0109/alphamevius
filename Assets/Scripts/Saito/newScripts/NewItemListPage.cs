@@ -9,4 +9,5 @@ public class NewItemListPage : MonoBehaviour
     {
         m_itemList[item].ChangeImage(ID);
     }
+    public NewInventoryItem[] GetItemList() { return m_itemList; }
 }

@@ -76,9 +76,12 @@ public class NewInventoryManager : MonoBehaviour
             }
             else
             {
-                page = m_itemPage[0].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
-                page.ChangeImage(getID);
-                return;
+                page = m_itemPage[0].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault(); 
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
             }
         }
         else if (itemList.Count < 30)

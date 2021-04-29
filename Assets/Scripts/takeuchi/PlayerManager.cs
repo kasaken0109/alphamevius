@@ -52,7 +52,8 @@ public class PlayerManager : MonoBehaviour
     int maxLevel;
     public int CurrentLevel { get; private set; }
     public int TotalEXP { get; private set; }
-
+    public ToolType EquipmentTool { get; private set; } = ToolType.None;
+    public int EquipmentPower { get; private set; } = 0;
     private void Awake()
     {
         Instance = this;
@@ -215,5 +216,17 @@ public class PlayerManager : MonoBehaviour
         {
             CurrentLevel++;            
         }
+    }
+    public void SetEquipmentTool(NewItem item)
+    {
+        EquipmentTool = item.GetToolType();
+        SetPower(item.GetAttackPoint());
+        EquipmentPower = item.GetEfficiency();
+    }
+    public void PurgeEquipmentTool()
+    {
+        EquipmentTool = ToolType.None; 
+        SetPower(BasePower);
+        EquipmentPower = 0;
     }
 }

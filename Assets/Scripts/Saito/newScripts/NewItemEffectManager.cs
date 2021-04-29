@@ -20,37 +20,40 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.None:
                 break;
             case ToolType.Knife:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.Bow:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.Axe:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.Hammer:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.Machete:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.Pickaxe:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.Clothes:
                 break;
             case ToolType.Trap:
                 break;
             case ToolType.HealingHP:
+                PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
                 break;
             case ToolType.Torch:
-                manager.SetEquipmentItem(itemID);
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
             case ToolType.HealingWater:
+                PlayerManager.Instance.HealingHydrate(manager.GetItem(itemID).GetEfficiency());
                 break;
             case ToolType.Bridge:
                 break;
             case ToolType.Cooking:
+                PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());
                 break;
             default:
                 break;

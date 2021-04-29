@@ -61,6 +61,132 @@ public class NewInventoryManager : MonoBehaviour
             }
         }
     }
+    public void ItemListUpdate(int getID)
+    {
+        RecycleListUpdate();
+        List<int> itemList = NewItemManager.Instance.GetHaveItemID();
+        NewInventoryItem page = null;
+        if (itemList.Count < 15)
+        {
+            page = m_itemPage[0].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+            if (page)
+            {
+                page.ChangeImage(getID);
+                return;
+            }
+            else
+            {
+                page = m_itemPage[0].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                page.ChangeImage(getID);
+                return;
+            }
+        }
+        else if (itemList.Count < 30)
+        {
+            for (int a = 0; a < 2; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 2; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 45)
+        {
+            for (int a = 0; a < 3; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 3; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 60)
+        {
+            for (int a = 0; a < 4; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 4; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 75)
+        {
+            for (int a = 0; a < 5; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 5; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+        else if (itemList.Count < 90)
+        {
+            for (int a = 0; a < 6; a++)
+            {
+                page = m_itemPage[a].GetItemList().ToList().Where(i => i.GetID() == getID).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+            for (int k = 0; k < 6; k++)
+            {
+                page = m_itemPage[k].GetItemList().ToList().Where(i => i.GetID() == 0).FirstOrDefault();
+                if (page)
+                {
+                    page.ChangeImage(getID);
+                    return;
+                }
+            }
+        }
+    }
     public void CraftSet()
     {
         List<int> itemList = NewItemManager.Instance.GetAllToolItemID();
@@ -134,6 +260,12 @@ public class NewInventoryManager : MonoBehaviour
     {
         List<int> RecycleList = NewItemManager.Instance.GetHaveItemID();
         List<int> itemList = RecycleList.Where(r => NewItemManager.Instance.GetRecycleMaterialItems(r).Length > 0).ToList();
+        for (int a = 0; a < 15; a++)
+        {
+            m_recyclePage[0].UpdatePage(a, 0);
+            m_recyclePage[1].UpdatePage(a, 0);
+            m_recyclePage[2].UpdatePage(a, 0);
+        }
         for (int i = 0; i < itemList.Count; i++)
         {
             if (i < 15)
@@ -176,6 +308,7 @@ public class NewInventoryManager : MonoBehaviour
         m_cookingGuide.CloseGuide();
         m_recycleGuide.CloseGuide();
         m_cookingPage.ClosePage();
+        NewCraftManager.Instance.SetTargetID(0);
     }
 
     public void OnClickOpenInventory()

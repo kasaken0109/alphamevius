@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
 {
     int ID = 0;
+    int check;
     [SerializeField] Image image;
     [SerializeField] Text haveNumber;
     private void Awake()
@@ -19,9 +20,24 @@ public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
     }
     public void ChangeImage(int ID)
     {
+        check = NewItemManager.Instance.HaveItemNumber(ID);
+        if (check <= 0)
+        {
+            haveNumber.text = "";
+            if (ID > 0)
+            {
+                image.sprite = NewItemManager.Instance.GetSprite(0);
+                NewInventoryManager.Instance.RecycleListUpdate();
+                return;
+            }
+        }
+        else
+        {
+            haveNumber.text = check.ToString();
+        }
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
-        haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
+       
     }
     
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)

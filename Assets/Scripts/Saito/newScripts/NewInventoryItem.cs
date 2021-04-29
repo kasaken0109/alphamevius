@@ -8,7 +8,7 @@ using System.Linq;
 public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler ,IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     int ID = 0;
-    bool check;
+    int check;
     [SerializeField] Image image;
     [SerializeField] GameObject guide;
     [SerializeField] Image guideImage;
@@ -29,10 +29,23 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     public void ChangeImage(int ID)
     {
+        check = NewItemManager.Instance.HaveItemNumber(ID);
+        if (check <= 0)
+        {
+            haveNumber.text = "";
+            if (ID > 0)
+            {
+                NewInventoryManager.Instance.ItemListUpdate();
+                return;
+            }
+        }
+        else
+        {
+            haveNumber.text = check.ToString();
+        }
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
-        haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
-        if(NewItemManager.Instance.GetToolType(ID)== ToolType.None)
+        if (NewItemManager.Instance.GetToolType(ID)== ToolType.None)
         {
             checkTool = false;
         }
@@ -102,4 +115,5 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     {
         guide.SetActive(false);
     }
+    public int GetID() { return ID; }
 }

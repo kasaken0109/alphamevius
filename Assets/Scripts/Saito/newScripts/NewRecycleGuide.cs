@@ -42,7 +42,7 @@ public class NewRecycleGuide : MonoBehaviour
         }
         //m_image.sprite = NewItemManager.Instance.GetSprite(ID);
         //m_guideText.text = NewItemManager.Instance.GetGuideText(ID);
-
+        NewCraftManager.Instance.SetTargetID(ID);
     }
     public void CloseGuide()
     {

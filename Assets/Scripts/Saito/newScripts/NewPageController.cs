@@ -13,13 +13,6 @@ public class NewPageController : MonoBehaviour
     {
         ClosePage();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            OpenPage(0);
-        }
-    }
     public void OpenPage(int pageNum)
     {
         m_totalPageNum = pageNum;

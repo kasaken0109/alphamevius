@@ -26,8 +26,11 @@ public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
     
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-
+        if (ID > 0)
+        {
+            NewInventoryManager.Instance.OpenRecycleGuide(ID);
+        }
     }
 
-    
+
 }

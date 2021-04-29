@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,8 @@ public class NewInventoryManager : MonoBehaviour
     [SerializeField] NewPageController m_allCraftPage;
     [SerializeField] NewItemListPage[] m_itemPage;
     [SerializeField] NewPageController m_inventoryPage;
-    [SerializeField] NewInventoryItem[] m_recycleList;
+    [SerializeField] NewRecycleListPage[] m_recyclePage;
+    [SerializeField] NewPageController m_allRecyclPage;
     [SerializeField] NewInventoryItem[] m_cookingList;
     [SerializeField] NewInventoryGuide m_inventoryGuide;
     [SerializeField] NewCraftGuide m_craftGuide;
@@ -25,8 +27,9 @@ public class NewInventoryManager : MonoBehaviour
         //m_inventoryGuide.OpenGuide();
         ItemListUpdate();
         CraftSet();
+        RecycleListUpdate();
     }
-    
+
     public void ItemListUpdate()
     {
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
@@ -127,6 +130,26 @@ public class NewInventoryManager : MonoBehaviour
             }
         }
     }
+    public void RecycleListUpdate()
+    {
+        List<int> RecycleList = NewItemManager.Instance.GetHaveItemID();
+        List<int> itemList = RecycleList.Where(r => NewItemManager.Instance.GetRecycleMaterialItems(r).Length > 0).ToList();
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            if (i < 15)
+            {
+                m_recyclePage[0].UpdatePage(i, itemList[i]);
+            }
+            else if (i < 30)
+            {
+                m_recyclePage[1].UpdatePage(i - 15, itemList[i]);
+            }
+            else if (i < 45)
+            {
+                m_recyclePage[2].UpdatePage(i - 30, itemList[i]);
+            }
+        }
+    }
     public void OpenItemGuide(int ID)
     {
         m_inventoryGuide.OpenGuide(ID);
@@ -147,6 +170,7 @@ public class NewInventoryManager : MonoBehaviour
     {
         m_inventoryPage.ClosePage();
         m_allCraftPage.ClosePage();
+        m_allRecyclPage.ClosePage();
         m_inventoryGuide.CloseGuide();
         m_craftGuide.CloseGuide();
         m_cookingGuide.CloseGuide();
@@ -155,6 +179,7 @@ public class NewInventoryManager : MonoBehaviour
 
     public void OnClickOpenInventory()
     {
+        OnClickClose();
         int a = 0;
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
         int b = itemList.Count;
@@ -183,5 +208,30 @@ public class NewInventoryManager : MonoBehaviour
             a = 5;
         }
         m_inventoryPage.OpenPage(a);
+    }
+    public void OnClickOpenCraft(int page)
+    {
+        OnClickClose();
+        m_allCraftPage.OpenChoicePage(page);
+    }
+    public void OnClickOpenRecycle()
+    {
+        OnClickClose();
+        List<int> RecycleList = NewItemManager.Instance.GetHaveItemID();
+        List<int> itemList = RecycleList.Where(r => NewItemManager.Instance.GetRecycleMaterialItems(r).Length > 0).ToList();
+        int i = 0;
+        if (itemList.Count < 15)
+        {
+            i = 0;
+        }
+        else if (itemList.Count < 30)
+        {
+            i = 1;
+        }
+        else if (itemList.Count < 45)
+        {
+            i = 2;
+        }
+        m_allRecyclPage.OpenPage(i);
     }
 }

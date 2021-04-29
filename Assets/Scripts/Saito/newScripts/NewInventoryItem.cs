@@ -7,8 +7,8 @@ using System.Linq;
 
 public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler ,IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    int ID;
-    bool check;
+    int ID = 0;
+    int check;
     [SerializeField] Image image;
     [SerializeField] GameObject guide;
     [SerializeField] Image guideImage;
@@ -18,15 +18,34 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     GameObject dragItem;
     Transform canvasTransform;
     bool checkTool;
+    private void Awake()
+    {
+        haveNumber.text = "";
+    }
     private void Start()
     {
+        image.sprite = NewItemManager.Instance.GetSprite(ID);
         canvasTransform = GameObject.Find("Canvas").transform;
     }
     public void ChangeImage(int ID)
     {
+        check = NewItemManager.Instance.HaveItemNumber(ID);
+        if (check <= 0)
+        {
+            haveNumber.text = "";
+            if (ID > 0)
+            {
+                NewInventoryManager.Instance.ItemListUpdate();
+                return;
+            }
+        }
+        else
+        {
+            haveNumber.text = check.ToString();
+        }
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
-        if(NewItemManager.Instance.GetToolType(ID)== ToolType.None)
+        if (NewItemManager.Instance.GetToolType(ID)== ToolType.None)
         {
             checkTool = false;
         }
@@ -37,11 +56,11 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        ViewGuide();
+        //ViewGuide();
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        CloseGuide();
+        //CloseGuide();
     }
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
@@ -80,10 +99,13 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        //NewInventoryManager.Instance.OpenItemGuide(ID);
+        if (ID > 0) 
+        { 
+            NewInventoryManager.Instance.OpenItemGuide(ID);
+        }
         //NewInventoryManager.Instance.OpenCraftGuide(ID);
         //NewInventoryManager.Instance.OpenRecycleGuide(ID);
-        NewInventoryManager.Instance.OpenCookingGuide(ID);
+        //NewInventoryManager.Instance.OpenCookingGuide(ID);
     }
     public void ViewGuide()
     {
@@ -93,4 +115,5 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     {
         guide.SetActive(false);
     }
+    public int GetID() { return ID; }
 }

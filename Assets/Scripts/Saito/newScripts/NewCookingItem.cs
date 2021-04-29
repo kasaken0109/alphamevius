@@ -6,19 +6,25 @@ using UnityEngine.EventSystems;
 
 public class NewCookingItem : MonoBehaviour, IPointerClickHandler
 {
-    int ID;
+    int ID = 0;
     [SerializeField] Image image;
-    [SerializeField] Text haveNumber;
-
-    public void ChangeImage(int ID)
+    [SerializeField] NewItem item;
+    
+    private void Start()
     {
-        this.ID = ID;
-        image.sprite = NewItemManager.Instance.GetSprite(ID);
-
+        if (!item)
+        {
+            return;
+        }
+        image.sprite = item.GetSprite();
+        ID = item.GetID();
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-
+        if (ID > 0)
+        {
+            NewInventoryManager.Instance.OpenCookingGuide(ID);
+        }
     }
 }

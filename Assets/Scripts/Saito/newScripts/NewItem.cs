@@ -93,6 +93,11 @@ public class NewItem : ScriptableObject
     public void SubHaveNumber(int number)
     {
         haveNumber -= number;
+        if (haveNumber < 0)
+        {
+            Debug.Log("所持数より多く消費した");
+            haveNumber = 0;
+        }
     }
     public void Zero()
     {
@@ -114,4 +119,7 @@ public class NewItem : ScriptableObject
     {
         return MaterialType.None;
     }
+    public virtual int GetAttackPoint() { return 0; }
+    public virtual int GetEfficiency() { return 0; }
+    public virtual int GetCraftLevel() { return 0; }
 }

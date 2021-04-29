@@ -17,10 +17,9 @@ MonoBehaviour:
   m_needMaterials: 050000000500000006000000060000000700000007000000
   m_getMaterials: 050000000600000007000000
   ID: 57
-  haveNumber: 1
+  haveNumber: 0
   toolCheck: 1
   guideText: "\u30CF\u30F3\u30DE\u30FC"
-  materialType: 0
   m_toolType: 4
   m_attackPoint: 3
   m_toolEfficiency: 120

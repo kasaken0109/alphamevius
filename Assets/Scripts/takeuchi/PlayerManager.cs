@@ -222,6 +222,7 @@ public class PlayerManager : MonoBehaviour
         EquipmentTool = item.GetToolType();
         SetPower(item.GetAttackPoint());
         EquipmentPower = item.GetEfficiency();
+        Debug.Log(EquipmentTool + "を装備した");
     }
     public void PurgeEquipmentTool()
     {

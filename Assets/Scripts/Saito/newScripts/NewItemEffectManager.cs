@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class NewItemEffectManager : MonoBehaviour
 {
+    public static NewItemEffectManager Instance { get; private set; }
     int itemID;
     ToolType toolType = ToolType.None;
-    Image image;
     NewItemManager manager = null;
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         manager = NewItemManager.Instance;
@@ -43,6 +47,7 @@ public class NewItemEffectManager : MonoBehaviour
                 break;
             case ToolType.HealingHP:
                 PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
+                NewItemManager.Instance.SubItem(itemID, 1);
                 break;
             case ToolType.Torch:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
@@ -63,12 +68,16 @@ public class NewItemEffectManager : MonoBehaviour
     {
         itemID = ID;
         toolType = manager.GetToolType(ID);
-        image.sprite = manager.GetSprite(ID);
+    }
+    public void SetUse(int ID)
+    {
+        itemID = ID;
+        toolType = manager.GetToolType(ID);
+        UseItem();
     }
     private void RemoveItem()
     {
         itemID = 0;
         toolType = ToolType.None;
-        image.sprite = null;
     }
 }

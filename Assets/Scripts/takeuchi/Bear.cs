@@ -77,6 +77,11 @@ public class Bear : Creatures
                 NormalAction();
             }
         }
+        if (attackRange.ONPlayer())
+        {
+            rB.velocity = Vector2.zero;
+            return;
+        }
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;

@@ -6,6 +6,7 @@ public class FieldItem : MonoBehaviour
 {
     /// <summary> アイテムの入れ物 </summary>
     ItemBaseMain item;
+    MaterialType materialType = MaterialType.None;
     /// <summary> 入手フラグ </summary>
     bool getFlag = false;
     /// <summary> 存在する時間 </summary>
@@ -56,6 +57,14 @@ public class FieldItem : MonoBehaviour
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
     }
+    public void DropItem(MaterialType type, Vector3 pos)
+    {
+        materialType = type;
+        transform.position = pos;
+        getFlag = false;
+        ExistTimer = toExistTime;
+        this.gameObject.SetActive(true);
+    }
     private float moveTime = 0.5f;
     private float startMoveTimer;
     [SerializeField]
@@ -82,6 +91,24 @@ public class FieldItem : MonoBehaviour
         this.gameObject.SetActive(true);
     }
     /// <summary>
+    /// アイテムを落とす為の関数
+    /// </summary>
+    /// <param name="item">アイテムの種類</param>
+    /// <param name="pos">落とす場所</param>
+    public void DropItem(MaterialType type, Vector3 pos, Vector3 moveDir)
+    {
+        materialType = type;
+        transform.position = pos;
+        this.moveDir = moveDir;
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
+        startMoveTimer = moveTime;
+        earthPosY = pos.y - 0.5f;
+        xxx = false;
+        getFlag = true;
+        ExistTimer = toExistTime;
+        this.gameObject.SetActive(true);
+    }
+    /// <summary>
     /// アクティブ状態かどうかを返す
     /// </summary>
     public bool IsActive()
@@ -95,7 +122,14 @@ public class FieldItem : MonoBehaviour
             if (!getFlag)
             {
                 getFlag = true;
-                ItemManage.Instance.SetItem(item);
+                if (item)
+                {
+                    ItemManage.Instance.SetItem(item);
+                }
+                if (materialType != MaterialType.None)
+                {
+                    NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
+                }
                 this.gameObject.SetActive(false);
             }
         }

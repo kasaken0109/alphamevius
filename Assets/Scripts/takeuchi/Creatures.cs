@@ -22,6 +22,7 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected GameObject creature;
     /// <summary> 落とすアイテム </summary>
     [SerializeField] protected ItemEnum[] haveItems;
+    [SerializeField] protected MaterialType[] haveMaterial;
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
     protected bool moveStop;
@@ -83,6 +84,7 @@ public class Creatures : MonoBehaviour
     {
         ActionStop();
         FieldItemManager.Instance.DropMaterial(haveItems, transform.position);
+        //FieldItemManager.Instance.DropMaterial(haveMaterial, transform.position);
         //foreach (var item in haveItems)
         //{
         //    FieldItemManager.Instance.DropItem(item, transform.position);

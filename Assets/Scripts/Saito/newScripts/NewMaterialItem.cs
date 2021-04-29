@@ -7,7 +7,7 @@ public class NewMaterialItem : NewItem
 {
     [SerializeField] MaterialType m_materialType;
     [SerializeField] Sprite m_fieldSprite;
-    public Sprite GetFieldSprite()
+    public override Sprite GetFieldSprite()
     {
         return m_fieldSprite;
     }

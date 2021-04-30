@@ -14,6 +14,7 @@ public class FieldItemManager : MonoBehaviour
     List<FieldItem> fieldItems;
     /// <summary> アイテム設定用変数 </summary>
     ItemBaseMain item;
+    MaterialType materialType;
     private void Awake()
     {
         Instance = this;
@@ -77,6 +78,37 @@ public class FieldItemManager : MonoBehaviour
             return;
         }
         fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(this.item, pos, dir);
+    }
+    /// <summary>
+    /// アイテムが飛び散るようにドロップする関数
+    /// </summary>
+    /// <param name="itemType"></param>
+    /// <param name="pos"></param>
+    public void DropMaterial(MaterialType[] itemType, Vector3 pos)
+    {
+        int angleNumber = itemType.Length;
+        float allAngle = 90f / angleNumber;
+        float span = -45f + allAngle / 2;
+        for (int i = 0; i < itemType.Length; i++)
+        {
+            DropItem(itemType[i], pos, GetDirection(span));
+            span += allAngle;
+        }
+
+    }
+    public void DropItem(MaterialType itemType, Vector3 pos, Vector3 dir)
+    {
+        materialType = itemType;
+        foreach (var item in fieldItems)
+        {
+            if (item.IsActive())
+            {
+                continue;
+            }
+            item.DropItem(this.item, pos, dir);
+            return;
+        }
+        fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(materialType, pos, dir);
     }
     Vector3 GetDirection(float angle)
     {

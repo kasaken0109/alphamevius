@@ -73,6 +73,10 @@ public class NewItem : ScriptableObject
     {
         return m_sprite;
     }
+    public virtual Sprite GetFieldSprite()
+    {
+        return m_sprite;
+    }
     public MaterialType[] GetNeedMaterials()
     {
         return m_needMaterials;

@@ -10,19 +10,19 @@ public class CampMenuManager : MonoBehaviour
     [SerializeField] UIManager UIManager = null;
     void Start()
     {
-        m_message.SetActive(false);
+        //m_message.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (actionRange.ONPlayer())
-        {
-            m_message.SetActive(true);
-        }
-        else
-        {
-            m_message.SetActive(false);
-        }
+        //if (actionRange.ONPlayer())
+        //{
+        //    m_message.SetActive(true);
+        //}
+        //else
+        //{
+        //    m_message.SetActive(false);
+        //}
     }
 }

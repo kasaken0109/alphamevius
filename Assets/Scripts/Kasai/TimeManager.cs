@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-    [SerializeField]Text text = null;
+    //[SerializeField]Text text = null;
     [SerializeField] public float timeRate = 0.5f;
     [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
     [SerializeField] GameObject m_drift = null;
-    [SerializeField] GameObject m_sun = null;
-    [SerializeField] GameObject m_moon = null;
+    //[SerializeField] GameObject m_sun = null;
+    //[SerializeField] GameObject m_moon = null;
     [SerializeField] Transform m_spawn = null;
     [SerializeField] float m_gameSpeed = 1;
     //bool m_dayswitch = false;
@@ -72,12 +72,12 @@ public class TimeManager : MonoBehaviour
         if (m_hour >= 0 && m_hour <= 6 || m_hour >= 18 && m_hour <= 24)
         {
             dayStatus = DayStatus.NIGHT;
-            text.text = m_dayNum + "日目　夜:" + m_hour;
+            //text.text = m_dayNum + "日目　夜:" + m_hour;
         }
         else
         {
             dayStatus = DayStatus.NOON;
-            text.text = m_dayNum + "日目　昼:" + m_hour;
+            //text.text = m_dayNum + "日目　昼:" + m_hour;
         }
 
         if (m_secondCount >= 40f * m_gameSpeed)
@@ -86,15 +86,15 @@ public class TimeManager : MonoBehaviour
             PlayerManager.Instance.OneSecondStatusUpdate();
         }
 
-        if (dayStatus == DayStatus.NOON)
-        {
-            m_moon.SetActive(false);
-            m_sun.SetActive(true);
-        }
-        else
-        {
-            m_moon.SetActive(true);
-            m_sun.SetActive(false);
-        }
+        //if (dayStatus == DayStatus.NOON)
+        //{
+        //    m_moon.SetActive(false);
+        //    m_sun.SetActive(true);
+        //}
+        //else
+        //{
+        //    m_moon.SetActive(true);
+        //    m_sun.SetActive(false);
+        //}
     }
 }

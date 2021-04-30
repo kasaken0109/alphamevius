@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-    [SerializeField]Text text = null;
+    //[SerializeField]Text text = null;
     [SerializeField] public float timeRate = 0.5f;
     [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
@@ -72,12 +72,12 @@ public class TimeManager : MonoBehaviour
         if (m_hour >= 0 && m_hour <= 6 || m_hour >= 18 && m_hour <= 24)
         {
             dayStatus = DayStatus.NIGHT;
-            text.text = m_dayNum + "日目　夜:" + m_hour;
+            //text.text = m_dayNum + "日目　夜:" + m_hour;
         }
         else
         {
             dayStatus = DayStatus.NOON;
-            text.text = m_dayNum + "日目　昼:" + m_hour;
+            //text.text = m_dayNum + "日目　昼:" + m_hour;
         }
 
         if (m_secondCount >= 40f * m_gameSpeed)

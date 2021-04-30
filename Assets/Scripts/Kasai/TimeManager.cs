@@ -11,8 +11,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
     [SerializeField] GameObject m_drift = null;
-    //[SerializeField] GameObject m_sun = null;
-    //[SerializeField] GameObject m_moon = null;
+    [SerializeField] GameObject m_sun = null;
+    [SerializeField] GameObject m_moon = null;
     [SerializeField] Transform m_spawn = null;
     [SerializeField] float m_gameSpeed = 1;
     //bool m_dayswitch = false;
@@ -86,15 +86,15 @@ public class TimeManager : MonoBehaviour
             PlayerManager.Instance.OneSecondStatusUpdate();
         }
 
-        //if (dayStatus == DayStatus.NOON)
-        //{
-        //    m_moon.SetActive(false);
-        //    m_sun.SetActive(true);
-        //}
-        //else
-        //{
-        //    m_moon.SetActive(true);
-        //    m_sun.SetActive(false);
-        //}
+        if (dayStatus == DayStatus.NOON)
+        {
+            m_moon.SetActive(false);
+            m_sun.SetActive(true);
+        }
+        else
+        {
+            m_moon.SetActive(true);
+            m_sun.SetActive(false);
+        }
     }
 }

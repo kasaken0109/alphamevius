@@ -20,6 +20,7 @@ public class MapCoverCreater : MonoBehaviour
             for (int k = 0; k < maxX; k++)
             {
                 GameObject cover = Instantiate(m_coverPrefab);
+                cover.transform.SetParent(this.gameObject.transform);
                 cover.transform.position = new Vector2(k * m_tileScale, i * m_tileScale) + m_startPosition;
                 cover.transform.localScale *= m_tileScale;
             }

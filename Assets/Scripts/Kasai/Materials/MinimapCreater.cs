@@ -11,10 +11,10 @@ public class MinimapCreater : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        //Debug.Log(collision.name);
         if (collision.tag == "PlayerTile")
         {
-            Debug.Log("hit" + collision.transform.position);
+            //Debug.Log("hit" + collision.transform.position);
             //m_tilemap.BoxFill(Vector3Int.CeilToInt(collision.transform.position),m_tile,0,0,10,1);
             //m_tilemap.SetTile(Vector3Int.CeilToInt(collision.transform.position), m_tile);
             Destroy(this.gameObject);

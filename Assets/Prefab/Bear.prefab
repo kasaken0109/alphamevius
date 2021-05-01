@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 24201797544575909}
   - component: {fileID: 24201797544575915}
   m_Layer: 0
-  m_Name: CreatureActionRange
+  m_Name: Bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,6 +277,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 24201797544575908}
   creature: {fileID: 24201799202031275}
   haveItems: 04000000040000000400000004000000
+  haveMaterial: 
   actionRange: {fileID: 24201797544575914}
   searchRange: {fileID: 24201798680575474}
   attackRange: {fileID: 24201797633103132}
@@ -454,7 +455,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 6f576e1a94e9d01458a0cbcf84478697, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

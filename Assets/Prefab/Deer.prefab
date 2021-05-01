@@ -134,6 +134,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 2921596313474481968}
   creature: {fileID: 2921596314056817215}
   haveItems: 04000000040000000400000004000000
+  haveMaterial: 
   actionRange: {fileID: 2921596313474481982}
   searchRange: {fileID: 2921596314609860966}
   attackRange: {fileID: 2921596313562147208}
@@ -394,7 +395,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 021f3fb049c574d40bccd56fc581fc8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

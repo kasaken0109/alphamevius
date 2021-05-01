@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Creaturesを継承した中立的なEnemyのクラス
+/// </summary>
+
 public class PlantEatingAnimal : Creatures
 {
     [SerializeField] bool m_isAttackable = false;

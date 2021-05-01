@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Creaturesを継承したクモのクラス
+/// </summary>
 public class Spider : Creatures
 {
     private void Update()
@@ -98,5 +101,25 @@ public class Spider : Creatures
         creature.SetActive(true);
         circleCollider.enabled = true;
         ActionStart();
+    }
+    protected override void Dead()
+    {
+        ActionStop();
+        if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT)
+        {
+            FieldItemManager.Instance.DropMaterial(haveItems, transform.position);
+        }
+        //FieldItemManager.Instance.DropMaterial(haveMaterial, transform.position);
+        //foreach (var item in haveItems)
+        //{
+        //    FieldItemManager.Instance.DropItem(item, transform.position);
+        //}
+        //creature.SetActive(false);
+        rB.velocity = Vector3.zero;
+        circleCollider.enabled = false;
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Dead", true);
+        }
     }
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Creaturesを継承した攻撃的なEnemyのクラス
+/// </summary>
 public class Carnivore : Creatures
 {
     private void Update()

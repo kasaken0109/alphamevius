@@ -557,6 +557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 24201799202031278, guid: 0d79d7f6cf7ae224694c62cca0ba6bbc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d79d7f6cf7ae224694c62cca0ba6bbc, type: 3}
 --- !u!4 &219672096 stripped
@@ -27862,6 +27867,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 418d7244f75726a489c952e878489c8d,
         type: 3}
+    - target: {fileID: 2049437201149671463, guid: 9e5c9fcbeea33c94ab7e46b99afae8c1,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2049437201723424045, guid: 9e5c9fcbeea33c94ab7e46b99afae8c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27996,6 +28006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Deer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921596314056817210, guid: d0aa0eb97e943ab49bcc9baa77a45c92,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0aa0eb97e943ab49bcc9baa77a45c92, type: 3}

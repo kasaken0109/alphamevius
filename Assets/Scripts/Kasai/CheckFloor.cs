@@ -54,6 +54,7 @@ public class CheckFloor : MonoBehaviour
         if (collision.tag == "Walkable")
         {
             PExit = true;
+            Debug.Log(this.gameObject.name);
         }
     }
 }

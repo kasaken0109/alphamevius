@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum MoveAngle
+{
+    Left,
+    Right,
+}
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
@@ -35,11 +39,7 @@ public class Player : MonoBehaviour
     [SerializeField] CheckFloor downFloor;
     [SerializeField] CheckFloor leftFloor;
     [SerializeField] CheckFloor rightFloor;
-    private enum MoveAngle
-    {
-        Left,
-        Right,
-    }
+
     private void Awake()
     {
         Instance = this;
@@ -283,4 +283,13 @@ public class Player : MonoBehaviour
         playerAnimation.SetBool("Damage", true);
         damageTimer = 0.1f;
     }
+
+    public MoveAngle GetAngle()
+    {
+        return angle;
+    }
+    public bool Left() { return left; }
+    public bool Right() { return right; }
+    public bool Up() { return up; }
+    public bool Down() { return down; }
 }

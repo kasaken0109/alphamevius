@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] GameObject m_moon = null;
     [SerializeField] Transform m_spawn = null;
     [SerializeField] float m_gameSpeed = 1;
+    [SerializeField] Image m_panel;
     //bool m_dayswitch = false;
     ItemBaseMain itemWood;
     ItemBaseMain itemDurableIvy;
@@ -25,6 +26,7 @@ public class TimeManager : MonoBehaviour
     public int m_hour = 0;
     public int m_dayNum = 1;
     DayStatus dayStatus;
+    Color panelColor;
     // Start is called before the first frame update
     enum DayStatus
     {
@@ -39,11 +41,13 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         dayStatus = DayStatus.NOON;
+        panelColor = m_panel.color;
         itemWood = new ItemBaseMain(ItemEnum.Wood);
         ItemManage.Instance.SetItem(itemWood,5);
         itemDurableIvy = new ItemBaseMain(ItemEnum.DurableIvy);
         ItemManage.Instance.SetItem(itemDurableIvy, 5);
         m_drift.SetActive(false);
+        m_hour = 6;
         
     }
 
@@ -54,7 +58,7 @@ public class TimeManager : MonoBehaviour
         m_secondCount += Time.deltaTime;
         m_time += Time.deltaTime;
         m_second += Time.deltaTime;
-        if (m_second >= 40f * m_gameSpeed)
+        if (m_second >= 40f / m_gameSpeed)
         {
             m_hour += 1;
             if (m_hour == 6)
@@ -72,11 +76,26 @@ public class TimeManager : MonoBehaviour
         if (m_hour >= 0 && m_hour <= 6 || m_hour >= 18 && m_hour <= 24)
         {
             dayStatus = DayStatus.NIGHT;
+            if(panelColor.a < 0.9f)
+            {
+                panelColor.a += 0.01f * m_gameSpeed;
+                m_panel.color = panelColor;
+            }
+            
             //text.text = m_dayNum + "日目　夜:" + m_hour;
         }
         else
         {
             dayStatus = DayStatus.NOON;
+            if (panelColor.a > 0f)
+            {
+                panelColor.a -= 0.01f * m_gameSpeed;
+                if (panelColor.a <= 0)
+                {
+                    panelColor.a = 0;
+                }
+                m_panel.color = panelColor;
+            }
             //text.text = m_dayNum + "日目　昼:" + m_hour;
         }
 

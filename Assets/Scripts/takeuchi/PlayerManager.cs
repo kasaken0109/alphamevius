@@ -111,6 +111,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="damage"></param>
     public void Damage(int damage)
     {
+        Player.Instance.Damage();
         CurrentHP -= damage;
         if (CurrentHP <= 0)
         {
@@ -219,15 +220,29 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetEquipmentTool(NewItem item)
     {
+        PurgeEquipmentTool();
         EquipmentTool = item.GetToolType();
         SetPower(item.GetAttackPoint());
         EquipmentPower = item.GetEfficiency();
         Debug.Log(EquipmentTool + "を装備した");
+        switch (EquipmentTool)
+        {
+            case ToolType.Bow:
+                Player.Instance.EquipmentArrow();
+                break;
+            case ToolType.Torch:
+                Player.Instance.EquipmentTorch();
+                break;
+            default:
+                break;
+        }
     }
     public void PurgeEquipmentTool()
     {
         EquipmentTool = ToolType.None; 
         SetPower(BasePower);
         EquipmentPower = 0;
+        Player.Instance.NoneEquipmentArrow();
+        Player.Instance.NoneEquipmentTorch();
     }
 }

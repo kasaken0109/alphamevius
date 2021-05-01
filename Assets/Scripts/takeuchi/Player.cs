@@ -24,8 +24,17 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;
     private float attackTimer;
+    private float damageTimer;
     [SerializeField] Animator playerAnimation = null;
     Vector2 arrowDir = Vector2.right;
+    private bool up;
+    private bool down;
+    private bool left;
+    private bool right;
+    [SerializeField] CheckFloor upFloor;
+    [SerializeField] CheckFloor downFloor;
+    [SerializeField] CheckFloor leftFloor;
+    [SerializeField] CheckFloor rightFloor;
     private enum MoveAngle
     {
         Left,
@@ -64,7 +73,7 @@ public class Player : MonoBehaviour
         }
         if (playerAnimation)
         {
-            playerAnimation.SetBool("Collection", false);
+            playerAnimation.SetBool("Attack", false);
         }
         if (Input.GetButtonDown("Attack") && attackTimer <= 0)
         {
@@ -98,7 +107,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    playerAnimation.SetBool("Collection", true);
+                    playerAnimation.SetBool("Attack", true);
                 }
             }         
         }
@@ -134,12 +143,24 @@ public class Player : MonoBehaviour
                 attackScale.SetActive(false);
             }
         }
+        if (damageTimer > 0)
+        {
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <= 0)
+            {
+                if (playerAnimation)
+                {
+                    playerAnimation.SetBool("Damage", false);
+                }
+            }
+        }
     }
 
     private void LateUpdate()
     {
         if (!action || !move)
         {
+            rB.velocity = Vector2.zero;
             return;
         }
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -150,29 +171,49 @@ public class Player : MonoBehaviour
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
+                right = rightFloor.ONWalkable();
                 moveX = 1;
                 if (angle != MoveAngle.Right)
                 {
                     angle = MoveAngle.Right;
                     angleChange = true;
                 }
+                if (!right)
+                {
+                    moveX = 0;
+                }
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
+                left = leftFloor.ONWalkable();
                 moveX = -1;
                 if (angle != MoveAngle.Left)
                 {
                     angle = MoveAngle.Left;
                     angleChange = true;
                 }
+                if (!left)
+                {
+                    moveX = 0;
+                }
             }
             if (Input.GetAxisRaw("Vertical") > 0)
             {
+                up = upFloor.ONWalkable();
                 moveY = 1;
+                if (!up)
+                {
+                    moveY = 0;
+                }
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
+                down = downFloor.ONWalkable();
                 moveY = -1;
+                if (!down)
+                {
+                    moveY = 0;
+                }
             }
         }
         else
@@ -181,10 +222,10 @@ public class Player : MonoBehaviour
             {
                 playerAnimation.SetBool("Move", false);
             }
-        }        
+        }
         rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
-        moveY = 0;
+        moveY = 0;        
     }
     public void MoveStop()
     {
@@ -207,4 +248,13 @@ public class Player : MonoBehaviour
     /// プレイヤーを行動可能にする
     /// </summary>
     public void ActionStart() { action = true; }
+    public void EquipmentArrow() { arrowMode = true; }
+    public void NoneEquipmentArrow() { arrowMode = false; }
+    public void EquipmentTorch() { playerAnimation.SetBool("Torch", true); }
+    public void NoneEquipmentTorch() { playerAnimation.SetBool("Torch", false); }
+    public void Damage()
+    {
+        playerAnimation.SetBool("Damage", true);
+        damageTimer = 0.1f;
+    }
 }

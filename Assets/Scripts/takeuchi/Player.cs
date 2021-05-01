@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     private float attackTimer;
     [SerializeField] Animator playerAnimation = null;
     Vector2 arrowDir = Vector2.right;
+    private bool up;
+    private bool down;
+    private bool left;
+    private bool right;
     private enum MoveAngle
     {
         Left,
@@ -140,6 +144,7 @@ public class Player : MonoBehaviour
     {
         if (!action || !move)
         {
+            rB.velocity = Vector2.zero;
             return;
         }
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -156,6 +161,10 @@ public class Player : MonoBehaviour
                     angle = MoveAngle.Right;
                     angleChange = true;
                 }
+                if (right)
+                {
+                    moveX = 0;
+                }
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
@@ -165,14 +174,26 @@ public class Player : MonoBehaviour
                     angle = MoveAngle.Left;
                     angleChange = true;
                 }
+                if (left)
+                {
+                    moveX = 0;
+                }
             }
             if (Input.GetAxisRaw("Vertical") > 0)
             {
                 moveY = 1;
+                if (up)
+                {
+                    moveY = 0;
+                }
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
                 moveY = -1;
+                if (down)
+                {
+                    moveY = 0;
+                }
             }
         }
         else
@@ -181,7 +202,7 @@ public class Player : MonoBehaviour
             {
                 playerAnimation.SetBool("Move", false);
             }
-        }        
+        }
         rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
         moveY = 0;
@@ -207,4 +228,6 @@ public class Player : MonoBehaviour
     /// プレイヤーを行動可能にする
     /// </summary>
     public void ActionStart() { action = true; }
+    public void EquipmentArrow() { arrowMode = true; }
+    public void NoneEquipmentArrow() { arrowMode = false; }
 }

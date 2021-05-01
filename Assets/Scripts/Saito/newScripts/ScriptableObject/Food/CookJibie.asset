@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
-  m_Name: RoastedDeer
+  m_Name: CookJibie
   m_EditorClassIdentifier: 
-  m_name: "\u9E7F\u306E\u30ED\u30FC\u30B9\u30C8"
-  m_sprite: {fileID: 21300000, guid: d22179724b4768c4d9ef00a6d7c06d27, type: 3}
-  m_needMaterials: 1c000000
+  m_name: "\u30B8\u30D3\u30A8"
+  m_sprite: {fileID: 21300000, guid: c0b49069d631d5b4d9c78462dd35d3f1, type: 3}
+  m_needMaterials: 1e0000001d0000001c0000001b000000
   m_getMaterials: 
-  ID: 77
+  ID: 82
   haveNumber: 0
   toolCheck: 0
   guideText: 
   m_toolType: 13
   m_attackPoint: 0
   m_toolEfficiency: 0
-  m_craftLevel: 0
+  m_craftLevel: 1

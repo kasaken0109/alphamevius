@@ -52,7 +52,8 @@ public enum ToolType
     HealingWater,
     Bridge,
     Cooking,
-    Bonfire
+    Bonfire,
+    Material
 }
 
 public class NewItem : ScriptableObject

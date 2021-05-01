@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/KasaiStage2.unity
-    guid: 68259766dfaf3e44d9d3e45ce65c640d
+    path: Assets/Scenes/BuildScene.unity
+    guid: f2efd0e36ff8c864d8c29ff8a83316dc
   - enabled: 1
     path: Assets/Scenes/GoalScene.unity
     guid: cac6688e2057d2744b7e1ed5581d2e4a

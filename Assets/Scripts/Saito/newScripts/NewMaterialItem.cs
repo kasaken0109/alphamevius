@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MaterialItmes", menuName = "MaterialItems")]
 public class NewMaterialItem : NewItem
 {
+    [SerializeField] ToolType m_toolType = ToolType.None;
     [SerializeField] MaterialType m_materialType;
     [SerializeField] Sprite m_fieldSprite;
     /// <summary>必要レベル,初期値0</summary>
@@ -17,4 +18,9 @@ public class NewMaterialItem : NewItem
     {
         return m_materialType;
     }
+    public override ToolType GetToolType()
+    {
+        return m_toolType;
+    }
+    public override int GetCraftLevel() { return m_craftLevel; }
 }

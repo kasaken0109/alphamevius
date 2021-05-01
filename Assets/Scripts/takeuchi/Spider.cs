@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bear : Creatures
+public class Spider : Creatures
 {
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (TimeManager.DayStatus.NOON == TimeManager.Instance.GetDayStatus())
+        {
+            Dead();
+        }
+        if (Input.GetButtonDown("Jump") && TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT)
         {
             StartSpawn();
         }
@@ -48,7 +52,7 @@ public class Bear : Creatures
                     {
                         CreaturesAnimation.SetBool("Attack", false);
                     }
-                }                
+                }
             }
             else
             {
@@ -59,6 +63,7 @@ public class Bear : Creatures
                 attackTimer = 0;
             }
         }
+
     }
     private void LateUpdate()
     {
@@ -70,7 +75,7 @@ public class Bear : Creatures
         {
             if (searchRange.ONPlayer())
             {
-                FindPlayerAction();                
+                FindPlayerAction();
             }
             else
             {
@@ -85,5 +90,13 @@ public class Bear : Creatures
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;
+    }
+    public override void StartSpawn()
+    {
+        transform.position = spawnPoint.position;
+        CurrentHP = maxHP;
+        creature.SetActive(true);
+        circleCollider.enabled = true;
+        ActionStart();
     }
 }

@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
     public int m_dayNum = 1;
     DayStatus dayStatus;
     // Start is called before the first frame update
-    enum DayStatus
+    public enum DayStatus
     {
         NOON,
         NIGHT,
@@ -96,5 +96,9 @@ public class TimeManager : MonoBehaviour
             m_moon.SetActive(true);
             m_sun.SetActive(false);
         }
+    }
+    public DayStatus GetDayStatus()
+    {
+        return dayStatus;
     }
 }

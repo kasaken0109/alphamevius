@@ -163,6 +163,10 @@ public class Player : MonoBehaviour
             rB.velocity = Vector2.zero;
             return;
         }
+        right = rightFloor.ONWalkable();
+        left = leftFloor.ONWalkable();
+        up = upFloor.ONWalkable();
+        down = downFloor.ONWalkable();
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             if (playerAnimation)
@@ -171,35 +175,58 @@ public class Player : MonoBehaviour
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                right = rightFloor.ONWalkable();
                 moveX = 1;
                 if (angle != MoveAngle.Right)
                 {
                     angle = MoveAngle.Right;
                     angleChange = true;
                 }
-                if (!right)
+                switch (angle)
                 {
-                    moveX = 0;
-                }
+                    case MoveAngle.Left:
+                        if (!left)
+                        {
+                            moveX = 0;
+                        }
+                        break;
+                    case MoveAngle.Right:
+                        if (!right)
+                        {
+                            moveX = 0;
+                        }
+                        break;
+                    default:
+                        break;
+                }               
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                left = leftFloor.ONWalkable();
                 moveX = -1;
                 if (angle != MoveAngle.Left)
                 {
                     angle = MoveAngle.Left;
                     angleChange = true;
                 }
-                if (!left)
+                switch (angle)
                 {
-                    moveX = 0;
+                    case MoveAngle.Left:
+                        if (!right)
+                        {
+                            moveX = 0;
+                        }                       
+                        break;
+                    case MoveAngle.Right:
+                        if (!left)
+                        {
+                            moveX = 0;
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                up = upFloor.ONWalkable();
                 moveY = 1;
                 if (!up)
                 {
@@ -208,7 +235,6 @@ public class Player : MonoBehaviour
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
-                down = downFloor.ONWalkable();
                 moveY = -1;
                 if (!down)
                 {

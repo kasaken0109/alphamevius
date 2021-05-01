@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class FieldIObject : MonoBehaviour
 {
-    [SerializeField] protected ItemEnum ObjectType;
-    [SerializeField] protected int strengthPoint = 5;
-    [SerializeField] protected ItemEnum[] DropItems;
+    [SerializeField] protected ToolType ObjectType;
+    [SerializeField] protected int strengthPoint = 120;
+    [SerializeField] protected MaterialType[] DropItems;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Attack")
         {
-            Debug.Log(ItemManage.Instance.GetEquipment());
-            if (ObjectType == ItemManage.Instance.GetEquipment())
+            if (ObjectType == PlayerManager.Instance.EquipmentTool)
             {
-                strengthPoint--;
-                HaveItemManager.Instance.UseWeapon();
+                strengthPoint -= PlayerManager.Instance.EquipmentPower;
                 if (strengthPoint <= 0)
                 {
                     FieldItemManager.Instance.DropMaterial(DropItems, transform.position);

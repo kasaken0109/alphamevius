@@ -5,21 +5,11 @@ using UnityEngine;
 public class RandomMaterialController : MonoBehaviour
 {
     [SerializeField] int m_MaxDropNum = 5;
-    [SerializeField] ItemEnum[] m_items;
+    [SerializeField] MaterialType[] m_items;
     [SerializeField] Transform[] m_dropPoint;
-    List<ItemEnum> itemList = new List<ItemEnum>();
+    List<MaterialType> itemList = new List<MaterialType>();
     int m_materialNum;
-    ItemEnum m_item;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    MaterialType m_item;
 
     void RandomNum()
     {
@@ -38,7 +28,7 @@ public class RandomMaterialController : MonoBehaviour
         }
     }
 
-    List<ItemEnum> RandomSelect()
+    List<MaterialType> RandomSelect()
     {
         int m_randomNum = Random.Range(0,5);
         switch (m_randomNum)
@@ -78,7 +68,7 @@ public class RandomMaterialController : MonoBehaviour
                 //FieldItemManager.Instance.DropItem(RandomSelect()[i], m_dropPoint[i].position);
                 RandomSelect();
             }
-            ItemEnum[] itemArray = itemList.ToArray();
+            MaterialType[] itemArray = itemList.ToArray();
             FieldItemManager.Instance.DropMaterial(itemArray, this.transform.position);
             gameObject.SetActive(false);
             

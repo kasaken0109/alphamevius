@@ -22,3 +22,4 @@ MonoBehaviour:
   guideText: 
   m_materialType: 4
   m_fieldSprite: {fileID: 0}
+  m_craftLevel: 0

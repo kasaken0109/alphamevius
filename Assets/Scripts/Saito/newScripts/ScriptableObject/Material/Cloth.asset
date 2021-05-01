@@ -17,8 +17,9 @@ MonoBehaviour:
   m_needMaterials: 
   m_getMaterials: 
   ID: 5
-  haveNumber: 0
+  haveNumber: 1
   toolCheck: 0
   guideText: 
   m_materialType: 1
   m_fieldSprite: {fileID: 21300000, guid: 52aa9b3804fc6774faf9ada1c1f5532a, type: 3}
+  m_craftLevel: 0

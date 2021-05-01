@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     private bool down;
     private bool left;
     private bool right;
+    [SerializeField] CheckFloor upFloor;
+    [SerializeField] CheckFloor downFloor;
+    [SerializeField] CheckFloor leftFloor;
+    [SerializeField] CheckFloor rightFloor;
     private enum MoveAngle
     {
         Left,
@@ -167,42 +171,46 @@ public class Player : MonoBehaviour
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
+                right = rightFloor.ONWalkable();
                 moveX = 1;
                 if (angle != MoveAngle.Right)
                 {
                     angle = MoveAngle.Right;
                     angleChange = true;
                 }
-                if (right)
+                if (!right)
                 {
                     moveX = 0;
                 }
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
+                left = leftFloor.ONWalkable();
                 moveX = -1;
                 if (angle != MoveAngle.Left)
                 {
                     angle = MoveAngle.Left;
                     angleChange = true;
                 }
-                if (left)
+                if (!left)
                 {
                     moveX = 0;
                 }
             }
             if (Input.GetAxisRaw("Vertical") > 0)
             {
+                up = upFloor.ONWalkable();
                 moveY = 1;
-                if (up)
+                if (!up)
                 {
                     moveY = 0;
                 }
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
+                down = downFloor.ONWalkable();
                 moveY = -1;
-                if (down)
+                if (!down)
                 {
                     moveY = 0;
                 }

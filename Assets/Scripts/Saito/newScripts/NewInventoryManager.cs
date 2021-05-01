@@ -18,6 +18,7 @@ public class NewInventoryManager : MonoBehaviour
     [SerializeField] NewCraftGuide m_craftGuide;
     [SerializeField] NewCraftGuide m_cookingGuide;
     [SerializeField] NewRecycleGuide m_recycleGuide;
+    bool m_open = false;
     private void Awake()
     {
         Instance = this;
@@ -303,6 +304,8 @@ public class NewInventoryManager : MonoBehaviour
     }
     public void OnClickClose()
     {
+        m_open = false;
+        //TODO Map閉じる関数を追加
         m_inventoryPage.ClosePage();
         m_allCraftPage.ClosePage();
         m_allRecyclPage.ClosePage();
@@ -316,7 +319,13 @@ public class NewInventoryManager : MonoBehaviour
 
     public void OnClickOpenInventory()
     {
+        if (m_open)
+        {
+            OnClickClose();
+            return;
+        }
         OnClickClose();
+        m_open = true;
         int a = 0;
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
         int b = itemList.Count;

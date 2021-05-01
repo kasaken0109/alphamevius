@@ -13,11 +13,11 @@ public class FieldItem : MonoBehaviour
     float toExistTime = 8f;
     /// <summary> 存在時間のタイマー </summary>
     public float ExistTimer { get; private set; } = 0f;
-    SpriteRenderer itemImage;
+    [SerializeField]SpriteRenderer itemImage;
     private void Start()
     {
-        itemImage = gameObject.GetComponent<SpriteRenderer>();
-        Debug.Log(itemImage.sprite);
+        //itemImage = gameObject.GetComponent<SpriteRenderer>();
+        //Debug.Log(itemImage.sprite);
         this.gameObject.SetActive(false);
     }
     private void Update()
@@ -77,19 +77,20 @@ public class FieldItem : MonoBehaviour
     /// </summary>
     /// <param name="item">アイテムの種類</param>
     /// <param name="pos">落とす場所</param>
-    public void DropItem(ItemBaseMain item, Vector3 pos, Vector3 moveDir)
-    {
-        this.item = item;
-        transform.position = pos;
-        this.moveDir = moveDir;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
-        startMoveTimer = moveTime;
-        earthPosY = pos.y - 0.5f;
-        xxx = false;
-        getFlag = true;
-        ExistTimer = toExistTime;
-        this.gameObject.SetActive(true);
-    }
+    //public void DropItem(ItemBaseMain item, Vector3 pos, Vector3 moveDir)
+    //{
+    //    Debug.Log("おまえじゃない");
+    //    this.item = item;
+    //    transform.position = pos;
+    //    this.moveDir = moveDir;
+    //    transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
+    //    startMoveTimer = moveTime;
+    //    earthPosY = pos.y - 0.5f;
+    //    xxx = false;
+    //    getFlag = true;
+    //    ExistTimer = toExistTime;
+    //    this.gameObject.SetActive(true);
+    //}
     /// <summary>
     /// アイテムを落とす為の関数
     /// </summary>
@@ -97,6 +98,7 @@ public class FieldItem : MonoBehaviour
     /// <param name="pos">落とす場所</param>
     public void DropItem(MaterialType type, Vector3 pos, Vector3 moveDir)
     {
+        Debug.Log("呼ばれた");
         materialType = type;
         itemImage.sprite = NewItemManager.Instance.GetItem(NewItemManager.Instance.GetMaterialId(type)).GetFieldSprite();
         transform.position = pos;

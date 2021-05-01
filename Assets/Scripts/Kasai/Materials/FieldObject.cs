@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FieldObject : MonoBehaviour
 {
-    [SerializeField] protected ItemEnum[] DropItems;
+    [SerializeField] protected MaterialType[] DropItems;
     // Start is called before the first frame update
     
 

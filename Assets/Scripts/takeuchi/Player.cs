@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     /// <summary> 行動可能かのフラグ </summary>
     private bool action;
     private bool move;
-    private bool arrowMode = true;
+    private bool arrowMode = false;
     private bool arrow;
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;

@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;
     private float attackTimer;
+    private float damageTimer;
     [SerializeField] Animator playerAnimation = null;
     Vector2 arrowDir = Vector2.right;
     private bool up;
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
         }
         if (playerAnimation)
         {
-            playerAnimation.SetBool("Collection", false);
+            playerAnimation.SetBool("Attack", false);
         }
         if (Input.GetButtonDown("Attack") && attackTimer <= 0)
         {
@@ -102,7 +103,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    playerAnimation.SetBool("Collection", true);
+                    playerAnimation.SetBool("Attack", true);
                 }
             }         
         }
@@ -136,6 +137,17 @@ public class Player : MonoBehaviour
             if (attackTimer < 0.3f)
             {
                 attackScale.SetActive(false);
+            }
+        }
+        if (damageTimer > 0)
+        {
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <= 0)
+            {
+                if (playerAnimation)
+                {
+                    playerAnimation.SetBool("Damage", false);
+                }
             }
         }
     }
@@ -205,7 +217,7 @@ public class Player : MonoBehaviour
         }
         rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
-        moveY = 0;
+        moveY = 0;        
     }
     public void MoveStop()
     {
@@ -230,4 +242,11 @@ public class Player : MonoBehaviour
     public void ActionStart() { action = true; }
     public void EquipmentArrow() { arrowMode = true; }
     public void NoneEquipmentArrow() { arrowMode = false; }
+    public void EquipmentTorch() { playerAnimation.SetBool("Torch", true); }
+    public void NoneEquipmentTorch() { playerAnimation.SetBool("Torch", false); }
+    public void Damage()
+    {
+        playerAnimation.SetBool("Damage", true);
+        damageTimer = 0.1f;
+    }
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: 
-  m_toolType: 0
+  m_toolType: 13
   m_attackPoint: 0
   m_toolEfficiency: 0
   m_craftLevel: 0

@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bear : Creatures
+/// <summary>
+/// Creaturesを継承した中立的なEnemyのクラス
+/// </summary>
+
+public class PlantEatingAnimal : Creatures
 {
+    [SerializeField] bool m_isAttackable = false;
     private void Update()
     {
         if (Input.GetButtonDown("Jump"))
         {
             StartSpawn();
         }
-        if (!action)
+        if (!action || !m_isAttackable)
         {
             return;
         }
@@ -48,7 +53,7 @@ public class Bear : Creatures
                     {
                         CreaturesAnimation.SetBool("Attack", false);
                     }
-                }                
+                }
             }
             else
             {
@@ -70,7 +75,7 @@ public class Bear : Creatures
         {
             if (searchRange.ONPlayer())
             {
-                FindPlayerAction();                
+                FindPlayerAction();
             }
             else
             {
@@ -85,5 +90,16 @@ public class Bear : Creatures
         rB.velocity = new Vector2(moveX, moveY);
         moveX = 0;
         moveY = 0;
+    }
+    public override void Damage(int damage)
+    {
+        Debug.Log(damage);
+        CurrentHP -= damage;
+        m_isAttackable = true;
+        if (CurrentHP <= 0)
+        {
+            CurrentHP = 0;
+            Dead();
+        }
     }
 }

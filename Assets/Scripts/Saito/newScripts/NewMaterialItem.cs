@@ -7,6 +7,8 @@ public class NewMaterialItem : NewItem
 {
     [SerializeField] MaterialType m_materialType;
     [SerializeField] Sprite m_fieldSprite;
+    /// <summary>必要レベル,初期値0</summary>
+    [SerializeField] int m_craftLevel = 0;
     public override Sprite GetFieldSprite()
     {
         return m_fieldSprite;

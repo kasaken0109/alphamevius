@@ -21,20 +21,11 @@ public class NewItemManager : MonoBehaviour
         {
             m_itemLiblary.Add(item);
         }
-        //Allzero();
+        Allzero();
+
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddItem(8, 10);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SubItem(8, 10);
-        }
-    }
+    
     public NewItemEffectManager Hotber(int Number)
     {
         return m_hotbar[Number];

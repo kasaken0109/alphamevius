@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 1
   toolCheck: 0
   guideText: 
+  m_toolType: 15
   m_materialType: 14
   m_fieldSprite: {fileID: 0}
   m_craftLevel: 1

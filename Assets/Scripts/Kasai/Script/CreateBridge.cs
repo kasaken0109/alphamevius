@@ -96,7 +96,7 @@ public class CreateBridge : MonoBehaviour
                     return;
                 }
                 bridge = Instantiate(m_bridge);
-                bridge.transform.position = Player.Instance.transform.position + new Vector3(0, m_bridgeLength, 0);
+                bridge.transform.position = Player.Instance.transform.position + new Vector3(0, m_bridgeLength - 1, 0);
             }
             else
             {

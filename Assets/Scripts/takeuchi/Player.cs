@@ -109,7 +109,14 @@ public class Player : MonoBehaviour
                 {
                     playerAnimation.SetBool("Attack", true);
                 }
-            }         
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (playerAnimation)
+            {
+                playerAnimation.SetBool("Attack", true);
+            }
         }
         if (arrow)
         {
@@ -197,7 +204,7 @@ public class Player : MonoBehaviour
                         break;
                     default:
                         break;
-                }               
+                }
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
@@ -213,7 +220,7 @@ public class Player : MonoBehaviour
                         if (!right)
                         {
                             moveX = 0;
-                        }                       
+                        }
                         break;
                     case MoveAngle.Right:
                         if (!left)
@@ -251,7 +258,7 @@ public class Player : MonoBehaviour
         }
         rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
-        moveY = 0;        
+        moveY = 0;
     }
     public void MoveStop()
     {
@@ -268,7 +275,7 @@ public class Player : MonoBehaviour
     public void ActionStop()
     {
         rB.velocity = Vector2.zero;
-        action = false; 
+        action = false;
     }
     /// <summary>
     /// プレイヤーを行動可能にする

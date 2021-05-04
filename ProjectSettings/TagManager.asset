@@ -10,6 +10,7 @@ TagManager:
   - Hotbar
   - NotWakable
   - Walkable
+  - NotBuild
   layers:
   - Default
   - TransparentFX

@@ -21,4 +21,8 @@ public class EnemyAnimationEvent : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
+    public void DeleteThis()
+    {
+        Destroy(this.gameObject);
+    }
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
-  m_Name: Saute
+  m_Name: CookGrilledHerbs
   m_EditorClassIdentifier: 
-  m_name: "\u9D8F\u3068\u9E7F\u306E\u30BD\u30C6\u30FC"
+  m_name: "\u9999\u8349\u713C\u304D"
   m_sprite: {fileID: 21300000, guid: 3e99580899ec8d049ac86be494d9d582, type: 3}
-  m_needMaterials: 1b0000001c000000
+  m_needMaterials: 1d0000000c000000
   m_getMaterials: 
-  ID: 80
+  ID: 81
   haveNumber: 0
   toolCheck: 0
   guideText: 

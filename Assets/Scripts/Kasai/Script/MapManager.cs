@@ -6,24 +6,17 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] GameObject m_mapCamera = null;
     bool mapActive = false;
-    //[SerializeField] 
-    // Start is called before the first frame update
-    void Start()
+    public static MapManager Instance { get; private set; }
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instance = this;
     }
 
     public void ActiveMap()
     {
-        Debug.Log("MapActive");
         if (!mapActive)
         {
+            NewInventoryManager.Instance.OnClickClose();
             m_mapCamera.SetActive(true);
             mapActive = true;
         }
@@ -33,5 +26,10 @@ public class MapManager : MonoBehaviour
             mapActive = false;
         }
         
+    }
+    public void CloseMap()
+    {
+        m_mapCamera.SetActive(false);
+        mapActive = false;
     }
 }

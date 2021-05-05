@@ -74,7 +74,7 @@ public class FieldItem : MonoBehaviour
     private float earthPosY;
     public void DropItem(MaterialType type, Vector3 pos, Vector3 moveDir)
     {
-        Debug.Log("呼ばれた");
+        //Debug.Log("呼ばれた");
         materialType = type;
         itemImage.sprite = NewItemManager.Instance.GetItem(NewItemManager.Instance.GetMaterialId(type)).GetFieldSprite();
         transform.position = pos;

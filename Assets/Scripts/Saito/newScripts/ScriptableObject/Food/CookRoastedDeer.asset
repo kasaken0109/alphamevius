@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
-  m_Name: MedicinalFood
+  m_Name: CookRoastedDeer
   m_EditorClassIdentifier: 
-  m_name: "\u85AC\u81B3\u6599\u7406"
-  m_sprite: {fileID: 21300000, guid: 3e99580899ec8d049ac86be494d9d582, type: 3}
-  m_needMaterials: 1e0000001e0000001e0000000c0000000c000000
+  m_name: "\u9E7F\u306E\u30ED\u30FC\u30B9\u30C8"
+  m_sprite: {fileID: 21300000, guid: d22179724b4768c4d9ef00a6d7c06d27, type: 3}
+  m_needMaterials: 1c000000
   m_getMaterials: 
-  ID: 83
+  ID: 77
   haveNumber: 0
   toolCheck: 0
   guideText: 
   m_toolType: 13
   m_attackPoint: 0
   m_toolEfficiency: 0
-  m_craftLevel: 2
+  m_craftLevel: 0

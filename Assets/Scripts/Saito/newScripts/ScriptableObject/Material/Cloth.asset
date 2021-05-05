@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: "\u5E03"
   m_sprite: {fileID: 21300000, guid: 52aa9b3804fc6774faf9ada1c1f5532a, type: 3}
-  m_needMaterials: 
+  m_needMaterials: 1100000011000000
   m_getMaterials: 
   ID: 5
   haveNumber: 1
   toolCheck: 0
   guideText: 
+  m_toolType: 15
   m_materialType: 1
   m_fieldSprite: {fileID: 21300000, guid: 52aa9b3804fc6774faf9ada1c1f5532a, type: 3}
   m_craftLevel: 0

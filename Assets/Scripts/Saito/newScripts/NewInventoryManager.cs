@@ -18,7 +18,7 @@ public class NewInventoryManager : MonoBehaviour
     [SerializeField] NewCraftGuide m_craftGuide;
     [SerializeField] NewCraftGuide m_cookingGuide;
     [SerializeField] NewRecycleGuide m_recycleGuide;
-    bool m_open = false;
+    public bool m_open = false;
     private void Awake()
     {
         Instance = this;
@@ -252,6 +252,10 @@ public class NewInventoryManager : MonoBehaviour
                 case ToolType.Cooking:
                     break;
                 case ToolType.Bonfire:
+                    m_craftPage[5].UpdatePage(page[5], item);
+                    page[5]++;
+                    break;
+                case ToolType.Material:
                     m_craftPage[6].UpdatePage(page[6], item);
                     page[6]++;
                     break;
@@ -305,7 +309,7 @@ public class NewInventoryManager : MonoBehaviour
     public void OnClickClose()
     {
         m_open = false;
-        //TODO Map閉じる関数を追加
+        MapManager.Instance.CloseMap();
         m_inventoryPage.ClosePage();
         m_allCraftPage.ClosePage();
         m_allRecyclPage.ClosePage();
@@ -358,11 +362,13 @@ public class NewInventoryManager : MonoBehaviour
     public void OnClickOpenCraft(int page)
     {
         OnClickClose();
+        m_open = true;
         m_allCraftPage.OpenChoicePage(page);
     }
     public void OnClickOpenRecycle()
     {
         OnClickClose();
+        m_open = true;
         List<int> RecycleList = NewItemManager.Instance.GetHaveItemID();
         List<int> itemList = RecycleList.Where(r => NewItemManager.Instance.GetRecycleMaterialItems(r).Length > 0).ToList();
         int i = 0;
@@ -382,6 +388,7 @@ public class NewInventoryManager : MonoBehaviour
     }
     public void OnClickOpenCooking()
     {
+        m_open = true;
         m_cookingPage.OpenPage(0);
     }
 }

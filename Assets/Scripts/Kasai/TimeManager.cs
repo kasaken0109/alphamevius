@@ -42,12 +42,8 @@ public class TimeManager : MonoBehaviour
     {
         dayStatus = DayStatus.NOON;
         panelColor = m_panel.color;
-        itemWood = new ItemBaseMain(ItemEnum.Wood);
-        ItemManage.Instance.SetItem(itemWood,5);
-        itemDurableIvy = new ItemBaseMain(ItemEnum.DurableIvy);
-        ItemManage.Instance.SetItem(itemDurableIvy, 5);
         m_drift.SetActive(false);
-        m_hour = 6;
+        m_hour = 5;
         
     }
 

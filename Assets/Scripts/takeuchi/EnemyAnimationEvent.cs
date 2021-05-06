@@ -25,4 +25,8 @@ public class EnemyAnimationEvent : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+    public void PlayerAttackAction()
+    {
+        Player.Instance.PlayerAttack();
+    }
 }

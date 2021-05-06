@@ -22,8 +22,9 @@ public class Player : MonoBehaviour
     private bool angleChange;
     /// <summary> 行動可能かのフラグ </summary>
     private bool action;
+    private bool attack;
     private bool move;
-    private bool arrowMode = true;
+    private bool arrowMode;
     private bool arrow;
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;
@@ -71,14 +72,12 @@ public class Player : MonoBehaviour
             }
             angleChange = false;
         }
-        if (playerAnimation)
+        if (playerAnimation && attack)
         {
             playerAnimation.SetBool("Attack", false);
         }
         if (Input.GetButtonDown("Attack") && attackTimer <= 0)
-        {
-                attackScale.SetActive(true);
-                attackTimer = 0.5f;
+        {                
             if (playerAnimation)
             {
                 if (arrowMode)
@@ -272,6 +271,12 @@ public class Player : MonoBehaviour
             move = true;
             attackTimer = 0.5f;
         }
+    }
+    public void PlayerAttack()
+    {
+        attackScale.SetActive(true);
+        attackTimer = 0.5f;
+        attack = true;
     }
     /// <summary>
     /// プレイヤーを行動可能にする

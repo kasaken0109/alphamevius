@@ -11,11 +11,13 @@ public class FieldIObject : MonoBehaviour
     {
         if (collision.tag == "Attack")
         {
+            EffectManager.PlayEffect(EffectType.Hit,transform.position);
             if (ObjectType == PlayerManager.Instance.EquipmentTool)
             {
                 strengthPoint -= PlayerManager.Instance.EquipmentPower;
                 if (strengthPoint <= 0)
                 {
+                    EffectManager.PlayEffect(EffectType.Smoke1, transform.position);
                     FieldItemManager.Instance.DropMaterial(DropItems, transform.position);
                     gameObject.SetActive(false);
                 }

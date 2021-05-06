@@ -45,6 +45,7 @@ public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
         if (ID > 0)
         {
             NewInventoryManager.Instance.OpenRecycleGuide(ID);
+            TargetMark.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
         }
     }
 

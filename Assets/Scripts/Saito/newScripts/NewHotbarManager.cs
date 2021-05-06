@@ -5,6 +5,12 @@ using UnityEngine;
 public class NewHotbarManager : MonoBehaviour
 {
     [SerializeField] NewHotbarItem[] hotbarItems;
+    bool[] haveTool = new bool[10];
+    public static NewHotbarManager Instance { get; private set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
@@ -51,5 +57,36 @@ public class NewHotbarManager : MonoBehaviour
     public void HotbarUse(int number)
     {
         NewItemEffectManager.Instance.SetUse(hotbarItems[number].GetID());
+    }
+    public void SetHotbar(int hotbarID)
+    {
+        haveTool[hotbarID] = true;
+    }
+    public void EquipmentTool(int EquipmentID)
+    {
+        foreach (var item in hotbarItems)
+        {
+            item.SetEquipmentMark(EquipmentID);
+        }
+    }
+    public void ChangeGray(int ID)
+    {
+        foreach (var item in hotbarItems)
+        {
+            if (item.GetID() == ID)
+            {
+                item.ChangeGray();
+            }
+        }
+    }
+    public void ChangeNomaleColor(int ID)
+    {
+        foreach (var item in hotbarItems)
+        {
+            if (item.GetID() == ID)
+            {
+                item.ChangeNomaleColor();
+            }
+        }
     }
 }

@@ -93,13 +93,18 @@ public class NewItem : ScriptableObject
     public int GetHaveNumber() { return haveNumber; }
     public void AddHaveNumber(int getNumber)
     {
+        if (haveNumber == 0)
+        {
+            NewInventoryManager.Instance.HaveItemNew(ID);
+        }
         haveNumber += getNumber;
     }
     public void SubHaveNumber(int number)
     {
         haveNumber -= number;
-        if (haveNumber < 0)
+        if (haveNumber <= 0)
         {
+            NewInventoryManager.Instance.HaveItemZero(ID);
             Debug.Log("所持数より多く消費した");
             haveNumber = 0;
         }

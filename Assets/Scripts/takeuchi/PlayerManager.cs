@@ -220,10 +220,13 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetEquipmentTool(NewItem item)
     {
+        //TODO NewHotbarManagerのEquipmentTool関数(引数: 装備中のitemのID)と NewInventoryManagerの実装予定の関数を呼ぶ
         PurgeEquipmentTool();
         EquipmentTool = item.GetToolType();
         SetPower(item.GetAttackPoint());
         EquipmentPower = item.GetEfficiency();
+        NewInventoryManager.Instance.EquipmentTool(item.GetID());
+        NewHotbarManager.Instance.EquipmentTool(item.GetID());
         Debug.Log(EquipmentTool + "を装備した");
         switch (EquipmentTool)
         {

@@ -6,13 +6,17 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
+    public static SoundManager Instance {get; private set;}
     [SerializeField] AudioClip m_bgm;
     [SerializeField] AudioClip m_hit;
     [SerializeField] AudioClip m_damage;
     [SerializeField] AudioClip m_clear;
     AudioSource m_audioSource;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         m_audioSource = GetComponent<AudioSource>();

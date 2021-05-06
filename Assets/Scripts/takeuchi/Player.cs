@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     /// <summary> 行動可能かのフラグ </summary>
     private bool action;
     private bool move;
-    private bool arrowMode = false;
+    private bool arrowMode = true;
     private bool arrow;
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;
@@ -77,26 +77,8 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonDown("Attack") && attackTimer <= 0)
         {
-            if (arrowMode)
-            {
-                attackTimer = 0.1f;
-                if (arrow)
-                {
-                    GameObject arrowObiect = Instantiate(arrowPrefab);
-                    arrowObiect.transform.position = attackScale.transform.position;
-                    arrowObiect.GetComponent<Arrow>().SetArrowDir(arrowDir);
-                    playerAnimation.SetBool("Arrow", false);
-                    arrow = false;
-                    move = true;
-                    attackTimer = 0.5f;
-                    return;
-                }
-            }
-            else
-            {
                 attackScale.SetActive(true);
                 attackTimer = 0.5f;
-            }
             if (playerAnimation)
             {
                 if (arrowMode)
@@ -109,13 +91,6 @@ public class Player : MonoBehaviour
                 {
                     playerAnimation.SetBool("Attack", true);
                 }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (playerAnimation)
-            {
-                playerAnimation.SetBool("Attack", true);
             }
         }
         if (arrow)
@@ -176,6 +151,14 @@ public class Player : MonoBehaviour
         down = downFloor.ONWalkable();
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
+            if (arrowMode)
+            {
+                if (arrow)
+                {
+                    playerAnimation.SetBool("Arrow", false);
+                    arrow = false;
+                }
+            }
             if (playerAnimation)
             {
                 playerAnimation.SetBool("Move", true);
@@ -277,6 +260,19 @@ public class Player : MonoBehaviour
         rB.velocity = Vector2.zero;
         action = false;
     }
+    public void ArrowShot(Vector2 dir)
+    {
+        if (arrow)
+        {
+            GameObject arrowObiect = Instantiate(arrowPrefab);
+            arrowObiect.transform.position = attackScale.transform.position;
+            arrowObiect.GetComponent<Arrow>().SetArrowDir(dir);
+            playerAnimation.SetBool("Arrow", false);
+            arrow = false;
+            move = true;
+            attackTimer = 0.5f;
+        }
+    }
     /// <summary>
     /// プレイヤーを行動可能にする
     /// </summary>
@@ -289,6 +285,7 @@ public class Player : MonoBehaviour
     {
         playerAnimation.SetBool("Damage", true);
         damageTimer = 0.1f;
+        EffectManager.PlayEffect(EffectType.Hit, transform.position);
     }
 
     public MoveAngle GetAngle()

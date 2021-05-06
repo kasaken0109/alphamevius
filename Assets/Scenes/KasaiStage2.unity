@@ -31866,7 +31866,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionRange: {fileID: 932640704}
   m_message: {fileID: 0}
-  UIManager: {fileID: 0}
 --- !u!4 &932640706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8442412171066185127, guid: bc287ee9199e9b347b7ceb83eedf8732,
@@ -47450,7 +47449,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 3.08
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_Origin: {x: -3, y: -36, z: 0}
   m_Size: {x: 39, y: 39, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}

@@ -6,26 +6,28 @@ public class RandomMaterialController : MonoBehaviour
 {
     [SerializeField] int m_MaxDropNum = 5;
     [SerializeField] MaterialType[] m_items;
+    [SerializeField] MaterialType[] m_certainItems;
     [SerializeField] Transform[] m_dropPoint;
+    [SerializeField] int m_materialNum = 3;
+    int m_minimunNum = 1;
+    [SerializeField] bool m_certainModeSelect = false;
     List<MaterialType> itemList = new List<MaterialType>();
-    int m_materialNum;
     MaterialType m_item;
 
-    void RandomNum()
+    int RandomNum(int num)
     {
         int m_size = Random.Range(0, 10);
-        if (m_size <= 4)
+        
+        if (m_size > 4 && m_size <7)
         {
-            m_materialNum = 3;
+            num += 1;
         }
-        else if (m_size <= 7)
+        else if(m_size >= 7)
         {
-            m_materialNum = 4;
+            num += 2;
         }
-        else
-        {
-            m_materialNum = 5;
-        }
+
+        return num;
     }
 
     List<MaterialType> RandomSelect()
@@ -55,18 +57,33 @@ public class RandomMaterialController : MonoBehaviour
         return itemList;
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("Enter Player");
         if (collision.tag == "Player")
         {
             itemList.Clear();
-            //Debug.Log("itemcollect");
-            RandomNum();
-            for (int i = 0; i < m_materialNum; i++)
+            if (!m_certainModeSelect)
             {
-                //FieldItemManager.Instance.DropItem(RandomSelect()[i], m_dropPoint[i].position);
-                RandomSelect();
+                RandomNum(m_materialNum);
+                for (int i = 0; i < m_materialNum; i++)
+                {
+                    RandomSelect();
+                }
+            }
+            else
+            {
+                foreach (var item in m_certainItems)
+                {
+                    itemList.Add(item);
+                }
+                RandomNum(m_minimunNum);
+                for (int i = 0; i < m_materialNum - m_certainItems.Length; i++)
+                {
+                    RandomSelect();
+                }
+                m_certainModeSelect = false;
             }
             MaterialType[] itemArray = itemList.ToArray();
             FieldItemManager.Instance.DropMaterial(itemArray, this.transform.position);

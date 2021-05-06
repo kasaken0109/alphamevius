@@ -19,6 +19,7 @@ public class NewInventoryManager : MonoBehaviour
     [SerializeField] NewCraftGuide m_cookingGuide;
     [SerializeField] NewRecycleGuide m_recycleGuide;
     public bool m_open = false;
+    int m_equipmentID = 0;
     private void Awake()
     {
         Instance = this;
@@ -26,14 +27,23 @@ public class NewInventoryManager : MonoBehaviour
     private void Start()
     {
         //m_inventoryGuide.OpenGuide();
+        EMarkControl.Instance.CloseEquipment();
         ItemListUpdate();
         CraftSet();
         RecycleListUpdate();
+        OnClickClose();
     }
 
     public void ItemListUpdate()
     {
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();
+        foreach (var item in m_itemPage)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                item.UpdatePage(i, 0);
+            }
+        }
         for (int i = 0; i < itemList.Count; i++)
         {
             if (i < 15)
@@ -60,6 +70,7 @@ public class NewInventoryManager : MonoBehaviour
             {
                 m_itemPage[5].UpdatePage(i - 75, itemList[i]);
             }
+            EquipmentTool(m_equipmentID);
         }
     }
     public void ItemListUpdate(int getID)
@@ -309,7 +320,8 @@ public class NewInventoryManager : MonoBehaviour
     public void OnClickClose()
     {
         m_open = false;
-        MapManager.Instance.CloseMap();
+        //MapManager.Instance.CloseMap();
+        TargetMark.Instance.CloseInventory();
         m_inventoryPage.ClosePage();
         m_allCraftPage.ClosePage();
         m_allRecyclPage.ClosePage();
@@ -390,5 +402,26 @@ public class NewInventoryManager : MonoBehaviour
     {
         m_open = true;
         m_cookingPage.OpenPage(0);
+    }
+    public void EquipmentTool(int EquipmentID)
+    {
+        m_equipmentID = EquipmentID;
+        foreach (var item in m_itemPage)
+        {
+            item.EquipmentItem(EquipmentID);
+        }
+    }
+    public void HaveItemZero(int ID)
+    {
+        if (ID == m_equipmentID)
+        {
+            m_equipmentID = 0;
+        }
+        NewHotbarManager.Instance.ChangeGray(ID);
+        ItemListUpdate();
+    }
+    public void HaveItemNew(int ID)
+    {
+        NewHotbarManager.Instance.ChangeNomaleColor(ID);
     }
 }

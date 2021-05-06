@@ -17,6 +17,7 @@ public class TargetMark : MonoBehaviour
 
     public void TargetSet(RectTransform pos)
     {
-        markPos.localPosition = pos.localPosition;
+        markPos.SetParent(pos);
+        markPos.localPosition = new Vector2(0, 0);        
     }
 }

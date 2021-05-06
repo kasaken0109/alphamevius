@@ -25,6 +25,7 @@ public class NewCookingItem : MonoBehaviour, IPointerClickHandler
         if (ID > 0)
         {
             NewInventoryManager.Instance.OpenCookingGuide(ID);
+            TargetMark.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
         }
     }
 }

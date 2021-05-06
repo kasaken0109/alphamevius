@@ -10,4 +10,19 @@ public class NewItemListPage : MonoBehaviour
         m_itemList[item].ChangeImage(ID);
     }
     public NewInventoryItem[] GetItemList() { return m_itemList; }
+    public void EquipmentItem(int ID)
+    {
+        if (ID == 0)
+        {
+            EMarkControl.Instance.CloseEquipment();
+            return;
+        }
+        foreach (var item in m_itemList)
+        {
+            if (item.GetID() == ID)
+            {
+                item.SetEquipmentMark();
+            }
+        }
+    }
 }

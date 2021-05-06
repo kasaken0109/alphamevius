@@ -43,6 +43,7 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (ID > 0)
         {
             NewInventoryManager.Instance.OpenCraftGuide(ID);
+            TargetMark.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
         }
     }
     

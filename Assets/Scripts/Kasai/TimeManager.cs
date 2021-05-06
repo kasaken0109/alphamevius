@@ -6,20 +6,16 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-    //[SerializeField]Text text = null;
-    [SerializeField] public float timeRate = 0.5f;
-    [SerializeField] int timeScale = 10;
     [SerializeField] GameObject m_menu = null;
     [SerializeField] GameObject m_drift = null;
     [SerializeField] GameObject m_sun = null;
     [SerializeField] GameObject m_moon = null;
     [SerializeField] Transform m_spawn = null;
+    [SerializeField] public float timeRate = 0.5f;
+    [SerializeField] int timeScale = 10;
     [SerializeField] float m_gameSpeed = 1;
     [SerializeField] Image m_panel;
-    //bool m_dayswitch = false;
-    ItemBaseMain itemWood;
-    ItemBaseMain itemDurableIvy;
-    ItemCraft m_craft;
+    [SerializeField] bool m_panelActive;
     public float m_time;
     private float m_secondCount;
     public float m_second;
@@ -27,7 +23,6 @@ public class TimeManager : MonoBehaviour
     public int m_dayNum = 1;
     DayStatus dayStatus;
     Color panelColor;
-    // Start is called before the first frame update
     public enum DayStatus
     {
         NOON,
@@ -44,7 +39,10 @@ public class TimeManager : MonoBehaviour
         panelColor = m_panel.color;
         m_drift.SetActive(false);
         m_hour = 6;
-        
+        if (!m_panelActive)
+        {
+            m_panel.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -72,30 +70,15 @@ public class TimeManager : MonoBehaviour
         if (m_hour >= 0 && m_hour <= 6 || m_hour >= 18 && m_hour <= 24)
         {
             dayStatus = DayStatus.NIGHT;
-            if(panelColor.a < 0.9f)
-            {
-                panelColor.a += 0.01f * m_gameSpeed;
-                m_panel.color = panelColor;
-            }
-            
-            //text.text = m_dayNum + "日目　夜:" + m_hour;
+            SetPanel();
         }
         else
         {
             dayStatus = DayStatus.NOON;
-            if (panelColor.a > 0f)
-            {
-                panelColor.a -= 0.01f * m_gameSpeed;
-                if (panelColor.a <= 0)
-                {
-                    panelColor.a = 0;
-                }
-                m_panel.color = panelColor;
-            }
-            //text.text = m_dayNum + "日目　昼:" + m_hour;
+            SetPanel();
         }
 
-        if (m_secondCount >= 40f * m_gameSpeed)
+        if (m_secondCount >= 30f * m_gameSpeed)
         {
             m_secondCount = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();
@@ -115,5 +98,26 @@ public class TimeManager : MonoBehaviour
     public DayStatus GetDayStatus()
     {
         return dayStatus;
+    }
+
+    void SetPanel()
+    {
+        if (m_panelActive)
+        {
+            if (panelColor.a < 0.9f && dayStatus == DayStatus.NIGHT)
+            {
+                panelColor.a += 0.01f * m_gameSpeed;
+                m_panel.color = panelColor;
+            }
+            if (panelColor.a > 0f && dayStatus == DayStatus.NOON)
+            {
+                panelColor.a -= 0.01f * m_gameSpeed;
+                if (panelColor.a <= 0)
+                {
+                    panelColor.a = 0;
+                }
+                m_panel.color = panelColor;
+            }
+        }
     }
 }

@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HaveItem : MonoBehaviour
+public class HaveItem : ItemBaseMain
 {
+    public HaveItem(ItemEnum type) : base(type)
+    {
+        itemType = type;
+    }
     [SerializeField] int maxHP;
     [SerializeField] int attackPoint;
+    [SerializeField] int ID;
     public int GetMaxHP()
     {
         return maxHP;
@@ -14,4 +19,9 @@ public class HaveItem : MonoBehaviour
     {
         return attackPoint;
     }
+    public int GetID()
+    {
+        return ID;
+    }
+
 }

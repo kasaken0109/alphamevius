@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crystal Axe
   m_EditorClassIdentifier: 
   m_name: "\u30AF\u30EA\u30B9\u30BF\u30EB\u306E\u65A7"
-  m_sprite: {fileID: 21300000, guid: ff1729a43dd9e614586bee3369e4e3b1, type: 3}
+  m_sprite: {fileID: 21300000, guid: 3358a8373b3254b0e93b5fbeadee259d, type: 3}
   m_needMaterials: 06000000060000001900000019000000
   m_getMaterials: 0600000019000000
   ID: 56

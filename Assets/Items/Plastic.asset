@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plastic
   m_EditorClassIdentifier: 
   m_name: "\u30D7\u30E9\u30B9\u30C1\u30C3\u30AF"
-  m_sprite: {fileID: 21300000, guid: e4684db1dd865dd44b84f8c185fa194f, type: 3}
+  m_sprite: {fileID: 21300000, guid: 0e8f6060a22b3423baa5ed92ea1bd294, type: 3}
   m_needMaterials: 1300000013000000
   m_getMaterials: 
   ID: 25

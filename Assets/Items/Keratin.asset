@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Keratin
   m_EditorClassIdentifier: 
   m_name: "\u30B1\u30E9\u30C1\u30F3"
-  m_sprite: {fileID: 21300000, guid: 4ca696c7275eaca4fa9009be87e10006, type: 3}
+  m_sprite: {fileID: 21300000, guid: e6d9cbb577ce34fd6b73619e4ddcad30, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 17

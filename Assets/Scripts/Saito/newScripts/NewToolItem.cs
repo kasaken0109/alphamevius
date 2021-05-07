@@ -18,5 +18,5 @@ public class NewToolItem : NewItem
     }
     public override int GetAttackPoint() { return m_attackPoint; }
     public override int GetEfficiency() { return m_toolEfficiency; }
-    public override int GetCraftLevel() { return m_craftLevel; }
+    public override int GetCraftLevel() { return 0; }
 }

@@ -11,6 +11,12 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Image image;
     [SerializeField] GameObject guide;
     [SerializeField] Image guideImage;
+    /// <summary>
+    /// index番号
+    /// 0 : タイトル
+    /// 1 : 必要素材
+    /// 2 : フレーバーテキスト
+    /// </summary>
     [SerializeField] Text[] texts;
     [SerializeField] Text haveNumber;
     private void Awake()
@@ -25,6 +31,10 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         this.ID = ID;
         image.sprite = NewItemManager.Instance.GetSprite(ID);
+        guideImage.sprite = NewItemManager.Instance.GetSprite(ID);
+        texts[0].text = NewItemManager.Instance.GetName(ID);
+        texts[1].text = NewItemManager.Instance.GetItem(ID).GetNeedMaterialsText();
+        texts[2].text = NewItemManager.Instance.GetItem(ID).GetGuideText();
         haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)

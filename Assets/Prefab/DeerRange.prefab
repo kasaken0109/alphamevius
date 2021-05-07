@@ -167,11 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb698c4e272345489213ec277bc060d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 10
   power: 5
   spawnPoint: {fileID: 2921596313474481968}
   creature: {fileID: 2921596312877254970}
-  haveItems: 
+  haveItems: 0900000009000000
   haveMaterial: 
   actionRange: {fileID: 2921596313474481982}
   searchRange: {fileID: 2921596314609860966}

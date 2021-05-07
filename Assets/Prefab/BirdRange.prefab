@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb698c4e272345489213ec277bc060d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 10
   power: 5
   spawnPoint: {fileID: 2049437201723424045}
   creature: {fileID: 2049437202050353959}

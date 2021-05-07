@@ -38,6 +38,7 @@ public class SceneLoader : MonoBehaviour
             else
             {
                 // m_panel が設定されていない時は、すぐにシーンをロードする
+                
                 SceneManager.LoadScene(m_sceneNameToBeLoaded);
                 m_isLoadStarted = false;
             }

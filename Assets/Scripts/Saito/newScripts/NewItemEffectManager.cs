@@ -58,7 +58,6 @@ public class NewItemEffectManager : MonoBehaviour
                 break;
             case ToolType.Bridge:
                 CreateBridge.Instance.BridgeCreate();
-                NewItemManager.Instance.SubItem(itemID, 1);
                 break;
             case ToolType.Cooking:
                 PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());

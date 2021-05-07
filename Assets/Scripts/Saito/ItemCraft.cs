@@ -10,6 +10,7 @@ public class ItemCraft : MonoBehaviour
     public ItemEnum craftItem;
     public List<ItemEnum> craftData = new List<ItemEnum>();
     
+    
     public void ItemCrafting()
     {
         int count = 0;
@@ -45,6 +46,12 @@ public class ItemCraft : MonoBehaviour
                     Debug.Log(craftItem.ToString() + "を作成した");
                     ItemManage.Instance.m_playerExp++;
                     ItemManage.Instance.SetItem(item);
+                    UseItem m_endMaterial = new UseItem(ItemEnum.EndMaterial);
+                    ItemManage.Instance.SetItem(m_endMaterial, ItemManage.Instance.m_playerLevel);
+                    for (int i = 0; i < craftData.Count; i++)
+                    {
+                        ItemManage.Instance.itemList[craftData[i]]--;
+                    }
                 }
                 else
                 {
@@ -52,6 +59,12 @@ public class ItemCraft : MonoBehaviour
                     Debug.Log(craftItem.ToString() + "を作成した");
                     ItemManage.Instance.m_playerExp++;
                     ItemManage.Instance.SetItem(item);
+                    UseItem m_endMaterial = new UseItem(ItemEnum.EndMaterial);
+                    ItemManage.Instance.SetItem(m_endMaterial, ItemManage.Instance.m_playerLevel);
+                    for (int i = 0; i < craftData.Count; i++)
+                    {
+                        ItemManage.Instance.itemList[craftData[i]]--;
+                    }
                 }
             }
             else
@@ -60,6 +73,12 @@ public class ItemCraft : MonoBehaviour
                 Debug.Log(craftItem.ToString() + "を作成した");
                 ItemManage.Instance.m_playerExp++;
                 ItemManage.Instance.SetItem(item, ItemManage.Instance.m_playerLevel);
+                UseItem m_endMaterial = new UseItem(ItemEnum.EndMaterial);
+                ItemManage.Instance.SetItem(m_endMaterial, ItemManage.Instance.m_playerLevel);
+                for (int i = 0; i < craftData.Count; i++)
+                {
+                    ItemManage.Instance.itemList[craftData[i]]--;
+                }
             }
         }
         else

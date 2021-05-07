@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: Alloy Knife
+  m_EditorClassIdentifier: 
+  m_name: Alloy Knife
+  m_sprite: {fileID: 21300000, guid: d27630e2eaef8884dae4819e5f85c109, type: 3}
+  m_needMaterials: 0300000018000000180000001a0000001a000000
+  m_getMaterials: 180000001a000000
+  ID: 47
+  haveNumber: 0
+  toolCheck: 1
+  guideText: "\u7BA1\u7406\u306E\u5207\u308C\u5473\u3092\u8A87\u308B\u30CA\u30A4\u30D5\u3002"
+  m_toolType: 1
+  m_attackPoint: 8
+  m_toolEfficiency: 0
+  m_craftLevel: 4

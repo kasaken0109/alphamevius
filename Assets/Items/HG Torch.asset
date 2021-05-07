@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: HG Torch
+  m_EditorClassIdentifier: 
+  m_name: HG Torch
+  m_sprite: {fileID: 21300000, guid: 5ad37ea79a05e1046a365703a0787c9f, type: 3}
+  m_needMaterials: 050000000500000010000000
+  m_getMaterials: 0f000000
+  ID: 31
+  haveNumber: 0
+  toolCheck: 0
+  guideText: "\u5468\u56F2\u3092\u5E83\u304F\u7167\u3089\u305B\u308B\u3088\u3046\u306B\uFF01"
+  m_toolType: 10
+  m_attackPoint: 0
+  m_toolEfficiency: 0
+  m_craftLevel: 3

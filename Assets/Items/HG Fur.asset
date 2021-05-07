@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: HG Fur
   m_EditorClassIdentifier: 
-  m_name: HG Fur
+  m_name: "\u4E0A\u8CEA\u306A\u6BDB\u76AE"
   m_sprite: {fileID: 21300000, guid: a97ea38494d454f479f3df54ed45fca8, type: 3}
   m_needMaterials: 
   m_getMaterials: 
@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u52D5\u7269\u304B\u3089\u5165\u624B\u3067\u304D\u308B\u9AD8\u7D1A\u7D20\u6750\u3002"
+  m_needMaterialsText: 
   m_toolType: 15
   m_materialType: 22
   m_fieldSprite: {fileID: 21300000, guid: a97ea38494d454f479f3df54ed45fca8, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Broken bin
   m_EditorClassIdentifier: 
-  m_name: Broken bin
+  m_name: "\u58CA\u308C\u305F\u74F6"
   m_sprite: {fileID: 21300000, guid: 6a7286b231762e74da4e11662655618a, type: 3}
   m_needMaterials: 
   m_getMaterials: 
@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u5272\u308C\u3066\u3044\u308B\u30AC\u30E9\u30B9\u74F6\u3002"
+  m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 18
   m_fieldSprite: {fileID: 21300000, guid: 6a7286b231762e74da4e11662655618a, type: 3}

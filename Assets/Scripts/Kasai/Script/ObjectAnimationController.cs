@@ -45,10 +45,13 @@ public class ObjectAnimationController : MonoBehaviour
             m_animator.SetBool(m_animParameterName, m_IsAnimating);
         }
         m_IsAnimating = false;
-        if (m_spawn != null)
-        {
-            m_spawn.SetActive(true);
-        }
+        StartCoroutine("Animation");
         Destroy(this.gameObject ,1);
+    }
+
+    IEnumerator Animation()
+    {
+        yield return new WaitForSeconds(1);
+        m_spawn.SetActive(true);
     }
 }

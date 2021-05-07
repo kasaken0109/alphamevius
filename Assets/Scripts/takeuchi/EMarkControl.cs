@@ -10,14 +10,14 @@ public class EMarkControl : MonoBehaviour
     {
         Instance = this;
     }
-    public void CloseInventory()
+    public void CloseEquipment()
     {
         markPos.localPosition = new Vector2(2000, 2000);
     }
 
     public void TargetSet(RectTransform pos)
     {
-        markPos.localPosition = pos.localPosition;
-        pos.transform.SetParent(markPos);
+        markPos.SetParent(pos);
+        markPos.localPosition = new Vector2(0, 0);
     }
 }

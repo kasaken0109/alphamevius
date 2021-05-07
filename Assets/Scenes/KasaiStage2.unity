@@ -31865,7 +31865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionRange: {fileID: 932640704}
-  m_message: {fileID: 0}
+  m_message: {fileID: 1446171663}
 --- !u!4 &932640706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8442412171066185127, guid: bc287ee9199e9b347b7ceb83eedf8732,
@@ -39233,6 +39233,12 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1446171663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3515124568293352009, guid: 2553eff7997fb044299a241efb66b51c,
+    type: 3}
+  m_PrefabInstance: {fileID: 555336079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446537049
 GameObject:
   m_ObjectHideFlags: 0
@@ -39446,6 +39452,11 @@ PrefabInstance:
       propertyPath: m_panel
       value: 
       objectReference: {fileID: 988522454}
+    - target: {fileID: 272841369012826218, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_panelActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 272841369012826219, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_Name
@@ -48486,6 +48497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ironstone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904436801470923217, guid: 006781eba37f3e646981e48c9236f0e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4904436801470923219, guid: 006781eba37f3e646981e48c9236f0e5,
         type: 3}

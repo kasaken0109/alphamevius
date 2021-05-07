@@ -102,7 +102,9 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
         if (ID > 0) 
         { 
             NewInventoryManager.Instance.OpenItemGuide(ID);
+            TargetMark.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
         }
+
         //NewInventoryManager.Instance.OpenCraftGuide(ID);
         //NewInventoryManager.Instance.OpenRecycleGuide(ID);
         //NewInventoryManager.Instance.OpenCookingGuide(ID);
@@ -116,4 +118,9 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
         guide.SetActive(false);
     }
     public int GetID() { return ID; }
+
+    public void SetEquipmentMark()
+    {
+        EMarkControl.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
+    }
 }

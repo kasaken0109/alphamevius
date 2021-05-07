@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   m_name: "\u77F3"
-  m_sprite: {fileID: 21300000, guid: 5b79388ee790ef54eb16887a9d38f4cc, type: 3}
+  m_sprite: {fileID: 21300000, guid: bd57df64bde5a67469ee9ec30b4364af, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 11
   haveNumber: 1
   toolCheck: 0
   guideText: 
+  m_toolType: 0
   m_materialType: 6
   m_fieldSprite: {fileID: 21300000, guid: bd57df64bde5a67469ee9ec30b4364af, type: 3}
   m_craftLevel: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
+  m_Name: Rag Cloth
+  m_EditorClassIdentifier: 
+  m_name: Rag Cloth
+  m_sprite: {fileID: 21300000, guid: 5e03099816f430c4aaec259addfb0ba1, type: 3}
+  m_needMaterials: 
+  m_getMaterials: 
+  ID: 4
+  haveNumber: 0
+  toolCheck: 0
+  guideText: "\u4F55\u304B\u306E\u4E00\u90E8\u3060\u3063\u305F\u307C\u308D\u5E03\u3002"
+  m_toolType: 15
+  m_materialType: 17
+  m_fieldSprite: {fileID: 21300000, guid: 5e03099816f430c4aaec259addfb0ba1, type: 3}
+  m_craftLevel: 0

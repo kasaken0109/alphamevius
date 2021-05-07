@@ -67,6 +67,7 @@ public class NewItem : ScriptableObject
     [SerializeField] int haveNumber = 0;
     [SerializeField] bool toolCheck = false;
     [SerializeField] string guideText;
+    [SerializeField] string m_needMaterialsText;
     public string GetName()
     {
         return m_name;
@@ -125,6 +126,10 @@ public class NewItem : ScriptableObject
     public string GetGuideText()
     {
         return guideText;
+    }
+    public string GetNeedMaterialsText()
+    {
+        return m_needMaterialsText;
     }
     public virtual MaterialType GetMaterialType()
     {

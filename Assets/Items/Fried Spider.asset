@@ -17,7 +17,7 @@ MonoBehaviour:
   m_needMaterials: 1e000000
   m_getMaterials: 
   ID: 79
-  haveNumber: 0
+  haveNumber: 1
   toolCheck: 0
   guideText: "\u5F62\u5BB9\u3057\u96E3\u3044\u73CD\u5473\u3067\u7A7A\u8179\u304C\u3061\u3087\u3063\u3068\u56DE\u5FA9\u3059\u308B\u3002 "
   m_toolType: 13

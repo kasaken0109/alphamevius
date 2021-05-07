@@ -18096,7 +18096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54860e071f4abc04a8104fd54f3096c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_library: {fileID: 11400000, guid: e63f44dc96985cc4f8ad48b929c1d27d, type: 2}
+  m_library: {fileID: 0}
 --- !u!4 &845457374
 Transform:
   m_ObjectHideFlags: 0
@@ -55170,23 +55170,28 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7674915006696587003, guid: 2553eff7997fb044299a241efb66b51c,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u7D20\u6750"
+      objectReference: {fileID: 0}
     - target: {fileID: 7676024005276595321, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676024005276595321, guid: 2553eff7997fb044299a241efb66b51c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676024005276595321, guid: 2553eff7997fb044299a241efb66b51c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7676024005276595321, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676024005276595321, guid: 2553eff7997fb044299a241efb66b51c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676024005276595321, guid: 2553eff7997fb044299a241efb66b51c,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -55400,6 +55405,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7878514507187780599, guid: 2553eff7997fb044299a241efb66b51c,
+        type: 3}
+      propertyPath: m_library
+      value: 
+      objectReference: {fileID: 11400000, guid: aaf6a7e5b45bbf54d8327c3e906f8104,
+        type: 2}
     - target: {fileID: 7923409751792381567, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y

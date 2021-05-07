@@ -62,6 +62,9 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.Cooking:
                 PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());
                 break;
+            case ToolType.EmptyBottle:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                break;
             default:
                 break;
         }

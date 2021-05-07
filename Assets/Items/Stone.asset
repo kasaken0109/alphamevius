@@ -20,7 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u305D\u3053\u3089\u3078\u3093\u306B\u843D\u3061\u3066\u3044\u308B\u666E\u901A\u306E\u77F3\u3002"
-  m_toolType: 15
+  m_toolType: 0
   m_materialType: 6
   m_fieldSprite: {fileID: 0}
   m_craftLevel: 0

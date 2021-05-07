@@ -23557,14 +23557,12 @@ PrefabInstance:
     - target: {fileID: 4516248515678646, guid: 2553eff7997fb044299a241efb66b51c, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: cf7745b059272f3459bd8d00d7639af2,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 46343255262659194, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: cf7745b059272f3459bd8d00d7639af2,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 58285190525422816, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -23749,8 +23747,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: d23aaf70a746cf441b1a64ec50768913,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 200632956135856771, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -26795,8 +26792,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 5cafac7cdb064fb4ab3bd0c9b90bcf75,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3811599244522770633, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -27031,8 +27027,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 3fc5a4494cf8f3643b2c899f188d7d4b,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4070315152709750534, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -28862,8 +28857,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: bcf11092c95c8954ab0e56b05f82f5eb,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6048112737744998693, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -30228,8 +30222,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: b4323530dc822144a97907bd189775af,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7646007304985768246, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -30889,8 +30882,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: f297c9d59fc5c6241b4cb33eb768ddf0,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8219347294225493221, guid: 2553eff7997fb044299a241efb66b51c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -32463,6 +32455,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2027336240}
     m_Modifications:
+    - target: {fileID: -363181936565250167, guid: 405aed16519fdff4da16caf2ad6b33d6,
+        type: 3}
+      propertyPath: strengthPoint
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 1516356239989868052, guid: 405aed16519fdff4da16caf2ad6b33d6,
         type: 3}
       propertyPath: m_Controller

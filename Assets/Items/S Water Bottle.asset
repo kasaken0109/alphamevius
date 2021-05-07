@@ -21,7 +21,7 @@ MonoBehaviour:
   toolCheck: 0
   guideText: "\u6C34\u3092\u5C11\u3057\u4FDD\u5B58\u3067\u304D\u308B\u6C34\u7B52\u3002"
   m_needMaterialsText: "\u30D7\u30E9\u30B9\u30C1\u30C3\u30AF\xD7\uFF11\u3000\u30AC\u30E9\u30B9\xD7\uFF12"
-  m_toolType: 11
+  m_toolType: 16
   m_attackPoint: 0
-  m_toolEfficiency: 0
+  m_toolEfficiency: 40
   m_craftLevel: 2

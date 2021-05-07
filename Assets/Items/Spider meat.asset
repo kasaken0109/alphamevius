@@ -21,7 +21,7 @@ MonoBehaviour:
   toolCheck: 0
   guideText: "\u30AF\u30E2\u304B\u3089\u53D6\u308C\u308B\u8089\u3002\u304A\u3044\u3057\u304F\u8ABF\u7406\u3059\u308B\u306E\u304C\u5927\u5909\u305D\u3046\u3002"
   m_needMaterialsText: 
-  m_toolType: 13
+  m_toolType: 0
   m_materialType: 30
   m_fieldSprite: {fileID: 21300000, guid: cf9b8c0e0f7415b4094222ce7c9c0c43, type: 3}
   m_craftLevel: 0

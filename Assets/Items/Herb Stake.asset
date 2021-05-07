@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
   m_Name: Herb Stake
   m_EditorClassIdentifier: 
-  m_name: Herb Stake
+  m_name: "\u9999\u8349\u713C\u304D"
   m_sprite: {fileID: 21300000, guid: c0b49069d631d5b4d9c78462dd35d3f1, type: 3}
   m_needMaterials: 0c0000001d000000
   m_getMaterials: 
@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u5869\u5473\u304C\u52B9\u3044\u3066\u3044\u3066\u7A7A\u8179\u304C\u5C11\u3057\u56DE\u5FA9\u3059\u308B\u3002 "
+  m_needMaterialsText: "\u30CF\u30FC\u30D6\xD7\uFF11\u3000\u8089\u584A\xD7\uFF11"
   m_toolType: 13
   m_attackPoint: 0
   m_toolEfficiency: 30

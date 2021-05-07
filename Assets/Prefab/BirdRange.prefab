@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2049437200594240376}
   - component: {fileID: 2049437200594240379}
   - component: {fileID: 2049437200594240377}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SearchScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 2049437201149671463}
   - component: {fileID: 2049437201149671456}
   - component: {fileID: 2049437201149671462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BirdAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 2049437201644333974}
   - component: {fileID: 2049437201644333972}
   - component: {fileID: 2049437201644333973}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 2049437201723424045}
   creature: {fileID: 2049437202050353959}
   haveItems: 
-  haveMaterial: 
   actionRange: {fileID: 2049437201723424035}
   searchRange: {fileID: 2049437200594240379}
   attackRange: {fileID: 2049437201644333973}
@@ -462,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049437202114332694}
   - component: {fileID: 2049437202114332693}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

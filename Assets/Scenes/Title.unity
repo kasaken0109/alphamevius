@@ -478,6 +478,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_fadePanel
+      value: 
+      objectReference: {fileID: 875824025}
     - target: {fileID: 272841369012826217, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -543,12 +548,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 272841370282852939, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4419179585170345707, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_bgm
       value: 
       objectReference: {fileID: 8300000, guid: 88de9b38a2384d24e814b192801d50f4, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 272841369012826216, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
+    - {fileID: 3376163574874737675, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
+    - {fileID: 272841369012826218, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
 --- !u!114 &891505044 stripped
 MonoBehaviour:
@@ -827,7 +840,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BuildScene_Stage1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1803307663

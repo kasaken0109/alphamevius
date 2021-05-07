@@ -22,7 +22,6 @@ public class Creatures : MonoBehaviour
     [SerializeField] protected GameObject creature;
     /// <summary> 落とすアイテム </summary>
     [SerializeField] protected MaterialType[] haveItems;
-    [SerializeField] protected MaterialType[] haveMaterial;
     /// <summary> 行動可能かのフラグ </summary>
     protected bool action;
     protected bool moveStop;

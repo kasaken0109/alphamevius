@@ -310,12 +310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ed8e7d21a47c8499bab3d97311d58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 10
   power: 5
   spawnPoint: {fileID: 24201797544575908}
   creature: {fileID: 24201798022428078}
-  haveItems: 
-  haveMaterial: 
+  haveItems: 0900000009000000
   actionRange: {fileID: 24201797544575914}
   searchRange: {fileID: 24201798680575474}
   attackRange: {fileID: 24201797633103132}

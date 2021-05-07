@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectType: 4
   strengthPoint: 120
-  DropItems: 0c0000000c0000000c0000000c0000000c000000
+  DropItems: 06000000060000000600000006000000
 --- !u!114 &6450667903102363415
 MonoBehaviour:
   m_ObjectHideFlags: 0

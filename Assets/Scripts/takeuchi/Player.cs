@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
                 {
                     playerAnimation.SetBool("Arrow", true);
                     arrow = true;
-                    MoveStop();
+                    rB.velocity = Vector2.zero;
                 }
                 else
                 {

@@ -9,10 +9,6 @@ public class Carnivore : Creatures
 {
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            StartSpawn();
-        }
         if (!action)
         {
             return;

@@ -10,7 +10,7 @@ public class FieldItem : MonoBehaviour
     /// <summary> 入手フラグ </summary>
     bool getFlag = false;
     /// <summary> 存在する時間 </summary>
-    float toExistTime = 30f;
+    float toExistTime = 8f;
     /// <summary> 存在時間のタイマー </summary>
     public float ExistTimer { get; private set; } = 0f;
     [SerializeField]SpriteRenderer itemImage;

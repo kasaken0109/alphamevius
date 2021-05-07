@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aluminium Knife
   m_EditorClassIdentifier: 
   m_name: "\u30A2\u30EB\u30DF\u30CB\u30A6\u30E0\u30CA\u30A4\u30D5"
-  m_sprite: {fileID: 21300000, guid: 2863c7e2164a0e54698272f58b370893, type: 3}
+  m_sprite: {fileID: 21300000, guid: 7d02a07e039fc4f0b80d64cf1ab41357, type: 3}
   m_needMaterials: 0400000006000000
   m_getMaterials: 04000000
   ID: 45

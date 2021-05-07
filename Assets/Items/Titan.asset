@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Titan
   m_EditorClassIdentifier: 
   m_name: "\u30C1\u30BF\u30F3"
-  m_sprite: {fileID: 21300000, guid: f1bb97ba35943434db85c7eca173f163, type: 3}
+  m_sprite: {fileID: 21300000, guid: 2a1045b597102443c9f548ca9ea219bd, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 12

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Venison
   m_EditorClassIdentifier: 
   m_name: "\u9E7F\u8089"
-  m_sprite: {fileID: 21300000, guid: 5fc57bd9e4280a244bc915faf84cee00, type: 3}
+  m_sprite: {fileID: 21300000, guid: 07f3eeced324045f78f5f7a3bd91fc88, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 73

@@ -771,8 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bridge: {fileID: 2145379601}
-  m_bridgeCollider: {fileID: 2145379601}
-  actionRange: {fileID: 284771486}
+  m_bridgeLength: 4
 --- !u!4 &284771489
 Transform:
   m_ObjectHideFlags: 0
@@ -828,12 +827,12 @@ PrefabInstance:
     - target: {fileID: 4836216478704857515, guid: e28a3e0a5cbe10a4fbf5560643e5fc08,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.591706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4836216478704857515, guid: e28a3e0a5cbe10a4fbf5560643e5fc08,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.45819
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4836216480178070824, guid: e28a3e0a5cbe10a4fbf5560643e5fc08,
         type: 3}
@@ -1957,6 +1956,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400140331451605917, guid: 7e6ca73ca49ee734a986b2b8027c88a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400140331534884810, guid: 7e6ca73ca49ee734a986b2b8027c88a2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400140331534884810, guid: 7e6ca73ca49ee734a986b2b8027c88a2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400140331534884810, guid: 7e6ca73ca49ee734a986b2b8027c88a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400140331534884810, guid: 7e6ca73ca49ee734a986b2b8027c88a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -4047,7 +4066,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionRange: {fileID: 932640704}
   m_message: {fileID: 1260005954}
-  UIManager: {fileID: 0}
 --- !u!1 &987406082
 GameObject:
   m_ObjectHideFlags: 0

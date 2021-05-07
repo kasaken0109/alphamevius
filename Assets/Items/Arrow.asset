@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   m_name: "\u5F13\u77E2"
-  m_sprite: {fileID: 21300000, guid: 25f7002a599bdba42ae62acee7612cfc, type: 3}
+  m_sprite: {fileID: 21300000, guid: dca615cf9f7ac4e7b830465c14119b25, type: 3}
   m_needMaterials: 050000000500000007000000070000000d0000000d0000000d000000
   m_getMaterials: 05000000070000000d000000
   ID: 50

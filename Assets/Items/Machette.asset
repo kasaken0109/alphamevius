@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Machette
   m_EditorClassIdentifier: 
   m_name: "\u30DE\u30C1\u30A7\u30C3\u30C8"
-  m_sprite: {fileID: 21300000, guid: 02cbaed0a42b6f24999f44aee19c4a96, type: 3}
+  m_sprite: {fileID: 21300000, guid: 6409df319725c4cb1b30728d9756f2b2, type: 3}
   m_needMaterials: 0300000003000000090000000700000007000000
   m_getMaterials: 0300000007000000
   ID: 58

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Alloy Knife
   m_EditorClassIdentifier: 
   m_name: "\u5408\u91D1\u30CA\u30A4\u30D5"
-  m_sprite: {fileID: 21300000, guid: d27630e2eaef8884dae4819e5f85c109, type: 3}
+  m_sprite: {fileID: 21300000, guid: c07f87e110b274548a3e8636413d581b, type: 3}
   m_needMaterials: 0300000018000000180000001a0000001a000000
   m_getMaterials: 180000001a000000
   ID: 47

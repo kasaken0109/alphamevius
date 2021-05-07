@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManagera: MonoBehaviour
+public class TitleManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    
     void Start()
     {
-        
+        SoundManager.Instance.PlayBgm();
     }
 
     // Update is called once per frame
@@ -15,6 +16,4 @@ public class SoundManagera: MonoBehaviour
     {
         
     }
-
-    //public void 
 }

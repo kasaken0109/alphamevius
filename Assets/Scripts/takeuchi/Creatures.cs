@@ -253,6 +253,7 @@ public class Creatures : MonoBehaviour
             stan = true;
             stanTimer = stanTime;
             Damage(PlayerManager.Instance.CurrentPower);
+            EffectManager.PlayEffect(EffectType.Hit, transform.position);
         }
     }
 

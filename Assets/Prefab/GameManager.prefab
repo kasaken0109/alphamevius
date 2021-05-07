@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 272841369012826218}
   - component: {fileID: 272841369012826216}
   - component: {fileID: 3376163574874737675}
-  - component: {fileID: 4419179585170345707}
   - component: {fileID: 8210193635156059848}
+  - component: {fileID: 7599514845318972232}
+  - component: {fileID: 238820794253854411}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -90,22 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mapCamera: {fileID: 0}
---- !u!114 &4419179585170345707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272841369012826219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be441458942e7d499d88036d3c9f811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_bgm: {fileID: 0}
-  m_hit: {fileID: 0}
-  m_damage: {fileID: 0}
-  m_clear: {fileID: 0}
 --- !u!82 &8210193635156059848
 AudioSource:
   m_ObjectHideFlags: 0
@@ -125,7 +110,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 1.65
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -202,6 +187,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7599514845318972232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272841369012826219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94efdb667c428a442b69be91f2d927ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bgm: {fileID: 8300000, guid: 88de9b38a2384d24e814b192801d50f4, type: 3}
+  m_hit: {fileID: 0}
+  m_damage: {fileID: 0}
+  m_clear: {fileID: 0}
+--- !u!114 &238820794253854411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272841369012826219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5532fc3e742599a4aa93b23ff71c5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sceneNameToBeLoaded: SceneNameToBeLoaded
+  m_fadePanel: {fileID: 0}
+  m_fadeSpeed: 1
 --- !u!1 &272841370282852939
 GameObject:
   m_ObjectHideFlags: 0

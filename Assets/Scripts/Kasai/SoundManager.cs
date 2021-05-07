@@ -20,11 +20,16 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         m_audioSource = GetComponent<AudioSource>();
-    } 
+    }
+
+    private void Update()
+    {
+        PlayBgm(m_bgm);
+    }
     /// <summary>
     /// BGM を再生する
     /// </summary>
-    public void PlayBgm()
+    public void PlayBgm(AudioClip audioClip)
     {
         m_audioSource.clip = m_bgm;
         m_audioSource.loop = true;

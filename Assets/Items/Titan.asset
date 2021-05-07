@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Titan
   m_EditorClassIdentifier: 
-  m_name: Titan
+  m_name: "\u30C1\u30BF\u30F3"
   m_sprite: {fileID: 21300000, guid: f1bb97ba35943434db85c7eca173f163, type: 3}
   m_needMaterials: 
   m_getMaterials: 
@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u304B\u306A\u308A\u306E\u786C\u5EA6\u3092\u6301\u3064\u9271\u77F3\u3002"
+  m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 26
   m_fieldSprite: {fileID: 21300000, guid: bd57df64bde5a67469ee9ec30b4364af, type: 3}

@@ -10,7 +10,7 @@ public class WaterPlace : MonoBehaviour
         {
             if (PlayerManager.Instance.EquipmentTool == ToolType.EmptyBottle)
             {
-                
+                NewItemManager.Instance.GetWaterBottle(PlayerManager.Instance.EquipmentPower);
             }
         }
     }

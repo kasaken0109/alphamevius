@@ -23,5 +23,5 @@ MonoBehaviour:
   m_needMaterialsText: "\u30A2\u30EB\u30DF\xD7\uFF11\u3000\u9244\xD7\uFF12"
   m_toolType: 1
   m_attackPoint: 4
-  m_toolEfficiency: 10
+  m_toolEfficiency: 0
   m_craftLevel: 2

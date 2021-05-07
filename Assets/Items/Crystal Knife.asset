@@ -22,6 +22,6 @@ MonoBehaviour:
   guideText: "\u6700\u9AD8\u306E\u4E00\u54C1\u3002\u3053\u308C\u3067\u4F55\u3082\u6016\u304F\u306A\u3044\u3002"
   m_needMaterialsText: "\u30A2\u30EB\u30DF\xD7\uFF11\u3000\u30AF\u30EA\u30B9\u30BF\u30EB\xD7\uFF12"
   m_toolType: 1
-  m_attackPoint: 15
+  m_attackPoint: 20
   m_toolEfficiency: 0
   m_craftLevel: 5

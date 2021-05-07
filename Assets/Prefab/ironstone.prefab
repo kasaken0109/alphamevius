@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectType: 32
+  ObjectType: 6
   strengthPoint: 5
   DropItems: 110000001100000011000000
 --- !u!61 &7919380060355603380

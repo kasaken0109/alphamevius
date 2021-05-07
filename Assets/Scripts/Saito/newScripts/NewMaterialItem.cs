@@ -22,5 +22,5 @@ public class NewMaterialItem : NewItem
     {
         return m_toolType;
     }
-    public override int GetCraftLevel() { return m_craftLevel; }
+    public override int GetCraftLevel() { return 0; }
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 1
   guideText: "\u5CA9\u3092\u7834\u58CA\u3067\u304D\u308B\u512A\u308C\u30E2\u30CE\u3002"
-  m_toolType: 0
+  m_toolType: 4
   m_attackPoint: 1
   m_toolEfficiency: 0
   m_craftLevel: 2

@@ -53,7 +53,8 @@ public enum ToolType
     Bridge,
     Cooking,
     Bonfire,
-    Material
+    Material,
+    EmptyBottle
 }
 
 public class NewItem : ScriptableObject

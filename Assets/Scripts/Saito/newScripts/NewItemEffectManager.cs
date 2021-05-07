@@ -54,6 +54,7 @@ public class NewItemEffectManager : MonoBehaviour
                 break;
             case ToolType.HealingWater:
                 PlayerManager.Instance.HealingHydrate(manager.GetItem(itemID).GetEfficiency());
+                NewItemManager.Instance.GetEmptyBottle(manager.GetItem(itemID).GetEfficiency());
                 break;
             case ToolType.Bridge:
                 CreateBridge.Instance.BridgeCreate();

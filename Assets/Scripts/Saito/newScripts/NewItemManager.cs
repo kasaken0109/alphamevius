@@ -139,4 +139,13 @@ public class NewItemManager : MonoBehaviour
                                     .Where(i => i.GetEfficiency() == efficiencyNum).FirstOrDefault();
         SubItem(item.GetID(), 1);
     }
+    public void GetEmptyBottle(int efficiencyNum)
+    {
+        NewItem item = m_itemLiblary.Where(i => i.GetToolType() == ToolType.EmptyBottle)
+                                    .Where(i => i.GetEfficiency() == efficiencyNum).FirstOrDefault();
+        AddItem(item.GetID(), 1);
+        item = m_itemLiblary.Where(i => i.GetToolType() == ToolType.HealingWater)
+                                    .Where(i => i.GetEfficiency() == efficiencyNum).FirstOrDefault();
+        SubItem(item.GetID(), 1);
+    }
 }

@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectType: 3
-  strengthPoint: 5
+  ObjectType: 4
+  strengthPoint: 120
   DropItems: 0c0000000c0000000c0000000c0000000c000000
 --- !u!114 &6450667903102363415
 MonoBehaviour:

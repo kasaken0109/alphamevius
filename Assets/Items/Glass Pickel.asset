@@ -17,7 +17,7 @@ MonoBehaviour:
   m_needMaterials: 0400000006000000
   m_getMaterials: 04000000
   ID: 59
-  haveNumber: 0
+  haveNumber: 1
   toolCheck: 1
   guideText: "\u3064\u308B\u306F\u3057\u3068\u3057\u3066\u306F\u5FAE\u5999\u306A\u8010\u4E45\u6027\u3002"
   m_needMaterialsText: "\u30AC\u30E9\u30B9\xD7\uFF11\u3000\u77F3\xD7\uFF11"

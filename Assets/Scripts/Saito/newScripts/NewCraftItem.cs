@@ -18,11 +18,6 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     /// 2 : フレーバーテキスト
     /// </summary>
     [SerializeField] Text[] texts;
-    [SerializeField] Text haveNumber;
-    private void Awake()
-    {
-        haveNumber.text = "";
-    }
     private void Start()
     {
         image.sprite = NewItemManager.Instance.GetSprite(ID);
@@ -35,7 +30,6 @@ public class NewCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         texts[0].text = NewItemManager.Instance.GetName(ID);
         texts[1].text = NewItemManager.Instance.GetItem(ID).GetNeedMaterialsText();
         texts[2].text = NewItemManager.Instance.GetItem(ID).GetGuideText();
-        haveNumber.text = NewItemManager.Instance.HaveItemNumber(ID).ToString();
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {

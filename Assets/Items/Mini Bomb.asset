@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
   m_Name: Mini Bomb
   m_EditorClassIdentifier: 
-  m_name: Mini Bomb
+  m_name: "\u5C0F\u578B\u7206\u5F3E"
   m_sprite: {fileID: 21300000, guid: 52aa9b3804fc6774faf9ada1c1f5532a, type: 3}
   m_needMaterials: 020000000200000004000000040000001000000010000000
   m_getMaterials: 020000000400000010000000
@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u6642\u9650\u5F0F\u306E\u7206\u5F3E\u3002\u5CA9\u5C71\u306E\u7834\u58CA\u306B\u3082\u4F7F\u3048\u308B\u3002"
+  m_needMaterialsText: "\u30D7\u30E9\u30B9\u30C1\u30C3\u30AF\xD7\uFF12\u3000\u30AC\u30E9\u30B9\xD7\uFF12\u3000\u706B\u85AC\xD7\uFF12"
   m_toolType: 8
   m_attackPoint: 0
   m_toolEfficiency: 0

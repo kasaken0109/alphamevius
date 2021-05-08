@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectType: 31
-  strengthPoint: 5
+  ObjectType: 5
+  strengthPoint: 120
   DropItems: 150000001500000015000000
 --- !u!212 &1164628923214431508
 SpriteRenderer:

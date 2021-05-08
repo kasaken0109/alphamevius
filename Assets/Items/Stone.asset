@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  m_name: Stone
-  m_sprite: {fileID: 21300000, guid: 5b79388ee790ef54eb16887a9d38f4cc, type: 3}
+  m_name: "\u77F3"
+  m_sprite: {fileID: 21300000, guid: 95bf7e4c6fdb24d129cf5640f512371f, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 11
-  haveNumber: 0
+  haveNumber: 3
   toolCheck: 0
   guideText: "\u305D\u3053\u3089\u3078\u3093\u306B\u843D\u3061\u3066\u3044\u308B\u666E\u901A\u306E\u77F3\u3002"
+  m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 6
-  m_fieldSprite: {fileID: 0}
+  m_fieldSprite: {fileID: 21300000, guid: bd57df64bde5a67469ee9ec30b4364af, type: 3}
   m_craftLevel: 0

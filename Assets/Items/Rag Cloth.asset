@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Rag Cloth
   m_EditorClassIdentifier: 
-  m_name: Rag Cloth
-  m_sprite: {fileID: 21300000, guid: 5e03099816f430c4aaec259addfb0ba1, type: 3}
+  m_name: "\u307C\u308D\u5E03"
+  m_sprite: {fileID: 21300000, guid: bc84de9573f4d420a85ab2bbc89bea8d, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 4
   haveNumber: 0
   toolCheck: 0
   guideText: "\u4F55\u304B\u306E\u4E00\u90E8\u3060\u3063\u305F\u307C\u308D\u5E03\u3002"
+  m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 17
   m_fieldSprite: {fileID: 21300000, guid: 5e03099816f430c4aaec259addfb0ba1, type: 3}

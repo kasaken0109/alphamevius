@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialControl : MonoBehaviour
 {
     [SerializeField] GameObject[] tutorialPage;
     [SerializeField] GameObject nextButton;
     [SerializeField] GameObject backButton;
-    int pageNumber;
+    [SerializeField] Text pageNumberText;
+    int pageNumber = 0;
+    private void Start()
+    {
+        OnClickTutorialOpen();
+    }
     void CloseAllPage()
     {
         foreach (var item in tutorialPage)
@@ -24,8 +30,10 @@ public class TutorialControl : MonoBehaviour
         pageNumber++;
         if (pageNumber >= tutorialPage.Length - 1)
         {
+            pageNumber = tutorialPage.Length - 1;
             nextButton.SetActive(false);
-            tutorialPage[tutorialPage.Length - 1].SetActive(true);
+            CloseAllPage();
+            tutorialPage[pageNumber].SetActive(true);
         }
         else
         {
@@ -33,13 +41,16 @@ public class TutorialControl : MonoBehaviour
             CloseAllPage();
             tutorialPage[pageNumber].SetActive(true);
         }
+        pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
     }
     public void OnClickBackPage()
     {
         pageNumber--;
         if (pageNumber <= 0)
         {
+            pageNumber = 0;
             backButton.SetActive(false);
+            CloseAllPage();
             tutorialPage[0].SetActive(true);
         }
         else
@@ -48,5 +59,27 @@ public class TutorialControl : MonoBehaviour
             CloseAllPage();
             tutorialPage[pageNumber].SetActive(true);
         }
+        pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
+    }
+    public void OnClickTutorialClose()
+    {
+        gameObject.SetActive(false);
+    }
+    public void OnClickTutorialOpen()
+    {
+        gameObject.SetActive(true);
+        CloseAllPage();
+        tutorialPage[pageNumber].SetActive(true);
+        if (pageNumber == 0)
+        {
+            backButton.SetActive(false);
+            nextButton.SetActive(true);
+        }
+        else if (pageNumber == tutorialPage.Length - 1)
+        {
+            nextButton.SetActive(false);
+            backButton.SetActive(true);
+        }
+        pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Crystal
   m_EditorClassIdentifier: 
-  m_name: Crystal
+  m_name: "\u30AF\u30EA\u30B9\u30BF\u30EB"
   m_sprite: {fileID: 21300000, guid: 879f7e328ed14cb459294c5fb3eac083, type: 3}
   m_needMaterials: 
   m_getMaterials: 
@@ -20,6 +20,7 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u6700\u3082\u5E0C\u5C11\u306A\u9271\u77F3\u3002\u4F7F\u3046\u6642\u306B\u306F\u7D30\u5FC3\u306E\u6CE8\u610F\u3092\uFF01"
+  m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 25
   m_fieldSprite: {fileID: 21300000, guid: 879f7e328ed14cb459294c5fb3eac083, type: 3}

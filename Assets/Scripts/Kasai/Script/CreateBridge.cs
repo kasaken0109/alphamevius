@@ -27,10 +27,24 @@ public class CreateBridge : MonoBehaviour
     public void BridgeCreate()
     {
         GameObject bridge;
+        if (Player.Instance.Down())
+        {
+            return;
+        }
+        bridge = Instantiate(m_bridge);
+        bridge.transform.position = Player.Instance.transform.position + new Vector3(0, -m_bridgeLength, 0);
+        NewItemManager.Instance.SubItem(67,1);
+    }
+
+
+
+    public void BridgeCreate(int m)
+    {
+        GameObject bridge;
         //NewItemManager.Instance.SubItem(NewItemManager.Instance.Gettoo);
         if (Input.GetAxisRaw("Vertical") == 0)
         {
-            
+
             switch (Player.Instance.GetAngle())
             {
                 case MoveAngle.Left:
@@ -56,7 +70,7 @@ public class CreateBridge : MonoBehaviour
                             break;
                         default:
                             break;
-                    }                    
+                    }
                     break;
                 case MoveAngle.Right:
                     switch (Player.Instance.GetAngle())

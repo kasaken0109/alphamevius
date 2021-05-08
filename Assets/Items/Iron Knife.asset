@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
   m_Name: Iron Knife
   m_EditorClassIdentifier: 
-  m_name: Iron Knife
-  m_sprite: {fileID: 21300000, guid: 888cbb776f33f4d4cbf22c4f75ed2602, type: 3}
+  m_name: "\u9244\u306E\u30CA\u30A4\u30D5"
+  m_sprite: {fileID: 21300000, guid: 23496f8af07644ac2890e3d847e701bc, type: 3}
   m_needMaterials: 030000000700000007000000
   m_getMaterials: 07000000
   ID: 46
   haveNumber: 0
   toolCheck: 1
   guideText: "\u305D\u3053\u305D\u3053\u306E\u5207\u308C\u5473\u3002"
+  m_needMaterialsText: "\u30A2\u30EB\u30DF\xD7\uFF11\u3000\u9244\xD7\uFF12"
   m_toolType: 1
   m_attackPoint: 4
-  m_toolEfficiency: 10
+  m_toolEfficiency: 0
   m_craftLevel: 2

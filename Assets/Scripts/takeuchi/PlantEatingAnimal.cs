@@ -11,10 +11,6 @@ public class PlantEatingAnimal : Creatures
     [SerializeField] bool m_isAttackable = false;
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            StartSpawn();
-        }
         if (!action || !m_isAttackable)
         {
             return;

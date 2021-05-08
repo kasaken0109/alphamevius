@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce4fb4756951f6449bb31d5e300c5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectType: 35
-  strengthPoint: 5
-  DropItems: 00000000160000001600000016000000
+  ObjectType: 3
+  strengthPoint: 120
+  DropItems: 05000000050000000500000005000000
 --- !u!61 &5721440649269737050
 BoxCollider2D:
   m_ObjectHideFlags: 0

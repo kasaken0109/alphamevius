@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Can
   m_EditorClassIdentifier: 
-  m_name: Can
-  m_sprite: {fileID: 21300000, guid: 8794f2fc63309c043904bcf3000d1463, type: 3}
+  m_name: "\u7F36"
+  m_sprite: {fileID: 21300000, guid: 874d185939a454a49b64b9a0e0abf606, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 1
   haveNumber: 0
   toolCheck: 0
   guideText: "\u6D5C\u8FBA\u306B\u843D\u3061\u3066\u3044\u305F\u30A2\u30EB\u30DF\u7F36\u3002"
+  m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 20
   m_fieldSprite: {fileID: 21300000, guid: 8eeaeba78728f494d8609192cc8428d6, type: 3}

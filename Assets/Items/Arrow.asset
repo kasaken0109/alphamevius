@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  m_name: Arrow
-  m_sprite: {fileID: 21300000, guid: 25f7002a599bdba42ae62acee7612cfc, type: 3}
+  m_name: "\u5F13\u77E2"
+  m_sprite: {fileID: 21300000, guid: dca615cf9f7ac4e7b830465c14119b25, type: 3}
   m_needMaterials: 050000000500000007000000070000000d0000000d0000000d000000
   m_getMaterials: 05000000070000000d000000
   ID: 50
-  haveNumber: 0
+  haveNumber: 1
   toolCheck: 1
   guideText: "\u9060\u304F\u306E\u7269\u3092\u5C04\u308B\u3053\u3068\u306B\u9069\u3057\u3066\u3044\u308B\u3002"
+  m_needMaterialsText: "\u6728\u6750\xD7\uFF12\u3000\u9244\xD7\uFF12\u3000\u7CF8\xD7\uFF13"
   m_toolType: 2
   m_attackPoint: 3
   m_toolEfficiency: 0

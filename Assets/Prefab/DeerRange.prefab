@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2921596312877254982}
   - component: {fileID: 2921596312877254969}
   - component: {fileID: 988978976824440829}
+  - component: {fileID: 8211002953903679559}
   m_Layer: 0
   m_Name: Deer
   m_TagString: Untagged
@@ -166,11 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb698c4e272345489213ec277bc060d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 10
   power: 5
   spawnPoint: {fileID: 2921596313474481968}
   creature: {fileID: 2921596312877254970}
-  haveItems: 
+  haveItems: 0900000009000000
   haveMaterial: 
   actionRange: {fileID: 2921596313474481982}
   searchRange: {fileID: 2921596314609860966}
@@ -181,6 +182,18 @@ MonoBehaviour:
   CreaturesAnimation: {fileID: 2921596314056817213}
   actionTime: 3
   m_isAttackable: 0
+--- !u!114 &8211002953903679559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921596312877254970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13abfa7611685549b3f92456b272419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2921596313474481971
 GameObject:
   m_ObjectHideFlags: 0

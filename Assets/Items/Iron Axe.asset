@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
   m_Name: Iron Axe
   m_EditorClassIdentifier: 
-  m_name: Iron Axe
-  m_sprite: {fileID: 21300000, guid: 9ab927eac9af7ba428dd8242ce4348c2, type: 3}
+  m_name: "\u9244\u306E\u65A7"
+  m_sprite: {fileID: 21300000, guid: d3c2f96c9c87f4e99865915d23b6e8eb, type: 3}
   m_needMaterials: 05000000050000000700000007000000
   m_getMaterials: 0500000007000000
   ID: 53
   haveNumber: 0
   toolCheck: 1
   guideText: "\u305D\u3053\u305D\u3053\u306E\u5207\u308C\u5473\u3002"
+  m_needMaterialsText: "\u6728\u6750\xD7\uFF12\u3000\u9244\xD7\uFF12"
   m_toolType: 3
-  m_attackPoint: 30
-  m_toolEfficiency: 0
+  m_attackPoint: 1
+  m_toolEfficiency: 30
   m_craftLevel: 2

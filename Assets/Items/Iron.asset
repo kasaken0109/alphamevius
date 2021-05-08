@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: 
-  m_name: Iron
+  m_name: "\u9244"
   m_sprite: {fileID: 21300000, guid: f1bb97ba35943434db85c7eca173f163, type: 3}
   m_needMaterials: 
   m_getMaterials: 
@@ -20,7 +20,8 @@ MonoBehaviour:
   haveNumber: 0
   toolCheck: 0
   guideText: "\u305D\u308C\u306A\u308A\u306E\u786C\u5EA6\u3092\u6301\u3064\u7D20\u6750\u3002"
-  m_toolType: 15
+  m_needMaterialsText: 
+  m_toolType: 0
   m_materialType: 7
   m_fieldSprite: {fileID: 21300000, guid: 82f7ee965bacb464ab057f2c10d72ba5, type: 3}
   m_craftLevel: 0

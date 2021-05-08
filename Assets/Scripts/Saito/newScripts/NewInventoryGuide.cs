@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class NewInventoryGuide : MonoBehaviour
 {
     [SerializeField] Image m_image;
+    [SerializeField] Text m_itemNameText;
     [SerializeField] Text m_guideText;
     [SerializeField] GameObject m_button;
     [SerializeField] Text m_buttonText;
@@ -14,6 +15,7 @@ public class NewInventoryGuide : MonoBehaviour
         gameObject.SetActive(true);
         this.ID = ID;
         m_image.sprite = NewItemManager.Instance.GetSprite(ID);
+        m_itemNameText.text = NewItemManager.Instance.GetName(ID);
         m_guideText.text = NewItemManager.Instance.GetGuideText(ID);
         if (ToolType.None == NewItemManager.Instance.GetToolType(ID))
         {

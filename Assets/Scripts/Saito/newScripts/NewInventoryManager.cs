@@ -252,7 +252,7 @@ public class NewInventoryManager : MonoBehaviour
                     m_craftPage[5].UpdatePage(page[5], item);
                     page[5]++;
                     break;
-                case ToolType.HealingWater:
+                case ToolType.EmptyBottle:
                     m_craftPage[4].UpdatePage(page[4], item);
                     page[4]++;
                     break;
@@ -374,6 +374,11 @@ public class NewInventoryManager : MonoBehaviour
     public void OnClickOpenCraft(int page)
     {
         OnClickClose();
+
+        foreach (var item in m_craftPage)
+        {
+            item.UpdateItemColor();
+        }
         m_open = true;
         m_allCraftPage.OpenChoicePage(page);
     }

@@ -19,10 +19,10 @@ public class CreateBridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    BridgeCreate();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BridgeCreate();
+        }
     }
     public void BridgeCreate()
     {

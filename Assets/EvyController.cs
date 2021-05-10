@@ -9,21 +9,32 @@ public class EvyController : MonoBehaviour
     [SerializeField] bool IsNightEvy = true;
     [SerializeField] float m_moveDistance = 3;
     [SerializeField] float m_moveSpeed = 0.5f;
+    [SerializeField] bool IsMoveUp = true;
+    float m_moveDirection = 1;
     Animation m_anim;
     Rigidbody2D m_rb;
-    Transform m_origin;
+    Vector3 m_origin;
     // Start is called before the first frame update
     void Start()
     {
+        if (IsMoveUp)
+        {
+            m_moveDirection = 1;
+        }
+        else
+        {
+            m_moveDirection = -1;
+        }
         m_anim = GetComponent<Animation>();
         m_rb = GetComponent<Rigidbody2D>();
-        m_origin = transform;
+        m_origin = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         timeManager.dayStatus = TimeManager.Instance.GetDayStatus();
+        Debug.Log(Vector2.Distance(transform.position, m_origin));
         if (IsNightEvy)
         {
             if (timeManager.dayStatus == TimeManager.DayStatus.NIGHT)
@@ -50,9 +61,9 @@ public class EvyController : MonoBehaviour
 
     private void Move()
     {
-        if (Vector2.Distance(transform.position, m_origin.position) <= m_moveDistance)
+        if (Vector2.Distance(transform.position, m_origin) <= m_moveDistance)
         {
-            m_rb.velocity = new Vector2(0, m_moveSpeed);
+            m_rb.velocity = new Vector2(0, m_moveSpeed * m_moveDirection);
         }
         else
         {

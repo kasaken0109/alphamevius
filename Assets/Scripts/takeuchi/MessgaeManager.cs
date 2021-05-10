@@ -5,29 +5,101 @@ using UnityEngine.UI;
 
 public class MessgaeManager : MonoBehaviour
 {
+    [SerializeField] Text stageTargetText;
+    //[SerializeField] Text stageSabText;
     [SerializeField] Text messageText;
-    [SerializeField] float viweTime = 3f;
+    [SerializeField] Image messageIcon;
+    [SerializeField] RectTransform messageBox;
+    [SerializeField] float viweTime = 1f;
     float viweTimer;
     static MessgaeManager instance;
+    float viwePositionY = -500;
+    float imageClearScale = 0f;
+    bool viweMode = false;
+    bool viwe;
     private void Awake()
     {
         instance = this;
     }
+    private void Start()
+    {
+        messageBox.transform.localPosition = new Vector2(0, -500);
+    }
     void Update()
     {
-        if (viweTimer <= 0)
+        if (!viwe)
         {
             return;
-        }
-        viweTimer -= Time.deltaTime;
-        if (viweTimer <= 0)
+        }   
+        if (viweMode)
         {
-            messageText.text = "";
+            if (viwePositionY < 0)
+            {
+                viwePositionY += 500f * Time.deltaTime;
+                if (viwePositionY >= 0)
+                {
+                    viwePositionY = 0;
+                    viweTimer = viweTime;
+                }
+            }
+            if (imageClearScale < 1)
+            {
+                imageClearScale += Time.deltaTime;
+                if (imageClearScale >= 1)
+                {
+                    imageClearScale = 1f;
+                }
+            }            
+        }
+        else
+        {
+            if (imageClearScale > 0)
+            {
+                imageClearScale -= Time.deltaTime;
+                if (imageClearScale <= 0)
+                {
+                    imageClearScale = 0f;
+                    viwe = false;
+                }
+            }
+        }
+        messageText.color = new Color(1, 1, 1, imageClearScale);
+        messageIcon.color = new Color(1, 1, 1, imageClearScale);
+        messageBox.transform.localPosition = new Vector2(0, viwePositionY);        
+        if (viweTimer > 0)
+        {
+            viweTimer -= Time.deltaTime;
+            if (viweTimer <= 0)
+            {
+                viweTimer = 0;
+                viweMode = false;
+            }
         }
     }
     public static void ViweMessgae(string viweText)
     {
         instance.messageText.text = viweText;
+        instance.messageIcon.sprite = NewItemManager.Instance.GetSprite(0);
+        StartViwe();
+    }
+    public static void ViweMessage(string viweText,int itemID)
+    {
+        instance.messageText.text = viweText;
+        instance.messageIcon.sprite = NewItemManager.Instance.GetSprite(itemID);
+        StartViwe();
+    }
+    public static void ViweMessage(string viweText, Sprite viweIcon)
+    {
+        instance.messageText.text = viweText;
+        instance.messageIcon.sprite = viweIcon;
+        StartViwe();
+    }
+    static void StartViwe()
+    {
+        instance.imageClearScale = 0f;
+        instance.viwePositionY = -500f;
         instance.viweTimer = instance.viweTime;
+        instance.viweMode = true;
+        instance.viwe = true;
     }
 }

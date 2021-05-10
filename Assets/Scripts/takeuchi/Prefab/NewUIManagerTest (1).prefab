@@ -555,12 +555,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image:
-  - {fileID: 8379685660806994506}
-  - {fileID: 4102258786343091893}
-  - {fileID: 3077295045134947498}
-  - {fileID: 1606650223212604500}
-  - {fileID: 6529459319766633360}
-  - {fileID: 6075665960311736134}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_guideText:
   - {fileID: 6646256596619424355}
   - {fileID: 7636127184208290288}
@@ -1633,12 +1633,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image:
-  - {fileID: 8960787773479704957}
-  - {fileID: 5091282638724416478}
-  - {fileID: 1847943823466760841}
-  - {fileID: 8545352842383194195}
-  - {fileID: 5541814537826634661}
-  - {fileID: 6906356259230013255}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_guideText:
   - {fileID: 159659489003672106}
   - {fileID: 3422336543359111638}
@@ -5808,12 +5808,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image:
-  - {fileID: 7886045473961494428}
-  - {fileID: 446628699970844910}
-  - {fileID: 7100647358157624502}
-  - {fileID: 108420912083069807}
-  - {fileID: 2300375748513163341}
-  - {fileID: 3172260474747616712}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_guideText:
   - {fileID: 3187705303127924724}
   - {fileID: 3358647042713697883}

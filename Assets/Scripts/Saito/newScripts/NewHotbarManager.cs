@@ -13,43 +13,43 @@ public class NewHotbarManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             HotbarUse(0);
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             HotbarUse(1);
         }
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             HotbarUse(2);
         }
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             HotbarUse(3);
         }
-        if (Input.GetKeyDown(KeyCode.F5))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             HotbarUse(4);
         }
-        if (Input.GetKeyDown(KeyCode.F6))
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             HotbarUse(5);
         }
-        if (Input.GetKeyDown(KeyCode.F7))
+        if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             HotbarUse(6);
         }
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             HotbarUse(7);
         }
-        if (Input.GetKeyDown(KeyCode.F9))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             HotbarUse(8);
         }
-        if (Input.GetKeyDown(KeyCode.F10))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             HotbarUse(9);
         }
@@ -62,6 +62,10 @@ public class NewHotbarManager : MonoBehaviour
     {
         haveTool[hotbarID] = true;
     }
+    public void OutHotbar(int hotbarID)
+    {
+        haveTool[hotbarID] = false;
+    }
     public void EquipmentTool(int EquipmentID)
     {
         foreach (var item in hotbarItems)
@@ -71,6 +75,10 @@ public class NewHotbarManager : MonoBehaviour
     }
     public void ChangeGray(int ID)
     {
+        if (ID == 0)
+        {
+            return;
+        }
         foreach (var item in hotbarItems)
         {
             if (item.GetID() == ID)

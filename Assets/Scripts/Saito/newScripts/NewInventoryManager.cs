@@ -33,7 +33,13 @@ public class NewInventoryManager : MonoBehaviour
         RecycleListUpdate();
         OnClickClose();
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OnClickOpenInventory();
+        }
+    }
     public void ItemListUpdate()
     {
         List<int> itemList = NewItemManager.Instance.GetHaveItemID();

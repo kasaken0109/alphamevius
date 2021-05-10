@@ -76,7 +76,7 @@ public class MessgaeManager : MonoBehaviour
             }
         }
     }
-    public static void ViweMessgae(string viweText)
+    public static void ViweMessage(string viweText)
     {
         instance.messageText.text = viweText;
         instance.messageIcon.sprite = NewItemManager.Instance.GetSprite(0);

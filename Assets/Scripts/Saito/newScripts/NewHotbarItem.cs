@@ -109,11 +109,15 @@ public class NewHotbarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
-        var result = results.Where(i => i.gameObject.CompareTag("Hotbar")).FirstOrDefault();
+        var result = results.Where(i => i.gameObject.CompareTag("Hotbar")).FirstOrDefault();        
         if (result.gameObject && ID != 0)
         {
-            result.gameObject.GetComponent<NewHotbarItem>().ChangeImage(ID);
-            ChangeImage(0);
+            NewHotbarItem item = result.gameObject.GetComponent<NewHotbarItem>();
+            if (item.hotbarID != hotbarID)
+            {
+                item.ChangeImage(ID);
+                ChangeImage(0);
+            }
         }
         else
         {

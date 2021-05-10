@@ -5,17 +5,34 @@ using UnityEngine;
 public class HintController : MonoBehaviour
 {
     [SerializeField] GameObject m_hint = null;
+    [SerializeField] Animation m_highlights = null;
+    [SerializeField] bool m_hintMode = true;
     // Start is called before the first frame update
     void Start()
     {
-        m_hint.SetActive(false);
+        if (m_hintMode)
+        {
+            m_hint.SetActive(false);
+        }
+        else
+        {
+            m_highlights = GetComponent<Animation>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            m_hint.SetActive(true);
+            if (m_hintMode)
+            {
+                m_hint.SetActive(true);
+            }
+            else
+            {
+                m_highlights.Play();
+                Debug.Log("AnimPlay");
+            }
         }
     }
 
@@ -23,12 +40,23 @@ public class HintController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            m_hint.SetActive(true);
+            if (m_hintMode)
+            {
+                m_hint.SetActive(true);
+            }
+            else
+            {
+                m_highlights.Play();
+                Debug.Log("AnimPlay");
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        m_hint.SetActive(false);
+        if (m_hintMode)
+        {
+            m_hint.SetActive(false);
+        } 
     }
 }

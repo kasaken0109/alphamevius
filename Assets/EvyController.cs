@@ -43,7 +43,7 @@ public class EvyController : MonoBehaviour
             }
             else
             {
-                Stop();
+                MoveBack();
             }
         }
         else
@@ -54,7 +54,7 @@ public class EvyController : MonoBehaviour
             }
             else
             {
-                Stop();
+                MoveBack();
             }
         }
     }
@@ -64,6 +64,18 @@ public class EvyController : MonoBehaviour
         if (Vector2.Distance(transform.position, m_origin) <= m_moveDistance)
         {
             m_rb.velocity = new Vector2(0, m_moveSpeed * m_moveDirection);
+        }
+        else
+        {
+            m_rb.velocity = new Vector2(0, 0);
+        }
+    }
+
+    private void MoveBack()
+    {
+        if (Vector2.Distance(transform.position, m_origin) > 0)
+        {
+            m_rb.velocity = new Vector2(0, m_moveSpeed * -m_moveDirection);
         }
         else
         {

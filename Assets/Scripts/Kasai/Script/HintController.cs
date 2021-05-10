@@ -5,7 +5,7 @@ using UnityEngine;
 public class HintController : MonoBehaviour
 {
     [SerializeField] GameObject m_hint = null;
-    [SerializeField] Animation m_highlights = null;
+    Animation m_highlights = null;
     [SerializeField] bool m_hintMode = true;
     // Start is called before the first frame update
     void Start()

@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
     public float m_second;
     public int m_hour = 0;
     public int m_dayNum = 1;
-    DayStatus dayStatus;
+    public DayStatus dayStatus;
     Color panelColor;
     public enum DayStatus
     {

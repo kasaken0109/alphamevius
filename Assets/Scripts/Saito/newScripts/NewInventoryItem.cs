@@ -56,11 +56,11 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        //ViewGuide();
+        image.color = new Color(0.6f, 0.6f, 0.6f);
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        //CloseGuide();
+        image.color = new Color(1f, 1f, 1f);
     }
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
@@ -104,10 +104,6 @@ public class NewInventoryItem : MonoBehaviour ,IPointerEnterHandler, IPointerExi
             NewInventoryManager.Instance.OpenItemGuide(ID);
             TargetMark.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
         }
-
-        //NewInventoryManager.Instance.OpenCraftGuide(ID);
-        //NewInventoryManager.Instance.OpenRecycleGuide(ID);
-        //NewInventoryManager.Instance.OpenCookingGuide(ID);
     }
     public void ViewGuide()
     {

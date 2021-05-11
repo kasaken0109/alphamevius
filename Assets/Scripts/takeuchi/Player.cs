@@ -238,6 +238,10 @@ public class Player : MonoBehaviour
                 playerAnimation.SetBool("Move", false);
             }
         }
+        if (playerAnimation)
+        {
+            playerAnimation.SetBool("Collection", false);
+        }
         rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
         moveY = 0;
@@ -286,6 +290,7 @@ public class Player : MonoBehaviour
     public void NoneEquipmentArrow() { arrowMode = false; }
     public void EquipmentTorch() { playerAnimation.SetBool("Torch", true); }
     public void NoneEquipmentTorch() { playerAnimation.SetBool("Torch", false); }
+    public void CatchItem() { playerAnimation.SetBool("Collection", true); }
     public void Damage()
     {
         playerAnimation.SetBool("Damage", true);

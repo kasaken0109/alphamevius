@@ -59,7 +59,9 @@ public class MessgaeManager : MonoBehaviour
                 if (imageClearScale <= 0)
                 {
                     imageClearScale = 0f;
+                    messageBox.transform.localPosition = new Vector2(0, -500);
                     viwe = false;
+                    return;
                 }
             }
         }

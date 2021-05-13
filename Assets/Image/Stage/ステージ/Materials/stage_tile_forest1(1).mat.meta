@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Image/Stage/ステージ/Materials/stage_tile_forest1(1).mat.meta
 guid: 4b6844c9b621e48dc801bab0e9c499d5
 NativeFormatImporter:
@@ -7,6 +8,10 @@ guid: 12ef1c987aeba094c88c96c7915fd9f8
 folderAsset: yes
 DefaultImporter:
 >>>>>>> de5d0143822355ec935d04daedf185c0060d3c75:Assets/Image/UI/チュートリアルver1.2.meta
+=======
+guid: 4b6844c9b621e48dc801bab0e9c499d5
+NativeFormatImporter:
+>>>>>>> f806092bcff4327f480cadef683f4cfebb2dfd93
   externalObjects: {}
   mainObjectFileID: 0
   userData: 

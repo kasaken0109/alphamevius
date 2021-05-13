@@ -59,7 +59,9 @@ public class MessgaeManager : MonoBehaviour
                 if (imageClearScale <= 0)
                 {
                     imageClearScale = 0f;
+                    messageBox.transform.localPosition = new Vector2(0, -500);
                     viwe = false;
+                    return;
                 }
             }
         }
@@ -76,7 +78,7 @@ public class MessgaeManager : MonoBehaviour
             }
         }
     }
-    public static void ViweMessgae(string viweText)
+    public static void ViweMessage(string viweText)
     {
         instance.messageText.text = viweText;
         instance.messageIcon.sprite = NewItemManager.Instance.GetSprite(0);

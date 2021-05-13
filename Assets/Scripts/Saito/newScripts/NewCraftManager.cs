@@ -45,6 +45,7 @@ public class NewCraftManager : MonoBehaviour
         {
             if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
             {
+                MessgaeManager.ViweMessage("素材が足りません");
                 Debug.Log("不足");
                 return;
             }
@@ -54,6 +55,7 @@ public class NewCraftManager : MonoBehaviour
         {
             itemManager.SubItem(idList[a], needMaterialNumbers[a]);
         }
+        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         Debug.Log("作成");
         EXPGet(2);
     }

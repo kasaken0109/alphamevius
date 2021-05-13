@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 public class NewRecycleGuide : MonoBehaviour
 {
-    [SerializeField] Image[] m_image;
+    [SerializeField] IconGuideView[] m_image;
     [SerializeField] Text[] m_guideText;
     MaterialType[] m_recycleMaterials;
     int[] m_idList = new int[6];
@@ -29,7 +29,7 @@ public class NewRecycleGuide : MonoBehaviour
         }
         for (int i = 0; i < m_idList.Length; i++)
         {
-            m_image[i].sprite = NewItemManager.Instance.GetSprite(m_idList[i]);
+            m_image[i].SetImage(NewItemManager.Instance.GetSprite(m_idList[i]), m_idList[i]);
             int b = m_recycleMaterialNumbers[i];
             if (b > 0)
             {

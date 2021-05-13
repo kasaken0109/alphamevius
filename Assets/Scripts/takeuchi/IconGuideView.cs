@@ -9,13 +9,23 @@ public class IconGuideView : MonoBehaviour , IPointerEnterHandler, IPointerExitH
     [SerializeField] Text nameText;
     [SerializeField] GameObject guide;
     [SerializeField] Image thisImage;
+    int id;
+    void Start()
+    {
+        guide.SetActive(false);
+    }
     public void SetImage(Sprite sprite,int itemID)
     {
         thisImage.sprite = sprite;
         nameText.text = NewItemManager.Instance.GetName(itemID);
+        id = itemID;
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
+        if (id == 0)
+        {
+            return;
+        }
         guide.SetActive(true);
         thisImage.color = new Color(0.6f, 0.6f, 0.6f);
     }

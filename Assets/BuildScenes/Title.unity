@@ -483,6 +483,11 @@ PrefabInstance:
       propertyPath: m_fadePanel
       value: 
       objectReference: {fileID: 875824025}
+    - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_sceneNameToBeLoaded
+      value: BuildScene_Stage1
+      objectReference: {fileID: 0}
     - target: {fileID: 272841369012826217, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_LocalPosition.x

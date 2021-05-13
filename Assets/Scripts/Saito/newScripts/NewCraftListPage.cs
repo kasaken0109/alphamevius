@@ -9,4 +9,18 @@ public class NewCraftListPage : MonoBehaviour
     {
         m_craftList[item].ChangeImage(ID);
     }
+    public void UpdateItemColor()
+    {
+        foreach (var item in m_craftList)
+        {
+            if (item.IsCraftCheck())
+            {
+                item.ChangeNormalColor();
+            }
+            else
+            {
+                item.ChangeCantCraftColor();
+            }
+        }
+    }
 }

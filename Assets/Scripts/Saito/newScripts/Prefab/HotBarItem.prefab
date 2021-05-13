@@ -246,6 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 570021249680577427}
+  defaultSprite: {fileID: 21300000, guid: 03a779d4e6dc9de488985c12c44c295e, type: 3}
   haveNumber: {fileID: 570021248689222358}
   hotbarID: 0
   hotbarMark: {fileID: 505997184855466508}
+  item: {fileID: 1374724825237843534, guid: 8d8750fa093373b4e815f44eb3fed065, type: 3}

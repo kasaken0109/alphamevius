@@ -15821,6 +15821,7 @@ MonoBehaviour:
   textBoxs:
   - {fileID: 11400000, guid: 6cd3687f62c852a4ab3f6f97426f8906, type: 2}
   nextBotton: {fileID: 447192061}
+  textSpeed: 0.1
 --- !u!114 &2025827704
 MonoBehaviour:
   m_ObjectHideFlags: 0

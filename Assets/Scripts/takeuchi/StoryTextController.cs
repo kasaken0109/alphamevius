@@ -8,12 +8,14 @@ public class StoryTextController : MonoBehaviour
     [SerializeField] Text storyText;
     [SerializeField] StoryTextBox[] textBoxs;
     [SerializeField] GameObject nextBotton;
+    [SerializeField] float textSpeed = 0.1f;
     string[] storyTextList;
     bool viewStory = false;
     int messageIndexNumber = 0;
     int messageCount = 0;
     private void Start()
     {
+        nextBotton.SetActive(false);
         SetStory(0);
         StartCoroutine(ViewStory());
     }
@@ -33,7 +35,7 @@ public class StoryTextController : MonoBehaviour
         {
             storyText.text += storyTextList[messageIndexNumber][messageCount];
             messageCount++;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(textSpeed);
         }
         viewStory = false;
         nextBotton.SetActive(true);
@@ -64,6 +66,10 @@ public class StoryTextController : MonoBehaviour
         if (messageIndexNumber < storyTextList.Length)
         {
             StartCoroutine(ViewStory());
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 }

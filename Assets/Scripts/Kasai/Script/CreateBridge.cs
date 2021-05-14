@@ -6,6 +6,7 @@ public class CreateBridge : MonoBehaviour
 {
     public static CreateBridge Instance { get; private set; }
     [SerializeField] GameObject m_bridge;
+    [SerializeField] GameObject m_player;
     [SerializeField] float m_bridgeLength = 4;
     private void Awake()
     {

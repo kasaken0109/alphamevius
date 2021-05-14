@@ -19,8 +19,6 @@ public class FieldItem : MonoBehaviour
     private void Start()
     {
         player = Player.Instance.transform;
-        //itemImage = gameObject.GetComponent<SpriteRenderer>();
-        //Debug.Log(itemImage.sprite);
         this.gameObject.SetActive(false);
     }
     private void Update()
@@ -123,8 +121,6 @@ public class FieldItem : MonoBehaviour
                 {
                     NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
                 }
-                Player.Instance.CatchItem();
-                EffectManager.PlayEffect(EffectType.Hit,transform.position);
                 drop = false;
                 this.gameObject.SetActive(false);
             }
@@ -145,8 +141,6 @@ public class FieldItem : MonoBehaviour
                 {
                     NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
                 }
-                Player.Instance.CatchItem();
-                EffectManager.PlayEffect(EffectType.Hit, transform.position);
                 drop = false;
                 this.gameObject.SetActive(false);
             }

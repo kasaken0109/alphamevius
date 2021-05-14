@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8210193635156059848}
   - component: {fileID: 7599514845318972232}
   - component: {fileID: 238820794253854411}
+  - component: {fileID: 4984356416384371337}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_second: 0
   m_hour: 0
   m_dayNum: 1
+  dayStatus: 0
 --- !u!114 &272841369012826216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +220,21 @@ MonoBehaviour:
   m_sceneNameToBeLoaded: SceneNameToBeLoaded
   m_fadePanel: {fileID: 0}
   m_fadeSpeed: 1
+--- !u!114 &4984356416384371337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272841369012826219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8a02bbdc6f9e4f9268b68de48bf60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_timeText: {fileID: 0}
+  m_limitTime: 5
+  gameStatus: 0
 --- !u!1 &272841370282852939
 GameObject:
   m_ObjectHideFlags: 0

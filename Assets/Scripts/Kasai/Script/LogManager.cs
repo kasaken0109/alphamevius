@@ -7,7 +7,7 @@ public class LogManager : MonoBehaviour
 {
     public static  LogManager Instance { get; private set; }
     List <LogController>logList;
-    [SerializeField] GameObject log = null;
+    [SerializeField] GameObject log;
     private int m_maxNum = 3;
     int index = 0;
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class LogManager : MonoBehaviour
 
     public void ShowLog(string text, int num)
     {
+        Debug.Log(log);
         GameObject m_logs = Instantiate(log);
         m_logs.transform.SetParent(this.gameObject.transform);
         LogController logs = m_logs.GetComponent<LogController>();

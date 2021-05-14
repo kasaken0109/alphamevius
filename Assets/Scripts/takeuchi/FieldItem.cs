@@ -14,20 +14,27 @@ public class FieldItem : MonoBehaviour
     /// <summary> 存在時間のタイマー </summary>
     public float ExistTimer { get; private set; } = 0f;
     [SerializeField]SpriteRenderer itemImage;
+    Transform player;
+    private bool drop;
     private void Start()
     {
+        player = Player.Instance.transform;
         //itemImage = gameObject.GetComponent<SpriteRenderer>();
         //Debug.Log(itemImage.sprite);
         this.gameObject.SetActive(false);
     }
     private void Update()
     {
+        if (!drop)
+        {
+            return;
+        }
         ExistTimer -= Time.deltaTime;
         if (ExistTimer <= 0)
         {
             this.gameObject.SetActive(false);
+            drop = false;
         }
-
         if (startMoveTimer > 0)
         {
             startMoveTimer -= Time.deltaTime;
@@ -41,7 +48,12 @@ public class FieldItem : MonoBehaviour
             {
                 xxx = false;
                 getFlag = false;
+                yyy = true;
             }
+        }
+        else if (yyy)
+        {
+            transform.position += 10 * (player.position - transform.position).normalized * Time.deltaTime;
         }
     }
     /// <summary>
@@ -72,6 +84,7 @@ public class FieldItem : MonoBehaviour
     Vector3 moveDir = Vector3.zero;
     private bool xxx;
     private float earthPosY;
+    private bool yyy;
     public void DropItem(MaterialType type, Vector3 pos, Vector3 moveDir)
     {
         //Debug.Log("呼ばれた");
@@ -84,6 +97,7 @@ public class FieldItem : MonoBehaviour
         earthPosY = pos.y - 0.5f;
         xxx = false;
         getFlag = true;
+        drop = true;
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
     }
@@ -111,6 +125,29 @@ public class FieldItem : MonoBehaviour
                 }
                 Player.Instance.CatchItem();
                 EffectManager.PlayEffect(EffectType.Hit,transform.position);
+                drop = false;
+                this.gameObject.SetActive(false);
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (!getFlag)
+            {
+                getFlag = true;
+                if (item)
+                {
+                    ItemManage.Instance.SetItem(item);
+                }
+                if (materialType != MaterialType.None)
+                {
+                    NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
+                }
+                Player.Instance.CatchItem();
+                EffectManager.PlayEffect(EffectType.Hit, transform.position);
+                drop = false;
                 this.gameObject.SetActive(false);
             }
         }

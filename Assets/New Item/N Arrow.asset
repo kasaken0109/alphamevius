@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: N Arrow
+  m_EditorClassIdentifier: 
+  m_name: N Arrow
+  m_sprite: {fileID: 21300000, guid: 0f670850a857d45afb4825736c894c43, type: 3}
+  m_needMaterials: 06000000060000000d0000000d0000000d0000000700000007000000
+  m_getMaterials: 060000000d0000000d00000007000000
+  ID: 31
+  haveNumber: 0
+  toolCheck: 1
+  guideText: "\u9060\u304F\u306E\u6298\u308C\u6728\u3092\u5C04\u308B\u306E\u306B\u9069\u3057\u3066\u3044\u308B\u3002"
+  m_needMaterialsText: "\u77F3\xD7\uFF12\u3000\u7CF8\xD7\uFF13\u3000\u9244\xD7\uFF12"
+  m_toolType: 2
+  m_attackPoint: 0
+  m_toolEfficiency: 120
+  m_craftLevel: 0

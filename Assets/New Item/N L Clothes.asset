@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: N L Clothes
+  m_EditorClassIdentifier: 
+  m_name: N L Clothes
+  m_sprite: {fileID: 21300000, guid: 2a049aadea54fcd47b4b8bc243a565f5, type: 3}
+  m_needMaterials: 01000000010000000100000001000000080000000800000008000000080000000a0000000a0000000a0000000a0000000a0000000a000000
+  m_getMaterials: 010000000100000008000000080000000a0000000a0000000a000000
+  ID: 34
+  haveNumber: 0
+  toolCheck: 1
+  guideText: "\u8D85\u9AD8\u54C1\u8CEA\u8863\u670D\u3002\u304B\u306A\u308A\u306E\u653B\u6483\u3092\u30AB\u30C3\u30C8\u3057\u3066\u304F\u308C\u308B\u3002"
+  m_needMaterialsText: "\u5E03\xD7\uFF12\u3000\u7FBD\u6BDB\xD7\uFF12\u3000\u6BDB\u76AE\xD7\uFF13"
+  m_toolType: 7
+  m_attackPoint: 0
+  m_toolEfficiency: 0
+  m_craftLevel: 0

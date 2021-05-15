@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
-  m_Name: Alloy Axe
+  m_Name: N Alloy Axe
   m_EditorClassIdentifier: 
-  m_name: "\u5408\u91D1\u306E\u65A7"
+  m_name: N Alloy Axe
   m_sprite: {fileID: 21300000, guid: 62de7feb29f05409184825dbd0e19fa6, type: 3}
-  m_needMaterials: 06000000060000001a0000001a0000001800000018000000
-  m_getMaterials: 060000001a00000018000000
-  ID: 55
-  haveNumber: 1
+  m_needMaterials: 060000000600000018000000180000001a0000001a000000
+  m_getMaterials: 06000000180000001a000000
+  ID: 22
+  haveNumber: 0
   toolCheck: 1
-  guideText: "\u304B\u306A\u308A\u306E\u5207\u308C\u5473\u3092\u8A87\u308B\u65A7\u3002"
-  m_needMaterialsText: "\u77F3\xD7\uFF12\u3000\u30C1\u30BF\u30F3\xD7\uFF12\u3000\u91D1\xD7\uFF12"
+  guideText: "\u3053\u308C\u3067\u304B\u306A\u308A\u306E\u6728\u6750\u304C\u53D6\u308C\u308B\u3002"
+  m_needMaterialsText: "\u77F3\xD7\uFF12\u3000\u91D1\xD7\uFF12\u3000\u30C1\u30BF\u30F3\xD7\uFF12"
   m_toolType: 3
-  m_attackPoint: 3
+  m_attackPoint: 5
   m_toolEfficiency: 60
   m_craftLevel: 0

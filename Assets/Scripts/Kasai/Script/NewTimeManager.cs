@@ -65,19 +65,33 @@ public class NewTimeManager : MonoBehaviour
         }
         if (Input.GetButtonDown("Pause"))
         {
-            if (true)
+            if (gameStatus == GameStatus.PAUSE)
             {
-
+                gameStatus = GameStatus.RESUME;
             }
-            gameStatus = GameStatus.PAUSE;
+            else
+            {
+                gameStatus = GameStatus.PAUSE;
+            }
         }
         if (gameStatus == GameStatus.RESUME || gameStatus == GameStatus.START)
         {
+            Time.timeScale = 1;
+            m_gameStatusText.text = "";
+            if (m_buttons != null)
+            {
+                foreach (var item in m_buttons)
+                {
+                    item.SetActive(false);
+                }
+            }
+
             m_second -= Time.deltaTime;
         }
         if (gameStatus == GameStatus.PAUSE)
         {
             m_gameStatusText.text = "Pause";
+            Time.timeScale = 0;
             if (m_buttons != null)
             {
                 foreach (var item in m_buttons)
@@ -95,6 +109,7 @@ public class NewTimeManager : MonoBehaviour
                 m_ui.SetActive(false);
             }
             m_timeText.text = "00 : 00";
+            Time.timeScale = 0;
             ScreenEffecter.Instance.FadeOut();
             m_gameStatusText.text = "GAMEOVER";
             if (m_buttons != null)
@@ -117,4 +132,10 @@ public class NewTimeManager : MonoBehaviour
     {
         return gameStatus;
     }
+
+    public void SetTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
+
 }

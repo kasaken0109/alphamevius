@@ -62,4 +62,9 @@ public class SceneLoader : MonoBehaviour
         m_isLoadStarted = true;
         m_sceneNameToBeLoaded = sceneName;
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

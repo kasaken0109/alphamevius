@@ -58,7 +58,7 @@ public class NewItemManager : MonoBehaviour
     {
         m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().AddHaveNumber(number);
         NewInventoryManager.Instance.ItemListUpdate(ID);
-        LogManager.Instance.ShowLog(GetName(ID), number);
+        //LogManager.Instance.ShowLog(GetName(ID), number);
     }
     public void SubItem(int ID, int number)
     {

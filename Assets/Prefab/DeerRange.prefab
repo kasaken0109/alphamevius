@@ -171,12 +171,11 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 2921596313474481968}
   creature: {fileID: 2921596312877254970}
-  haveItems: 0900000009000000
-  haveMaterial: 
+  haveItems: 09000000090000000400000004000000
   actionRange: {fileID: 2921596313474481982}
   searchRange: {fileID: 2921596314609860966}
   attackRange: {fileID: 2921596313562147208}
-  attackInterval: 1
+  attackInterval: 3
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 2921596314056817213}

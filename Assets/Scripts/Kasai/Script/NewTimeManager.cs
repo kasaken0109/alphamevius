@@ -9,11 +9,14 @@ public class NewTimeManager : MonoBehaviour
     public static NewTimeManager Instance { get; private set; }
     Text m_timeText = null;
     [SerializeField] int m_limitTime = 5;
+    [SerializeField] private GameStatus gameStatus;
+    [SerializeField] private GameObject[] m_buttons;
+    [SerializeField] Text m_gameStatusText;
+    [SerializeField] private GameObject m_ui;
     private float m_time;
     private float m_second = 0;
     private int m_minutes;
     private int m_hour = 0;
-    private GameStatus gameStatus;
     Color panelColor;
     public enum GameStatus
     {
@@ -29,9 +32,20 @@ public class NewTimeManager : MonoBehaviour
     }
     void Start()
     {
+        if (m_ui != null)
+        {
+            m_ui.SetActive(true);
+        }
         m_timeText = GameObject.Find("TimeText").GetComponent<Text>();
         gameStatus = GameStatus.START;
         m_minutes = m_limitTime;
+        if (m_buttons != null)
+        {
+            foreach (var item in m_buttons)
+            {
+                item.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -49,15 +63,53 @@ public class NewTimeManager : MonoBehaviour
                 m_minutes--;
             }
         }
+        if (Input.GetButtonDown("Pause"))
+        {
+            if (true)
+            {
+
+            }
+            gameStatus = GameStatus.PAUSE;
+        }
         if (gameStatus == GameStatus.RESUME || gameStatus == GameStatus.START)
         {
             m_second -= Time.deltaTime;
+        }
+        if (gameStatus == GameStatus.PAUSE)
+        {
+            m_gameStatusText.text = "Pause";
+            if (m_buttons != null)
+            {
+                foreach (var item in m_buttons)
+                {
+                    item.SetActive(true);
+                }
+            }
         }
         m_timeText.text = string.Format($"{m_minutes:00} : {Mathf.FloorToInt(m_second):00}");
 
         if (gameStatus == GameStatus.GAMEOVER)
         {
-            m_timeText.text = "GAMEOVER";
+            if (m_ui != null)
+            {
+                m_ui.SetActive(false);
+            }
+            m_timeText.text = "00 : 00";
+            ScreenEffecter.Instance.FadeOut();
+            m_gameStatusText.text = "GAMEOVER";
+            if (m_buttons != null)
+            {
+                Debug.Log("ButtonActive");
+                foreach (var item in m_buttons)
+                {
+                    item.SetActive(true);
+                }
+            }
+            else
+            {
+                Debug.Log("ButtonNonActive");
+            }
+
         }
     }
 

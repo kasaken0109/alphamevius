@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1164628923214431515}
   - component: {fileID: 2152638727690643836}
   - component: {fileID: 6469802627885508200}
-  m_Layer: 0
+  - component: {fileID: 9206888219689675246}
+  m_Layer: 14
   m_Name: ivy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,6 +52,7 @@ MonoBehaviour:
   ObjectType: 5
   strengthPoint: 120
   DropItems: 150000001500000015000000
+  DropItem: 
 --- !u!212 &1164628923214431508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -158,6 +160,32 @@ MonoBehaviour:
   m_hintIcon: {fileID: 2370676931770124773}
   m_playerName: Player
   m_hintDistance: 8
+--- !u!61 &9206888219689675246
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164628923214431514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0045398176}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.56, y: 0.71}
+    newSize: {x: 1.56, y: 0.71}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.56, y: 1.1004379}
+  m_EdgeRadius: 0
 --- !u!1 &2370676931770124773
 GameObject:
   m_ObjectHideFlags: 0

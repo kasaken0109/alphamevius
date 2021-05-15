@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 1920875799050204175}
   - component: {fileID: 7370767790626704203}
   - component: {fileID: 1136079344402129931}
-  m_Layer: 0
+  - component: {fileID: 6115174363573513108}
+  m_Layer: 14
   m_Name: ironstone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +181,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0145254135, y: -0.036580086}
+  m_Offset: {x: -0.052858353, y: 0.097671986}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -191,7 +192,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2599277, y: 1.5495129}
+  m_Size: {x: 2.5885162, y: 2.0332956}
   m_EdgeRadius: 0
 --- !u!111 &1920875799050204175
 Animation:
@@ -239,3 +240,30 @@ MonoBehaviour:
   ObjectType: 6
   strengthPoint: 120
   DropItems: 070000000700000007000000
+  DropItem: 07000000
+--- !u!61 &6115174363573513108
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904436801470923217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.033021927, y: -0.04536152}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.71, y: 2.39}
+    newSize: {x: 2.71, y: 2.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.554596, y: 3.4599915}
+  m_EdgeRadius: 0

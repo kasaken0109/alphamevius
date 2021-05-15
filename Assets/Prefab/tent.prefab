@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d459481f10c41034eb5385b3908e7dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hint: {fileID: 0}
+  m_hint: {fileID: 2055262595839541239}
   m_hintMode: 0
 --- !u!111 &7885409043606799293
 Animation:

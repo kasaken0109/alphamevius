@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 686082265}
   - component: {fileID: 3373355631525535435}
   - component: {fileID: 6667027917926462948}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BigRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4316428090336873943}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -128,6 +128,7 @@ MonoBehaviour:
   ObjectType: 4
   strengthPoint: 120
   DropItems: 06000000060000000600000006000000
+  DropItem: 06000000
 --- !u!61 &686082265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5350747934041649466}
   - component: {fileID: 2305076064422133850}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HintIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

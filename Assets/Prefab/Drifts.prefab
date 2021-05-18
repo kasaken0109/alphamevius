@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7121939372044783404}
   - component: {fileID: 7121939372044783407}
   - component: {fileID: 7121939372044783405}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Drifts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,12 +129,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxDropNum: 5
   m_items: 1600000016000000160000001600000016000000
+  m_certainItems: 
   m_dropPoint:
   - {fileID: 7121939373606177373}
   - {fileID: 7121939373285537754}
   - {fileID: 7121939373384419217}
   - {fileID: 7121939372566174181}
   - {fileID: 7121939373830627007}
+  m_materialNum: 3
+  m_certainModeSelect: 0
 --- !u!114 &7121939372044783405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7121939372566174181}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: materialSpawn (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7121939373285537754}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: materialSpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7121939373384419217}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: materialSpawn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7121939373606177373}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: materialSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7121939373830627007}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: materialSpawn (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

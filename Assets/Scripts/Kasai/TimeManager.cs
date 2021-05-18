@@ -39,10 +39,10 @@ public class TimeManager : MonoBehaviour
         panelColor = m_panel.color;
         m_drift.SetActive(false);
         m_hour = 6;
-        if (!m_panelActive)
-        {
-            m_panel.gameObject.SetActive(false);
-        }
+        //if (!m_panelActive)
+        //{
+        //    m_panel.gameObject.SetActive(false);
+        //}
     }
 
     // Update is called once per frame

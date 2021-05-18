@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FieldObject : MonoBehaviour
 {
-    [SerializeField] protected MaterialType[] DropItems;
+    [SerializeField] protected MaterialType DropItems;
+    [SerializeField] private int m_dropNum = 1;
     // Start is called before the first frame update
-    
+
 
     // Update is called once per frame
     void Update()
@@ -16,7 +17,20 @@ public class FieldObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FieldItemManager.Instance.DropMaterial(DropItems, transform.position);
-        gameObject.SetActive(false);
+        if (collision.tag == "Player")
+        {
+            if (DropItems != MaterialType.None)
+            {
+                NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(DropItems), m_dropNum);
+            }
+            Player.Instance.CatchItem();
+            EffectManager.PlayEffect(EffectType.Hit, transform.position);
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    public MaterialType GetTouchMaterial()
+    {
+        return DropItems;
     }
 }

@@ -34,7 +34,8 @@ public enum MaterialType
     MeatBird,
     MeatDeer,
     BigMeat,
-    MeatSpider
+    MeatSpider,
+    Mebius,
 }
 public enum ToolType
 {
@@ -54,7 +55,8 @@ public enum ToolType
     Cooking,
     Bonfire,
     Material,
-    EmptyBottle
+    EmptyBottle,
+    Garbage,
 }
 
 public class NewItem : ScriptableObject

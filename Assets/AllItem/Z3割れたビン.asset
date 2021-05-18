@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
-  m_Name: "Z2\u30DC\u30ED\u670D"
+  m_Name: "Z3\u5272\u308C\u305F\u30D3\u30F3"
   m_EditorClassIdentifier: 
-  m_name: "\u30DC\u30ED\u670D"
-  m_sprite: {fileID: 21300000, guid: 6cde48cd3c7d9fb49ba6c383946c58fc, type: 3}
+  m_name: "\u5272\u308C\u305F\u30D3\u30F3"
+  m_sprite: {fileID: 21300000, guid: f1bca8fa92fa7854abd5a150f26ed39c, type: 3}
   m_needMaterials: 
-  m_getMaterials: 01000000010000001f000000
-  ID: 2
+  m_getMaterials: 04000000040000001f000000
+  ID: 3
   haveNumber: 0
   toolCheck: 0
   guideText: 

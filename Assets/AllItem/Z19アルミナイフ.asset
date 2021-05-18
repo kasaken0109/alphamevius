@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
-  m_Name: "Z2\u30DC\u30ED\u670D"
+  m_Name: "Z19\u30A2\u30EB\u30DF\u30CA\u30A4\u30D5"
   m_EditorClassIdentifier: 
-  m_name: "\u30DC\u30ED\u670D"
-  m_sprite: {fileID: 21300000, guid: 6cde48cd3c7d9fb49ba6c383946c58fc, type: 3}
-  m_needMaterials: 
-  m_getMaterials: 01000000010000001f000000
-  ID: 2
+  m_name: "\u30A2\u30EB\u30DF\u30CA\u30A4\u30D5"
+  m_sprite: {fileID: 21300000, guid: 7d02a07e039fc4f0b80d64cf1ab41357, type: 3}
+  m_needMaterials: 0100000001000000030000000300000003000000
+  m_getMaterials: 01000000030000001f0000001f0000001f000000
+  ID: 19
   haveNumber: 0
-  toolCheck: 0
+  toolCheck: 1
   guideText: 
   m_needMaterialsText: 
-  m_toolType: 17
-  m_attackPoint: 0
+  m_toolType: 1
+  m_attackPoint: 8
   m_toolEfficiency: 0
   m_craftLevel: 0

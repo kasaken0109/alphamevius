@@ -25,11 +25,6 @@ public class NewCraftManager : MonoBehaviour
     }
     public void OnClickCraft()
     {
-        if (m_level < itemManager.GetItem(targetID).GetCraftLevel())
-        {
-            Debug.Log("レベル不足");
-            return;
-        }
         MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
         int[] idList = new int[6];
         int[] needMaterialNumbers = new int[6];
@@ -45,7 +40,7 @@ public class NewCraftManager : MonoBehaviour
         {
             if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
             {
-                MessgaeManager.ViweMessage("素材が足りません");
+                //MessgaeManager.ViweMessage("素材が足りません");
                 Debug.Log("不足");
                 return;
             }
@@ -55,9 +50,8 @@ public class NewCraftManager : MonoBehaviour
         {
             itemManager.SubItem(idList[a], needMaterialNumbers[a]);
         }
-        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
+        //MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         Debug.Log("作成");
-        EXPGet(2);
     }
     public void OnClickRecycle()
     {
@@ -69,8 +63,7 @@ public class NewCraftManager : MonoBehaviour
                 itemManager.AddItem(itemManager.GetMaterialId(item), 1);
             }
             Debug.Log("分解");
-            EXPGet(4);
-            NewInventoryManager.Instance.RecycleListUpdate();
+            //NewInventoryManager.Instance.RecycleListUpdate();
         }
     }
     public void EXPGet(int exp)

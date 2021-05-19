@@ -25,7 +25,7 @@ public class EventCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Zoom"))
+        if (Input.GetButton("Zoom") && TimeManager.Instance.GetDayStatus() != TimeManager.DayStatus.NIGHT)
         {
             if (m_transposer.m_Lens.OrthographicSize < m_zoomLength)
             {

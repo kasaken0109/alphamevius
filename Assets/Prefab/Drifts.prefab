@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7121939372044783410}
   - component: {fileID: 7121939372044783404}
   - component: {fileID: 7121939372044783407}
-  - component: {fileID: 7121939372044783405}
+  - component: {fileID: 880794976}
   m_Layer: 14
   m_Name: Drifts
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 48ba878d35ee3cd48881964faa17cfbc, type: 3}
   m_Color: {r: 0.33324084, g: 1, b: 0.07075471, a: 1}
   m_FlipX: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxDropNum: 5
-  m_items: 1600000016000000160000001600000016000000
-  m_certainItems: 
+  m_items: 1400000012000000130000001100000011000000
+  m_certainItems: 1200000012000000
   m_dropPoint:
   - {fileID: 7121939373606177373}
   - {fileID: 7121939373285537754}
@@ -138,20 +138,25 @@ MonoBehaviour:
   - {fileID: 7121939373830627007}
   m_materialNum: 3
   m_certainModeSelect: 0
---- !u!114 &7121939372044783405
-MonoBehaviour:
+--- !u!95 &880794976
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7121939372044783406}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec56b46592c49514e9e94b64e5a940f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: 22
-  m_dropPosition: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7121939372566174180
 GameObject:
   m_ObjectHideFlags: 0

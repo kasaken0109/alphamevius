@@ -32,7 +32,7 @@ public class ZInventoryHaveItem : MonoBehaviour
         }
         else
         {
-            m_itemIcon.color = new Color(0.8f, 0.8f, 0.8f);
+            m_itemIcon.color = new Color(0.3f, 0.3f, 0.3f);
         }
     }
     public void CraftCheck(int needNumber)

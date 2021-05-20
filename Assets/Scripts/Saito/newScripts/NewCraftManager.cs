@@ -74,6 +74,40 @@ public class NewCraftManager : MonoBehaviour
             //NewInventoryManager.Instance.RecycleListUpdate();
         }
     }
+    public void OnClickCooking()
+    {
+        MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
+        int[] idList = new int[3];
+        int[] needMaterialNumbers = new int[3];
+        var result = needMaterials.ToList().Distinct();
+        int index = 0;
+        foreach (var item in result)
+        {
+            idList[index] = itemManager.GetMaterialId(item);
+            needMaterialNumbers[index] = needMaterials.ToList().Count(k => item == k);
+            index++;
+        }
+        for (int j = 0; j < idList.Length; j++)
+        {
+            if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
+            {
+                MessgaeManager.ViweMessage("素材が足りません");
+                Debug.Log("不足");
+                return;
+            }
+        }
+        for (int a = 0; a < idList.Length; a++)
+        {
+            itemManager.SubItem(idList[a], needMaterialNumbers[a]);
+        }
+        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
+        foreach (var item in itemManager.GetRecycleMaterialItems(targetID))
+        {
+            itemManager.AddItem(itemManager.GetMaterialId(item), 1);
+        }
+        Debug.Log("食事で" + NewItemManager.Instance.GetItem(targetID).GetEfficiency().ToString() + "回復");
+        PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
+    }
     public void EXPGet(int exp)
     {
         m_exp += exp;

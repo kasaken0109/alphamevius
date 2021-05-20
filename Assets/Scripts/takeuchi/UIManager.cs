@@ -6,17 +6,12 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject ItemInventory;
-    [SerializeField] GameObject CraftInventory;
-    [SerializeField] GameObject RecycleInventory;
-    [SerializeField] GameObject CookingInventory;
     [SerializeField] GameObject[] butStatusIcons;
     [SerializeField] Image HPGauge;
     [SerializeField] Image HPGauge2;
     [SerializeField] Image WGauge;
     [SerializeField] Image HGauge;
     [SerializeField] float x = 1f;
-    private bool open;
     private float playerMaxHP;
     private float playerViewHp;
     private float playerMaxW;
@@ -30,10 +25,6 @@ public class UIManager : MonoBehaviour
         playerMaxHP = PlayerManager.Instance.GetMaxHP();
         playerMaxW = PlayerManager.Instance.GetMaxHydrate();
         playerMaxH = PlayerManager.Instance.GetMaxHunger();
-        ItemInventory.SetActive(false);
-        CraftInventory.SetActive(false);
-        RecycleInventory.SetActive(false);
-        CookingInventory.SetActive(false);
         butStatusIcons.ToList().ForEach(i => i.SetActive(false));
     }
 
@@ -43,63 +34,6 @@ public class UIManager : MonoBehaviour
         HPGaugeControl();
         HungerGaugeControl();
         WaterGaugeControl();
-        if (Input.GetButtonDown("Menu"))
-        {
-            if (!open)
-            {
-                ItemInventory.SetActive(true);
-                CraftInventory.SetActive(false);
-                RecycleInventory.SetActive(false);
-                CookingInventory.SetActive(false);
-                open = true;
-            }
-            else
-            {
-                ItemInventory.SetActive(false);
-                CraftInventory.SetActive(false);
-                RecycleInventory.SetActive(false);
-                CookingInventory.SetActive(false);
-                open = false;
-            }
-        }
-        if (Input.GetButtonDown("Craft"))
-        {
-            if (!open)
-            {
-                ItemInventory.SetActive(false);
-                CraftInventory.SetActive(true);
-                RecycleInventory.SetActive(false);
-                CookingInventory.SetActive(false);
-                open = true;
-            }
-            else
-            {
-                ItemInventory.SetActive(false);
-                CraftInventory.SetActive(false);
-                RecycleInventory.SetActive(false);
-                CookingInventory.SetActive(false);
-                open = false;
-            }
-        }
-        if (Input.GetButtonDown("Recycle"))
-        {
-            if (!open)
-            {
-                ItemInventory.SetActive(false);
-                CraftInventory.SetActive(false);
-                RecycleInventory.SetActive(true);
-                CookingInventory.SetActive(false);
-                open = true;
-            }
-            else
-            {
-                ItemInventory.SetActive(false);
-                CraftInventory.SetActive(false);
-                RecycleInventory.SetActive(false);
-                CookingInventory.SetActive(false);
-                open = false;
-            }
-        }
         if (PlayerManager.Instance.StatusEffectDehydration)
         {
             butStatusIcons[0].SetActive(true);
@@ -118,25 +52,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OnClickCooking()
-    {
-        if (!open)
-        {
-            ItemInventory.SetActive(false);
-            CraftInventory.SetActive(false);
-            RecycleInventory.SetActive(false);
-            CookingInventory.SetActive(true);
-            open = true;
-        }
-        else
-        {
-            ItemInventory.SetActive(false);
-            CraftInventory.SetActive(false);
-            RecycleInventory.SetActive(false);
-            CookingInventory.SetActive(false);
-            open = false;
-        }
-    }
+    
     private void HPGaugeControl()
     {
         int p = PlayerManager.Instance.CurrentHP;       

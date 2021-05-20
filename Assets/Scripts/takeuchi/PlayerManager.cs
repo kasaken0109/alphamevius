@@ -225,8 +225,8 @@ public class PlayerManager : MonoBehaviour
         EquipmentTool = item.GetToolType();
         SetPower(item.GetAttackPoint());
         EquipmentPower = item.GetEfficiency();
-        NewInventoryManager.Instance.EquipmentTool(item.GetID());
-        NewHotbarManager.Instance.EquipmentTool(item.GetID());
+        //NewInventoryManager.Instance.EquipmentTool(item.GetID());
+        //NewHotbarManager.Instance.EquipmentTool(item.GetID());
         Debug.Log(EquipmentTool + "を装備した");
         switch (EquipmentTool)
         {
@@ -242,6 +242,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void PurgeEquipmentTool()
     {
+        Debug.Log(EquipmentTool + "を外した");
         EquipmentTool = ToolType.None; 
         SetPower(BasePower);
         EquipmentPower = 0;

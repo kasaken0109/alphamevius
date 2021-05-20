@@ -12,6 +12,7 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] ZCraftPanelControl m_craftPanel;
     [SerializeField] ZRecyclePanelControl m_recyclePanel;
     [SerializeField] GameObject m_closeButton;
+    [SerializeField] RectTransform m_cookingPanel;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -146,12 +147,21 @@ public class ZInventoryManager : MonoBehaviour
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
     }
+    public void OnClickOpenCooking()
+    {
+        m_craftPanel.CloseCraft();
+        m_recyclePanel.CloseRecycle();
+        m_haveMaterialBar.localPosition = new Vector2(0, 0);
+        m_cookingPanel.localPosition = new Vector2(0, 0);
+        m_closeButton.SetActive(true);
+    }
     public void OnClickCloseAll()
     {
         m_craftPanel.CloseCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(2000, 2000);
         m_closeButton.SetActive(false);
+        m_cookingPanel.localPosition = new Vector2(2000, 2000);
     }
     public void EquipmentReset()
     {

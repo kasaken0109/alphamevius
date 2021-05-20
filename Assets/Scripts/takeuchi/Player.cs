@@ -56,6 +56,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT && playerAnimation)
+        {
+            playerAnimation.SetBool("Torch",true);
+        }
+        else
+        {
+            playerAnimation.SetBool("Torch", false);
+        }
         if (!action)
         {
             return;

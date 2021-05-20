@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] public float timeRate = 0.5f;
     [SerializeField] int timeScale = 10;
     [SerializeField] float m_gameSpeed = 1;
-    [SerializeField] Image m_panel;
+    [SerializeField] SpriteRenderer m_panel;
     [SerializeField] bool m_panelActive;
     public float m_time;
     private float m_secondCount;
@@ -67,7 +67,7 @@ public class TimeManager : MonoBehaviour
             m_hour = 0;
         }
 
-        if (m_hour >= 0 && m_hour <= 6 || m_hour >= 18 && m_hour <= 24)
+        if (m_hour >= 0 && m_hour < 6 || m_hour >= 18 && m_hour < 24)
         {
             dayStatus = DayStatus.NIGHT;
             SetPanel();
@@ -102,22 +102,19 @@ public class TimeManager : MonoBehaviour
 
     void SetPanel()
     {
-        if (m_panelActive)
+        if (panelColor.a < 0.9f && dayStatus == DayStatus.NIGHT)
         {
-            if (panelColor.a < 0.9f && dayStatus == DayStatus.NIGHT)
+            panelColor.a += 0.01f * m_gameSpeed;
+            m_panel.color = panelColor;
+        }
+        if (panelColor.a > 0f && dayStatus == DayStatus.NOON)
+        {
+            panelColor.a -= 0.01f * m_gameSpeed;
+            if (panelColor.a <= 0)
             {
-                panelColor.a += 0.01f * m_gameSpeed;
-                m_panel.color = panelColor;
+                panelColor.a = 0;
             }
-            if (panelColor.a > 0f && dayStatus == DayStatus.NOON)
-            {
-                panelColor.a -= 0.01f * m_gameSpeed;
-                if (panelColor.a <= 0)
-                {
-                    panelColor.a = 0;
-                }
-                m_panel.color = panelColor;
-            }
+            m_panel.color = panelColor;
         }
     }
 }

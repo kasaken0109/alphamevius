@@ -33,6 +33,7 @@ public class CreateBridge : MonoBehaviour
             return;
         }
         bridge = Instantiate(m_bridge);
+        ObjectShaker.Instance.ShakeScreen();
         bridge.transform.position = Player.Instance.transform.position + new Vector3(0, -m_bridgeLength, 0);
         NewItemManager.Instance.SubItem(67,1);
     }

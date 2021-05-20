@@ -12,6 +12,7 @@ public class FieldIObject : MonoBehaviour
     {
         if (collision.tag == "Attack")
         {
+            ObjectShaker.Instance.ShakeObject(gameObject);
             EffectManager.PlayEffect(EffectType.Hit,transform.position);
             if (ObjectType == PlayerManager.Instance.EquipmentTool)
             {

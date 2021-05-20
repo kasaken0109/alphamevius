@@ -36,7 +36,7 @@ public class NewTimeManager : MonoBehaviour
         {
             m_ui.SetActive(true);
         }
-        m_timeText = GameObject.Find("TimeText").GetComponent<Text>();
+        //m_timeText = GameObject.Find("TimeText").GetComponent<Text>();
         gameStatus = GameStatus.START;
         m_minutes = m_limitTime;
         if (m_buttons != null)
@@ -100,7 +100,7 @@ public class NewTimeManager : MonoBehaviour
                 }
             }
         }
-        m_timeText.text = string.Format($"{m_minutes:00} : {Mathf.FloorToInt(m_second):00}");
+        //m_timeText.text = string.Format($"{m_minutes:00} : {Mathf.FloorToInt(m_second):00}");
 
         if (gameStatus == GameStatus.GAMEOVER)
         {
@@ -108,7 +108,7 @@ public class NewTimeManager : MonoBehaviour
             {
                 m_ui.SetActive(false);
             }
-            m_timeText.text = "00 : 00";
+            //m_timeText.text = "00 : 00";
             Time.timeScale = 0;
             ScreenEffecter.Instance.FadeOut();
             m_gameStatusText.text = "GAMEOVER";

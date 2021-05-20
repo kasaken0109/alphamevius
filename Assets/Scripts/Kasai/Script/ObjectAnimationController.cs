@@ -12,14 +12,16 @@ public class ObjectAnimationController : MonoBehaviour
     /// <summary> 実行アニメーションのパラメーター名/// </summary>
     [SerializeField] string m_animParameterName;
     /// <summary> オブジェクトがアニメーションをしているかどうか/// </summary>
-    [SerializeField] bool m_IsAnimating;
+    bool m_IsAnimating;
     /// <summary> アニメーション後に残るオブジェクト/// </summary>
     [SerializeField] GameObject m_spawn;
+    [SerializeField] FieldObjectArrayController m_arrayController = null;
     Animator m_animator;
     // Start is called before the first frame update
     void Start()
     {
         m_animator = GetComponent<Animator>();
+        m_arrayController = GetComponent<FieldObjectArrayController>();
         m_spawn.SetActive(false);
         m_IsAnimating = false;
     }
@@ -27,7 +29,7 @@ public class ObjectAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ActiveAnim();
+        
     }
     
     /// <summary>
@@ -35,23 +37,26 @@ public class ObjectAnimationController : MonoBehaviour
     /// </summary>
     public void ActiveAnim()
     {
+        Debug.Log(m_arrayController.m_isExisted);
         ///消えるコライダーのオブジェクト名はPreColliderに統一する
-        if (GameObject.Find(m_objectColliderName))
+        if (!m_arrayController.m_isExisted)
         {
+            Debug.Log("Notfound");
             m_IsAnimating = true;
+            if (m_animParameterName != null)
+            {
+                m_animator.SetBool(m_animParameterName, m_IsAnimating);
+                m_IsAnimating = false;
+                StartCoroutine("Animation");
+            }
         }
-        if (m_animParameterName != null)
-        {
-            m_animator.SetBool(m_animParameterName, m_IsAnimating);
-        }
-        m_IsAnimating = false;
-        StartCoroutine("Animation");
-        Destroy(this.gameObject ,1);
     }
 
     IEnumerator Animation()
     {
         yield return new WaitForSeconds(1);
         m_spawn.SetActive(true);
+        gameObject.SetActive(false);
+        yield return null;
     }
 }

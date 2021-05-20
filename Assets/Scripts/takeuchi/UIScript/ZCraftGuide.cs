@@ -29,6 +29,9 @@ public class ZCraftGuide : MonoBehaviour
     public void SetData(int itemID)
     {
         m_arrowIcon.SetActive(true);
+        m_craftItemIcon[0].sprite = NewItemManager.Instance.GetSprite(itemID);
+        m_craftItemText[0].text = NewItemManager.Instance.GetName(itemID);
+        ZInventoryManager.Instance.ViewMaterialReset();
         for (int i = 0; i < m_idList.Length; i++)
         {
             m_idList[i] = 0;
@@ -50,6 +53,7 @@ public class ZCraftGuide : MonoBehaviour
             if (b > 0)
             {
                 m_craftItemText[i + 1].text = NewItemManager.Instance.GetName(m_idList[i]) + "×" + b.ToString();
+                ZInventoryManager.Instance.ViewNeedMaterial(m_idList[i], b);
             }
             else
             {

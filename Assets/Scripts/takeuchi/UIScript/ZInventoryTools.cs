@@ -12,10 +12,17 @@ public class ZInventoryTools : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] Text m_nameText;
     int m_itemID;
     [SerializeField] Image m_image;
+    ZRecycleItem m_recycleItem;
     private void Start()
     {
         m_eMark.SetActive(false);
         m_namePlate.localPosition = new Vector2(0, 2000);
+    }
+    public void SetRecycle(ZRecycleItem recycleItem)
+    {
+        m_recycleItem = recycleItem;
+        m_recycleItem.SetInventory(this);
+        m_recycleItem.SetItemID(0);
     }
     public void SetItem(int itemID)
     {
@@ -28,10 +35,12 @@ public class ZInventoryTools : MonoBehaviour, IPointerEnterHandler, IPointerExit
             string name = NewItemManager.Instance.GetName(itemID);
             m_nameText.text = name;
             m_namePlate.sizeDelta = new Vector2(60 + name.Length * 10, 30);
+            m_recycleItem.SetItemID(itemID);
         }
         else
         {
             ResetItem();
+            m_recycleItem.SetItemID(0);
         }
     }
     public int GetItemID() { return m_itemID; }
@@ -52,7 +61,7 @@ public class ZInventoryTools : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-
+        NewItemEffectManager.Instance.SetUse(m_itemID);
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {

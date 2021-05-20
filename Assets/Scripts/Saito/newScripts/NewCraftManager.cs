@@ -25,6 +25,12 @@ public class NewCraftManager : MonoBehaviour
     }
     public void OnClickCraft()
     {
+        if (ZInventoryManager.Instance.FullInventory)
+        {
+            MessgaeManager.ViweMessage("インベントリが一杯です");
+            Debug.Log("インベントリが一杯です");
+            return;
+        }
         MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
         int[] idList = new int[6];
         int[] needMaterialNumbers = new int[6];
@@ -40,7 +46,7 @@ public class NewCraftManager : MonoBehaviour
         {
             if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
             {
-                //MessgaeManager.ViweMessage("素材が足りません");
+                MessgaeManager.ViweMessage("素材が足りません");
                 Debug.Log("不足");
                 return;
             }
@@ -50,7 +56,8 @@ public class NewCraftManager : MonoBehaviour
         {
             itemManager.SubItem(idList[a], needMaterialNumbers[a]);
         }
-        //MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
+        ZInventoryManager.Instance.ToolGet(targetID);
+        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         Debug.Log("作成");
     }
     public void OnClickRecycle()
@@ -63,6 +70,7 @@ public class NewCraftManager : MonoBehaviour
                 itemManager.AddItem(itemManager.GetMaterialId(item), 1);
             }
             Debug.Log("分解");
+            ZInventoryManager.Instance.RecycleTool();
             //NewInventoryManager.Instance.RecycleListUpdate();
         }
     }

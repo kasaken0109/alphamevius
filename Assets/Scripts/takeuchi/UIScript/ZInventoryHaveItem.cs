@@ -11,14 +11,14 @@ public class ZInventoryHaveItem : MonoBehaviour
     [SerializeField] Text m_changeNumberText;
     void Start()
     {
-        m_itemIcon.sprite = NewItemManager.Instance.GetSprite(m_itemID);
+        m_itemIcon.sprite = NewItemManager.Instance.GetItem(m_itemID).GetFieldSprite();
         DataUpdate();
         m_changeNumberText.text = "";
     }
     public void SetItemID(int id)
     {
         m_itemID = id;
-        m_itemIcon.sprite = NewItemManager.Instance.GetSprite(m_itemID);
+        m_itemIcon.sprite = NewItemManager.Instance.GetItem(m_itemID).GetFieldSprite();
         DataUpdate();
     }
     public int GetItemID() { return m_itemID; }

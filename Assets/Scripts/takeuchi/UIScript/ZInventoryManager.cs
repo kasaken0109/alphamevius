@@ -8,6 +8,10 @@ public class ZInventoryManager : MonoBehaviour
     public static ZInventoryManager Instance { get; private set; }
     [SerializeField] ZInventoryTools[] m_inventoryTools;
     [SerializeField] ZInventoryHaveItem[] m_haveMaterials;
+    [SerializeField] RectTransform m_haveMaterialBar;
+    [SerializeField] ZCraftPanelControl m_craftPanel;
+    [SerializeField] ZRecyclePanelControl m_recyclePanel;
+    [SerializeField] GameObject m_closeButton;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -15,8 +19,20 @@ public class ZInventoryManager : MonoBehaviour
         Instance = this;
         m_haveToolData = new List<int>();
     }
+    private void Start()
+    {
+        OnClickCloseAll();
+    }
+    public void SetRecycleTools(ZRecycleItem[] recycleItems)
+    {
+        for (int i = 0; i < recycleItems.Length; i++)
+        {
+            m_inventoryTools[i].SetRecycle(recycleItems[i]);
+        }
+    }
     public void ToolGet(int itemID)
     {
+        m_haveMaterials.ToList().ForEach(i => i.DataUpdate());
         foreach (var item in m_inventoryTools)
         {
             if (item.GetItemID() == 0)
@@ -37,6 +53,11 @@ public class ZInventoryManager : MonoBehaviour
     public void PositionReset(int pos)
     {
         m_inventoryTools[pos].ResetItem();
+        FullInventory = false;
+    }
+    public void RecycleTool()
+    {
+        m_haveMaterials.ToList().ForEach(i => i.DataUpdate());
         FullInventory = false;
     }
     public void SortInventory()
@@ -110,5 +131,26 @@ public class ZInventoryManager : MonoBehaviour
     public void ViewMaterialReset()
     {
         m_haveMaterials.ToList().ForEach(i => i.ClearText());
+    }
+    public void OnClickOpenCraft()
+    {
+        m_craftPanel.OnClickOpenCraft();
+        m_recyclePanel.CloseRecycle();
+        m_haveMaterialBar.localPosition = new Vector2(0, 0);
+        m_closeButton.SetActive(true);
+    }
+    public void OnClickOpenRecycle()
+    {
+        m_recyclePanel.OnClickOpenRecycle();
+        m_craftPanel.CloseCraft();
+        m_haveMaterialBar.localPosition = new Vector2(0, 0);
+        m_closeButton.SetActive(true);
+    }
+    public void OnClickCloseAll()
+    {
+        m_craftPanel.CloseCraft();
+        m_recyclePanel.CloseRecycle();
+        m_haveMaterialBar.localPosition = new Vector2(2000, 2000);
+        m_closeButton.SetActive(false);
     }
 }

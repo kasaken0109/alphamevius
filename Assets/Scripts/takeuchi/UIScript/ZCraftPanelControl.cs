@@ -27,6 +27,13 @@ public class ZCraftPanelControl : MonoBehaviour
             page.localPosition = new Vector2(2000, 2000);
         }
     }
+    public void PageUpdate()
+    {
+        foreach (var item in m_craftItemButtons)
+        {
+            item.ColorSet();
+        }
+    }
     public void OnClickOpenPage(int page)
     {
         for (int i = 1; i < m_craftPage.Length; i++)

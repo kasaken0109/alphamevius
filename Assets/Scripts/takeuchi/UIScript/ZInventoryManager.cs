@@ -13,6 +13,7 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] ZRecyclePanelControl m_recyclePanel;
     [SerializeField] GameObject m_closeButton;
     [SerializeField] RectTransform m_cookingPanel;
+    [SerializeField] ZCookingGuid m_cookingItems;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -131,10 +132,13 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void ViewMaterialReset()
     {
+        m_craftPanel.PageUpdate();
+        m_cookingItems.PageUpdate();
         m_haveMaterials.ToList().ForEach(i => i.ClearText());
     }
     public void OnClickOpenCraft()
     {
+        ViewMaterialReset();
         m_craftPanel.OnClickOpenCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
@@ -142,6 +146,7 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenRecycle()
     {
+        ViewMaterialReset();
         m_recyclePanel.OnClickOpenRecycle();
         m_craftPanel.CloseCraft();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
@@ -149,6 +154,7 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenCooking()
     {
+        ViewMaterialReset();
         m_craftPanel.CloseCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);

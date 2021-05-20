@@ -22,6 +22,6 @@ MonoBehaviour:
   guideText: 
   m_needMaterialsText: 
   m_toolType: 5
-  m_attackPoint: 3
+  m_attackPoint: 10
   m_toolEfficiency: 120
   m_craftLevel: 0

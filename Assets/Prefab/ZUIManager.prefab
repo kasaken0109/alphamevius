@@ -8719,6 +8719,7 @@ MonoBehaviour:
   m_recyclePanel: {fileID: 5790968405829101540}
   m_closeButton: {fileID: 1111550425267463994}
   m_cookingPanel: {fileID: 8507953773301082006}
+  m_cookingItems: {fileID: 7621426688657287103}
 --- !u!1 &8217695566006521909
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,7 +12805,7 @@ PrefabInstance:
     - target: {fileID: 6117217453744961694, guid: ef84f7738538c26408703fecc88b11d5,
         type: 3}
       propertyPath: m_itemID
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef84f7738538c26408703fecc88b11d5, type: 3}
@@ -15619,7 +15620,7 @@ PrefabInstance:
     - target: {fileID: 6117217453744961694, guid: ef84f7738538c26408703fecc88b11d5,
         type: 3}
       propertyPath: m_itemID
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef84f7738538c26408703fecc88b11d5, type: 3}

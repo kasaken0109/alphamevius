@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     {
         if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT && playerAnimation)
         {
-            playerAnimation.SetBool("Torch",true);
+            playerAnimation.SetBool("Torch", true);
         }
         else
         {
@@ -102,11 +102,11 @@ public class Player : MonoBehaviour
         }
         if (arrow)
         {
-        //    Vector2 myPos = transform.position;
-        //    Vector3 mousePos = Input.mousePosition;
-        //    mousePos.z = -10;
-        //    Vector2 cPos = Camera.main.ScreenToWorldPoint(mousePos);
-        //    arrowDir = -cPos - myPos;
+            Vector2 myPos = transform.position;
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = -10;
+            Vector2 cPos = Camera.main.ScreenToWorldPoint(mousePos);
+            arrowDir = -cPos - myPos;
             if (arrowDir.normalized.x > 0)
             {
                 if (angle != MoveAngle.Right)

@@ -37,7 +37,7 @@ public class TimeManager : MonoBehaviour
     {
         dayStatus = DayStatus.NOON;
         panelColor = m_panel.color;
-        m_drift.SetActive(false);
+        //m_drift.SetActive(false);
         m_hour = 6;
         //if (!m_panelActive)
         //{
@@ -55,10 +55,10 @@ public class TimeManager : MonoBehaviour
         if (m_second >= 30f / m_gameSpeed)
         {
             m_hour += 1;
-            if (m_hour == 6)
-            {
-                m_drift.SetActive(true);
-            }
+            //if (m_hour == 6)
+            //{
+            //    m_drift.SetActive(true);
+            //}
             m_second = 0;
         }
         if (m_hour == 24)

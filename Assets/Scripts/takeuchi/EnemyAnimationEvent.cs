@@ -29,4 +29,13 @@ public class EnemyAnimationEvent : MonoBehaviour
     {
         Player.Instance.PlayerAttack();
     }
+
+    public void PlayerMoveStop()
+    {
+        Player.Instance.ActionStop();
+    }
+    public void PlayerMoveStart()
+    {
+        Player.Instance.ActionStart();
+    }
 }

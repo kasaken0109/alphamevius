@@ -162,4 +162,8 @@ public class ZInventoryManager : MonoBehaviour
         m_inventoryTools.ToList().ForEach(i => i.EquipmentOut());
         inventoryTool.EquipmentSet();
     }
+    public void ItemUpdate()
+    {
+        m_haveMaterials.ToList().ForEach(i => i.DataUpdate());
+    }
 }

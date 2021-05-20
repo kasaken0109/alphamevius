@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
-  m_Name: "Z29\u30B1\u30E9\u30C1\u30F3"
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: "Z5\u30DA\u30C3\u30C8\u30DC\u30C8\u30EB"
   m_EditorClassIdentifier: 
-  m_name: "\u30B1\u30E9\u30C1\u30F3"
-  m_sprite: {fileID: 21300000, guid: e6d9cbb577ce34fd6b73619e4ddcad30, type: 3}
+  m_name: "\u30DA\u30C3\u30C8\u30DC\u30C8\u30EB"
+  m_sprite: {fileID: 21300000, guid: faa577966f571ea4b85abf260f45bddc, type: 3}
   m_needMaterials: 
-  m_getMaterials: 
-  ID: 29
+  m_getMaterials: 02000000020000001f000000
+  ID: 5
   haveNumber: 0
   toolCheck: 0
   guideText: 
   m_needMaterialsText: 
-  m_toolType: 0
-  m_materialType: 9
-  m_fieldSprite: {fileID: 21300000, guid: 4c65006a17f1d4566b53519b239b3e9a, type: 3}
+  m_toolType: 17
+  m_attackPoint: 0
+  m_toolEfficiency: 0
   m_craftLevel: 0

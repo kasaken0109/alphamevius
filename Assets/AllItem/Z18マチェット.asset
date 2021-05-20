@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
   m_Name: "Z18\u30DE\u30C1\u30A7\u30C3\u30C8"
   m_EditorClassIdentifier: 
-  m_name: "\u30C4\u30BF\u5207\u308A\u30DE\u30C1\u30A7\u30C3\u30C8"
+  m_name: "\u30DE\u30C1\u30A7\u30C3\u30C8"
   m_sprite: {fileID: 21300000, guid: 6409df319725c4cb1b30728d9756f2b2, type: 3}
   m_needMaterials: 03000000030000001a0000001a000000
   m_getMaterials: 030000001a0000001f0000001f0000001f0000001f000000

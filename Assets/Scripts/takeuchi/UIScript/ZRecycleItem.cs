@@ -44,6 +44,14 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             gameObject.SetActive(false);
         }
     }
+    public void EquipmentSet()
+    {
+        m_eMark.SetActive(true);
+    }
+    public void EquipmentOut()
+    {
+        m_eMark.SetActive(false);
+    }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         if (m_itemID > 0)

@@ -153,4 +153,13 @@ public class ZInventoryManager : MonoBehaviour
         m_haveMaterialBar.localPosition = new Vector2(2000, 2000);
         m_closeButton.SetActive(false);
     }
+    public void EquipmentReset()
+    {
+        m_inventoryTools.ToList().ForEach(i => i.EquipmentOut());
+    }
+    public void EquipmentSet(ZInventoryTools inventoryTool)
+    {
+        m_inventoryTools.ToList().ForEach(i => i.EquipmentOut());
+        inventoryTool.EquipmentSet();
+    }
 }

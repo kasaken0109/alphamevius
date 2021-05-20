@@ -9,6 +9,7 @@ public class ZInventoryHaveItem : MonoBehaviour
     [SerializeField] Image m_itemIcon;
     [SerializeField] Text m_haveNumberText;
     [SerializeField] Text m_changeNumberText;
+    [SerializeField] Text m_haveMebiusText;
     void Start()
     {
         m_itemIcon.sprite = NewItemManager.Instance.GetItem(m_itemID).GetFieldSprite();
@@ -29,6 +30,10 @@ public class ZInventoryHaveItem : MonoBehaviour
         if (i > 0)
         {
             m_itemIcon.color = Color.white;
+            if (m_itemID == 1 && m_haveMebiusText)
+            {
+                m_haveMebiusText.text = "×" + i.ToString();
+            }
         }
         else
         {

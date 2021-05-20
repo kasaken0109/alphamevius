@@ -21,7 +21,7 @@ public class NewItemManager : MonoBehaviour
         {
             m_itemLiblary.Add(item);
         }
-        //Allzero();
+        Allzero();
     }
 
     

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
   m_Name: "Z1\u30E1\u30D3\u30A6\u30B9\u306E\u6B20\u7247"
   m_EditorClassIdentifier: 
-  m_name: "\u30E1\u30D3\u30A6\u30B9\u306E\u6B20\u7247"
+  m_name: "\u221E\u306E\u6B20\u7247"
   m_sprite: {fileID: 21300000, guid: 5d9c78164f80dce4e95f3f8a3506a49d, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 1
-  haveNumber: 0
+  haveNumber: 48
   toolCheck: 0
   guideText: 
   m_needMaterialsText: 

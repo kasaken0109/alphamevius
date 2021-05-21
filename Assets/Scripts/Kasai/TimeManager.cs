@@ -78,7 +78,7 @@ public class TimeManager : MonoBehaviour
             SetPanel();
         }
 
-        if (m_secondCount >= 30f * m_gameSpeed)
+        if (m_secondCount >= 1f * m_gameSpeed)
         {
             m_secondCount = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();

@@ -21,6 +21,10 @@ public class ZCookingGuid : MonoBehaviour
         ResetData();
         m_cookingItems.ToList().ForEach(i => i.SetCookingGuid(this));
     }
+    public void PageUpdate()
+    {
+        m_cookingItems.ToList().ForEach(i => i.ColorSet());
+    }
     public void ResetData()
     {
         for (int i = 0; i < 6; i++)

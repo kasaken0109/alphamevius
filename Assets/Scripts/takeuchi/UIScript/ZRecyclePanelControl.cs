@@ -25,4 +25,11 @@ public class ZRecyclePanelControl : MonoBehaviour
         m_recycleGuide.ResetData();
         m_recyclePage.localPosition = new Vector2(2000, 2000);
     }
+    public void PickResetAll()
+    {
+        foreach (var item in m_recycleItemButtons)
+        {
+            item.PickReset();
+        }
+    }
 }

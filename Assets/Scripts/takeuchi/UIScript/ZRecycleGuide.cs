@@ -71,6 +71,7 @@ public class ZRecycleGuide : MonoBehaviour
         {
             return;
         }
+        ZInventoryManager.Instance.ItemGet(m_idList[0], m_recycleItemIcon[0].GetComponent<RectTransform>().position, m_idList[1], m_recycleItemIcon[1].GetComponent<RectTransform>().position,m_idList[2], m_recycleItemIcon[2].GetComponent<RectTransform>().position);
         m_target.SetItem(0);
         NewCraftManager.Instance.OnClickRecycle();
         ResetData();

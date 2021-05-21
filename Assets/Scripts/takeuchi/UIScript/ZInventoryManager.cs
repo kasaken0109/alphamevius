@@ -16,6 +16,7 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] ZCookingGuid m_cookingItems;
     [SerializeField] RectTransform m_helpPanel;
     [SerializeField] ZHelpPanelControl m_helps;
+    [SerializeField] ZTestItmeMove[] m_itmes;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -202,5 +203,44 @@ public class ZInventoryManager : MonoBehaviour
     public void PickMarkReset()
     {
         m_recyclePanel.PickResetAll();
+    }
+    public void ItemGet(int s1,Vector2 p1)
+    {
+        var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[0].ItemGetMove(target.GetSprite(), p1, target.GetComponent<RectTransform>().position);
+        }
+    }
+    public void ItemGet(int s1, Vector2 p1, int s2, Vector2 p2)
+    {
+        var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[0].ItemGetMove(target.GetSprite(), p1, target.GetComponent<RectTransform>().position);
+        }
+        target = m_haveMaterials.Where(s => s.GetItemID() == s2).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[1].ItemGetMove(target.GetSprite(), p2, target.GetComponent<RectTransform>().position);
+        }
+    }
+    public void ItemGet(int s1, Vector2 p1, int s2, Vector2 p2, int s3, Vector2 p3)
+    {
+        var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[0].ItemGetMove(target.GetSprite(), p1, target.GetComponent<RectTransform>().position);
+        }
+        target = m_haveMaterials.Where(s => s.GetItemID() == s2).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[1].ItemGetMove(target.GetSprite(), p2, target.GetComponent<RectTransform>().position);
+        }
+        target = m_haveMaterials.Where(s => s.GetItemID() == s3).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[2].ItemGetMove(target.GetSprite(), p3, target.GetComponent<RectTransform>().position);
+        }
     }
 }

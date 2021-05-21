@@ -20,12 +20,12 @@ public class CreateBridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            BridgeCreate();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    BridgeCreate();
+        //}
     }
-    public void BridgeCreate()
+    public void BridgeCreate(ZInventoryTools inventoryTool)
     {
         GameObject bridge;
         if (Player.Instance.Down())
@@ -36,6 +36,7 @@ public class CreateBridge : MonoBehaviour
         ObjectShaker.Instance.ShakeScreen();
         bridge.transform.position = Player.Instance.transform.position + new Vector3(0, -m_bridgeLength, 0);
         NewItemManager.Instance.SubItem(67,1);
+        inventoryTool.SetItem(0);
     }
 
 

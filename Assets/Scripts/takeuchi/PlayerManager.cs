@@ -111,6 +111,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="damage"></param>
     public void Damage(int damage)
     {
+        Debug.Log($"{damage}:Hit");
         Player.Instance.Damage();
         CurrentHP -= damage;
         if (CurrentHP <= 0)

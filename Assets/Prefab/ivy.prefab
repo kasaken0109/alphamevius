@@ -52,7 +52,7 @@ MonoBehaviour:
   ObjectType: 5
   strengthPoint: 120
   DropItems: 150000001500000015000000
-  DropItem: 
+  DropItem: 15000000
 --- !u!212 &1164628923214431508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -211,8 +211,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370676931770124773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.926, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: -0.11, y: 0.53, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 1164628923214431510}
   m_RootOrder: 0

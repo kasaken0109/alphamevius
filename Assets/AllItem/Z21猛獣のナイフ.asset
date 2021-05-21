@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Z21\u731B\u7363\u306E\u30CA\u30A4\u30D5"
   m_EditorClassIdentifier: 
   m_name: "\u731B\u7363\u306E\u30CA\u30A4\u30D5"
-  m_sprite: {fileID: 21300000, guid: fa9e4867aa6f347d98cb5235f3d1c323, type: 3}
+  m_sprite: {fileID: 21300000, guid: 7bffc59c1e38b7748ba46b0686be5b26, type: 3}
   m_needMaterials: 090000000900000009000000090000000d0000000d000000
   m_getMaterials: 1f0000001f0000001f0000001f0000001f0000001f0000001f0000001f0000001f0000001f000000
   ID: 21

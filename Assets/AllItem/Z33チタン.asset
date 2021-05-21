@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Z33\u30C1\u30BF\u30F3"
   m_EditorClassIdentifier: 
   m_name: "\u30C1\u30BF\u30F3"
-  m_sprite: {fileID: 21300000, guid: 2a1045b597102443c9f548ca9ea219bd, type: 3}
+  m_sprite: {fileID: 21300000, guid: f5063e4d34de1324898cc93392047c71, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 33
@@ -23,5 +23,5 @@ MonoBehaviour:
   m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 26
-  m_fieldSprite: {fileID: 21300000, guid: 504d46d28b3fb43a688909f3c5d49cc6, type: 3}
+  m_fieldSprite: {fileID: 21300000, guid: 87a5ec14582efe0479c53c0c68e45e24, type: 3}
   m_craftLevel: 0

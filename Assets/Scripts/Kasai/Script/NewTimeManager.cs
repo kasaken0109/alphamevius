@@ -51,17 +51,9 @@ public class NewTimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_second <= 0)
+        if (PlayerManager.Instance.CurrentHP <= 0)
         {
-            if (m_minutes == 0)
-            {
-                gameStatus = GameStatus.GAMEOVER;
-            }
-            else
-            {
-                m_second = 59.99f;
-                m_minutes--;
-            }
+            gameStatus = GameStatus.GAMEOVER;
         }
         if (Input.GetButtonDown("Pause"))
         {

@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     /// <summary> 現在の水分値 </summary>
     public int CurrentHydrate { get; private set; }
     /// <summary> 現在の攻撃力 </summary>
-    public int CurrentPower { get; private set; } = 40;
+    public int CurrentPower { get; private set; } = 1;
     /// <summary> 基礎攻撃力 </summary>
     public int BasePower { get; private set; }
     /// <summary> ステータス反映初期時間：空腹 </summary>

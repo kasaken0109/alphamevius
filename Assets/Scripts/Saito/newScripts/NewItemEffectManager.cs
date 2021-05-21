@@ -57,7 +57,6 @@ public class NewItemEffectManager : MonoBehaviour
                 NewItemManager.Instance.GetEmptyBottle(manager.GetItem(itemID).GetEfficiency());
                 break;
             case ToolType.Bridge:
-                CreateBridge.Instance.BridgeCreate();
                 break;
             case ToolType.Cooking:
                 PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());
@@ -100,8 +99,12 @@ public class NewItemEffectManager : MonoBehaviour
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
                 break;
             case ToolType.Clothes:
+                SleepBagManager.Instance.CreateSleepBag();
+                inventoryTool.SetItem(0);
                 break;
-            case ToolType.Trap:
+            case ToolType.Bonfire:
+                CampFireManager.Instance.CreateCamp();
+                inventoryTool.SetItem(0);
                 break;
             case ToolType.HealingHP:
                 PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
@@ -115,7 +118,7 @@ public class NewItemEffectManager : MonoBehaviour
                 NewItemManager.Instance.GetEmptyBottle(manager.GetItem(itemID).GetEfficiency());
                 break;
             case ToolType.Bridge:
-                CreateBridge.Instance.BridgeCreate();
+                CreateBridge.Instance.BridgeCreate(inventoryTool);
                 break;
             case ToolType.Cooking:
                 PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());

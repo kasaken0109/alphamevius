@@ -13,7 +13,7 @@ public class CampMenuManager : MonoBehaviour
     }
     void Update()
     {
-        if (actionRange.ONPlayer() && !NewInventoryManager.Instance.m_open)
+        if (actionRange.ONPlayer())
         {
             m_message.SetActive(true);
         }
@@ -21,5 +21,9 @@ public class CampMenuManager : MonoBehaviour
         {
             m_message.SetActive(false);
         }
+    }
+    public void OnClickCooking()
+    {
+        ZInventoryManager.Instance.OnClickOpenCooking();
     }
 }

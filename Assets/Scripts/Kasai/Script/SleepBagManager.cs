@@ -13,6 +13,7 @@ public class SleepBagManager : MonoBehaviour
     [SerializeField] GameObject m_Button = null;
     [SerializeField] GameObject m_animSleepBag = null;
     [SerializeField] GameObject m_SleepBag = null;
+    [SerializeField] Transform m_player = null;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class SleepBagManager : MonoBehaviour
     /// 寝袋を設置するときに呼ばれる関数
     /// </summary>
     /// <param name="m_player">プレイヤーの位置</param>
-    public void CreateSleepBag(Transform m_player)
+    public void CreateSleepBag()
     {
         if (GameObject.Find("SleepBag"))
         {

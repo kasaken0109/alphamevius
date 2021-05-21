@@ -144,6 +144,7 @@ public class NewItemEffectManager : MonoBehaviour
     public void SetUse(int ID,ZInventoryTools tool)
     {
         itemID = ID;
+        tool.SetItem(ID);
         toolType = manager.GetToolType(ID);
         UseItem(tool);
     }

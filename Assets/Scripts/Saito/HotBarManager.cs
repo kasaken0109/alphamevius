@@ -62,7 +62,7 @@ public class HotBarManager : MonoBehaviour
         }
         else if (m_hotBarList[ID].GetItemType() == ItemEnum.Bridge)
         {
-            CreateBridge.Instance.BridgeCreate();
+            //CreateBridge.Instance.BridgeCreate(inventoryTool);
         }
         else if (ItemManage.Instance.UseItem(m_hotBarList[ID].GetItemType()))
         {

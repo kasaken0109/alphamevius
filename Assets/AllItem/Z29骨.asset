@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Z29\u9AA8"
   m_EditorClassIdentifier: 
   m_name: "\u52D5\u7269\u306E\u9AA8"
-  m_sprite: {fileID: 21300000, guid: e6d9cbb577ce34fd6b73619e4ddcad30, type: 3}
+  m_sprite: {fileID: 21300000, guid: 6b57e44a3e0fd5248b63ad2f2a659e17, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 29

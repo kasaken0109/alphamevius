@@ -51,12 +51,18 @@ public class ZInventoryTools : MonoBehaviour, IPointerEnterHandler, IPointerExit
         m_frame.SetActive(true);
         m_eMark.SetActive(false);
         m_image.sprite = NewItemManager.Instance.GetSprite(0);
+        if (m_equipment)
+        {
+            PlayerManager.Instance.PurgeEquipmentTool();
+            m_equipment = false;
+        }
     }
     public void EquipmentSet()
     {
         m_equipment = true;
         m_eMark.SetActive(true);
         m_recycleItem.EquipmentSet();
+        PlayerManager.Instance.SetEquipmentTool(NewItemManager.Instance.GetItem(m_itemID));
         Debug.Log("soubi!");
     }
     public void EquipmentOut()
@@ -79,7 +85,10 @@ public class ZInventoryTools : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        NewItemEffectManager.Instance.SetUse(m_itemID,this);
+        if (m_itemID > 0)
+        {
+            NewItemEffectManager.Instance.SetUse(m_itemID, this);
+        }
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {

@@ -68,18 +68,28 @@ public class TutorialControl : MonoBehaviour
     public void OnClickTutorialOpen()
     {
         gameObject.SetActive(true);
-        CloseAllPage();
-        tutorialPage[pageNumber].SetActive(true);
-        if (pageNumber == 0)
+        if (tutorialPage.Length > 1)
         {
-            backButton.SetActive(false);
-            nextButton.SetActive(true);
+            CloseAllPage();
+            tutorialPage[pageNumber].SetActive(true);
+            if (pageNumber == 0)
+            {
+                backButton.SetActive(false);
+                nextButton.SetActive(true);
+            }
+            else if (pageNumber == tutorialPage.Length - 1)
+            {
+                nextButton.SetActive(false);
+                backButton.SetActive(true);
+            }
+            pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
         }
-        else if (pageNumber == tutorialPage.Length - 1)
+        else
         {
+            tutorialPage[0].SetActive(true);
             nextButton.SetActive(false);
-            backButton.SetActive(true);
+            backButton.SetActive(false);
+            pageNumberText.text = "";
         }
-        pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
     }
 }

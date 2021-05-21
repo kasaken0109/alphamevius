@@ -23,6 +23,7 @@ public class ZInventoryHaveItem : MonoBehaviour
         DataUpdate();
     }
     public int GetItemID() { return m_itemID; }
+    public Sprite GetSprite() { return m_itemIcon.sprite; }
     public void DataUpdate()
     {
         int i = NewItemManager.Instance.GetItem(m_itemID).GetHaveNumber();

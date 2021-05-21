@@ -10,6 +10,7 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] RectTransform m_namePlate;
     [SerializeField] Text m_nameText;
     [SerializeField] Image m_image;
+    [SerializeField] GameObject m_pickMark;
     int m_itemID;
     ZRecycleGuide m_recycleGuide;
     ZInventoryTools m_inventoryTools;
@@ -19,6 +20,7 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         m_image.sprite = NewItemManager.Instance.GetSprite(0);
         m_namePlate.localPosition = new Vector2(0, 2000);
         m_eMark.SetActive(false);
+        PickReset();
     }
     public void SetInventory(ZInventoryTools inventory)
     {
@@ -44,6 +46,10 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             gameObject.SetActive(false);
         }
     }
+    public void PickReset()
+    {
+        m_pickMark.SetActive(false);
+    }
     public void EquipmentSet()
     {
         m_eMark.SetActive(true);
@@ -65,6 +71,8 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (m_itemID > 0)
         {
             m_recycleGuide.SetData(m_itemID, m_inventoryTools);
+            ZInventoryManager.Instance.PickMarkReset();
+            m_pickMark.SetActive(true);
         }
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

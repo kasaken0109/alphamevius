@@ -21,6 +21,10 @@ public class ZCookingGuid : MonoBehaviour
         ResetData();
         m_cookingItems.ToList().ForEach(i => i.SetCookingGuid(this));
     }
+    public void PageUpdate()
+    {
+        m_cookingItems.ToList().ForEach(i => i.ColorSet());
+    }
     public void ResetData()
     {
         for (int i = 0; i < 6; i++)
@@ -93,5 +97,9 @@ public class ZCookingGuid : MonoBehaviour
             }
         }
         NewCraftManager.Instance.SetTargetID(itemID);
+    }
+    public void Cooking()
+    {
+        ZInventoryManager.Instance.ItemGet(m_idList[1], m_materialItemIcon[1].GetComponent<RectTransform>().position, m_idList[2], m_materialItemIcon[2].GetComponent<RectTransform>().position);
     }
 }

@@ -25,6 +25,10 @@ public class NewCraftManager : MonoBehaviour
     }
     public void OnClickCraft()
     {
+        if (targetID == 0)
+        {
+            return;
+        }
         if (ZInventoryManager.Instance.FullInventory)
         {
             MessgaeManager.ViweMessage("インベントリが一杯です");
@@ -71,11 +75,15 @@ public class NewCraftManager : MonoBehaviour
             }
             Debug.Log("分解");
             ZInventoryManager.Instance.RecycleTool();
-            //NewInventoryManager.Instance.RecycleListUpdate();
+            targetID = 0;
         }
     }
     public void OnClickCooking()
     {
+        if (targetID == 0)
+        {
+            return;
+        }
         MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
         int[] idList = new int[3];
         int[] needMaterialNumbers = new int[3];
@@ -96,17 +104,18 @@ public class NewCraftManager : MonoBehaviour
                 return;
             }
         }
+        ZInventoryManager.Instance.Cooking();
         for (int a = 0; a < idList.Length; a++)
         {
             itemManager.SubItem(idList[a], needMaterialNumbers[a]);
         }
-        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         foreach (var item in itemManager.GetRecycleMaterialItems(targetID))
         {
             itemManager.AddItem(itemManager.GetMaterialId(item), 1);
         }
         Debug.Log("食事で" + NewItemManager.Instance.GetItem(targetID).GetEfficiency().ToString() + "回復");
         PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
+        targetID = 0;
     }
     public void EXPGet(int exp)
     {

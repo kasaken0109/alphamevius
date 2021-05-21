@@ -138,36 +138,44 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenCraft()
     {
+        PickMarkReset();
         ViewMaterialReset();
         m_craftPanel.OnClickOpenCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void OnClickOpenRecycle()
     {
+        PickMarkReset();
         ViewMaterialReset();
         m_recyclePanel.OnClickOpenRecycle();
         m_craftPanel.CloseCraft();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void OnClickOpenCooking()
     {
+        PickMarkReset();
         ViewMaterialReset();
         m_craftPanel.CloseCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_cookingPanel.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void OnClickCloseAll()
     {
+        PickMarkReset();
         m_craftPanel.CloseCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(2000, 2000);
         m_closeButton.SetActive(false);
         m_cookingPanel.localPosition = new Vector2(2000, 2000);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void EquipmentReset()
     {
@@ -181,5 +189,9 @@ public class ZInventoryManager : MonoBehaviour
     public void ItemUpdate()
     {
         m_haveMaterials.ToList().ForEach(i => i.DataUpdate());
+    }
+    public void PickMarkReset()
+    {
+        m_recyclePanel.PickResetAll();
     }
 }

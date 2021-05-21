@@ -172,6 +172,7 @@ MonoBehaviour:
   m_namePlate: {fileID: 4134564496635176583}
   m_nameText: {fileID: 1470398177903393445}
   m_image: {fileID: 8704756601198637506}
+  m_pickMark: {fileID: 6035045868922817926}
 --- !u!1 &6035045868922817926
 GameObject:
   m_ObjectHideFlags: 0

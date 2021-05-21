@@ -204,6 +204,10 @@ public class ZInventoryManager : MonoBehaviour
     {
         m_recyclePanel.PickResetAll();
     }
+    public void Cooking()
+    {
+        m_cookingItems.Cooking();
+    }
     public void ItemGet(int s1,Vector2 p1)
     {
         var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();

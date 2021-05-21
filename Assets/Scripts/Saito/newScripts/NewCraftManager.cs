@@ -25,9 +25,10 @@ public class NewCraftManager : MonoBehaviour
     }
     public void OnClickCraft()
     {
-        if (m_level < itemManager.GetItem(targetID).GetCraftLevel())
+        if (ZInventoryManager.Instance.FullInventory)
         {
-            Debug.Log("レベル不足");
+            MessgaeManager.ViweMessage("インベントリが一杯です");
+            Debug.Log("インベントリが一杯です");
             return;
         }
         MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
@@ -45,6 +46,7 @@ public class NewCraftManager : MonoBehaviour
         {
             if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
             {
+                MessgaeManager.ViweMessage("素材が足りません");
                 Debug.Log("不足");
                 return;
             }
@@ -54,8 +56,9 @@ public class NewCraftManager : MonoBehaviour
         {
             itemManager.SubItem(idList[a], needMaterialNumbers[a]);
         }
+        ZInventoryManager.Instance.ToolGet(targetID);
+        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         Debug.Log("作成");
-        EXPGet(2);
     }
     public void OnClickRecycle()
     {
@@ -67,9 +70,43 @@ public class NewCraftManager : MonoBehaviour
                 itemManager.AddItem(itemManager.GetMaterialId(item), 1);
             }
             Debug.Log("分解");
-            EXPGet(4);
-            NewInventoryManager.Instance.RecycleListUpdate();
+            ZInventoryManager.Instance.RecycleTool();
+            //NewInventoryManager.Instance.RecycleListUpdate();
         }
+    }
+    public void OnClickCooking()
+    {
+        MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
+        int[] idList = new int[3];
+        int[] needMaterialNumbers = new int[3];
+        var result = needMaterials.ToList().Distinct();
+        int index = 0;
+        foreach (var item in result)
+        {
+            idList[index] = itemManager.GetMaterialId(item);
+            needMaterialNumbers[index] = needMaterials.ToList().Count(k => item == k);
+            index++;
+        }
+        for (int j = 0; j < idList.Length; j++)
+        {
+            if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
+            {
+                MessgaeManager.ViweMessage("素材が足りません");
+                Debug.Log("不足");
+                return;
+            }
+        }
+        for (int a = 0; a < idList.Length; a++)
+        {
+            itemManager.SubItem(idList[a], needMaterialNumbers[a]);
+        }
+        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
+        foreach (var item in itemManager.GetRecycleMaterialItems(targetID))
+        {
+            itemManager.AddItem(itemManager.GetMaterialId(item), 1);
+        }
+        Debug.Log("食事で" + NewItemManager.Instance.GetItem(targetID).GetEfficiency().ToString() + "回復");
+        PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
     }
     public void EXPGet(int exp)
     {

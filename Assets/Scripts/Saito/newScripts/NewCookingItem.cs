@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class NewCookingItem : MonoBehaviour, IPointerClickHandler
+public class NewCookingItem : MonoBehaviour, IPointerClickHandler, IPointerExitHandler, IPointerEnterHandler
 {
     int ID = 0;
     [SerializeField] Image image;
@@ -27,5 +27,13 @@ public class NewCookingItem : MonoBehaviour, IPointerClickHandler
             NewInventoryManager.Instance.OpenCookingGuide(ID);
             TargetMark.Instance.TargetSet(gameObject.GetComponent<RectTransform>());
         }
+    }
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        image.color = new Color(0.6f, 0.6f, 0.6f);
+    }
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        image.color = new Color(1f, 1f, 1f);
     }
 }

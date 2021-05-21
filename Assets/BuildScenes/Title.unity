@@ -397,6 +397,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &802490979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4984356416384371337, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+    type: 3}
+  m_PrefabInstance: {fileID: 891505043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8a02bbdc6f9e4f9268b68de48bf60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &875824023
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +495,11 @@ PrefabInstance:
       propertyPath: m_fadePanel
       value: 
       objectReference: {fileID: 875824025}
+    - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_sceneNameToBeLoaded
+      value: BuildScene Kasai
+      objectReference: {fileID: 0}
     - target: {fileID: 272841369012826217, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -558,6 +575,11 @@ PrefabInstance:
       propertyPath: m_bgm
       value: 
       objectReference: {fileID: 8300000, guid: 88de9b38a2384d24e814b192801d50f4, type: 3}
+    - target: {fileID: 4984356416384371337, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 272841369012826216, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
     - {fileID: 3376163574874737675, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
@@ -840,7 +862,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BuildScene_Stage1
+          m_StringArgument: BuildScene Kasai
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 802490979}
+        m_MethodName: SetTimeScale
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1803307663

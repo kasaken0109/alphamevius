@@ -6,6 +6,7 @@ public class CreateBridge : MonoBehaviour
 {
     public static CreateBridge Instance { get; private set; }
     [SerializeField] GameObject m_bridge;
+    [SerializeField] GameObject m_player;
     [SerializeField] float m_bridgeLength = 4;
     private void Awake()
     {
@@ -19,10 +20,10 @@ public class CreateBridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    BridgeCreate();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BridgeCreate();
+        }
     }
     public void BridgeCreate()
     {
@@ -32,6 +33,7 @@ public class CreateBridge : MonoBehaviour
             return;
         }
         bridge = Instantiate(m_bridge);
+        ObjectShaker.Instance.ShakeScreen();
         bridge.transform.position = Player.Instance.transform.position + new Vector3(0, -m_bridgeLength, 0);
         NewItemManager.Instance.SubItem(67,1);
     }

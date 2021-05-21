@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1782101992832824397}
   - component: {fileID: 4202785188224319689}
   - component: {fileID: 336237492629114555}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: woodchips
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,10 +8,7 @@ public class WaterPlace : MonoBehaviour
     {
         if (collision.tag == "Attack")
         {
-            if (PlayerManager.Instance.EquipmentTool == ToolType.EmptyBottle)
-            {
-                NewItemManager.Instance.GetWaterBottle(PlayerManager.Instance.EquipmentPower);
-            }
+            PlayerManager.Instance.HealingHydrate(100);
         }
     }
 }

@@ -171,12 +171,11 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 2921596313474481968}
   creature: {fileID: 2921596312877254970}
-  haveItems: 0900000009000000
-  haveMaterial: 
+  haveItems: 09000000090000000400000004000000
   actionRange: {fileID: 2921596313474481982}
   searchRange: {fileID: 2921596314609860966}
   attackRange: {fileID: 2921596313562147208}
-  attackInterval: 1
+  attackInterval: 3
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 2921596314056817213}
@@ -365,8 +364,14 @@ Transform:
   m_GameObject: {fileID: 2921596314056817215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
+=======
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_Children:
+  - {fileID: 2921596312823761419}
+>>>>>>> eca18b142748797bfa4214ca739c4517606b9a43
   m_Father: {fileID: 2921596312877254968}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

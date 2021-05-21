@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     [SerializeField] CheckFloor downFloor;
     [SerializeField] CheckFloor leftFloor;
     [SerializeField] CheckFloor rightFloor;
-
+    [SerializeField] GameObject torchLight;
     private void Awake()
     {
         Instance = this;
@@ -56,6 +56,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT && playerAnimation)
+        {
+            playerAnimation.SetBool("Torch", true);
+        }
+        else
+        {
+            playerAnimation.SetBool("Torch", false);
+        }
         if (!action)
         {
             return;
@@ -76,7 +84,7 @@ public class Player : MonoBehaviour
         {
             playerAnimation.SetBool("Attack", false);
         }
-        if (Input.GetButtonDown("Attack") && attackTimer <= 0)
+        if (Input.GetButtonDown("Jump") && attackTimer <= 0)
         {                
             if (playerAnimation)
             {
@@ -238,6 +246,10 @@ public class Player : MonoBehaviour
                 playerAnimation.SetBool("Move", false);
             }
         }
+        if (playerAnimation)
+        {
+            playerAnimation.SetBool("Collection", false);
+        }
         rB.velocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         moveX = 0;
         moveY = 0;
@@ -284,8 +296,23 @@ public class Player : MonoBehaviour
     public void ActionStart() { action = true; }
     public void EquipmentArrow() { arrowMode = true; }
     public void NoneEquipmentArrow() { arrowMode = false; }
-    public void EquipmentTorch() { playerAnimation.SetBool("Torch", true); }
-    public void NoneEquipmentTorch() { playerAnimation.SetBool("Torch", false); }
+    public void EquipmentTorch() 
+    {
+        if (torchLight)
+        {
+            torchLight.SetActive(true);
+        }
+        playerAnimation.SetBool("Torch", true); 
+    }
+    public void NoneEquipmentTorch()
+    {
+        if (torchLight)
+        {
+            torchLight.SetActive(false);
+        }
+        playerAnimation.SetBool("Torch", false); 
+    }
+    public void CatchItem() { playerAnimation.SetBool("Collection", true); }
     public void Damage()
     {
         playerAnimation.SetBool("Damage", true);

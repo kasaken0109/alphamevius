@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
+public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     int ID = 0;
     int check;
@@ -39,7 +39,14 @@ public class NewRecycleItem : MonoBehaviour,  IPointerClickHandler
         image.sprite = NewItemManager.Instance.GetSprite(ID);
        
     }
-    
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        image.color = new Color(0.6f, 0.6f, 0.6f);
+    }
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        image.color = new Color(1f, 1f, 1f);
+    }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         if (ID > 0)

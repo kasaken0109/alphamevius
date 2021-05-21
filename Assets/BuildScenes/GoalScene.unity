@@ -506,6 +506,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_sceneNameToBeLoaded
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 272841369012826217, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -566,11 +571,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2518387532012913514, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984356416384371337, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7599514845318972232, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_bgm
       value: 
       objectReference: {fileID: 8300000, guid: 4192e6d270d0c424c88aa055eb92ce67, type: 3}
+    - target: {fileID: 8410725560027408455, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 272841369012826216, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
     - {fileID: 3376163574874737675, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}

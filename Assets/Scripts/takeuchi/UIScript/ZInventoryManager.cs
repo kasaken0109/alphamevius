@@ -13,6 +13,10 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] ZRecyclePanelControl m_recyclePanel;
     [SerializeField] GameObject m_closeButton;
     [SerializeField] RectTransform m_cookingPanel;
+    [SerializeField] ZCookingGuid m_cookingItems;
+    [SerializeField] RectTransform m_helpPanel;
+    [SerializeField] ZHelpPanelControl m_helps;
+    [SerializeField] ZTestItmeMove[] m_itmes;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -131,37 +135,57 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void ViewMaterialReset()
     {
+        m_craftPanel.PageUpdate();
+        m_cookingItems.PageUpdate();
         m_haveMaterials.ToList().ForEach(i => i.ClearText());
     }
     public void OnClickOpenCraft()
     {
+        PickMarkReset();
+        ViewMaterialReset();
         m_craftPanel.OnClickOpenCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void OnClickOpenRecycle()
     {
+        PickMarkReset();
+        ViewMaterialReset();
         m_recyclePanel.OnClickOpenRecycle();
         m_craftPanel.CloseCraft();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void OnClickOpenCooking()
     {
+        PickMarkReset();
+        ViewMaterialReset();
         m_craftPanel.CloseCraft();
         m_recyclePanel.CloseRecycle();
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_cookingPanel.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        NewCraftManager.Instance.SetTargetID(0);
+    }
+    public void OnClickOpenHelp()
+    {
+        m_helpPanel.localPosition = new Vector2(0, 0);
+        m_closeButton.SetActive(true);
     }
     public void OnClickCloseAll()
     {
+        PickMarkReset();
+        m_helps.AllClose();
         m_craftPanel.CloseCraft();
         m_recyclePanel.CloseRecycle();
-        m_haveMaterialBar.localPosition = new Vector2(2000, 2000);
         m_closeButton.SetActive(false);
+        m_haveMaterialBar.localPosition = new Vector2(2000, 2000);
         m_cookingPanel.localPosition = new Vector2(2000, 2000);
+        m_helpPanel.localPosition = new Vector2(2000, 2000);
+        NewCraftManager.Instance.SetTargetID(0);
     }
     public void EquipmentReset()
     {
@@ -175,5 +199,48 @@ public class ZInventoryManager : MonoBehaviour
     public void ItemUpdate()
     {
         m_haveMaterials.ToList().ForEach(i => i.DataUpdate());
+    }
+    public void PickMarkReset()
+    {
+        m_recyclePanel.PickResetAll();
+    }
+    public void ItemGet(int s1,Vector2 p1)
+    {
+        var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[0].ItemGetMove(target.GetSprite(), p1, target.GetComponent<RectTransform>().position);
+        }
+    }
+    public void ItemGet(int s1, Vector2 p1, int s2, Vector2 p2)
+    {
+        var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[0].ItemGetMove(target.GetSprite(), p1, target.GetComponent<RectTransform>().position);
+        }
+        target = m_haveMaterials.Where(s => s.GetItemID() == s2).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[1].ItemGetMove(target.GetSprite(), p2, target.GetComponent<RectTransform>().position);
+        }
+    }
+    public void ItemGet(int s1, Vector2 p1, int s2, Vector2 p2, int s3, Vector2 p3)
+    {
+        var target = m_haveMaterials.Where(s => s.GetItemID() == s1).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[0].ItemGetMove(target.GetSprite(), p1, target.GetComponent<RectTransform>().position);
+        }
+        target = m_haveMaterials.Where(s => s.GetItemID() == s2).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[1].ItemGetMove(target.GetSprite(), p2, target.GetComponent<RectTransform>().position);
+        }
+        target = m_haveMaterials.Where(s => s.GetItemID() == s3).FirstOrDefault();
+        if (target)
+        {
+            m_itmes[2].ItemGetMove(target.GetSprite(), p3, target.GetComponent<RectTransform>().position);
+        }
     }
 }

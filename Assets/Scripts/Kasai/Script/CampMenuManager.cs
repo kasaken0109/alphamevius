@@ -6,7 +6,7 @@ public class CampMenuManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]ActionRange actionRange;
-    [SerializeField] GameObject m_message = null;
+    [SerializeField] GameObject m_message;
     private void Start()
     {
         m_message.SetActive(false);
@@ -25,5 +25,10 @@ public class CampMenuManager : MonoBehaviour
     public void OnClickCooking()
     {
         ZInventoryManager.Instance.OnClickOpenCooking();
+    }
+
+    public void CloseGuide()
+    {
+        m_message.SetActive(false);
     }
 }

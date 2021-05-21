@@ -98,4 +98,8 @@ public class ZCookingGuid : MonoBehaviour
         }
         NewCraftManager.Instance.SetTargetID(itemID);
     }
+    public void Cooking()
+    {
+        ZInventoryManager.Instance.ItemGet(m_idList[1], m_materialItemIcon[1].GetComponent<RectTransform>().position, m_idList[2], m_materialItemIcon[2].GetComponent<RectTransform>().position);
+    }
 }

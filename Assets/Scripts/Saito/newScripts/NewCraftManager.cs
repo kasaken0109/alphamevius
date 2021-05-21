@@ -104,11 +104,11 @@ public class NewCraftManager : MonoBehaviour
                 return;
             }
         }
+        ZInventoryManager.Instance.Cooking();
         for (int a = 0; a < idList.Length; a++)
         {
             itemManager.SubItem(idList[a], needMaterialNumbers[a]);
         }
-        MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         foreach (var item in itemManager.GetRecycleMaterialItems(targetID))
         {
             itemManager.AddItem(itemManager.GetMaterialId(item), 1);

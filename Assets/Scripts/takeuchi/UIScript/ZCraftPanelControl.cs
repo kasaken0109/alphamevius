@@ -18,6 +18,7 @@ public class ZCraftPanelControl : MonoBehaviour
     public void OnClickOpenCraft()
     {
         m_craftPage[0].localPosition = new Vector2(0, 0);
+        m_craftPage[1].localPosition = new Vector2(0, 0);
     }
     public void CloseCraft()
     {

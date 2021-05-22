@@ -11,18 +11,21 @@ public class MessgaeManager : MonoBehaviour
     [SerializeField] Image messageIcon;
     [SerializeField] RectTransform messageBox;
     [SerializeField] float viweTime = 1f;
+    [SerializeField] Image backImage;
     float viweTimer;
     static MessgaeManager instance;
     float viwePositionY = -500;
     float imageClearScale = 0f;
     bool viweMode = false;
     bool viwe;
+    Color textColor;
     private void Awake()
     {
         instance = this;
     }
     private void Start()
     {
+        textColor = messageText.color;
         messageBox.transform.localPosition = new Vector2(0, -500);
     }
     void Update()
@@ -65,8 +68,9 @@ public class MessgaeManager : MonoBehaviour
                 }
             }
         }
-        messageText.color = new Color(1, 1, 1, imageClearScale);
+        messageText.color = new Color(1, 1, 1, imageClearScale) * textColor;
         messageIcon.color = new Color(1, 1, 1, imageClearScale);
+        backImage.color = new Color(1, 1, 1, imageClearScale);
         messageBox.transform.localPosition = new Vector2(0, viwePositionY);        
         if (viweTimer > 0)
         {

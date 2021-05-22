@@ -21,8 +21,7 @@ public class NewItemManager : MonoBehaviour
         {
             m_itemLiblary.Add(item);
         }
-        Allzero();
-
+        //Allzero();
     }
 
     
@@ -57,12 +56,15 @@ public class NewItemManager : MonoBehaviour
     public void AddItem(int ID, int number)
     {
         m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().AddHaveNumber(number);
-        NewInventoryManager.Instance.ItemListUpdate(ID);
+        ZInventoryManager.Instance.ItemUpdate();
+        //NewInventoryManager.Instance.ItemListUpdate(ID);
+        //LogManager.Instance.ShowLog(GetName(ID), number);
     }
     public void SubItem(int ID, int number)
     {
         m_itemLiblary.Where(i => i.GetID() == ID).FirstOrDefault().SubHaveNumber(number);
-        NewInventoryManager.Instance.ItemListUpdate(ID);
+        ZInventoryManager.Instance.ItemUpdate();
+        //NewInventoryManager.Instance.ItemListUpdate(ID);
     }
     public int HaveItemNumber(int ID)
     {

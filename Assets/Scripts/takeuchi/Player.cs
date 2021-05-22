@@ -56,6 +56,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT && playerAnimation)
+        {
+            playerAnimation.SetBool("Torch", true);
+        }
+        else
+        {
+            playerAnimation.SetBool("Torch", false);
+        }
         if (!action)
         {
             return;
@@ -248,6 +256,10 @@ public class Player : MonoBehaviour
     }
     public void MoveStop()
     {
+        if (playerAnimation)
+        {
+            playerAnimation.SetBool("Move", false);
+        }
         rB.velocity = Vector2.zero;
         move = false;
     }
@@ -320,4 +332,9 @@ public class Player : MonoBehaviour
     public bool Right() { return right; }
     public bool Up() { return up; }
     public bool Down() { return down; }
+    public void PlayerAngleChange(MoveAngle angle)
+    {
+        this.angle = angle;
+        angleChange = true;
+    }
 }

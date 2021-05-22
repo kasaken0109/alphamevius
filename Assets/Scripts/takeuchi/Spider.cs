@@ -9,14 +9,14 @@ public class Spider : Creatures
 {
     private void Update()
     {
-        if (TimeManager.DayStatus.NOON == TimeManager.Instance.GetDayStatus())
+        if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NOON)
         {
-            Dead();
+            SunDead();
         }
-        if (Input.GetButtonDown("Jump") && TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT)
-        {
-            StartSpawn();
-        }
+        //if (Input.GetButtonDown("Jump") ||TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT)
+        //{
+        //    StartSpawn();
+        //}
         if (!action)
         {
             return;
@@ -46,6 +46,7 @@ public class Spider : Creatures
                         transform.localScale = new Vector3(1, 1, 1);
                     }
                     AttackAction();
+                    AttackPlayer();
                     attackTimer = attackInterval;
                 }
                 else
@@ -109,12 +110,18 @@ public class Spider : Creatures
         {
             FieldItemManager.Instance.DropMaterial(haveItems, transform.position);
         }
-        //FieldItemManager.Instance.DropMaterial(haveMaterial, transform.position);
-        //foreach (var item in haveItems)
-        //{
-        //    FieldItemManager.Instance.DropItem(item, transform.position);
-        //}
-        //creature.SetActive(false);
+        creature.SetActive(false);
+        rB.velocity = Vector3.zero;
+        circleCollider.enabled = false;
+        if (CreaturesAnimation)
+        {
+            CreaturesAnimation.SetBool("Dead", true);
+        }
+    }
+    private void SunDead()
+    {
+        ActionStop();
+        creature.SetActive(false);
         rB.velocity = Vector3.zero;
         circleCollider.enabled = false;
         if (CreaturesAnimation)

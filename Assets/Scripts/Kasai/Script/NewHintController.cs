@@ -7,7 +7,7 @@ public class NewHintController : MonoBehaviour
 {
     [SerializeField] GameObject m_hintIcon;
     [SerializeField] string m_playerName = "Player";
-    [SerializeField] float m_hintDistance = 10f;
+    [SerializeField] float m_hintDistance = 8f;
     Animation m_animation = null;
     GameObject m_player;
     // Start is called before the first frame update
@@ -33,6 +33,7 @@ public class NewHintController : MonoBehaviour
         else
         {
             m_hintIcon.SetActive(false);
+            m_animation.Stop();
         }
 
     }

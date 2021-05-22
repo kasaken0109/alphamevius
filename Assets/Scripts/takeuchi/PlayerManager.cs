@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     /// <summary> 現在の水分値 </summary>
     public int CurrentHydrate { get; private set; }
     /// <summary> 現在の攻撃力 </summary>
-    public int CurrentPower { get; private set; } = 40;
+    public int CurrentPower { get; private set; } = 1;
     /// <summary> 基礎攻撃力 </summary>
     public int BasePower { get; private set; }
     /// <summary> ステータス反映初期時間：空腹 </summary>
@@ -111,6 +111,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="damage"></param>
     public void Damage(int damage)
     {
+        Debug.Log($"{damage}:Hit");
         Player.Instance.Damage();
         CurrentHP -= damage;
         if (CurrentHP <= 0)
@@ -225,8 +226,8 @@ public class PlayerManager : MonoBehaviour
         EquipmentTool = item.GetToolType();
         SetPower(item.GetAttackPoint());
         EquipmentPower = item.GetEfficiency();
-        NewInventoryManager.Instance.EquipmentTool(item.GetID());
-        NewHotbarManager.Instance.EquipmentTool(item.GetID());
+        //NewInventoryManager.Instance.EquipmentTool(item.GetID());
+        //NewHotbarManager.Instance.EquipmentTool(item.GetID());
         Debug.Log(EquipmentTool + "を装備した");
         switch (EquipmentTool)
         {
@@ -242,6 +243,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void PurgeEquipmentTool()
     {
+        Debug.Log(EquipmentTool + "を外した");
         EquipmentTool = ToolType.None; 
         SetPower(BasePower);
         EquipmentPower = 0;

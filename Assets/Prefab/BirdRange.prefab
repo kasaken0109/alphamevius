@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2049437200594240376}
   - component: {fileID: 2049437200594240379}
   - component: {fileID: 2049437200594240377}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SearchScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 2049437201149671463}
   - component: {fileID: 2049437201149671456}
   - component: {fileID: 2049437201149671462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BirdAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 418d7244f75726a489c952e878489c8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 2049437201644333974}
   - component: {fileID: 2049437201644333972}
   - component: {fileID: 2049437201644333973}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,8 +248,7 @@ GameObject:
   - component: {fileID: 2049437201723424035}
   - component: {fileID: 2049437201723424044}
   - component: {fileID: 2049437201723424034}
-  - component: {fileID: 336237047363359804}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BirdRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +262,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049437201723424046}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.4, y: -48.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -320,25 +319,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!95 &336237047363359804
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049437201723424046}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 601383e9b4781dc4199348116a66f773, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2049437202050353959
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,8 +409,7 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 2049437201723424045}
   creature: {fileID: 2049437202050353959}
-  haveItems: 
-  haveMaterial: 
+  haveItems: 05000000050000001d00000015000000
   actionRange: {fileID: 2049437201723424035}
   searchRange: {fileID: 2049437200594240379}
   attackRange: {fileID: 2049437201644333973}
@@ -462,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049437202114332694}
   - component: {fileID: 2049437202114332693}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -34,7 +34,8 @@ public enum MaterialType
     MeatBird,
     MeatDeer,
     BigMeat,
-    MeatSpider
+    MeatSpider,
+    Mebius,
 }
 public enum ToolType
 {
@@ -54,7 +55,8 @@ public enum ToolType
     Cooking,
     Bonfire,
     Material,
-    EmptyBottle
+    EmptyBottle,
+    Garbage,
 }
 
 public class NewItem : ScriptableObject
@@ -97,16 +99,16 @@ public class NewItem : ScriptableObject
     {
         if (haveNumber == 0)
         {
-            NewInventoryManager.Instance.HaveItemNew(ID);
+            //NewInventoryManager.Instance.HaveItemNew(ID);
         }
         haveNumber += getNumber;
     }
     public void SubHaveNumber(int number)
     {
         haveNumber -= number;
-        if (haveNumber <= 0)
+        if (haveNumber < 0)
         {
-            NewInventoryManager.Instance.HaveItemZero(ID);
+            //NewInventoryManager.Instance.HaveItemZero(ID);
             Debug.Log("所持数より多く消費した");
             haveNumber = 0;
         }

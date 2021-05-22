@@ -57,7 +57,69 @@ public class NewItemEffectManager : MonoBehaviour
                 NewItemManager.Instance.GetEmptyBottle(manager.GetItem(itemID).GetEfficiency());
                 break;
             case ToolType.Bridge:
-                CreateBridge.Instance.BridgeCreate();
+                break;
+            case ToolType.Cooking:
+                PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());
+                break;
+            case ToolType.EmptyBottle:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                break;
+            default:
+                break;
+        }
+    }
+    public void UseItem(ZInventoryTools inventoryTool)
+    {
+        switch (toolType)
+        {
+            case ToolType.None:
+                break;
+            case ToolType.Knife:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                break;
+            case ToolType.Bow:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                break;
+            case ToolType.Axe:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                break;
+            case ToolType.Hammer:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                break;
+            case ToolType.Machete:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                break;
+            case ToolType.Pickaxe:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                break;
+            case ToolType.Clothes:
+                SleepBagManager.Instance.CreateSleepBag();
+                inventoryTool.SetItem(0);
+                break;
+            case ToolType.Bonfire:
+                CampFireManager.Instance.CreateCamp();
+                inventoryTool.SetItem(0);
+                break;
+            case ToolType.HealingHP:
+                PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
+                NewItemManager.Instance.SubItem(itemID, 1);
+                inventoryTool.SetItem(0);
+                break;
+            case ToolType.Torch:
+                PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                break;
+            case ToolType.HealingWater:
+                PlayerManager.Instance.HealingHydrate(manager.GetItem(itemID).GetEfficiency());
+                NewItemManager.Instance.GetEmptyBottle(manager.GetItem(itemID).GetEfficiency());
+                break;
+            case ToolType.Bridge:
+                CreateBridge.Instance.BridgeCreate(inventoryTool);
                 break;
             case ToolType.Cooking:
                 PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());
@@ -79,6 +141,13 @@ public class NewItemEffectManager : MonoBehaviour
         itemID = ID;
         toolType = manager.GetToolType(ID);
         UseItem();
+    }
+    public void SetUse(int ID,ZInventoryTools tool)
+    {
+        itemID = ID;
+        tool.SetItem(ID);
+        toolType = manager.GetToolType(ID);
+        UseItem(tool);
     }
     private void RemoveItem()
     {

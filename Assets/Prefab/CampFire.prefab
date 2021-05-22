@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 8442412171066185178}
   - component: {fileID: 6465347305461455755}
   m_Layer: 0
-  m_Name: tent
+  m_Name: CampFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -436,7 +436,7 @@ RectTransform:
   m_GameObject: {fileID: 875824023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 40843648}
   m_RootOrder: 2
@@ -498,7 +498,7 @@ PrefabInstance:
     - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_sceneNameToBeLoaded
-      value: BuildScene Kasai
+      value: OpeningScene
       objectReference: {fileID: 0}
     - target: {fileID: 272841369012826217, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
@@ -773,6 +773,7 @@ GameObject:
   - component: {fileID: 1803307664}
   - component: {fileID: 1803307663}
   - component: {fileID: 1803307662}
+  - component: {fileID: 1803307665}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -798,7 +799,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -233}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803307662
 MonoBehaviour:
@@ -862,7 +863,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BuildScene Kasai
+          m_StringArgument: OpeningScene
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 802490979}
@@ -913,6 +914,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803307660}
   m_CullTransparentMesh: 0
+--- !u!114 &1803307665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803307660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5560bb7ec23e65d469ee7aac74d8ad3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisImage: {fileID: 1803307663}
+  blinkingSpan: 0.7
+  blinkingSpeed: 0.3
 --- !u!1 &1977210883
 GameObject:
   m_ObjectHideFlags: 0

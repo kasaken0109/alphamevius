@@ -38,7 +38,7 @@ public class MessgaeManager : MonoBehaviour
         {
             if (viwePositionY < 0)
             {
-                viwePositionY += 500f * Time.deltaTime;
+                viwePositionY += 600f * Time.deltaTime;
                 if (viwePositionY >= 0)
                 {
                     viwePositionY = 0;

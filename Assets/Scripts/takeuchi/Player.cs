@@ -147,15 +147,15 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
+        right = rightFloor.ONWalkable();
+        left = leftFloor.ONWalkable();
+        up = upFloor.ONWalkable();
+        down = downFloor.ONWalkable();
         if (!action || !move)
         {
             rB.velocity = Vector2.zero;
             return;
         }
-        right = rightFloor.ONWalkable();
-        left = leftFloor.ONWalkable();
-        up = upFloor.ONWalkable();
-        down = downFloor.ONWalkable();
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             if (arrowMode)

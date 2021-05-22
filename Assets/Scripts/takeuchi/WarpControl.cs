@@ -5,9 +5,10 @@ using UnityEngine;
 public class WarpControl : MonoBehaviour
 {
     [SerializeField] WarpControl m_targetWarpControl;
-    float warpTime = 4f;
+    float warpTime = 1f;
     [SerializeField] GoalMaster goalMaster = null;
     float warpTimer = 0;
+    [SerializeField] ZFade fadeItem;
     public bool WarpNow { get; set; }
     private IEnumerator WarpPlayer()
     {
@@ -20,7 +21,7 @@ public class WarpControl : MonoBehaviour
             if (warpTimer > warpTime / 2f)
             {
                 ScreenEffecter.Instance.FadeOut();
-                if (!warp&& warpTimer <= warpTime - 1.4f)
+                if (!warp && warpTimer <= warpTime - 1.4f)
                 {
                     Player.Instance.PlayerAngleChange(MoveAngle.Left);
                     Player.Instance.transform.position = m_targetWarpControl.transform.position;
@@ -34,7 +35,7 @@ public class WarpControl : MonoBehaviour
                 {
                     ScreenEffecter.Instance.FadeIn();
                 }
-                if (warp&& warpTimer < 0.3f)
+                if (warp && warpTimer < 0.3f)
                 {
                     Player.Instance.PlayerAngleChange(MoveAngle.Right);
                     warp = false;
@@ -43,6 +44,46 @@ public class WarpControl : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Player.Instance.MoveStart();
+    }
+    private IEnumerator WarpPlayer2()
+    {
+        Player.Instance.MoveStop();
+        fadeItem.StartFadeOut();
+        while (fadeItem.FadeNow)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        Player.Instance.transform.position = m_targetWarpControl.transform.position;
+        StartCoroutine(WarpPlayer3());
+    }
+    private IEnumerator WarpPlayer3()
+    {
+        warpTimer = warpTime;
+        while (warpTimer > 0)
+        {
+            warpTimer -= Time.deltaTime;
+            if (warpTimer <= 0)
+            {
+                warpTimer = 0;
+
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        Player.Instance.PlayerAngleChange(MoveAngle.Left);
+        Debug.Log("開始５");
+        StartCoroutine(WarpPlayer4());
+    }
+    
+    private IEnumerator WarpPlayer4()
+    {
+        Player.Instance.PlayerAngleChange(MoveAngle.Right);
+        fadeItem.StartFadeIn();
+        while (fadeItem.FadeNow)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        Player.Instance.MoveStart();
+        fadeItem.FadeControlEnd();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,7 +97,7 @@ public class WarpControl : MonoBehaviour
                 }
                 m_targetWarpControl.WarpNow = true;
                 Player.Instance.MoveStop();
-                StartCoroutine(WarpPlayer());
+                StartCoroutine(WarpPlayer2());
             }
         }
     }

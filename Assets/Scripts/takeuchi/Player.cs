@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         {
             playerAnimation.SetBool("Attack", false);
         }
-        if (Input.GetButtonDown("Jump") && attackTimer <= 0)
+        if (Input.GetButtonDown("Fire1") && attackTimer <= 0)
         {                
             if (playerAnimation)
             {

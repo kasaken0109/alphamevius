@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 5807895617970509886}
   m_Layer: 12
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,6 +417,7 @@ MonoBehaviour:
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 2049437201149671456}
+  haveGarbage: {fileID: 0}
   actionTime: 3
   m_isAttackable: 0
 --- !u!114 &5807895617970509886

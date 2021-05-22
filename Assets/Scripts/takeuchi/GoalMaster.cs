@@ -6,6 +6,7 @@ public class GoalMaster : MonoBehaviour
 {
     [SerializeField] GameObject shadowObject;
     [SerializeField] int missionItemNumber = 50;
+    [SerializeField] GameObject goal;
     bool goalF;
     public void GoalCheck()
     {
@@ -18,6 +19,7 @@ public class GoalMaster : MonoBehaviour
         {
             shadowObject.SetActive(false);
             goalF = true;
+            goal.SetActive(false);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -28,6 +30,7 @@ public class GoalMaster : MonoBehaviour
             {
                 Debug.Log("ステージクリア!");
                 //ステージクリア処理
+                goal.SetActive(true);
             }
         }
     }

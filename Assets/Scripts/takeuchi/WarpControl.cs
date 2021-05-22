@@ -22,17 +22,23 @@ public class WarpControl : MonoBehaviour
                 ScreenEffecter.Instance.FadeOut();
                 if (!warp&& warpTimer <= warpTime - 1.4f)
                 {
+                    Player.Instance.PlayerAngleChange(MoveAngle.Left);
                     Player.Instance.transform.position = m_targetWarpControl.transform.position;
                     warp = true;
                 }
             }
             else
             {
-                warpTimer += 0.1f * Time.deltaTime;
+                warpTimer += 0.2f * Time.deltaTime;
                 if (warpTimer < 1)
                 {
                     ScreenEffecter.Instance.FadeIn();
-                }               
+                }
+                if (warp&& warpTimer < 0.3f)
+                {
+                    Player.Instance.PlayerAngleChange(MoveAngle.Right);
+                    warp = false;
+                }
             }
             yield return new WaitForEndOfFrame();
         }

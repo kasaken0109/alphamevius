@@ -256,6 +256,10 @@ public class Player : MonoBehaviour
     }
     public void MoveStop()
     {
+        if (playerAnimation)
+        {
+            playerAnimation.SetBool("Move", false);
+        }
         rB.velocity = Vector2.zero;
         move = false;
     }
@@ -328,4 +332,9 @@ public class Player : MonoBehaviour
     public bool Right() { return right; }
     public bool Up() { return up; }
     public bool Down() { return down; }
+    public void PlayerAngleChange(MoveAngle angle)
+    {
+        this.angle = angle;
+        angleChange = true;
+    }
 }

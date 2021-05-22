@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScene Kasai.unity
     guid: 62d554b98027076478def7b34990cb83
+  - enabled: 1
+    path: Assets/BuildScenes/OpeningScene.unity
+    guid: 99ec58420f7740e4a9917520d041b3be
   m_configObjects: {}

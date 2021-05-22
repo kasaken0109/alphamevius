@@ -772,18 +772,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 147409302}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &147409304 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5898757066986251842, guid: 2518a6da77b80434da8671f2fcaf7882,
-    type: 3}
-  m_PrefabInstance: {fileID: 147409302}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147409305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55aa1c499419d0046b60439c367f453c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &147409305 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5898757066986251846, guid: 2518a6da77b80434da8671f2fcaf7882,
@@ -808,10 +796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169375b13d444124189d0e12a5296129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightTime: 20
-  morningTime: 6
-  actionRange: {fileID: 147409304}
-  m_Button: {fileID: 1762888410}
   m_animSleepBag: {fileID: 5038699321405864070, guid: 934eda6271abf234ba41d22a5d7b98b4,
     type: 3}
   m_SleepBag: {fileID: 147409305}
@@ -27504,12 +27488,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1762888410 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5898757066547539647, guid: 2518a6da77b80434da8671f2fcaf7882,
-    type: 3}
-  m_PrefabInstance: {fileID: 147409302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1824573128
 GameObject:
   m_ObjectHideFlags: 0

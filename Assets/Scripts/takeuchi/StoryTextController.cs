@@ -11,6 +11,7 @@ public class StoryTextController : MonoBehaviour
     [SerializeField] float textSpeed = 0.1f;
     [SerializeField] Image thisImage;
     [SerializeField] float clearSpeed = 0.1f;
+    [SerializeField] SceneLoader loader;
     string[] storyTextList;
     int[] imageIndexCount;
     bool viewStory = false;
@@ -133,6 +134,7 @@ public class StoryTextController : MonoBehaviour
         else
         {
             Debug.Log("終了");
+            loader.LoadScene();
         }
     }
 }

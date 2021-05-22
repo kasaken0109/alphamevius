@@ -43,6 +43,7 @@ public class Creatures : MonoBehaviour
     protected float stanTimer;
     protected bool stan;
     [SerializeField] protected Animator CreaturesAnimation = null;
+    [SerializeField] protected GameObject haveGarbage = null;
     private void Start()
     {
         rB = GetComponent<Rigidbody2D>();
@@ -83,12 +84,10 @@ public class Creatures : MonoBehaviour
     {
         ActionStop();
         FieldItemManager.Instance.DropMaterial(haveItems, transform.position);
-        //FieldItemManager.Instance.DropMaterial(haveMaterial, transform.position);
-        //foreach (var item in haveItems)
-        //{
-        //    FieldItemManager.Instance.DropItem(item, transform.position);
-        //}
-        //creature.SetActive(false);
+        if (haveGarbage)
+        {
+            Instantiate(haveGarbage).transform.position = transform.position;
+        }
         rB.velocity = Vector3.zero;
         circleCollider.enabled = false;
         if (CreaturesAnimation)

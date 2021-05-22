@@ -109,6 +109,7 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.HealingHP:
                 PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
                 NewItemManager.Instance.SubItem(itemID, 1);
+                inventoryTool.SetItem(0);
                 break;
             case ToolType.Torch:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));

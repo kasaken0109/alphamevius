@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 6363287981744361320}
   m_Layer: 0
   m_Name: Bear
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,6 +322,7 @@ MonoBehaviour:
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 24201799202031273}
+  haveGarbage: {fileID: 0}
   actionTime: 3
 --- !u!114 &6363287981744361320
 MonoBehaviour:

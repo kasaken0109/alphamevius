@@ -11,6 +11,7 @@ TagManager:
   - NotWakable
   - Walkable
   - NotBuild
+  - Enemy
   layers:
   - Default
   - TransparentFX

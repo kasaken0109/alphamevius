@@ -100,6 +100,6 @@ public class ZCookingGuid : MonoBehaviour
     }
     public void Cooking()
     {
-        ZInventoryManager.Instance.ItemGet(m_idList[1], m_materialItemIcon[1].GetComponent<RectTransform>().position, m_idList[2], m_materialItemIcon[2].GetComponent<RectTransform>().position);
+        //ZInventoryManager.Instance.ItemGet(m_idList[1], m_materialItemIcon[1].GetComponent<RectTransform>().position, m_idList[2], m_materialItemIcon[2].GetComponent<RectTransform>().position);
     }
 }

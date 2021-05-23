@@ -177,6 +177,7 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickCloseAll()
     {
+        MapManager.Instance.CloseMap();
         PickMarkReset();
         m_helps.AllClose();
         m_craftPanel.CloseCraft();

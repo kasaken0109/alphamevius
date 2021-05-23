@@ -113,6 +113,7 @@ public class NewCraftManager : MonoBehaviour
         {
             itemManager.AddItem(itemManager.GetMaterialId(item), 1);
         }
+        PlayerManager.Instance.HealingHP(NewItemManager.Instance.GetItem(targetID).GetEfficiency() / 2);
         Debug.Log("食事で" + NewItemManager.Instance.GetItem(targetID).GetEfficiency().ToString() + "回復");
         PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
         targetID = 0;

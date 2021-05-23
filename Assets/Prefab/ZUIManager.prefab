@@ -5684,7 +5684,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3074467782151363490}
-        m_MethodName: OnClickRecycle
+        m_MethodName: OnClickCooking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

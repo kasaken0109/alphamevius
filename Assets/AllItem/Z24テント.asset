@@ -19,7 +19,7 @@ MonoBehaviour:
   ID: 24
   haveNumber: 0
   toolCheck: 0
-  guideText: 
+  guideText: "\u30AD\u30E3\u30F3\u30D7\u3068\u3044\u3063\u305F\u3089\u3053\u308C\u3002\u8A2D\u7F6E\u3059\u308B\u3068\u671D\u307E\u3067\u5BDD\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3001\u3050\u3063\u3059\u308A\u7720\u3063\u3066\u4F53\u529B\u56DE\u5FA9\u3002"
   m_needMaterialsText: 
   m_toolType: 7
   m_attackPoint: 0

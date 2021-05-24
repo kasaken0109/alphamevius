@@ -19,7 +19,7 @@ MonoBehaviour:
   ID: 1
   haveNumber: 48
   toolCheck: 0
-  guideText: 
+  guideText: "\u5206\u89E3\u3059\u308B\u3068\u624B\u306B\u5165\u308B\u4E0D\u601D\u8B70\u306A\u6B20\u7247\u3001\u907A\u8DE1\u306E\u5C01\u5370\u3092\u89E3\u304F\u306E\u306B\u4F7F\u3046\u3002"
   m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 31

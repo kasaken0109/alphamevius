@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Z22\u711A\u706B"
   m_EditorClassIdentifier: 
   m_name: "\u711A\u706B"
-  m_sprite: {fileID: 21300000, guid: 520ae8e400c0cb445ad7690daca0c4d0, type: 3}
+  m_sprite: {fileID: 21300000, guid: db15b999df4d2e94da08a8cdaa259c48, type: 3}
   m_needMaterials: 05000000050000000600000006000000
   m_getMaterials: 060000001f0000001f000000
   ID: 22

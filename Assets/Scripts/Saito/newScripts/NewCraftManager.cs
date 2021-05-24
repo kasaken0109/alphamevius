@@ -117,6 +117,7 @@ public class NewCraftManager : MonoBehaviour
         Debug.Log("食事で" + NewItemManager.Instance.GetItem(targetID).GetEfficiency().ToString() + "回復");
         PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
         targetID = 0;
+        TimeManager.Instance.PlayCutIn(0);
     }
     public void EXPGet(int exp)
     {

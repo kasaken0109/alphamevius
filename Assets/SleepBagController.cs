@@ -41,6 +41,8 @@ public class SleepBagController : MonoBehaviour
             Instantiate(m_animSleepBag, transform.position, transform.rotation);
             TimeManager.Instance.m_dayNum += 1;
             TimeManager.Instance.m_hour = morningTime;
+            TimeManager.Instance.PlayCutIn(1);
+            PlayerManager.Instance.HealingHP(100);
 
         }
         else if (TimeManager.Instance.m_hour >= 0 && TimeManager.Instance.m_hour <= morningTime)
@@ -49,6 +51,8 @@ public class SleepBagController : MonoBehaviour
             m_SleepBag.SetActive(false);
             Instantiate(m_animSleepBag, transform.position, transform.rotation);
             TimeManager.Instance.m_hour = morningTime;
+            TimeManager.Instance.PlayCutIn(1);
+            PlayerManager.Instance.HealingHP(100);
         }
         else
         {

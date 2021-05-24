@@ -16,6 +16,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] float m_gameSpeed = 1;
     [SerializeField] SpriteRenderer m_panel;
     [SerializeField] bool m_panelActive;
+    [SerializeField] CutInContrl contrl;
     public float m_time;
     private float m_secondCount;
     public float m_second;
@@ -35,14 +36,12 @@ public class TimeManager : MonoBehaviour
     }
     void Start()
     {
+        ScreenEffecter.Instance.FadeIn();
         dayStatus = DayStatus.NOON;
         panelColor = m_panel.color;
         //m_drift.SetActive(false);
         m_hour = 6;
-        //if (!m_panelActive)
-        //{
-        //    m_panel.gameObject.SetActive(false);
-        //}
+        ScreenEffecter.Instance.FadeIn();
     }
 
     // Update is called once per frame
@@ -116,5 +115,9 @@ public class TimeManager : MonoBehaviour
             }
             m_panel.color = panelColor;
         }
+    }
+    public void PlayCutIn(int number)
+    {
+        contrl.PlayCutIn(number);
     }
 }

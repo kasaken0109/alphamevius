@@ -10,8 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7940af59e9a863749ba82a30f13ffdca, type: 3}
-  m_Name: StoryText
+  m_Name: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB\u30AF\u30EA\u30A2"
   m_EditorClassIdentifier: 
-  storyText: []
-  imageList: []
-  imageCount: 
+  storyText:
+  - 
+  - "\u300C\u5192\u967A\u306B\u306F\u6163\u308C\u3066\u6765\u305F\u304B\u3044\uFF1F\u300D"
+  - "\u300C\u4ECA\u5F8C\u3082\u30A2\u30A4\u30C6\u30E0\u306E\u30EA\u30B5\u30A4\u30AF\u30EB\u306F\u50D5\u304C\u541B\u306B\u6559\u3048\u3066\u3044\u3053\u3046\u300D"
+  - "\u300C\u305D\u308C\u3058\u3083\u3001\u6700\u521D\u306E\u907A\u8DE1\u306B\u5411\u304B\u304A\u3046\u304B\u3002\u300D"
+  imageList:
+  - {fileID: 21300000, guid: 00e358cf81b2f384581a0bb982d01bc4, type: 3}
+  - {fileID: 21300000, guid: 8b02934571694c94e8fc6cfb8b5458f5, type: 3}
+  imageCount: 0000000000000000

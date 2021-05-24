@@ -69,14 +69,7 @@ public class PlantEatingAnimal : Creatures
         }
         if (searchRange)
         {
-            if (searchRange.ONPlayer())
-            {
-                FindPlayerAction();
-            }
-            else
-            {
-                NormalAction();
-            }
+             NormalAction();
         }
         if (attackRange.ONPlayer())
         {

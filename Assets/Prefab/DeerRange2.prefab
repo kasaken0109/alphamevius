@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5741011856210873103}
   - component: {fileID: 5741011856210873100}
   - component: {fileID: 5741011856210873102}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SearchScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 5741011856928785196}
   - component: {fileID: 5741011856928785235}
   - component: {fileID: 7682644673883225495}
-  - component: {fileID: 1645190646169117229}
   m_Layer: 0
   m_Name: Deer
   m_TagString: Enemy
@@ -347,7 +346,7 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 5741011857206195546}
   creature: {fileID: 5741011856928785232}
-  haveItems: 09000000090000000400000004000000
+  haveItems: 09000000090000000800000008000000
   actionRange: {fileID: 5741011857206195540}
   searchRange: {fileID: 5741011856210873100}
   attackRange: {fileID: 5741011857328464866}
@@ -355,21 +354,10 @@ MonoBehaviour:
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 5741011855692427351}
-  haveGarbage: {fileID: 0}
+  haveGarbage: {fileID: 4208550854195281182, guid: bc7a2c9ad6a4f7645bf543526ad6516d,
+    type: 3}
   actionTime: 3
   m_isAttackable: 0
---- !u!114 &1645190646169117229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5741011856928785232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13abfa7611685549b3f92456b272419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5741011857206195545
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +370,7 @@ GameObject:
   - component: {fileID: 5741011857206195540}
   - component: {fileID: 5741011857206195547}
   - component: {fileID: 5741011857206195541}
+  - component: {fileID: 296521788}
   m_Layer: 0
   m_Name: DeerRange2
   m_TagString: Untagged
@@ -396,7 +385,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5741011857206195545}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.5, y: -22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -429,9 +418,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -5.7905006, y: 2.4659443}
   serializedVersion: 2
-  m_Radius: 11.345711
+  m_Radius: 4.888443
 --- !u!50 &5741011857206195541
 Rigidbody2D:
   serializedVersion: 4
@@ -453,6 +442,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!61 &296521788
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741011857206195545}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.9562511, y: -4.070774}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.024014, y: 9.141548}
+  m_EdgeRadius: 0
 --- !u!1 &5741011857328464864
 GameObject:
   m_ObjectHideFlags: 0

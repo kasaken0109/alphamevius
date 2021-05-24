@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectType: 0200000003000000
   strengthPoint: 5
-  DropItems: 
+  DropItems: 0500000005000000
   m_animParameterName: IsBroken
   m_spawn: {fileID: 3260263107790543602}
   m_isExisted: 1

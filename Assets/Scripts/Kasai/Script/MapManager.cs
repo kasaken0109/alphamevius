@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     {
         if (!mapActive)
         {
-            NewInventoryManager.Instance.OnClickClose();
+            ZInventoryManager.Instance.OnClickCloseAll();
             m_mapCamera.SetActive(true);
             mapActive = true;
         }

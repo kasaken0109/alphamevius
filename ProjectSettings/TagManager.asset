@@ -11,6 +11,7 @@ TagManager:
   - NotWakable
   - Walkable
   - NotBuild
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - Bard
   - MiniMap
   - FieldObject
-  - 
-  - 
+  - Attack
+  - Search
   - 
   - 
   - 

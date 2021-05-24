@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     [SerializeField] CheckFloor leftFloor;
     [SerializeField] CheckFloor rightFloor;
     [SerializeField] GameObject torchLight;
+    [SerializeField] Transform mousePos;
     private void Awake()
     {
         Instance = this;
@@ -83,30 +84,11 @@ public class Player : MonoBehaviour
         if (playerAnimation && attack)
         {
             playerAnimation.SetBool("Attack", false);
-        }
-        if (Input.GetButtonDown("Jump") && attackTimer <= 0)
-        {                
-            if (playerAnimation)
-            {
-                if (arrowMode)
-                {
-                    playerAnimation.SetBool("Arrow", true);
-                    arrow = true;
-                    rB.velocity = Vector2.zero;
-                }
-                else
-                {
-                    playerAnimation.SetBool("Attack", true);
-                }
-            }
-        }
+            attack = false;
+        }        
         if (arrow)
         {
-            Vector2 myPos = transform.position;
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = -10;
-            Vector2 cPos = Camera.main.ScreenToWorldPoint(mousePos);
-            arrowDir = -cPos - myPos;
+            arrowDir = mousePos.position - transform.position; ;
             if (arrowDir.normalized.x > 0)
             {
                 if (angle != MoveAngle.Right)
@@ -147,15 +129,15 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
+        right = rightFloor.ONWalkable();
+        left = leftFloor.ONWalkable();
+        up = upFloor.ONWalkable();
+        down = downFloor.ONWalkable();
         if (!action || !move)
         {
             rB.velocity = Vector2.zero;
             return;
         }
-        right = rightFloor.ONWalkable();
-        left = leftFloor.ONWalkable();
-        up = upFloor.ONWalkable();
-        down = downFloor.ONWalkable();
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             if (arrowMode)
@@ -336,5 +318,51 @@ public class Player : MonoBehaviour
     {
         this.angle = angle;
         angleChange = true;
+    }
+    public void AttackAction(Vector2 dir)
+    {
+        if (arrow)
+        {
+            GameObject arrowObiect = Instantiate(arrowPrefab);
+            arrowObiect.transform.position = attackScale.transform.position;
+            arrowObiect.GetComponent<Arrow>().SetArrowDir(dir);
+            playerAnimation.SetBool("Arrow", false);
+            arrow = false;
+            move = true;
+            attackTimer = 0.5f;
+            return;
+        }
+        if (attackTimer <= 0)
+        {
+            if (playerAnimation)
+            {
+                if (arrowMode)
+                {
+                    playerAnimation.SetBool("Arrow", true);
+                    arrow = true;
+                    rB.velocity = Vector2.zero;
+                }
+                else
+                {
+                    playerAnimation.SetBool("Attack", true);
+                }
+            }
+        }
+        if (dir.normalized.x > 0)
+        {
+            if (angle != MoveAngle.Right)
+            {
+                angle = MoveAngle.Right;
+                angleChange = true;
+            }
+        }
+        else
+        {
+            if (angle != MoveAngle.Left)
+            {
+                angle = MoveAngle.Left;
+                angleChange = true;
+            }
+        }
     }
 }

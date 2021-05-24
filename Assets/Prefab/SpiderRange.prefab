@@ -336,6 +336,7 @@ MonoBehaviour:
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 24201799202031273}
+  haveGarbage: {fileID: 0}
   actionTime: 3
 --- !u!1 &24201798680575437
 GameObject:
@@ -348,7 +349,7 @@ GameObject:
   - component: {fileID: 24201798680575473}
   - component: {fileID: 24201798680575474}
   - component: {fileID: 24201798680575472}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SearchScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,9 +17,9 @@ MonoBehaviour:
   m_needMaterials: 
   m_getMaterials: 
   ID: 36
-  haveNumber: 30
+  haveNumber: 76
   toolCheck: 0
-  guideText: 
+  guideText: "\u6728\u306B\u5B9F\u3063\u3066\u3044\u305F\u679C\u7269\u3001\u8ABF\u7406\u306B\u4F7F\u3048\u308B\u3002"
   m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 24

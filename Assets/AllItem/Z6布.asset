@@ -17,11 +17,11 @@ MonoBehaviour:
   m_needMaterials: 
   m_getMaterials: 
   ID: 6
-  haveNumber: 8
+  haveNumber: 70
   toolCheck: 0
-  guideText: 
+  guideText: "\u6E05\u6F54\u306A\u5E03\u3001\u4F5C\u6210\u306B\u4F7F\u3048\u308B\u3002"
   m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 1
-  m_fieldSprite: {fileID: 21300000, guid: 63578c3913c00475ab18f46e109bd151, type: 3}
+  m_fieldSprite: {fileID: 21300000, guid: 6556d0e1c0f4f494987c598b4b6bd1ac, type: 3}
   m_craftLevel: 0

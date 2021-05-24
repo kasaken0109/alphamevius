@@ -9,17 +9,22 @@ public class ZCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     [SerializeField] Text m_itemNameText;
     [SerializeField] int m_itemID;
+    [SerializeField] GameObject m_guide;
+    [SerializeField] Text m_guideText;
     Image m_buttonImage;
     ZCraftGuide m_craftGuide;
     void Start()
     {
         m_itemNameText.text = NewItemManager.Instance.GetName(m_itemID);
+        m_guideText.text = NewItemManager.Instance.GetGuideText(m_itemID);
         m_buttonImage = GetComponent<Image>();
+        m_guide.SetActive(false);
     }
     public void SetItemID(int itemID)
     {
         m_itemID = itemID;
         m_itemNameText.text = NewItemManager.Instance.GetName(itemID);
+        m_guideText.text = NewItemManager.Instance.GetGuideText(itemID);
     }
     public void SetCraftGuide(ZCraftGuide guide)
     {
@@ -28,6 +33,7 @@ public class ZCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         m_buttonImage.color = new Color(0.6f, 0.6f, 0.6f);
+        m_guide.SetActive(true);
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
@@ -36,6 +42,7 @@ public class ZCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
         ColorSet();
+        m_guide.SetActive(false);
     }
     public void ColorSet()
     {

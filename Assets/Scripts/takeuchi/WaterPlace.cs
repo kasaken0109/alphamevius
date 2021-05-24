@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class WaterPlace : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] GameObject m_guide = null;
+    [SerializeField] ActionRange actionRange = null;
+
+    private void Update()
     {
-        if (collision.tag == "Attack")
+        if (actionRange.ONPlayer())
         {
-            PlayerManager.Instance.HealingHydrate(100);
+            m_guide.SetActive(true);
         }
+        else
+        {
+            m_guide.SetActive(false);
+        }
+    }
+    
+    public void Drink()
+    {
+        PlayerManager.Instance.HealingHydrate(100);
     }
 }

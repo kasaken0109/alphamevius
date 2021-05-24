@@ -450,7 +450,7 @@ RectTransform:
   m_GameObject: {fileID: 6404675547524121740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2.38, z: 1}
+  m_LocalScale: {x: 3.53349, y: 4.204853, z: 1.766745}
   m_Children:
   - {fileID: 3955377439186632179}
   m_Father: {fileID: 2409122239517578428}
@@ -458,7 +458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -314, y: -224}
+  m_AnchoredPosition: {x: -314, y: -261}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1312723581837277130
@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 5198405646565131252}
   - component: {fileID: 6074919601343454426}
   - component: {fileID: 504020837953482368}
+  - component: {fileID: 4405791069996305798}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -768,6 +769,21 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u8ABF\u7406\u3057\u307E\u3059\u304B\uFF1F"
+--- !u!114 &4405791069996305798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417562540054243475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.47424728, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3.82, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8442412171066185179
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +924,7 @@ RectTransform:
   m_GameObject: {fileID: 8631947641362609054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2.38, z: 1}
+  m_LocalScale: {x: 3.4570775, y: 4.1139226, z: 1.7285388}
   m_Children:
   - {fileID: 3296151336390267540}
   m_Father: {fileID: 2409122239517578428}
@@ -916,7 +932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 309, y: -224}
+  m_AnchoredPosition: {x: 309, y: -254}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4585676604597837946

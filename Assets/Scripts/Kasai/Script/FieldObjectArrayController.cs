@@ -67,7 +67,7 @@ public class FieldObjectArrayController : MonoBehaviour
 
     public void ActiveAnim()
     {
-        Debug.Log(m_isExisted);
+        //Debug.Log(m_isExisted);
         ///消えるコライダーのオブジェクト名はPreColliderに統一する
         if (!m_isExisted)
         {

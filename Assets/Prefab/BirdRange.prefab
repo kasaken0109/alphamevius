@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2049437200594240376}
   - component: {fileID: 2049437200594240379}
   - component: {fileID: 2049437200594240377}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: SearchScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,10 +331,9 @@ GameObject:
   - component: {fileID: 2049437202050354011}
   - component: {fileID: 2049437202050353956}
   - component: {fileID: 1450877813456240509}
-  - component: {fileID: 5807895617970509886}
   m_Layer: 12
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,7 +408,7 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 2049437201723424045}
   creature: {fileID: 2049437202050353959}
-  haveItems: 05000000050000001d00000015000000
+  haveItems: 05000000050000001d0000001d000000
   actionRange: {fileID: 2049437201723424035}
   searchRange: {fileID: 2049437200594240379}
   attackRange: {fileID: 2049437201644333973}
@@ -417,20 +416,10 @@ MonoBehaviour:
   moveSpeed: 3
   stanTime: 1
   CreaturesAnimation: {fileID: 2049437201149671456}
+  haveGarbage: {fileID: 9139189091197410912, guid: d9b4e71222aa6da4fa1a443fe0dba24e,
+    type: 3}
   actionTime: 3
   m_isAttackable: 0
---- !u!114 &5807895617970509886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049437202050353959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13abfa7611685549b3f92456b272419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2049437202114332695
 GameObject:
   m_ObjectHideFlags: 0

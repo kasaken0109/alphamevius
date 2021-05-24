@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 2584807857279496867}
   - component: {fileID: 2584807857279497053}
   - component: {fileID: 2584807857279497052}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Attack
   m_TagString: Attack
   m_Icon: {fileID: 0}
@@ -737,6 +737,7 @@ MonoBehaviour:
   leftFloor: {fileID: 7492582831997793641}
   rightFloor: {fileID: 7492582832062254791}
   torchLight: {fileID: 0}
+  mousePos: {fileID: 0}
 --- !u!50 &2584807857529302630
 Rigidbody2D:
   serializedVersion: 4

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 24201797544575914}
   - component: {fileID: 24201797544575909}
   - component: {fileID: 24201797544575915}
+  - component: {fileID: 783750207}
+  - component: {fileID: 783750209}
   m_Layer: 0
   m_Name: BearRange
   m_TagString: Untagged
@@ -59,9 +61,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.47018433}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 7.5298157
 --- !u!50 &24201797544575915
 Rigidbody2D:
   serializedVersion: 4
@@ -83,6 +85,58 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!61 &783750207
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24201797544575911}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.34181595, y: 1.0258484}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 28.173485, y: 16.729874}
+  m_EdgeRadius: 0
+--- !u!61 &783750209
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24201797544575911}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -8.382483, y: 6.8877506}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.9206657, y: 28.453678}
+  m_EdgeRadius: 0
 --- !u!1 &24201797633103134
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,10 +290,9 @@ GameObject:
   - component: {fileID: 24201798022428114}
   - component: {fileID: 24201798022428077}
   - component: {fileID: 6684549410850400707}
-  - component: {fileID: 6363287981744361320}
   m_Layer: 0
   m_Name: Bear
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,27 +367,17 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 24201797544575908}
   creature: {fileID: 24201798022428078}
-  haveItems: 090000000900000014000000140000001400000014000000
+  haveItems: 1d0000001d0000000800000008000000
   actionRange: {fileID: 24201797544575914}
   searchRange: {fileID: 24201798680575474}
   attackRange: {fileID: 24201797633103132}
-  attackInterval: 1
-  moveSpeed: 3
+  attackInterval: 0.6
+  moveSpeed: 7
   stanTime: 1
   CreaturesAnimation: {fileID: 24201799202031273}
+  haveGarbage: {fileID: 3944176509921580017, guid: b5e48847b17a9584893f4652718fbf48,
+    type: 3}
   actionTime: 3
---- !u!114 &6363287981744361320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24201798022428078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13abfa7611685549b3f92456b272419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &24201798680575437
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +389,7 @@ GameObject:
   - component: {fileID: 24201798680575473}
   - component: {fileID: 24201798680575474}
   - component: {fileID: 24201798680575472}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SearchScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +437,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 8
 --- !u!1 &24201799202031275
 GameObject:
   m_ObjectHideFlags: 0

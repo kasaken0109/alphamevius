@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Z38\u751F\u30CF\u30E0\u30D5\u30EB\u30FC\u30C4"
   m_EditorClassIdentifier: 
   m_name: "\u751F\u30CF\u30E0\u30D5\u30EB\u30FC\u30C4"
-  m_sprite: {fileID: 21300000, guid: 2c8e4c17d6bd1ee4c858d0fe3eb7d691, type: 3}
+  m_sprite: {fileID: 21300000, guid: c21fe54c284184b4f9afe2f99ec4f010, type: 3}
   m_needMaterials: 1d0000001800000018000000
   m_getMaterials: 1f0000001f0000001f0000001f0000001f0000001f0000001f0000001f0000001f0000001f0000001f0000001f000000
   ID: 38

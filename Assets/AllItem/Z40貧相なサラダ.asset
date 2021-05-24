@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Z40\u8CA7\u76F8\u306A\u30B5\u30E9\u30C0"
   m_EditorClassIdentifier: 
   m_name: "\u8CA7\u76F8\u306A\u30B5\u30E9\u30C0"
-  m_sprite: {fileID: 21300000, guid: 2c8e4c17d6bd1ee4c858d0fe3eb7d691, type: 3}
+  m_sprite: {fileID: 21300000, guid: 76e7a374564a9634d827d69277963516, type: 3}
   m_needMaterials: 0c000000
   m_getMaterials: 1f0000001f000000
   ID: 40

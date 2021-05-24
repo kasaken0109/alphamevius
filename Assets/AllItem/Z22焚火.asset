@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: "Z22\u711A\u706B"
   m_EditorClassIdentifier: 
   m_name: "\u711A\u706B"
-  m_sprite: {fileID: 21300000, guid: 520ae8e400c0cb445ad7690daca0c4d0, type: 3}
+  m_sprite: {fileID: 21300000, guid: db15b999df4d2e94da08a8cdaa259c48, type: 3}
   m_needMaterials: 05000000050000000600000006000000
   m_getMaterials: 060000001f0000001f000000
   ID: 22
   haveNumber: 0
   toolCheck: 0
-  guideText: "\u30B5\u30D0\u30A4\u30D0\u30EB\u306E\u5FC5\u9700\u54C1\u3001\u6C17\u5206\u306F\u30AD\u30E3\u30F3\u30D7\u30D5\u30A1\u30A4\u30E4\u30FC\u3002\u8A2D\u7F6E\u3059\u308B\u3068\u8ABF\u7406\u304C\u3067\u304D\u308B\u3088\u3046\u306B\u306A\u308B\u3002"
+  guideText: "\u6C17\u5206\u306F\u30AD\u30E3\u30F3\u30D7\u30D5\u30A1\u30A4\u30E4\u30FC\u3002\u8A2D\u7F6E\u3059\u308B\u3068\u8ABF\u7406\u304C\u3067\u304D\u308B\u3088\u3046\u306B\u306A\u308B\u3002"
   m_needMaterialsText: 
   m_toolType: 14
   m_attackPoint: 0

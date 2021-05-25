@@ -32,6 +32,7 @@ public class CutInContrl : MonoBehaviour
                 m_clearScale = 1;
             }
             m_cutInImage[number].color = new Color(1, 1, 1, m_clearScale);
+            m_cutInImage[2].color = new Color(0, 0, 0, m_clearScale);
             yield return new WaitForEndOfFrame();
         }
         StartCoroutine(CutInViwe(number));
@@ -57,6 +58,7 @@ public class CutInContrl : MonoBehaviour
                 m_clearScale = 0;
             }
             m_cutInImage[number].color = new Color(1, 1, 1, m_clearScale);
+            m_cutInImage[2].color = new Color(0, 0, 0, m_clearScale);
             yield return new WaitForEndOfFrame();
         }
     }

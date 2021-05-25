@@ -20192,6 +20192,25 @@ MonoBehaviour:
   m_EffectColor: {r: 0.39342642, g: 0, b: 1, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!95 &1005694170
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776691377130710175}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8bcb5778c99d48f4aa8883cadb4bb6d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8792224433441171489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20257,25 +20276,6 @@ MonoBehaviour:
   m_shakeXpos: 0.3
   m_shakeYpos: 0.3
   m_shakeTime: 0.5
---- !u!95 &1005694170
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8776691377130710175}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8bcb5778c99d48f4aa8883cadb4bb6d8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &8792224432273304292
 Animator:
   serializedVersion: 3
@@ -30655,6 +30655,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SubUIprefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349354346217918681, guid: 02586c16e9b72c047a568c6085023914,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349354346217918681, guid: 02586c16e9b72c047a568c6085023914,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349354346217918681, guid: 02586c16e9b72c047a568c6085023914,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -212
       objectReference: {fileID: 0}
     - target: {fileID: 8349354346721187460, guid: 02586c16e9b72c047a568c6085023914,
         type: 3}

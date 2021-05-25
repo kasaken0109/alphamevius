@@ -30,8 +30,9 @@ public class Arrow : MonoBehaviour
         {
             if (!hit)
             {
-                flyTimer = 0.05f;
                 hit = true;
+                EffectManager.PlayEffect(EffectType.Hit, transform.position);
+                Destroy(this.gameObject);
             }
         }
     }

@@ -175,6 +175,11 @@ public class ZInventoryManager : MonoBehaviour
         m_helpPanel.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
     }
+    public void OnClickOpenMap()
+    {
+        MapManager.Instance.ActiveMap();
+        m_closeButton.SetActive(true);
+    }
     public void OnClickCloseAll()
     {
         MapManager.Instance.CloseMap();

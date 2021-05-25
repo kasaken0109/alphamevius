@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropItems: 6
-  m_dropNum: 2
+  m_dropNum: 1

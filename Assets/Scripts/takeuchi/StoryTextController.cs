@@ -93,10 +93,19 @@ public class StoryTextController : MonoBehaviour
         viewStory = false;
         nextBotton.SetActive(true);
     }
+    private void ImageSkip()
+    {
+        StopAllCoroutines();
+        viewImage = false;
+        thisImage.sprite = textBoxs[storyNumber].GetSprite(imageNumber);
+        thisImage.color = Color.white;
+        StartCoroutine(ViewStory());
+    }
     private void NextStory()
     {
         if (viewImage)
         {
+            ImageSkip();
             return;
         }
         nextBotton.SetActive(false);

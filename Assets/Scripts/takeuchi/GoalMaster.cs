@@ -7,20 +7,29 @@ public class GoalMaster : MonoBehaviour
     [SerializeField] GameObject shadowObject;
     [SerializeField] int missionItemNumber = 50;
     [SerializeField] GameObject goal;
+    [SerializeField] GoalGate gate;
     bool goalF;
     public void GoalCheck()
     {
         if (NewItemManager.Instance.GetItem(1).GetHaveNumber() < missionItemNumber)
         {
-            shadowObject.SetActive(true);
-            goalF = false;           
+            return;
         }
         else
         {
             shadowObject.SetActive(false);
             goalF = true;
             goal.SetActive(false);
+            gate.OpenGoalGate();
         }
+    }
+    private void Update()
+    {
+        if (goalF)
+        {
+            return;
+        }
+        GoalCheck();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

@@ -10209,7 +10209,7 @@ PrefabInstance:
     - target: {fileID: 4836216480178070827, guid: e28a3e0a5cbe10a4fbf5560643e5fc08,
         type: 3}
       propertyPath: orthographic size
-      value: 5.800001
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5258416461869871644, guid: e28a3e0a5cbe10a4fbf5560643e5fc08,
         type: 3}
@@ -82367,6 +82367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoarRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855504549940720107, guid: b75c6b3ba5ec7cb49bbb980a45c3427b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75c6b3ba5ec7cb49bbb980a45c3427b, type: 3}

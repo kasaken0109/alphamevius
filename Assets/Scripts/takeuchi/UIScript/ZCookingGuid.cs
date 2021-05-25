@@ -89,7 +89,7 @@ public class ZCookingGuid : MonoBehaviour
             if (b > 0)
             {
                 m_materialItemText[i + 3].text = NewItemManager.Instance.GetName(m_idList2[i]) + "×" + b.ToString();
-                ZInventoryManager.Instance.ViewGetMaterial(m_idList2[i], b);
+                ZInventoryManager.Instance.ViewNeedMaterial(m_idList2[i], b);
             }
             else
             {

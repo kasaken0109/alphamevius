@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c562fc2d378390d41b671b70ac44da9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fd1d5600f2192647944995dea780bf7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 38957fc5576a3b8469526caead8df585, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fd1d5600f2192647944995dea780bf7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,7 +188,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.96, y: 2.99}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 2.08, y: 2.85}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -405,7 +405,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &4084555088224996618
 MonoBehaviour:

@@ -114,8 +114,8 @@ public class NewCraftManager : MonoBehaviour
             itemManager.AddItem(itemManager.GetMaterialId(item), 1);
         }
         PlayerManager.Instance.HealingHP(NewItemManager.Instance.GetItem(targetID).GetEfficiency() / 2);
-        ZInventoryManager.Instance.OnClickCloseAll();
         PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
+        ZInventoryManager.Instance.OnClickCloseAll();
         targetID = 0;
         TimeManager.Instance.PlayCutIn(0);
     }

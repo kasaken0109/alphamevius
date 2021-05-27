@@ -15832,12 +15832,12 @@ PrefabInstance:
     - target: {fileID: 4904436801470923219, guid: 006781eba37f3e646981e48c9236f0e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.25
+      value: 23.01
       objectReference: {fileID: 0}
     - target: {fileID: 4904436801470923219, guid: 006781eba37f3e646981e48c9236f0e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -25.38
+      value: -25.46
       objectReference: {fileID: 0}
     - target: {fileID: 4904436801470923219, guid: 006781eba37f3e646981e48c9236f0e5,
         type: 3}
@@ -44787,7 +44787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653147777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.85, y: -66.83, z: 0}
+  m_LocalPosition: {x: 41.7, y: -67.18, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1269733867}
@@ -46025,7 +46025,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 073f03cfe6ec2a54da9cdae558110c35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -57182,7 +57182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963792063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.54, y: -61.25, z: 0}
+  m_LocalPosition: {x: 54.08, y: -61.45, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1269733867}
@@ -58202,7 +58202,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 073f03cfe6ec2a54da9cdae558110c35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -69883,7 +69883,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 073f03cfe6ec2a54da9cdae558110c35, type: 3}
   m_Color: {r: 0.18396229, g: 1, b: 0.4148321, a: 1}
   m_FlipX: 0
@@ -72028,7 +72028,12 @@ PrefabInstance:
     - target: {fileID: 7045794807878575436, guid: ea9e6497a12beb046a8942eb1c146c3c,
         type: 3}
       propertyPath: missionItemNumber
-      value: 20
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045794807878575436, guid: ea9e6497a12beb046a8942eb1c146c3c,
+        type: 3}
+      propertyPath: movePointY
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7045794807878575439, guid: ea9e6497a12beb046a8942eb1c146c3c,
         type: 3}

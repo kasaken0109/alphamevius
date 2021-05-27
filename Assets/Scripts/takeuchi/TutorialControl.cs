@@ -42,6 +42,7 @@ public class TutorialControl : MonoBehaviour
             tutorialPage[pageNumber].SetActive(true);
         }
         pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickBackPage()
     {
@@ -60,6 +61,7 @@ public class TutorialControl : MonoBehaviour
             tutorialPage[pageNumber].SetActive(true);
         }
         pageNumberText.text = (pageNumber + 1).ToString() + "/" + tutorialPage.Length.ToString();
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickTutorialClose()
     {
@@ -91,5 +93,6 @@ public class TutorialControl : MonoBehaviour
             backButton.SetActive(false);
             pageNumberText.text = "";
         }
+        SoundManager.Instance.PlayUISound();
     }
 }

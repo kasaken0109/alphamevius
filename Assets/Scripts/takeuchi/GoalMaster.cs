@@ -8,7 +8,13 @@ public class GoalMaster : MonoBehaviour
     [SerializeField] int missionItemNumber = 50;
     [SerializeField] GameObject goal;
     [SerializeField] GoalGate gate;
+    [SerializeField] GameObject goalItemObject;
+    [SerializeField] float movePointY = 2f;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float itemGetWaitTime = 2f;
+    float itemPoint = 0;
     bool goalF;
+    bool goalStart;
     public void GoalCheck()
     {
         if (NewItemManager.Instance.GetItem(1).GetHaveNumber() < missionItemNumber)
@@ -35,11 +41,15 @@ public class GoalMaster : MonoBehaviour
     {
         if (goalF)
         {
+            if (goalStart)
+            {
+                return;
+            }
             if (collision.tag == "Player")
             {
-                Debug.Log("ステージクリア!");
-                //ステージクリア処理
+                goalStart = true;
                 goal.SetActive(true);
+                StartCoroutine(GoalItemMove());
             }
         }
     }
@@ -47,20 +57,38 @@ public class GoalMaster : MonoBehaviour
     {
         if (goalF)
         {
+            if (goalStart)
+            {
+                return;
+            }
             if (collision.tag == "Player")
             {
-                Debug.Log("ステージクリア!");
-                //ステージクリア処理
+                goalStart = true;
                 goal.SetActive(true);
+                StartCoroutine(GoalItemMove());
             }
         }
-        else
+    }
+    private IEnumerator GoalItemMove()
+    {
+        Player.Instance.AllStop();
+        itemPoint = -1.5f;
+        while (itemPoint < movePointY)
         {
-
-            if (collision.tag == "Player")
-            {
-                MessgaeManager.ViweMessage("メビウスの欠片が" + missionItemNumber + "個必要",NewItemManager.Instance.GetSprite(1));
-            }
+            itemPoint += moveSpeed * Time.deltaTime;
+            goalItemObject.transform.localPosition = new Vector3(goalItemObject.transform.localPosition.x, itemPoint , goalItemObject.transform.localPosition.z);
+            yield return new WaitForEndOfFrame();
+        }
+        MessgaeManager.ViweMessage("ラジオの部品を手に入れた", goalItemObject.GetComponent<SpriteRenderer>().sprite);
+        StartCoroutine(SceneChangeWait());
+    }
+    private IEnumerator SceneChangeWait()
+    {
+        int count = 1;
+        while (count > 0)
+        {
+            count--;
+            yield return new WaitForSecondsRealtime(itemGetWaitTime);
         }
     }
 }

@@ -148,6 +148,7 @@ public class ZInventoryManager : MonoBehaviour
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
         NewCraftManager.Instance.SetTargetID(0);
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickOpenRecycle()
     {
@@ -158,6 +159,7 @@ public class ZInventoryManager : MonoBehaviour
         m_haveMaterialBar.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
         NewCraftManager.Instance.SetTargetID(0);
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickOpenCooking()
     {
@@ -169,16 +171,19 @@ public class ZInventoryManager : MonoBehaviour
         m_cookingPanel.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
         NewCraftManager.Instance.SetTargetID(0);
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickOpenHelp()
     {
         m_helpPanel.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickOpenMap()
     {
         MapManager.Instance.ActiveMap();
         m_closeButton.SetActive(true);
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickCloseAll()
     {

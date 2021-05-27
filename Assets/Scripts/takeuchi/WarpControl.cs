@@ -69,14 +69,13 @@ public class WarpControl : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-        Player.Instance.PlayerAngleChange(MoveAngle.Left);
-        Debug.Log("開始５");
+        //Player.Instance.PlayerAngleChange(MoveAngle.Left);
         StartCoroutine(WarpPlayer4());
     }
     
     private IEnumerator WarpPlayer4()
     {
-        Player.Instance.PlayerAngleChange(MoveAngle.Right);
+        //Player.Instance.PlayerAngleChange(MoveAngle.Right);
         fadeItem.StartFadeIn();
         while (fadeItem.FadeNow)
         {

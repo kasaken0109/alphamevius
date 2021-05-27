@@ -12,7 +12,7 @@ public class TutorialControl : MonoBehaviour
     int pageNumber = 0;
     private void Start()
     {
-        OnClickTutorialOpen();
+        //OnClickTutorialOpen();
     }
     void CloseAllPage()
     {

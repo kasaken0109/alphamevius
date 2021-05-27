@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5532fc3e742599a4aa93b23ff71c5a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneNameToBeLoaded: BuildScene Kasai
+  m_sceneNameToBeLoaded: uechi-stage3
   m_fadePanel: {fileID: 1638714792}
   m_fadeSpeed: 1
 --- !u!4 &596130081

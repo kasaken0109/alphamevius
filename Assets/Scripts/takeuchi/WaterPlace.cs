@@ -18,7 +18,7 @@ public class WaterPlace : MonoBehaviour
         }
         else
         {
-            Debug.Log("Rangefalse");
+            //Debug.Log("Rangefalse");
             m_guide.SetActive(false);
         }
         if (IsFirstTime == false)

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7019608}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 7258067207180318714}
   - component: {fileID: 7258067207180318713}
   - component: {fileID: 7258067207180318716}
+  - component: {fileID: 3355948343537966391}
   m_Layer: 0
   m_Name: WaterPlace
   m_TagString: Untagged
@@ -599,8 +600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1272ce773e4624e9793292830006b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_guide: {fileID: 0}
-  actionRange: {fileID: 0}
+  m_guide: {fileID: 2545825483548104122}
+  actionRange: {fileID: 3355948343537966391}
+  m_normalHintSize: 0.0025
 --- !u!50 &7258067207180318714
 Rigidbody2D:
   serializedVersion: 4
@@ -698,3 +700,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3355948343537966391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7258067207180318695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55aa1c499419d0046b60439c367f453c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

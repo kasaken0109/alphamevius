@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip m_UI;
     [SerializeField] AudioClip m_getItem;
     [SerializeField] AudioClip []m_walk;
+    [SerializeField] AudioClip m_fire;
     AudioSource m_audioSource;
     // Start is called before the first frame update
     private void Awake()

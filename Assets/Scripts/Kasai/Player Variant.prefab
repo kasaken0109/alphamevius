@@ -120,6 +120,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_fire: {fileID: 0}
 --- !u!1001 &3570567170583662514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +131,17 @@ PrefabInstance:
     - target: {fileID: 851817420, guid: 2b8640b4bede2934680aed430554055e, type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584807857239649008, guid: 2b8640b4bede2934680aed430554055e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: febc11c325d91c04d94881d240ce0792,
+        type: 3}
+    - target: {fileID: 2584807857239649008, guid: 2b8640b4bede2934680aed430554055e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2584807857529302628, guid: 2b8640b4bede2934680aed430554055e,
         type: 3}

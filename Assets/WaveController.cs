@@ -21,9 +21,9 @@ public class WaveController : MonoBehaviour
     void Wave()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOLocalMove(new Vector3(0, -1, 0) * m_moveDintance, m_moveTime))
+        sequence.Append(transform.DOLocalMove( this.transform.localPosition +new Vector3(0, -1, 0) * m_moveDintance, m_moveTime))
                 .SetDelay(m_moveTime)
-                .Append(transform.DOLocalMove(Vector3.zero, m_moveTime))
+                .Append(transform.DOLocalMove(this.transform.localPosition, m_moveTime))
                 .SetDelay(1)
                 .SetLoops(-1);
 

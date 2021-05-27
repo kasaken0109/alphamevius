@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 3718273987848793166}
   - component: {fileID: 5920455355582613306}
   - component: {fileID: 6222204578188922753}
+  - component: {fileID: 8675124136093258193}
   m_Layer: 0
   m_Name: tent (1)
   m_TagString: Untagged
@@ -690,6 +691,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionRange: {fileID: 5920455355582613306}
   m_message: {fileID: 3499488533768868179}
+--- !u!95 &8675124136093258193
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935554443098717910}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8417562540054243475
 GameObject:
   m_ObjectHideFlags: 0

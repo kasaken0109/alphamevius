@@ -17,6 +17,7 @@ public class CampFireManager : MonoBehaviour
     }
     void Start()
     {
+        m_player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame

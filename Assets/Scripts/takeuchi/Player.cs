@@ -268,6 +268,11 @@ public class Player : MonoBehaviour
     }
     public void AllStop()
     {
+        if (playerAnimation)
+        {
+            playerAnimation.SetBool("Move", false);
+        }
+        rB.velocity = Vector2.zero;
         allStop = true;
     }
     public void ArrowShot(Vector2 dir)

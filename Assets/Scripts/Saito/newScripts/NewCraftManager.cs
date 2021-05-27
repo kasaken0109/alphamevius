@@ -63,6 +63,7 @@ public class NewCraftManager : MonoBehaviour
         ZInventoryManager.Instance.ToolGet(targetID);
         MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         Debug.Log("作成");
+        ZInventoryManager.Instance.ViewMaterialReset();
     }
     public void OnClickRecycle()
     {
@@ -76,6 +77,7 @@ public class NewCraftManager : MonoBehaviour
             Debug.Log("分解");
             ZInventoryManager.Instance.RecycleTool();
             targetID = 0;
+            ZInventoryManager.Instance.ViewMaterialReset();
         }
     }
     public void OnClickCooking()
@@ -118,6 +120,7 @@ public class NewCraftManager : MonoBehaviour
         ZInventoryManager.Instance.OnClickCloseAll();
         targetID = 0;
         TimeManager.Instance.PlayCutIn(0);
+        ZInventoryManager.Instance.ViewMaterialReset();
     }
     public void EXPGet(int exp)
     {

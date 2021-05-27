@@ -37,6 +37,8 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             string name = NewItemManager.Instance.GetName(itemID);
             m_nameText.text = name;
             m_namePlate.sizeDelta = new Vector2(60 + name.Length * 10, 30);
+            m_namePlate.localPosition = new Vector2(0, 2000);
+            m_image.color = Color.white;
         }
         else
         {

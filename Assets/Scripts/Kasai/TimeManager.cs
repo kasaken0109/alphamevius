@@ -7,7 +7,7 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
     [SerializeField] GameObject m_menu = null;
-    [SerializeField] GameObject m_drift = null;
+    [SerializeField] GameObject []m_drift = null;
     [SerializeField] GameObject m_sun = null;
     [SerializeField] GameObject m_moon = null;
     [SerializeField] Transform m_spawn = null;
@@ -17,10 +17,12 @@ public class TimeManager : MonoBehaviour
     [SerializeField] SpriteRenderer m_panel;
     [SerializeField] bool m_panelActive;
     [SerializeField] CutInContrl contrl;
+    bool CanRespawnGerbage;
     public float m_time;
     private float m_secondCount;
     public float m_second;
     public int m_hour = 0;
+    public int m_passedhour = 0;
     public int m_dayNum = 1;
     public DayStatus dayStatus;
     Color panelColor;
@@ -42,6 +44,7 @@ public class TimeManager : MonoBehaviour
         //m_drift.SetActive(false);
         m_hour = 6;
         ScreenEffecter.Instance.FadeIn();
+        CanRespawnGerbage = false;
     }
 
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class TimeManager : MonoBehaviour
         if (m_second >= 30f / m_gameSpeed)
         {
             m_hour += 1;
+            m_passedhour += 1;
             //if (m_hour == 6)
             //{
             //    m_drift.SetActive(true);
@@ -92,6 +96,22 @@ public class TimeManager : MonoBehaviour
         {
             m_moon.SetActive(true);
             m_sun.SetActive(false);
+        }
+        if (m_passedhour >= 6)
+        {
+            CanRespawnGerbage = true;
+            m_passedhour = 0;
+        }
+
+        if (m_hour % 6 == 0 && CanRespawnGerbage)
+        {
+            foreach (var v in m_drift)
+            {
+                if (!v.activeInHierarchy)
+                {
+                    v.SetActive(true);
+                }
+            }
         }
     }
     public DayStatus GetDayStatus()

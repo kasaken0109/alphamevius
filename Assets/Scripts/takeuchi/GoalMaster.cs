@@ -12,6 +12,7 @@ public class GoalMaster : MonoBehaviour
     [SerializeField] float movePointY = 2f;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float itemGetWaitTime = 2f;
+    [SerializeField] SceneLoader sceneLoader = null;
     float itemPoint = 0;
     bool goalF;
     bool goalStart;
@@ -84,11 +85,19 @@ public class GoalMaster : MonoBehaviour
     }
     private IEnumerator SceneChangeWait()
     {
+        Debug.Log(11);
         int count = 1;
         while (count > 0)
         {
             count--;
+            Debug.Log(count);
             yield return new WaitForSecondsRealtime(itemGetWaitTime);
         }
+        if (sceneLoader)
+        {
+            Debug.Log("ww");
+            sceneLoader.LoadScene(sceneLoader.m_sceneNameToBeLoaded);
+        }
+        
     }
 }

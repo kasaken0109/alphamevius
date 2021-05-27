@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ecb13463a170f4fbdf437d536a8dc7, type: 3}
+  m_Name: "Z34\u85AC\u8349"
+  m_EditorClassIdentifier: 
+  m_name: "\u85AC\u8349"
+  m_sprite: {fileID: 21300000, guid: 30a890dabdc013241944c0adb93730e8, type: 3}
+  m_needMaterials: 
+  m_getMaterials: 
+  ID: 34
+  haveNumber: 77
+  toolCheck: 0
+  guideText: "\u50B7\u3092\u6CBB\u3057\u3066\u304F\u308C\u308B\u85AC\u8349\u3001\u4F5C\u6210\u306B\u4F7F\u3048\u308B\u3002"
+  m_needMaterialsText: 
+  m_toolType: 0
+  m_materialType: 12
+  m_fieldSprite: {fileID: 21300000, guid: 65534b823d988d0438982d2e0981184d, type: 3}
+  m_craftLevel: 0

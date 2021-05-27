@@ -14,6 +14,7 @@ public class FieldItemManager : MonoBehaviour
     List<FieldItem> fieldItems;
     /// <summary> アイテム設定用変数 </summary>
     ItemBaseMain item;
+    MaterialType materialType;
     private void Awake()
     {
         Instance = this;
@@ -52,7 +53,38 @@ public class FieldItemManager : MonoBehaviour
     /// </summary>
     /// <param name="itemType"></param>
     /// <param name="pos"></param>
-    public void DropMaterial(ItemEnum[] itemType,Vector3 pos)
+    //public void DropMaterial2(ItemEnum[] itemType,Vector3 pos)
+    //{
+    //    int angleNumber = itemType.Length;
+    //    float allAngle = 90f / angleNumber;
+    //    float span = -45f + allAngle / 2;
+    //    for (int i = 0; i < itemType.Length; i++)
+    //    {
+    //        DropItem(itemType[i], pos, GetDirection(span));
+    //        span += allAngle;
+    //    }
+
+    //}
+    //public void DropItem(ItemEnum itemType, Vector3 pos, Vector3 dir)
+    //{
+    //    this.item = new ItemBaseMain(itemType);
+    //    foreach (var item in fieldItems)
+    //    {
+    //        if (item.IsActive())
+    //        {
+    //            continue;
+    //        }
+    //        item.DropItem(this.item, pos, dir);
+    //        return;
+    //    }
+    //    fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(this.item, pos, dir);
+    //}
+    /// <summary>
+    /// アイテムが飛び散るようにドロップする関数
+    /// </summary>
+    /// <param name="itemType"></param>
+    /// <param name="pos"></param>
+    public void DropMaterial(MaterialType[] itemType, Vector3 pos)
     {
         int angleNumber = itemType.Length;
         float allAngle = 90f / angleNumber;
@@ -64,19 +96,19 @@ public class FieldItemManager : MonoBehaviour
         }
 
     }
-    public void DropItem(ItemEnum itemType, Vector3 pos, Vector3 dir)
+    public void DropItem(MaterialType itemType, Vector3 pos, Vector3 dir)
     {
-        this.item = new ItemBaseMain(itemType);
+        materialType = itemType;
         foreach (var item in fieldItems)
         {
             if (item.IsActive())
             {
                 continue;
             }
-            item.DropItem(this.item, pos, dir);
+            item.DropItem(materialType, pos, dir);
             return;
         }
-        fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(this.item, pos, dir);
+        fieldItems.OrderBy(i => i.ExistTimer).FirstOrDefault().DropItem(materialType, pos, dir);
     }
     Vector3 GetDirection(float angle)
     {

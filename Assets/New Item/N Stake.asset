@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: N Stake
+  m_EditorClassIdentifier: 
+  m_name: N Stake
+  m_sprite: {fileID: 21300000, guid: 3e99580899ec8d049ac86be494d9d582, type: 3}
+  m_needMaterials: 1d0000001d000000
+  m_getMaterials: 
+  ID: 50
+  haveNumber: 0
+  toolCheck: 0
+  guideText: "\u5927\u304D\u306A\u7363\u8089\u304B\u3089\u4F5C\u3063\u305F\u6E80\u8179\u30B9\u30C6\u30FC\u30AD\u3002"
+  m_needMaterialsText: "\u8089\u584A\xD7\uFF12"
+  m_toolType: 13
+  m_attackPoint: 0
+  m_toolEfficiency: 0
+  m_craftLevel: 0

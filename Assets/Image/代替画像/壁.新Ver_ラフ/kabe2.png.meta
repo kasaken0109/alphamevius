@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: 7af7fdb566b4c5245b16993d6e98e571
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7773347962820506163
+    second: kabe2_0
+  - first:
+      213: 7119282906211480639
+    second: kabe2_1
+  - first:
+      213: -4867415117399779169
+    second: kabe2_2
+  - first:
+      213: 397577618024258061
+    second: kabe2_3
+  - first:
+      213: -8930715973048115105
+    second: kabe2_4
+  - first:
+      213: -9091039234055710372
+    second: kabe2_5
+  - first:
+      213: 6048877098571627779
+    second: kabe2_6
+  - first:
+      213: 4754100840073585199
+    second: kabe2_7
+  - first:
+      213: -864008973139100110
+    second: kabe2_8
+  - first:
+      213: 6189253052606228818
+    second: kabe2_9
+  - first:
+      213: -4716150979112802488
+    second: kabe2_10
+  - first:
+      213: -3577946512112586300
+    second: kabe2_11
+  - first:
+      213: -2583606399378164433
+    second: kabe2_12
+  - first:
+      213: -2889777273593915436
+    second: kabe2_13
+  - first:
+      213: 3117332640107932918
+    second: kabe2_14
+  - first:
+      213: -2888194788050630185
+    second: kabe2_15
+  - first:
+      213: 8586115341587549220
+    second: kabe2_16
+  - first:
+      213: 6366539626437643495
+    second: kabe2_17
+  - first:
+      213: -9040809363238214054
+    second: kabe2_18
+  - first:
+      213: -9150840124978219001
+    second: kabe2_19
+  - first:
+      213: -4206344732291415674
+    second: kabe2_20
+  - first:
+      213: -783780191778965991
+    second: kabe2_21
+  - first:
+      213: 8170332339829126984
+    second: kabe2_22
+  - first:
+      213: -5786014851590042533
+    second: kabe2_23
+  - first:
+      213: -7528514326858860676
+    second: kabe2_24
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kabe2_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 844
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdc39876358f1490800000000000000
+      internalID: -7773347962820506163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 844
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34fe386516ccc260800000000000000
+      internalID: 7119282906211480639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_2
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 844
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9815094db7737cb0800000000000000
+      internalID: -4867415117399779169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_3
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 844
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a5bf4bcba748500800000000000000
+      internalID: 397577618024258061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 544
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f506f84b329bf0480800000000000000
+      internalID: -8930715973048115105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_5
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 544
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5958f6abf326d180800000000000000
+      internalID: -9091039234055710372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_6
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 544
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d7b5e3cade1f350800000000000000
+      internalID: 6048877098571627779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_7
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 544
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22e8f69685f9f140800000000000000
+      internalID: 4754100840073585199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_8
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 244
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e3b49aa6c6204f0800000000000000
+      internalID: -864008973139100110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_9
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 244
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 259a899fbd4a4e550800000000000000
+      internalID: 6189253052606228818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_10
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 244
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847eed6fbaddc8eb0800000000000000
+      internalID: -4716150979112802488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabe2_11
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 244
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c17e20aa94985ec0800000000000000
+      internalID: -3577946512112586300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

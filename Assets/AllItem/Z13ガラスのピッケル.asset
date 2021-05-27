@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d40192bdb007f438ab5120ae397fda, type: 3}
+  m_Name: "Z13\u30AC\u30E9\u30B9\u306E\u30D4\u30C3\u30B1\u30EB"
+  m_EditorClassIdentifier: 
+  m_name: "\u30AC\u30E9\u30B9\u306E\u30D4\u30C3\u30B1\u30EB"
+  m_sprite: {fileID: 21300000, guid: cfcf0d2ada52c17498500ad78241e1ab, type: 3}
+  m_needMaterials: 0200000004000000
+  m_getMaterials: 020000001f000000
+  ID: 13
+  haveNumber: 0
+  toolCheck: 1
+  guideText: "\u63A1\u6398\u306B\u9069\u3057\u305F\u9053\u5177\u3002\u9271\u8108\u3092\u653B\u6483\u3067\u304D\u308B\u3002"
+  m_needMaterialsText: 
+  m_toolType: 6
+  m_attackPoint: 1
+  m_toolEfficiency: 40
+  m_craftLevel: 0

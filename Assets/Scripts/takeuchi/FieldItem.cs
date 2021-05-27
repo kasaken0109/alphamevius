@@ -6,24 +6,33 @@ public class FieldItem : MonoBehaviour
 {
     /// <summary> アイテムの入れ物 </summary>
     ItemBaseMain item;
+    MaterialType materialType = MaterialType.None;
     /// <summary> 入手フラグ </summary>
     bool getFlag = false;
     /// <summary> 存在する時間 </summary>
-    float toExistTime = 8f;
+    float toExistTime = 80f;
     /// <summary> 存在時間のタイマー </summary>
     public float ExistTimer { get; private set; } = 0f;
+    [SerializeField]SpriteRenderer itemImage;
+    Transform player;
+    private bool drop;
     private void Start()
     {
+        player = Player.Instance.transform;
         this.gameObject.SetActive(false);
     }
     private void Update()
     {
+        if (!drop)
+        {
+            return;
+        }
         ExistTimer -= Time.deltaTime;
         if (ExistTimer <= 0)
         {
             this.gameObject.SetActive(false);
+            drop = false;
         }
-
         if (startMoveTimer > 0)
         {
             startMoveTimer -= Time.deltaTime;
@@ -36,7 +45,13 @@ public class FieldItem : MonoBehaviour
             if (transform.position.y <= earthPosY)
             {
                 xxx = false;
+                getFlag = false;
+                yyy = true;
             }
+        }
+        else if (yyy)
+        {
+            transform.position += 10 * (player.position - transform.position).normalized * Time.deltaTime;
         }
     }
     /// <summary>
@@ -52,6 +67,14 @@ public class FieldItem : MonoBehaviour
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
     }
+    public void DropItem(MaterialType type, Vector3 pos)
+    {
+        materialType = type;
+        transform.position = pos;
+        getFlag = false;
+        ExistTimer = toExistTime;
+        this.gameObject.SetActive(true);
+    }
     private float moveTime = 0.5f;
     private float startMoveTimer;
     [SerializeField]
@@ -59,21 +82,20 @@ public class FieldItem : MonoBehaviour
     Vector3 moveDir = Vector3.zero;
     private bool xxx;
     private float earthPosY;
-    /// <summary>
-    /// アイテムを落とす為の関数
-    /// </summary>
-    /// <param name="item">アイテムの種類</param>
-    /// <param name="pos">落とす場所</param>
-    public void DropItem(ItemBaseMain item, Vector3 pos, Vector3 moveDir)
+    private bool yyy;
+    public void DropItem(MaterialType type, Vector3 pos, Vector3 moveDir)
     {
-        this.item = item;
+        //Debug.Log("呼ばれた");
+        materialType = type;
+        itemImage.sprite = NewItemManager.Instance.GetItem(NewItemManager.Instance.GetMaterialId(type)).GetFieldSprite();
         transform.position = pos;
         this.moveDir = moveDir;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
         startMoveTimer = moveTime;
         earthPosY = pos.y - 0.5f;
         xxx = false;
-        getFlag = false;
+        getFlag = true;
+        drop = true;
         ExistTimer = toExistTime;
         this.gameObject.SetActive(true);
     }
@@ -91,7 +113,35 @@ public class FieldItem : MonoBehaviour
             if (!getFlag)
             {
                 getFlag = true;
-                ItemManage.Instance.SetItem(item);
+                if (item)
+                {
+                    ItemManage.Instance.SetItem(item);
+                }
+                if (materialType != MaterialType.None)
+                {
+                    NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
+                }
+                drop = false;
+                this.gameObject.SetActive(false);
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (!getFlag)
+            {
+                getFlag = true;
+                if (item)
+                {
+                    ItemManage.Instance.SetItem(item);
+                }
+                if (materialType != MaterialType.None)
+                {
+                    NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
+                }
+                drop = false;
                 this.gameObject.SetActive(false);
             }
         }

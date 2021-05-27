@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private bool move;
     private bool arrowMode;
     private bool arrow;
+    private bool allStop;
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject attackScale;
     private float attackTimer;
@@ -57,6 +58,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (allStop)
+        {
+            return;
+        }
         if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT && playerAnimation)
         {
             playerAnimation.SetBool("Torch", true);
@@ -129,6 +134,10 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (allStop)
+        {
+            return;
+        }
         right = rightFloor.ONWalkable();
         left = leftFloor.ONWalkable();
         up = upFloor.ONWalkable();
@@ -256,6 +265,10 @@ public class Player : MonoBehaviour
     {
         rB.velocity = Vector2.zero;
         action = false;
+    }
+    public void AllStop()
+    {
+        allStop = true;
     }
     public void ArrowShot(Vector2 dir)
     {

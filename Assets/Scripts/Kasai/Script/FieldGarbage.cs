@@ -45,4 +45,8 @@ public class FieldGarbage : MonoBehaviour
 
         }
     }
+    private void OnEnable()
+    {
+        getF = false;
+    }
 }

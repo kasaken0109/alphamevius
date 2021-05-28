@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectType: 4
-  strengthPoint: 120
-  DropItems: 06000000060000000600000006000000
+  strengthPoint: 320
+  DropItems: 0600000006000000
   DropItem: 06000000
 --- !u!61 &686082265
 BoxCollider2D:

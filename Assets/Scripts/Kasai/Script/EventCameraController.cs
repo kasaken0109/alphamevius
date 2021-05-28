@@ -39,12 +39,15 @@ public class EventCameraController : MonoBehaviour
                     ZoomOut(m_zoomSpeed);
                 }
             }
+            NewTimeManager.Instance.AnimActive();
+            //NewTimeManager.Instance.SetGameStatus(NewTimeManager.GameStatus.RESUME);
         }
         
     }
 
     public void ZoomUp(float m_zoomSpeed)
     {
+        NewTimeManager.Instance.AnimNonActive();
         m_transposer.m_Lens.OrthographicSize += m_zoomSpeed;
     }
 

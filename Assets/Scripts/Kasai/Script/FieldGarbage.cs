@@ -22,6 +22,7 @@ public class FieldGarbage : MonoBehaviour
                 Player.Instance.CatchItem();
                 EffectManager.PlayEffect(EffectType.Hit, transform.position);
                 this.gameObject.SetActive(false);
+                getF = false;
             }
         }
     }
@@ -41,6 +42,7 @@ public class FieldGarbage : MonoBehaviour
                 Player.Instance.CatchItem();
                 EffectManager.PlayEffect(EffectType.Hit, transform.position);
                 this.gameObject.SetActive(false);
+                getF = false;
             }
 
         }

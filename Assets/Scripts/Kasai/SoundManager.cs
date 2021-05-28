@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance {get; private set;}
     [SerializeField] AudioClip m_bgm;
-    [SerializeField] AudioClip m_hit;
     [SerializeField] AudioClip m_damage;
     [SerializeField] AudioClip m_attack;
     [SerializeField] AudioClip m_clear;
@@ -53,6 +52,27 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// BGM を再生する
+    /// </summary>
+    public void PlayFire()
+    {
+        m_audioSource.clip = m_fire;
+        m_audioSource.loop = true;
+        m_audioSource.Play();
+    }
+
+    /// <summary>
+    /// BGM を止める
+    /// </summary>
+    public void StopFire()
+    {
+        if (m_audioSource.isPlaying)
+        {
+            m_audioSource.Stop();
+        }
+    }
+
 
     /// <summary>
     /// 攻撃時の SE を鳴らす
@@ -60,6 +80,7 @@ public class SoundManager : MonoBehaviour
     public void PlayAttack()
     {
         m_audioSource.PlayOneShot(m_attack);
+        Debug.Log("ATTTack");
     }
     /// <summary>
     /// プレイヤー被ダメージ時の SE を鳴らす

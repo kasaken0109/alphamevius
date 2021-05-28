@@ -44,6 +44,7 @@ public class SoundPlayController : MonoBehaviour
     /// </summary>
     public void PlayWalk()
     {
+        Debug.Log("walk!walk!");
         SoundManager.Instance.PlayWalk();
     }
 }

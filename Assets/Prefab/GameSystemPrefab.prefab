@@ -311,7 +311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1379024614
 Transform:
   m_ObjectHideFlags: 0
@@ -15914,15 +15914,6 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 3, y: -17, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 16
-      m_TileSpriteIndex: 20
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: 4, y: -17, z: 0}
     second:
       serializedVersion: 2
@@ -19782,8 +19773,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 959e20fad25de72468ff2cdb8d1752c5, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: f5d3f6c7614d5504c8f434959987587c, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -19835,13 +19826,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -6080287836999608041, guid: 106fbd3773bf03a44991d169def6b57d,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 56
     m_Data: {fileID: 21300000, guid: 23bca172117d6604a9a317c72f5b957c, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2157
+  - m_RefCount: 2156
     m_Data:
       e00: 1
       e01: 0
@@ -19914,7 +19904,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2157
+  - m_RefCount: 2156
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 3.08
@@ -20932,7 +20922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8792224433163971673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -129, y: -21, z: 0}
+  m_LocalPosition: {x: 55.1, y: -152.21, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8792224432893931272}
@@ -39371,7 +39361,7 @@ PrefabInstance:
     - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_sceneNameToBeLoaded
-      value: ClearScene2Stage2
+      value: ClearScene3Stage3
       objectReference: {fileID: 0}
     - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
@@ -39436,7 +39426,7 @@ PrefabInstance:
     - target: {fileID: 272841369012826218, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_drift.Array.size
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 272841369012826218, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
@@ -39492,6 +39482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 272841370282852939, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2518387532012913514, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}

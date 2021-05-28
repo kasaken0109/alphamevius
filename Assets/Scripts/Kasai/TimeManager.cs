@@ -112,6 +112,7 @@ public class TimeManager : MonoBehaviour
                     v.SetActive(true);
                 }
             }
+            CanRespawnGerbage = false;
         }
     }
     public DayStatus GetDayStatus()

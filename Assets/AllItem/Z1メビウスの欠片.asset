@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: "Z1\u30E1\u30D3\u30A6\u30B9\u306E\u6B20\u7247"
   m_EditorClassIdentifier: 
   m_name: "\u221E\u306E\u6B20\u7247"
-  m_sprite: {fileID: 21300000, guid: 5d9c78164f80dce4e95f3f8a3506a49d, type: 3}
+  m_sprite: {fileID: 21300000, guid: 75642a7d95e2be14a897b55b8dbd840f, type: 3}
   m_needMaterials: 
   m_getMaterials: 
   ID: 1
-  haveNumber: 48
+  haveNumber: 0
   toolCheck: 0
   guideText: "\u5206\u89E3\u3059\u308B\u3068\u624B\u306B\u5165\u308B\u4E0D\u601D\u8B70\u306A\u6B20\u7247\u3001\u907A\u8DE1\u306E\u5C01\u5370\u3092\u89E3\u304F\u306E\u306B\u4F7F\u3046\u3002"
   m_needMaterialsText: 
   m_toolType: 0
   m_materialType: 31
-  m_fieldSprite: {fileID: 21300000, guid: 7f3a5c76fa778ec4aaf26c9758202cb9, type: 3}
+  m_fieldSprite: {fileID: 21300000, guid: 25cdc37c32ef8324fa9fce75cfc4f6ab, type: 3}
   m_craftLevel: 0

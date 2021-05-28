@@ -19,6 +19,7 @@ public class NewTimeManager : MonoBehaviour
     private int m_hour = 0;
     Color panelColor;
     Animator anim;
+    public bool IsPushed = false;
     public enum GameStatus
     {
         START,
@@ -62,14 +63,15 @@ public class NewTimeManager : MonoBehaviour
         }
         if (Input.GetButtonDown("Pause"))
         {
-            if (m_gamestatus == GameStatus.PAUSE)
-            {
-                m_gamestatus = GameStatus.RESUME;
-            }
-            else
-            {
-                m_gamestatus = GameStatus.PAUSE;
-            }
+            //if (m_gamestatus == GameStatus.PAUSE)
+            //{
+            //    m_gamestatus = GameStatus.RESUME;
+            //}
+            //else
+            //{
+            //    m_gamestatus = GameStatus.PAUSE;
+            //}
+            Pause();
         }
         if (m_gamestatus == GameStatus.RESUME || m_gamestatus == GameStatus.START)
         {
@@ -125,10 +127,22 @@ public class NewTimeManager : MonoBehaviour
         }
     }
 
+    public void Pause()
+    {
+        if (m_gamestatus == GameStatus.PAUSE)
+        {
+            m_gamestatus = GameStatus.RESUME;
+        }
+        else
+        {
+            m_gamestatus = GameStatus.PAUSE;
+        }
+    }
+
     public void AnimActive()
     {
         //Time.timeScale = 1;
-        //Debug.Log("ac");
+        Debug.Log("ac");
         var anim = GameObject.Find("Player").GetComponentInChildren<Animator>();
         anim.enabled = true;
         Player.Instance.ActionStart();
@@ -136,10 +150,20 @@ public class NewTimeManager : MonoBehaviour
 
     public void AnimNonActive()
     {
-        //Debug.Log("nac");
+        Debug.Log("nac");
         //Time.timeScale = 0;
         GameObject.Find("Player").GetComponentInChildren<Animator>().enabled = false;
         Player.Instance.ActionStop();
+    }
+
+    public void PushDown()
+    {
+        IsPushed = true;
+    }
+
+    public void PushUp()
+    {
+        IsPushed = false;
     }
 
     public GameStatus GetGameStatus()

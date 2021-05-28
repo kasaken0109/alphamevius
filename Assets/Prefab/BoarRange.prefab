@@ -371,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3855504549940720106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.299999, z: 0}
+  m_LocalPosition: {x: 0, y: -6.4, z: 0}
   m_LocalScale: {x: 70, y: 16.666664, z: 1}
   m_Children: []
   m_Father: {fileID: 3855504548841882076}
@@ -415,7 +415,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.45490196}
   m_FlipX: 0
@@ -513,18 +513,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
-  power: 5
+  power: 3
   spawnPoint: {fileID: 3855504549289739472}
   creature: {fileID: 3855504550019347162}
   haveItems: 09000000090000001d0000001d000000
   actionRange: {fileID: 3855504549289739486}
   searchRange: {fileID: 3855504548286478982}
   attackRange: {fileID: 3855504549336552040}
-  attackInterval: 3
-  moveSpeed: 3
+  attackInterval: 0.3
+  moveSpeed: 4
   stanTime: 1
   CreaturesAnimation: {fileID: 3855504548841882077}
   haveGarbage: {fileID: 9139189091197410912, guid: d9b4e71222aa6da4fa1a443fe0dba24e,
     type: 3}
-  actionTime: 3
+  actionTime: 4
   m_isAttackable: 0

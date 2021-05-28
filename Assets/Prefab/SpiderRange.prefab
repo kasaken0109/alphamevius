@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24201797633103134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.97, y: 0, z: 0}
+  m_LocalPosition: {x: 0.6, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24201798022428076}
@@ -145,7 +145,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 2
 --- !u!114 &24201797633103132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24201797968934558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.299999, z: 0}
+  m_LocalPosition: {x: 6.2, y: -8.299999, z: 0}
   m_LocalScale: {x: 70, y: 16.666664, z: 1}
   m_Children: []
   m_Father: {fileID: 24201799202031272}
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.45490196}
   m_FlipX: 0
@@ -332,12 +332,12 @@ MonoBehaviour:
   actionRange: {fileID: 24201797544575914}
   searchRange: {fileID: 24201798680575474}
   attackRange: {fileID: 24201797633103132}
-  attackInterval: 1
-  moveSpeed: 3
+  attackInterval: 0.7
+  moveSpeed: 5
   stanTime: 1
   CreaturesAnimation: {fileID: 24201799202031273}
   haveGarbage: {fileID: 0}
-  actionTime: 3
+  actionTime: 2
 --- !u!1 &24201798680575437
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 8
 --- !u!1 &24201799202031275
 GameObject:
   m_ObjectHideFlags: 0

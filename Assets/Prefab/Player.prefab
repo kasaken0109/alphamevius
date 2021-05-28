@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7474555705963204419}
   - component: {fileID: 7474555705963204418}
   - component: {fileID: 7474555705963204421}
+  - component: {fileID: 4816119164317475842}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_Size: {x: 25.004885, y: 30.000002}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &7474555705963204421
@@ -182,6 +183,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4816119164317475842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474555705963204420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89685ed3936598e4b9049153fa887c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 0}
 --- !u!1 &7474555706253867619
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,8 +329,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  arrowPrefab: {fileID: 0}
   attackScale: {fileID: 7474555706661558032}
   playerAnimation: {fileID: 7474555705963204421}
+  upFloor: {fileID: 0}
+  downFloor: {fileID: 0}
+  leftFloor: {fileID: 0}
+  rightFloor: {fileID: 0}
+  torchLight: {fileID: 0}
+  mousePos: {fileID: 0}
 --- !u!50 &7474555706369772500
 Rigidbody2D:
   serializedVersion: 4
@@ -374,6 +395,7 @@ MonoBehaviour:
   startOneDehydrationTime: 6
   sEHungerTime: 10
   sEDehydrationTime: 10
+  needEXPList: 
 --- !u!1 &7474555706661558032
 GameObject:
   m_ObjectHideFlags: 0

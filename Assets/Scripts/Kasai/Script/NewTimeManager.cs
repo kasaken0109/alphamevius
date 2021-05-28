@@ -128,7 +128,7 @@ public class NewTimeManager : MonoBehaviour
     public void AnimActive()
     {
         //Time.timeScale = 1;
-        Debug.Log("ac");
+        //Debug.Log("ac");
         var anim = GameObject.Find("Player").GetComponentInChildren<Animator>();
         anim.enabled = true;
         Player.Instance.ActionStart();
@@ -136,7 +136,7 @@ public class NewTimeManager : MonoBehaviour
 
     public void AnimNonActive()
     {
-        Debug.Log("nac");
+        //Debug.Log("nac");
         //Time.timeScale = 0;
         GameObject.Find("Player").GetComponentInChildren<Animator>().enabled = false;
         Player.Instance.ActionStop();

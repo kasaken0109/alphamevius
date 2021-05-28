@@ -346,7 +346,7 @@ MonoBehaviour:
   power: 5
   spawnPoint: {fileID: 5741011857206195546}
   creature: {fileID: 5741011856928785232}
-  haveItems: 09000000090000000800000008000000
+  haveItems: 090000001d00000008000000
   actionRange: {fileID: 5741011857206195540}
   searchRange: {fileID: 5741011856210873100}
   attackRange: {fileID: 5741011857328464866}

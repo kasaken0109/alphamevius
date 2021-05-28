@@ -134,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectType: 5
   strengthPoint: 120
-  DropItems: 150000001500000015000000
-  DropItem: 15000000
+  DropItems: 0c0000000c000000
+  DropItem: 0c000000
 --- !u!212 &1164628923214431508
 SpriteRenderer:
   m_ObjectHideFlags: 0

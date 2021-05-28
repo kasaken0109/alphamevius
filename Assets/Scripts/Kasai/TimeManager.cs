@@ -25,6 +25,7 @@ public class TimeManager : MonoBehaviour
     public int m_passedhour = 0;
     public int m_dayNum = 1;
     public DayStatus dayStatus;
+    NightRemainController nightRemainController;
     Color panelColor;
     public enum DayStatus
     {
@@ -44,6 +45,7 @@ public class TimeManager : MonoBehaviour
         //m_drift.SetActive(false);
         m_hour = 6;
         ScreenEffecter.Instance.FadeIn();
+        nightRemainController = GameObject.Find("NightObject").GetComponentInChildren<NightRemainController>();
         CanRespawnGerbage = false;
     }
 
@@ -53,7 +55,25 @@ public class TimeManager : MonoBehaviour
         //m_time += Time.deltaTime / 60;
         m_secondCount += Time.deltaTime;
         m_time += Time.deltaTime;
-        m_second += Time.deltaTime;
+        if (!nightRemainController.IsRemain)
+        {
+            m_second += Time.deltaTime;
+            if (m_hour >= 0 && m_hour < 6 || m_hour >= 18 && m_hour < 24)
+            {
+                dayStatus = DayStatus.NIGHT;
+                SetPanel();
+            }
+            else
+            {
+                dayStatus = DayStatus.NOON;
+                SetPanel();
+            }
+        }
+        else
+        {
+            dayStatus = DayStatus.NOON;
+            SetPanel();
+        }
         if (m_second >= 30f / m_gameSpeed)
         {
             m_hour += 1;
@@ -70,16 +90,7 @@ public class TimeManager : MonoBehaviour
             m_hour = 0;
         }
 
-        if (m_hour >= 0 && m_hour < 6 || m_hour >= 18 && m_hour < 24)
-        {
-            dayStatus = DayStatus.NIGHT;
-            SetPanel();
-        }
-        else
-        {
-            dayStatus = DayStatus.NOON;
-            SetPanel();
-        }
+        
 
         if (m_secondCount >= 1f * m_gameSpeed)
         {

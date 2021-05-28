@@ -9,7 +9,7 @@ public class CampFireManager : MonoBehaviour
     [SerializeField] ActionRange actionRange = null;
     [SerializeField] GameObject m_animCamp = null;
     [SerializeField] GameObject m_Camp = null;
-    [SerializeField] Transform m_player = null;
+    Transform m_player = null;
     // Start is called before the first frame update
     private void Awake()
     {

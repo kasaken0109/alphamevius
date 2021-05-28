@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 2584807857239649008}
   - component: {fileID: 2584807857239649015}
   - component: {fileID: 4928593707310098419}
+  - component: {fileID: 44704338}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -507,7 +508,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -528,7 +529,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: f429f4af798618140b94612793198935, type: 3}
+  m_Sprite: {fileID: 21300000, guid: febc11c325d91c04d94881d240ce0792, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -571,6 +572,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 0}
+--- !u!114 &44704338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584807857239649014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d831b77b40bff4d499b7b9625f40842e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2584807857279496866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,12 +1205,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22f479d043593224f8c6db489a977b3d, type: 3}
---- !u!4 &7492582831573171104 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2566737045783370770, guid: 22f479d043593224f8c6db489a977b3d,
-    type: 3}
-  m_PrefabInstance: {fileID: 4928593707535116210}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7492582831573171106 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2566737045783370768, guid: 22f479d043593224f8c6db489a977b3d,
@@ -1210,6 +1217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844c1067accd77d46a35dafd1182aeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7492582831573171104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2566737045783370770, guid: 22f479d043593224f8c6db489a977b3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4928593707535116210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4928593708340036435
 PrefabInstance:
   m_ObjectHideFlags: 0

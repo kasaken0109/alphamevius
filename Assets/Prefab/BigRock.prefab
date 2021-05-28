@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_hintIcon: {fileID: 7940989904860717284}
   m_playerName: Player
-  m_hintDistance: 10
+  m_hintDistance: 8
 --- !u!1 &7940989904860717284
 GameObject:
   m_ObjectHideFlags: 0

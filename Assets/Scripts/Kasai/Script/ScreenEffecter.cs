@@ -34,6 +34,6 @@ public class ScreenEffecter : MonoBehaviour
     }
     public void FadeOut()
     {
-        //m_image.Play("FadeOut");
+        m_image.Play("FadeOut");
     }
 }

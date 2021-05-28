@@ -420,6 +420,8 @@ GameObject:
   - component: {fileID: 875824024}
   - component: {fileID: 875824026}
   - component: {fileID: 875824025}
+  - component: {fileID: 875824027}
+  - component: {fileID: 875824028}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -483,6 +485,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875824023}
   m_CullTransparentMesh: 0
+--- !u!95 &875824027
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875824023}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8bcb5778c99d48f4aa8883cadb4bb6d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &875824028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875824023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9eaff59f55c5dd49841f0d65eaefd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_image: {fileID: 875824027}
 --- !u!1001 &891505043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,6 +534,11 @@ PrefabInstance:
       propertyPath: m_sceneNameToBeLoaded
       value: OpeningScene
       objectReference: {fileID: 0}
+    - target: {fileID: 238820794253854411, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: screenEffecter
+      value: 
+      objectReference: {fileID: 875824028}
     - target: {fileID: 272841369012826217, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -570,6 +609,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2518387532012913514, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_image
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4419179585170345707, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_bgm
@@ -584,6 +628,7 @@ PrefabInstance:
     - {fileID: 272841369012826216, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
     - {fileID: 3376163574874737675, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
     - {fileID: 272841369012826218, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
+    - {fileID: 2518387532012913514, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
 --- !u!114 &891505044 stripped
 MonoBehaviour:

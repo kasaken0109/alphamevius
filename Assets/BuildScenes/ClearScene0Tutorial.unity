@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5532fc3e742599a4aa93b23ff71c5a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneNameToBeLoaded: BuildScene Kasai
+  m_sceneNameToBeLoaded: BuildScene Kasai alpha
   m_fadePanel: {fileID: 1638714792}
   m_fadeSpeed: 1
+  screenEffecter: {fileID: 1638714794}
 --- !u!4 &596130081
 Transform:
   m_ObjectHideFlags: 0
@@ -658,6 +659,8 @@ GameObject:
   - component: {fileID: 1638714791}
   - component: {fileID: 1638714793}
   - component: {fileID: 1638714792}
+  - component: {fileID: 1638714795}
+  - component: {fileID: 1638714794}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -721,3 +724,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638714790}
   m_CullTransparentMesh: 0
+--- !u!114 &1638714794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638714790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9eaff59f55c5dd49841f0d65eaefd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_image: {fileID: 1638714795}
+--- !u!95 &1638714795
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638714790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8bcb5778c99d48f4aa8883cadb4bb6d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

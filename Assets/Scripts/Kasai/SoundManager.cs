@@ -21,10 +21,11 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        m_audioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
-        m_audioSource = GetComponent<AudioSource>();
+        
         PlayBgm(m_bgm);
     }
 

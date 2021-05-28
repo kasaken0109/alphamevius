@@ -18,7 +18,7 @@ public class NewTimeManager : MonoBehaviour
     private int m_minutes;
     private int m_hour = 0;
     Color panelColor;
-    Animator m;
+    Animator anim;
     public enum GameStatus
     {
         START,
@@ -38,7 +38,7 @@ public class NewTimeManager : MonoBehaviour
             m_ui.SetActive(true);
         }
         //m_timeText = GameObject.Find("TimeText").GetComponent<Text>();
-        m = GameObject.Find("Player").GetComponentInChildren<Animator>();
+        //anim = GameObject.Find("Player").GetComponentInChildren<Animator>();
         m_gamestatus = GameStatus.START;
         m_minutes = m_limitTime;
         if (m_buttons != null)
@@ -127,16 +127,18 @@ public class NewTimeManager : MonoBehaviour
 
     public void AnimActive()
     {
-        Time.timeScale = 1;
-        m.enabled = true;
+        //Time.timeScale = 1;
+        //Debug.Log("ac");
+        var anim = GameObject.Find("Player").GetComponentInChildren<Animator>();
+        anim.enabled = true;
         Player.Instance.ActionStart();
     }
 
     public void AnimNonActive()
     {
-        Debug.Log("ac");
-        Time.timeScale = 0;
-        m.enabled = false;
+        //Debug.Log("nac");
+        //Time.timeScale = 0;
+        GameObject.Find("Player").GetComponentInChildren<Animator>().enabled = false;
         Player.Instance.ActionStop();
     }
 

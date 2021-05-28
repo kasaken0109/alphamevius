@@ -28,9 +28,13 @@ public class EventCameraController : MonoBehaviour
     {
         if (TimeManager.Instance.GetDayStatus() != TimeManager.DayStatus.NIGHT)
         {
-            if (m_transposer.m_Lens.OrthographicSize < m_zoomLength && IsPush)
+            if (IsPush)
             {
-                ZoomUp(m_zoomSpeed);
+                if (m_transposer.m_Lens.OrthographicSize < m_zoomLength)
+                {
+                    ZoomUp(m_zoomSpeed);
+                }
+                NewTimeManager.Instance.AnimNonActive();
             }
             else
             {
@@ -38,9 +42,13 @@ public class EventCameraController : MonoBehaviour
                 {
                     ZoomOut(m_zoomSpeed);
                 }
+                if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE || NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.GAMEOVER)
+                {
+                    NewTimeManager.Instance.AnimActive();
+                }
+                
             }
-            NewTimeManager.Instance.AnimActive();
-            //NewTimeManager.Instance.SetGameStatus(NewTimeManager.GameStatus.RESUME);
+            
         }
         
     }

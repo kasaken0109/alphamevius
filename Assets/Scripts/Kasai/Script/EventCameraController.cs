@@ -41,11 +41,12 @@ public class EventCameraController : MonoBehaviour
                 if (m_transposer.m_Lens.OrthographicSize > m_StartOffset)
                 {
                     ZoomOut(m_zoomSpeed);
-                }
-                if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE || NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.GAMEOVER)
-                {
                     NewTimeManager.Instance.AnimActive();
                 }
+                //if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE || NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.GAMEOVER)
+                //{
+                //    NewTimeManager.Instance.AnimActive();
+                //}
                 
             }
             

@@ -13,11 +13,12 @@ public class SleepBagManager : MonoBehaviour
     //[SerializeField] GameObject m_Button = null;
     [SerializeField] GameObject m_animSleepBag = null;
     [SerializeField] GameObject m_SleepBag = null;
-    [SerializeField] Transform m_player = null;
+    Transform m_player = null;
     // Start is called before the first frame update
     private void Awake()
     {
         Instance = this;
+        m_player = GameObject.Find("Player").transform;
         //time = GetComponent<TimeManager>();
     }
     void Start()

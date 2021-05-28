@@ -9,7 +9,7 @@ public class NewTimeManager : MonoBehaviour
     public static NewTimeManager Instance { get; private set; }
     Text m_timeText = null;
     [SerializeField] int m_limitTime = 5;
-    [SerializeField] private GameStatus gameStatus;
+    [SerializeField] private GameStatus m_gamestatus;
     [SerializeField] private GameObject[] m_buttons;
     [SerializeField] Text m_gameStatusText;
     [SerializeField] private GameObject m_ui;
@@ -18,6 +18,7 @@ public class NewTimeManager : MonoBehaviour
     private int m_minutes;
     private int m_hour = 0;
     Color panelColor;
+    Animator m;
     public enum GameStatus
     {
         START,
@@ -37,7 +38,8 @@ public class NewTimeManager : MonoBehaviour
             m_ui.SetActive(true);
         }
         //m_timeText = GameObject.Find("TimeText").GetComponent<Text>();
-        gameStatus = GameStatus.START;
+        m = GameObject.Find("Player").GetComponentInChildren<Animator>();
+        m_gamestatus = GameStatus.START;
         m_minutes = m_limitTime;
         if (m_buttons != null)
         {
@@ -46,29 +48,32 @@ public class NewTimeManager : MonoBehaviour
                 item.SetActive(false);
             }
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(m_gamestatus);
+        
         if (PlayerManager.Instance.CurrentHP <= 0)
         {
-            gameStatus = GameStatus.GAMEOVER;
+            m_gamestatus = GameStatus.GAMEOVER;
         }
         if (Input.GetButtonDown("Pause"))
         {
-            if (gameStatus == GameStatus.PAUSE)
+            if (m_gamestatus == GameStatus.PAUSE)
             {
-                gameStatus = GameStatus.RESUME;
+                m_gamestatus = GameStatus.RESUME;
             }
             else
             {
-                gameStatus = GameStatus.PAUSE;
+                m_gamestatus = GameStatus.PAUSE;
             }
         }
-        if (gameStatus == GameStatus.RESUME || gameStatus == GameStatus.START)
+        if (m_gamestatus == GameStatus.RESUME || m_gamestatus == GameStatus.START)
         {
-            Time.timeScale = 1;
+            AnimActive();
             m_gameStatusText.text = "";
             if (m_buttons != null)
             {
@@ -80,10 +85,10 @@ public class NewTimeManager : MonoBehaviour
 
             m_second -= Time.deltaTime;
         }
-        if (gameStatus == GameStatus.PAUSE)
+        if (m_gamestatus == GameStatus.PAUSE)
         {
             m_gameStatusText.text = "Pause";
-            Time.timeScale = 0;
+            AnimNonActive();
             if (m_buttons != null)
             {
                 foreach (var item in m_buttons)
@@ -94,7 +99,7 @@ public class NewTimeManager : MonoBehaviour
         }
         //m_timeText.text = string.Format($"{m_minutes:00} : {Mathf.FloorToInt(m_second):00}");
 
-        if (gameStatus == GameStatus.GAMEOVER)
+        if (m_gamestatus == GameStatus.GAMEOVER)
         {
             if (m_ui != null)
             {
@@ -120,9 +125,29 @@ public class NewTimeManager : MonoBehaviour
         }
     }
 
+    public void AnimActive()
+    {
+        Time.timeScale = 1;
+        m.enabled = true;
+        Player.Instance.ActionStart();
+    }
+
+    public void AnimNonActive()
+    {
+        Debug.Log("ac");
+        Time.timeScale = 0;
+        m.enabled = false;
+        Player.Instance.ActionStop();
+    }
+
     public GameStatus GetGameStatus()
     {
-        return gameStatus;
+        return m_gamestatus;
+    }
+
+    public void SetGameStatus(GameStatus gameStatus)
+    {
+        m_gamestatus = gameStatus;
     }
 
     public void SetTimeScale(float timeScale)

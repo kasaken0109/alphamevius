@@ -332,6 +332,7 @@ public class Player : MonoBehaviour
     public bool Right() { return right; }
     public bool Up() { return up; }
     public bool Down() { return down; }
+    public bool GetAction() { return action; }
     public void PlayerAngleChange(MoveAngle angle)
     {
         this.angle = angle;

@@ -11,7 +11,7 @@ public class FieldObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (getF)
+        if (getF || !Player.Instance.GetAction())
         {
             return;
         }
@@ -24,7 +24,7 @@ public class FieldObject : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (getF)
+        if (getF || !Player.Instance.GetAction())
         {
             return;
         }
@@ -51,7 +51,7 @@ public class FieldObject : MonoBehaviour
         {
             NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(DropItems), m_dropNum);
         }
-        EffectManager.PlayEffect(EffectType.Hit, transform.position);
+        //EffectManager.PlayEffect(EffectType.Hit, transform.position);
         this.gameObject.SetActive(false);
         getTimer = 0.5f;
     }

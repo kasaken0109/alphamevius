@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.UI;
 public class ZInventoryManager : MonoBehaviour
 {
     public static ZInventoryManager Instance { get; private set; }
@@ -17,6 +17,7 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] RectTransform m_helpPanel;
     [SerializeField] ZHelpPanelControl m_helps;
     [SerializeField] ZTestItmeMove[] m_itmes;
+    [SerializeField] Image m_allCloseButton;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -184,6 +185,7 @@ public class ZInventoryManager : MonoBehaviour
         MapManager.Instance.ActiveMap();
         m_closeButton.SetActive(true);
         SoundManager.Instance.PlayUISound();
+        m_allCloseButton.color = new Color(0, 0, 0, 0);
     }
     public void OnClickCloseAll()
     {
@@ -197,6 +199,7 @@ public class ZInventoryManager : MonoBehaviour
         m_cookingPanel.localPosition = new Vector2(2000, 2000);
         m_helpPanel.localPosition = new Vector2(2000, 2000);
         NewCraftManager.Instance.SetTargetID(0);
+        m_allCloseButton.color = new Color(0, 0, 0, 0.6f);
     }
     public void EquipmentReset()
     {

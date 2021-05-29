@@ -11862,6 +11862,7 @@ MonoBehaviour:
   - {fileID: 4648701756720149026}
   - {fileID: 5317528714288290101}
   - {fileID: 387947988718891644}
+  m_allCloseButton: {fileID: 2046359077185414823}
 --- !u!1 &8217695566006521909
 GameObject:
   m_ObjectHideFlags: 0

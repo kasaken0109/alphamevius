@@ -21,14 +21,14 @@ public class GoalManager : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            sceneLoader.LoadScene(m_sceneName);
+            //sceneLoader.LoadScene(m_sceneName);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            sceneLoader.LoadScene(m_sceneName);
+            //sceneLoader.LoadScene(m_sceneName);
         }
     }
 }

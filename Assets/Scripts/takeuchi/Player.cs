@@ -348,7 +348,7 @@ public class Player : MonoBehaviour
             playerAnimation.SetBool("Arrow", false);
             arrow = false;
             move = true;
-            attackTimer = 0.5f;
+            attackTimer = 1.5f;
             return;
         }
         if (attackTimer <= 0)

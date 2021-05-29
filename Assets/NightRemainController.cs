@@ -6,15 +6,10 @@ public class NightRemainController : MonoBehaviour
 {
     public bool IsRemain = false;
     // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         IsRemain = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

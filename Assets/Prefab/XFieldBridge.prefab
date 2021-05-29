@@ -172,8 +172,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2540111044807137235}
   - component: {fileID: 4534582915495008248}
-  - component: {fileID: 911646760717251112}
   - component: {fileID: 5976511067606007678}
+  - component: {fileID: 5822170517221686283}
   m_Layer: 8
   m_Name: XFieldBridge
   m_TagString: Walkable
@@ -225,19 +225,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28047657, y: 2.6618588}
   m_EdgeRadius: 0
---- !u!114 &911646760717251112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2540111044807137233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deaebde2ec499d145bfcfbb158c732fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanCreate: 1
 --- !u!50 &5976511067606007678
 Rigidbody2D:
   serializedVersion: 4
@@ -259,6 +246,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &5822170517221686283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540111044807137233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deaebde2ec499d145bfcfbb158c732fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanCreate: 0
 --- !u!1 &5066604607290308154
 GameObject:
   m_ObjectHideFlags: 0

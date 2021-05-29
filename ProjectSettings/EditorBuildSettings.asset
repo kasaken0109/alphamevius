@@ -32,16 +32,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BuildScenes/ClearScene3Stage3.unity
     guid: 39ac57e25b99396409110c5f795b29af
-  - enabled: 1
+  - enabled: 0
     path: Assets/BuildScenes/uechi-stage2.unity
     guid: 3e9b259ad2102704290291a9b0071de5
-  - enabled: 1
+  - enabled: 0
     path: Assets/BuildScenes/uechi-stage3.unity
     guid: 8d0e8390289d4db408960e7e06e8ba1d
-  - enabled: 1
+  - enabled: 0
     path: Assets/BuildScenes/TutorialStage.unity
     guid: 94dbf480e75382840bbea9b28a6ae557
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BuildScene Kasai alpha.unity
     guid: 9a0532cb513ef3d41b962dad1cb17e8e
+  - enabled: 1
+    path: Assets/Map/Stage0_Master.unity
+    guid: 16c83d75f9f805644b4ce42966d94df5
+  - enabled: 1
+    path: Assets/Map/Stage1_Master.unity
+    guid: 285fe9e74ac57aa41b688aa856857fe4
+  - enabled: 1
+    path: Assets/Map/Stage2_Master.unity
+    guid: a4f2baf97fe5a224c99ebbd80be68505
+  - enabled: 1
+    path: Assets/Map/Stage3_Master.unity
+    guid: 97e3bce8715cd1542a2ce147c6aed007
   m_configObjects: {}

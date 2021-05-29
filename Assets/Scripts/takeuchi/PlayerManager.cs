@@ -111,13 +111,16 @@ public class PlayerManager : MonoBehaviour
     /// <param name="damage"></param>
     public void Damage(int damage)
     {
-        Debug.Log($"{damage}:Hit");
-        Player.Instance.Damage();
-        CurrentHP -= damage;
-        if (CurrentHP <= 0)
+        if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE)
         {
-            CurrentHP = 0;
-            Dead();
+            Debug.Log($"{damage}:Hit");
+            Player.Instance.Damage();
+            CurrentHP -= damage;
+            if (CurrentHP <= 0)
+            {
+                CurrentHP = 0;
+                Dead();
+            }
         }
     }
     /// <summary>

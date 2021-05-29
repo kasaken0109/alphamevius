@@ -92,7 +92,7 @@ public class TimeManager : MonoBehaviour
 
         
 
-        if (m_secondCount >= 1f * m_gameSpeed)
+        if (m_secondCount >= 1f * m_gameSpeed && NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE)
         {
             m_secondCount = 0;
             PlayerManager.Instance.OneSecondStatusUpdate();

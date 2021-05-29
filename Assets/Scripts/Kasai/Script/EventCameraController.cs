@@ -12,6 +12,7 @@ public class EventCameraController : MonoBehaviour
     float m_StartOffset;
     CinemachineVirtualCamera m_transposer;
     bool IsPush = false;
+    bool IsEndActiveMove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +41,17 @@ public class EventCameraController : MonoBehaviour
             {
                 if (m_transposer.m_Lens.OrthographicSize > m_StartOffset)
                 {
-                    ZoomOut(m_zoomSpeed);
-                    NewTimeManager.Instance.AnimActive();
+                    ZoomOut(m_zoomSpeed *3);
+                    NewTimeManager.Instance.AnimNonActive();
+                }
+                else
+                {
+                    if (!IsEndActiveMove)
+                    {
+                        NewTimeManager.Instance.AnimActive();
+                        IsEndActiveMove = true;
+                    }
+                    
                 }
                 //if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE || NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.GAMEOVER)
                 //{

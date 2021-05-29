@@ -55,7 +55,7 @@ public class NewTimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_gamestatus);
+        //Debug.Log(m_gamestatus);
         
         if (PlayerManager.Instance.CurrentHP <= 0)
         {
@@ -75,7 +75,7 @@ public class NewTimeManager : MonoBehaviour
         }
         if (m_gamestatus == GameStatus.RESUME || m_gamestatus == GameStatus.START)
         {
-            AnimActive();
+            //AnimActive();
             m_gameStatusText.text = "";
             if (m_buttons != null)
             {
@@ -132,6 +132,7 @@ public class NewTimeManager : MonoBehaviour
         if (m_gamestatus == GameStatus.PAUSE)
         {
             m_gamestatus = GameStatus.RESUME;
+            AnimActive();
         }
         else
         {

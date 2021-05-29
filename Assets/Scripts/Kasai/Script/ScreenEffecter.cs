@@ -29,7 +29,7 @@ public class ScreenEffecter : MonoBehaviour
 
     public void FadeIn()
     {
-        Debug.Log("FadeIn");
+        //Debug.Log("FadeIn");
         m_image.Play("FadeIn");  
     }
     public void FadeOut()

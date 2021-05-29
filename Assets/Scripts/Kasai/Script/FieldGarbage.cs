@@ -11,7 +11,7 @@ public class FieldGarbage : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (getF)
+            if (getF || !Player.Instance.GetAction())
             {
                 return;
             }
@@ -27,7 +27,7 @@ public class FieldGarbage : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (getF)
+            if (getF || !Player.Instance.GetAction())
             {
                 return;
             }

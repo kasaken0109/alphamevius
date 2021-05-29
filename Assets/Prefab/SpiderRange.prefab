@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 2457510436892186624}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,14 +325,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 20
-  power: 5
+  power: 10
   spawnPoint: {fileID: 24201797544575908}
   creature: {fileID: 24201798022428078}
   haveItems: 
   actionRange: {fileID: 24201797544575914}
   searchRange: {fileID: 24201798680575474}
   attackRange: {fileID: 24201797633103132}
-  attackInterval: 0.7
+  attackInterval: 1.5
   moveSpeed: 5
   stanTime: 1
   CreaturesAnimation: {fileID: 24201799202031273}

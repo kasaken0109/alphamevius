@@ -13,21 +13,34 @@ public class EventCameraController : MonoBehaviour
     CinemachineVirtualCamera m_transposer;
     bool IsPush = false;
     bool IsEndActiveMove = false;
+    NightRemainController nightRemainController;
 
+    private void Awake()
+    {
+        nightRemainController = GameObject.Find("NightObject").GetComponentInChildren<NightRemainController>();
+    }
     // Start is called before the first frame update
     void Start()
     {
         //m_transposer = ((CinemachineVirtualCamera)m_cinemachine).GetCinemachineComponent<CinemachineTransposer>();
         m_transposer = ((CinemachineVirtualCamera)m_cinemachine);
         m_StartOffset = m_transposer.m_Lens.OrthographicSize;
-        Debug.Log(m_transposer);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TimeManager.Instance.GetDayStatus() != TimeManager.DayStatus.NIGHT)
+        if (TimeManager.Instance.GetDayStatus() == TimeManager.DayStatus.NIGHT && IsEndActiveMove)
+        {
+            m_transposer.m_Lens.OrthographicSize = m_StartOffset;
+            if (IsEndActiveMove)
+            {
+                NewTimeManager.Instance.AnimActive();
+                IsEndActiveMove = false;
+            }
+            return;
+        }
+        if (TimeManager.Instance.GetDayStatus() != TimeManager.DayStatus.NIGHT && !nightRemainController.IsRemain)
         {
             if (IsPush)
             {
@@ -36,6 +49,7 @@ public class EventCameraController : MonoBehaviour
                     ZoomUp(m_zoomSpeed);
                 }
                 NewTimeManager.Instance.AnimNonActive();
+                IsEndActiveMove = true;
             }
             else
             {
@@ -64,6 +78,7 @@ public class EventCameraController : MonoBehaviour
             }
             
         }
+        
         
     }
 

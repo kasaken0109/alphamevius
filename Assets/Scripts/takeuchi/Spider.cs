@@ -46,7 +46,6 @@ public class Spider : Creatures
                         transform.localScale = new Vector3(1, 1, 1);
                     }
                     AttackAction();
-                    AttackPlayer();
                     attackTimer = attackInterval;
                 }
                 else

@@ -35,11 +35,8 @@ public class CreateBridge : MonoBehaviour
         bridge = Instantiate(m_bridge);
         //ObjectShaker.Instance.ShakeObject(m_bridge);
         bridge.transform.position = Player.Instance.transform.position + new Vector3(0, -m_bridgeLength, 0);
-        if (XBridge.Instance.CanCreate)
-        {
-            NewItemManager.Instance.SubItem(23, 1);
-            inventoryTool.SetItem(0);
-        }
+        NewItemManager.Instance.SubItem(23, 1);
+        inventoryTool.SetItem(0);
     }
 
 

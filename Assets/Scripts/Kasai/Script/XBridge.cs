@@ -4,29 +4,35 @@ using UnityEngine;
 
 public class XBridge : MonoBehaviour
 {
-    public static XBridge Instance { get; private set; }
-    public bool CanCreate = true;
+    //public static XBridge Instance { get; private set; }
+    public bool CanCreate = false;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        Instance = this;
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        if (CanCreate)
+        {
+            return;
+        }
         if (collision.tag == "NotBuild")
         {
+            CanCreate = true;
+            NewItemManager.Instance.AddItem(23, 1);
+            ZInventoryManager.Instance.ToolGet(23);
             Destroy(this.gameObject);
-            CanCreate = false;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        if (CanCreate)
+        {
+            return;
+        }
         if (collision.tag == "NotBuild")
         {
-            Destroy(this.gameObject);
-            CanCreate = false;
+            CanCreate = true;
+            NewItemManager.Instance.AddItem(23, 1);
+            ZInventoryManager.Instance.ToolGet(23);
+            Destroy(this.gameObject); 
         }
     }
 }

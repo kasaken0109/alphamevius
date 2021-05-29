@@ -108,7 +108,7 @@ public class NewTimeManager : MonoBehaviour
                 m_ui.SetActive(false);
             }
             //m_timeText.text = "00 : 00";
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             ScreenEffecter.Instance.FadeOut();
             m_gameStatusText.text = "GAMEOVER";
             if (m_buttons != null)

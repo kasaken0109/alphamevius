@@ -43,10 +43,11 @@ public class EventCameraController : MonoBehaviour
                 {
                     ZoomOut(m_zoomSpeed *3);
                     NewTimeManager.Instance.AnimNonActive();
+                    IsEndActiveMove = true;
                 }
                 else
                 {
-                    IsEndActiveMove = true;
+                    
                     Debug.Log(IsEndActiveMove);
                     if (IsEndActiveMove)
                     {

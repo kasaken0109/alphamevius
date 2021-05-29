@@ -62,7 +62,6 @@ MonoBehaviour:
   m_animSleepBag: {fileID: 5038699321405864070, guid: 934eda6271abf234ba41d22a5d7b98b4,
     type: 3}
   m_SleepBag: {fileID: 5898757066986251846}
-  m_player: {fileID: 0}
 --- !u!1001 &7598656117421158436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +148,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084555088152534685, guid: 50f26efc3ec42424789cb759dc380e9b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1587139907766089317}
+    - target: {fileID: 4084555088152534685, guid: 50f26efc3ec42424789cb759dc380e9b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UseSleepBag
       objectReference: {fileID: 0}
     - target: {fileID: 4084555088224996620, guid: 50f26efc3ec42424789cb759dc380e9b,
         type: 3}
@@ -250,6 +259,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7598656117421158436}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587139907766089317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9184385746595923521, guid: 50f26efc3ec42424789cb759dc380e9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7598656117421158436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898757066986251846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3577f5606767aa84bb0e7291b68a5492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4099551777468780253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5879257885554622201, guid: 50f26efc3ec42424789cb759dc380e9b,

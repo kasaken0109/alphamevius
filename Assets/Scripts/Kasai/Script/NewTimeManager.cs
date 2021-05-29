@@ -137,6 +137,7 @@ public class NewTimeManager : MonoBehaviour
         else
         {
             m_gamestatus = GameStatus.PAUSE;
+            AnimNonActive();
         }
     }
 

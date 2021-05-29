@@ -46,12 +46,14 @@ public class EventCameraController : MonoBehaviour
                 }
                 else
                 {
-                    if (!IsEndActiveMove)
+                    IsEndActiveMove = true;
+                    Debug.Log(IsEndActiveMove);
+                    if (IsEndActiveMove)
                     {
                         NewTimeManager.Instance.AnimActive();
-                        IsEndActiveMove = true;
+                        IsEndActiveMove = false;
                     }
-                    
+
                 }
                 //if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE || NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.GAMEOVER)
                 //{

@@ -62,7 +62,7 @@ public class EventCameraController : MonoBehaviour
                 else
                 {
                     
-                    Debug.Log(IsEndActiveMove);
+                    //Debug.Log(IsEndActiveMove);
                     if (IsEndActiveMove)
                     {
                         NewTimeManager.Instance.AnimActive();

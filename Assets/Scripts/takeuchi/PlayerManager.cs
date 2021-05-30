@@ -54,6 +54,7 @@ public class PlayerManager : MonoBehaviour
     public int TotalEXP { get; private set; }
     public ToolType EquipmentTool { get; private set; } = ToolType.None;
     public int EquipmentPower { get; private set; } = 0;
+    public bool Win { get; set; }
     private void Awake()
     {
         Instance = this;
@@ -74,6 +75,10 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     public void OneSecondStatusUpdate()
     {
+        if (CurrentHP <= 0 || Win)
+        {
+            return;
+        }
         hungerCounter++;
         if (hungerCounter >= oneHungerTime)
         {
@@ -111,6 +116,10 @@ public class PlayerManager : MonoBehaviour
     /// <param name="damage"></param>
     public void Damage(int damage)
     {
+        if (CurrentHP <= 0 || Win)
+        {
+            return;
+        }
         if (NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE)
         {
             Debug.Log($"{damage}:Hit");
@@ -129,6 +138,10 @@ public class PlayerManager : MonoBehaviour
     /// <param name="point"></param>
     public void ExpendHunger(int point)
     {
+        if (CurrentHP <= 0 || Win)
+        {
+            return;
+        }
         CurrentHunger -= point;
         if (CurrentHunger <= 0)
         {
@@ -142,6 +155,10 @@ public class PlayerManager : MonoBehaviour
     /// <param name="point"></param>
     public void ExpendHydrate(int point)
     {
+        if (CurrentHP <= 0 || Win)
+        {
+            return;
+        }
         CurrentHydrate -= point;
         if (CurrentHydrate <= 0)
         {
@@ -154,7 +171,8 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     void Dead()
     {
-        Player.Instance.ActionStop();
+        Player.Instance.AllStop();
+        ZInventoryManager.Instance.OnClickCloseAll();
     }
     public void SetPower(int power)
     {

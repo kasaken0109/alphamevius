@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip m_getItem;
     [SerializeField] AudioClip []m_walk;
     [SerializeField] AudioClip m_fire;
+    [SerializeField] AudioClip[] m_objectSE;
     AudioSource m_audioSource;
     // Start is called before the first frame update
     private void Awake()
@@ -122,6 +123,10 @@ public class SoundManager : MonoBehaviour
     {
         m_audioSource.PlayOneShot(m_walk[0]);
         Debug.Log("walkSound");
+    }
+    public void PlayObjectSE(int number)
+    {
+        m_audioSource.PlayOneShot(m_objectSE[number]);
     }
 
 }

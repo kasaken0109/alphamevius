@@ -64,6 +64,9 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.EmptyBottle:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
+            case ToolType.Garbage:
+                ZInventoryManager.Instance.OnClickOpenRecycle();
+                break;
             default:
                 break;
         }
@@ -77,44 +80,47 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.Knife:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
-                SoundManager.Instance.PlayUISound();
+                SoundManager.Instance.PlayObjectSE(7);
                 break;
             case ToolType.Bow:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
-                SoundManager.Instance.PlayUISound();
+                SoundManager.Instance.PlayObjectSE(7);
                 break;
             case ToolType.Axe:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
-                SoundManager.Instance.PlayUISound();
+                SoundManager.Instance.PlayObjectSE(7);
                 break;
             case ToolType.Hammer:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
-                SoundManager.Instance.PlayUISound();
+                SoundManager.Instance.PlayObjectSE(7);
                 break;
             case ToolType.Machete:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
-                SoundManager.Instance.PlayUISound();
+                SoundManager.Instance.PlayObjectSE(7);
                 break;
             case ToolType.Pickaxe:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
-                SoundManager.Instance.PlayUISound();
+                SoundManager.Instance.PlayObjectSE(7);
                 break;
             case ToolType.Clothes:
+                MessgaeManager.ViweMessage("テントを設置した");
                 SleepBagManager.Instance.CreateSleepBag();
                 inventoryTool.SetItem(0);
                 SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Bonfire:
+                MessgaeManager.ViweMessage("焚火を設置した");
                 CampFireManager.Instance.CreateCamp();
                 inventoryTool.SetItem(0);
                 SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.HealingHP:
+                MessgaeManager.ViweMessage(manager.GetName(itemID) +"を使用した");
                 PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
                 NewItemManager.Instance.SubItem(itemID, 1);
                 inventoryTool.SetItem(0);
@@ -136,6 +142,9 @@ public class NewItemEffectManager : MonoBehaviour
                 break;
             case ToolType.EmptyBottle:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                break;
+            case ToolType.Garbage:
+                ZInventoryManager.Instance.OnClickOpenRecycle();
                 break;
             default:
                 break;

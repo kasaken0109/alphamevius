@@ -53,7 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_menu: {fileID: 0}
-  m_drift: {fileID: 0}
+  m_drift:
+  - {fileID: 0}
   m_sun: {fileID: 0}
   m_moon: {fileID: 0}
   m_spawn: {fileID: 272841370282852938}
@@ -62,9 +63,11 @@ MonoBehaviour:
   m_gameSpeed: 1
   m_panel: {fileID: 0}
   m_panelActive: 0
+  contrl: {fileID: 0}
   m_time: 0
   m_second: 0
   m_hour: 0
+  m_passedhour: 0
   m_dayNum: 1
   dayStatus: 0
 --- !u!114 &272841369012826216
@@ -204,9 +207,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bgm: {fileID: 8300000, guid: 88de9b38a2384d24e814b192801d50f4, type: 3}
-  m_hit: {fileID: 0}
   m_damage: {fileID: 0}
+  m_attack: {fileID: 0}
   m_clear: {fileID: 0}
+  m_UI: {fileID: 0}
+  m_getItem: {fileID: 0}
+  m_walk: []
+  m_fire: {fileID: 0}
+  m_objectSE:
+  - {fileID: 8300000, guid: 68be38b61baca7e4cb5e2a5169b97817, type: 3}
+  - {fileID: 8300000, guid: bcd693940ac00314cb6b222c6d15560a, type: 3}
+  - {fileID: 8300000, guid: c28212271577267448dadd44db72d077, type: 3}
+  - {fileID: 8300000, guid: e24f65b547a746f4e9f905d0ffd88b59, type: 3}
+  - {fileID: 8300000, guid: a6b08ab5b047a504597557bedae5c59a, type: 3}
+  - {fileID: 8300000, guid: 2697fee01ae4cdd44ba463f58f4762e1, type: 3}
+  - {fileID: 8300000, guid: e599f3fe3e6f3f142a25b8e2916e9425, type: 3}
+  - {fileID: 8300000, guid: 46c48f152c95a594d80069baa67aaa49, type: 3}
+  - {fileID: 8300000, guid: 25ae13d388e99b24f995f6148031e39f, type: 3}
+  - {fileID: 8300000, guid: 8414781a47f0b9e478ba880bd251c55e, type: 3}
+  - {fileID: 8300000, guid: c38bb2e6cc6100243afe51e2001389fa, type: 3}
+  - {fileID: 8300000, guid: a08b4bf4ff56ca54d9db47ed1b26cda3, type: 3}
+  - {fileID: 8300000, guid: b8b3e3e06109ad6408dddf85dd87a935, type: 3}
+  - {fileID: 8300000, guid: ffe7ad515ccc1ae4ca492b2831ca5792, type: 3}
 --- !u!114 &238820794253854411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +244,7 @@ MonoBehaviour:
   m_sceneNameToBeLoaded: SceneNameToBeLoaded
   m_fadePanel: {fileID: 0}
   m_fadeSpeed: 1
+  screenEffecter: {fileID: 0}
 --- !u!114 &4984356416384371337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,9 +258,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_limitTime: 5
-  gameStatus: 0
+  m_gamestatus: 0
   m_buttons: []
   m_gameStatusText: {fileID: 0}
+  m_ui: {fileID: 0}
+  IsPushed: 0
 --- !u!114 &8410725560027408455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
-  m_fadeSpeed: 1
 --- !u!1 &272841370282852939
 GameObject:
   m_ObjectHideFlags: 0

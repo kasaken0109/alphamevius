@@ -21,7 +21,10 @@ public class MouseCursorControl : MonoBehaviour
     //}
     public void OnClick()
     {
-        //Debug.Log("mouseClick");
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
         Vector2 dir = transform.position - Player.Instance.transform.position;
         Player.Instance.AttackAction(dir);
     }

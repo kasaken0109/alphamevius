@@ -30,6 +30,7 @@ public class CreateBridge : MonoBehaviour
         GameObject bridge;
         if (Player.Instance.Down())
         {
+            MessgaeManager.ViweMessage("もう少し近寄れば掛けられる？");
             return;
         }
         bridge = Instantiate(m_bridge);

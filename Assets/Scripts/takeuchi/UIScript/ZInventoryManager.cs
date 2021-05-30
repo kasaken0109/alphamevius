@@ -18,6 +18,7 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] ZHelpPanelControl m_helps;
     [SerializeField] ZTestItmeMove[] m_itmes;
     [SerializeField] Image m_allCloseButton;
+    bool start;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -145,6 +146,10 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenCraft()
     {
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
         PickMarkReset();
         ViewMaterialReset();
         m_craftPanel.OnClickOpenCraft();
@@ -156,6 +161,10 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenRecycle()
     {
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
         PickMarkReset();
         ViewMaterialReset();
         m_recyclePanel.OnClickOpenRecycle();
@@ -167,6 +176,10 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenCooking()
     {
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
         PickMarkReset();
         ViewMaterialReset();
         m_craftPanel.CloseCraft();
@@ -179,12 +192,20 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickOpenHelp()
     {
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
         m_helpPanel.localPosition = new Vector2(0, 0);
         m_closeButton.SetActive(true);
         SoundManager.Instance.PlayUISound();
     }
     public void OnClickOpenMap()
     {
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
         MapManager.Instance.ActiveMap();
         m_closeButton.SetActive(true);
         SoundManager.Instance.PlayUISound();
@@ -203,6 +224,16 @@ public class ZInventoryManager : MonoBehaviour
         m_helpPanel.localPosition = new Vector2(2000, 2000);
         NewCraftManager.Instance.SetTargetID(0);
         m_allCloseButton.color = new Color(0, 0, 0, 0.6f);
+        if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
+        {
+            return;
+        }
+        if (!start)
+        {
+            start = true;
+            return;
+        }
+        SoundManager.Instance.PlayUISound();
     }
     public void EquipmentReset()
     {

@@ -23,8 +23,9 @@ public class SEController : MonoBehaviour
     /// </summary>
     public void PlayAttack()
     {
-        m_audioSource.PlayOneShot(m_attack);
-        Debug.Log("ATTTack");
+        // m_audioSource.PlayOneShot(m_attack);
+        // Debug.Log("ATTTack");
+        SoundManager.Instance.PlayObjectSE(3);
     }
     /// <summary>
     /// プレイヤー被ダメージ時の SE を鳴らす
@@ -65,6 +66,6 @@ public class SEController : MonoBehaviour
     public void PlayWalk()
     {
         m_audioSource.PlayOneShot(m_walk[0]);
-        Debug.Log("walkSound");
+        //Debug.Log("walkSound");
     }
 }

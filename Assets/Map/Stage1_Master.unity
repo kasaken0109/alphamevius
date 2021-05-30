@@ -12971,12 +12971,12 @@ PrefabInstance:
     - target: {fileID: 8442412171066185127, guid: bc287ee9199e9b347b7ceb83eedf8732,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.6
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8442412171066185127, guid: bc287ee9199e9b347b7ceb83eedf8732,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.88
+      value: 34.7
       objectReference: {fileID: 0}
     - target: {fileID: 8442412171066185127, guid: bc287ee9199e9b347b7ceb83eedf8732,
         type: 3}
@@ -104807,6 +104807,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4581193074734433805, guid: f4c005b55c89ace4789c52bbc78e3585,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4c005b55c89ace4789c52bbc78e3585, type: 3}
 --- !u!4 &1644630610 stripped
@@ -120644,7 +120649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6A4B\u306F\u4E0B\u65B9\u5411\u306B\u306E\u307F\u639B\u3051\u3089\u308C\u308B"
+  m_Text: "\u3053\u3053\u306F\u6A4B\u304C\u3042\u308C\u3070\u6E21\u308C\u305D\u3046\u3060\uFF0E\uFF0E\uFF0E"
 --- !u!222 &1999751349
 CanvasRenderer:
   m_ObjectHideFlags: 0

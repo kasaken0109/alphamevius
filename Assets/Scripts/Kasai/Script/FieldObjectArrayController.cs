@@ -48,11 +48,13 @@ public class FieldObjectArrayController : MonoBehaviour
                     m_CanAttack = true;
                 }
             }
+            SoundManager.Instance.PlayObjectSE(8);
             if (m_CanAttack)
             {
                 strengthPoint -= PlayerManager.Instance.EquipmentPower;
                 if (strengthPoint <= 0)
                 {
+                    SoundManager.Instance.PlayObjectSE(4);
                     EffectManager.PlayEffect(EffectType.Smoke1, transform.position);
                     if (DropItems != null)
                     {

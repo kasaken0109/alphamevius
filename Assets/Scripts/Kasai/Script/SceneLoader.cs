@@ -47,18 +47,18 @@ public class SceneLoader : MonoBehaviour
         //}
         if (m_isLoadStarted)
         {
-            StartCoroutine("SceneLoad");
-            screenEffecter.FadeOut();
+            StartCoroutine(SceneLoad());
         }
     }
 
 
     IEnumerator SceneLoad()
     {
-        yield return new WaitForSeconds(0.6f);
+        screenEffecter.FadeOut();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(m_sceneNameToBeLoaded);
         m_isLoadStarted = false;
-        yield return null;
+        //yield return null;
 
     }
     /// <summary>

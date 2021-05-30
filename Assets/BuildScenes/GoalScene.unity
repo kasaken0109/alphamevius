@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7442477461073372725, guid: 5da633851cf4c4c43ad512f9ddc693f0,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a01d31e21a846f740a598ecd13f40403, type: 3}
     - target: {fileID: 7651022321072199669, guid: 5da633851cf4c4c43ad512f9ddc693f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -738,6 +743,11 @@ PrefabInstance:
       propertyPath: m_bgm
       value: 
       objectReference: {fileID: 8300000, guid: 4192e6d270d0c424c88aa055eb92ce67, type: 3}
+    - target: {fileID: 8210193635156059848, guid: 49c3231edcd412f49b7a6a267c6dc67b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a01d31e21a846f740a598ecd13f40403, type: 3}
     - target: {fileID: 8410725560027408455, guid: 49c3231edcd412f49b7a6a267c6dc67b,
         type: 3}
       propertyPath: m_Enabled
@@ -747,6 +757,7 @@ PrefabInstance:
     - {fileID: 272841369012826216, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
     - {fileID: 3376163574874737675, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
     - {fileID: 272841369012826218, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
+    - {fileID: 7599514845318972232, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 49c3231edcd412f49b7a6a267c6dc67b, type: 3}
 --- !u!1 &1903892808
 GameObject:

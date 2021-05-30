@@ -48,6 +48,7 @@ public class ZInventoryManager : MonoBehaviour
                 {
                     if (check != item && check.GetItemID() == 0)
                     {
+                        FullInventory = false;
                         return;
                     }
                 }
@@ -55,6 +56,7 @@ public class ZInventoryManager : MonoBehaviour
                 return;
             }
         }
+        FullInventory = false;
     }
     public void PositionReset(int pos)
     {

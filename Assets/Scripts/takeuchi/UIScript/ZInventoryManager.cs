@@ -18,6 +18,7 @@ public class ZInventoryManager : MonoBehaviour
     [SerializeField] ZHelpPanelControl m_helps;
     [SerializeField] ZTestItmeMove[] m_itmes;
     [SerializeField] Image m_allCloseButton;
+    bool start;
     public bool FullInventory { get; private set; }
     List<int> m_haveToolData;
     private void Awake()
@@ -225,6 +226,11 @@ public class ZInventoryManager : MonoBehaviour
         m_allCloseButton.color = new Color(0, 0, 0, 0.6f);
         if (PlayerManager.Instance.CurrentHP <= 0 || PlayerManager.Instance.Win)
         {
+            return;
+        }
+        if (!start)
+        {
+            start = true;
             return;
         }
         SoundManager.Instance.PlayUISound();

@@ -5,14 +5,11 @@ using UnityEngine;
 public class ZHelpPanelControl : MonoBehaviour
 {
     [SerializeField] TutorialControl[] tutorials;
-    private void Start()
-    {
-        AllClose();
-    }
     public void AllClose()
     {
         foreach (var item in tutorials)
         {
+            item.StartOff();
             item.OnClickTutorialClose();
         }
     }

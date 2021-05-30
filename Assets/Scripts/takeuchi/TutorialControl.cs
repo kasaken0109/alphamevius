@@ -10,10 +10,7 @@ public class TutorialControl : MonoBehaviour
     [SerializeField] GameObject backButton;
     [SerializeField] Text pageNumberText;
     int pageNumber = 0;
-    private void Start()
-    {
-        //OnClickTutorialOpen();
-    }
+    bool start;
     void CloseAllPage()
     {
         foreach (var item in tutorialPage)
@@ -65,7 +62,18 @@ public class TutorialControl : MonoBehaviour
     }
     public void OnClickTutorialClose()
     {
+        if (!start)
+        {
+            start = true;
+            gameObject.SetActive(false);
+            return;
+        }
+        SoundManager.Instance.PlayUISound();
         gameObject.SetActive(false);
+    }
+    public void StartOff()
+    {
+        start = false;
     }
     public void OnClickTutorialOpen()
     {

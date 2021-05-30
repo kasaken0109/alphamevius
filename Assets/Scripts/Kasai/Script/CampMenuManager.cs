@@ -16,12 +16,12 @@ public class CampMenuManager : MonoBehaviour
         if (actionRange.ONPlayer())
         {
             m_message.SetActive(true);
-            SoundManager.Instance.PlayFire();
+            //SoundManager.Instance.PlayFire();
         }
         else
         {
             m_message.SetActive(false);
-            SoundManager.Instance.StopFire();
+            //SoundManager.Instance.StopFire();
         }
     }
     public void OnClickCooking()

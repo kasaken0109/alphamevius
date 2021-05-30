@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bgm: {fileID: 8300000, guid: 5300e4f28cb282d469ecf6a8968fc652, type: 3}
-  m_hit: {fileID: 8300000, guid: 74a9c47f700772049a396b861f7b2503, type: 3}
   m_damage: {fileID: 8300000, guid: 74a9c47f700772049a396b861f7b2503, type: 3}
   m_attack: {fileID: 8300000, guid: 4b1c82c321ff8ad4cb301e4e6d7df32e, type: 3}
   m_clear: {fileID: 8300000, guid: a01d31e21a846f740a598ecd13f40403, type: 3}
@@ -130,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 851817420, guid: 2b8640b4bede2934680aed430554055e, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2584807857239649008, guid: 2b8640b4bede2934680aed430554055e,
         type: 3}

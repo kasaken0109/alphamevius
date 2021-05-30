@@ -18,6 +18,7 @@ public class XBridge : MonoBehaviour
             CanCreate = true;
             NewItemManager.Instance.AddItem(23, 1);
             ZInventoryManager.Instance.ToolGet(23);
+            MessgaeManager.ViweMessage("ここでは橋をかけられない");
             Destroy(this.gameObject);
         }
     }
@@ -32,6 +33,7 @@ public class XBridge : MonoBehaviour
             CanCreate = true;
             NewItemManager.Instance.AddItem(23, 1);
             ZInventoryManager.Instance.ToolGet(23);
+            MessgaeManager.ViweMessage("ここでは橋をかけられない");
             Destroy(this.gameObject); 
         }
     }

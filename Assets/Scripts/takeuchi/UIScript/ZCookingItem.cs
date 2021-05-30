@@ -31,6 +31,7 @@ public class ZCookingItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         m_cookingGuide.SetData(m_itemID);
+        SoundManager.Instance.PlayUISound();
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {

@@ -32,6 +32,7 @@ public class Arrow : MonoBehaviour
             {
                 hit = true;
                 EffectManager.PlayEffect(EffectType.Hit, transform.position);
+                SoundManager.Instance.PlaySeGetDamage();
                 Destroy(this.gameObject);
             }
         }

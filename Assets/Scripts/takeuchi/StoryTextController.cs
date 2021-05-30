@@ -65,6 +65,7 @@ public class StoryTextController : MonoBehaviour
     }
     private IEnumerator ViewImage2()
     {
+        SoundManager.Instance.PlayUISound();
         thisImage.sprite = textBoxs[storyNumber].GetSprite(imageNumber);
         while (imageClearScale < 1)
         {
@@ -100,6 +101,7 @@ public class StoryTextController : MonoBehaviour
         thisImage.sprite = textBoxs[storyNumber].GetSprite(imageNumber);
         thisImage.color = Color.white;
         StartCoroutine(ViewStory());
+        SoundManager.Instance.PlayUISound();
     }
     private void NextStory()
     {

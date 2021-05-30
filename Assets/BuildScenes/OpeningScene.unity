@@ -290,16 +290,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2033375729094595712, guid: e7929286c7313a74a85b6773b7e06bc5,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033375729094595727, guid: e7929286c7313a74a85b6773b7e06bc5,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.a
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7929286c7313a74a85b6773b7e06bc5, type: 3}
 --- !u!1 &1200829517
@@ -574,6 +564,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7442477461073372725, guid: 5da633851cf4c4c43ad512f9ddc693f0,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5300e4f28cb282d469ecf6a8968fc652, type: 3}
     - target: {fileID: 7651022321072199669, guid: 5da633851cf4c4c43ad512f9ddc693f0,
         type: 3}
       propertyPath: m_LocalPosition.x

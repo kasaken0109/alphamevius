@@ -75,6 +75,7 @@ public class ZRecycleItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             m_recycleGuide.SetData(m_itemID, m_inventoryTools);
             ZInventoryManager.Instance.PickMarkReset();
             m_pickMark.SetActive(true);
+            SoundManager.Instance.PlayUISound();
         }
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

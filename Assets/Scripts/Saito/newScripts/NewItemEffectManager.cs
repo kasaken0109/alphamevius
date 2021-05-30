@@ -77,39 +77,48 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.Knife:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Bow:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Axe:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Hammer:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Machete:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Pickaxe:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 ZInventoryManager.Instance.EquipmentSet(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Clothes:
                 SleepBagManager.Instance.CreateSleepBag();
                 inventoryTool.SetItem(0);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Bonfire:
                 CampFireManager.Instance.CreateCamp();
                 inventoryTool.SetItem(0);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.HealingHP:
                 PlayerManager.Instance.HealingHP(manager.GetItem(itemID).GetEfficiency());
                 NewItemManager.Instance.SubItem(itemID, 1);
                 inventoryTool.SetItem(0);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Torch:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
@@ -120,6 +129,7 @@ public class NewItemEffectManager : MonoBehaviour
                 break;
             case ToolType.Bridge:
                 CreateBridge.Instance.BridgeCreate(inventoryTool);
+                SoundManager.Instance.PlayUISound();
                 break;
             case ToolType.Cooking:
                 PlayerManager.Instance.HealingHunger(manager.GetItem(itemID).GetEfficiency());

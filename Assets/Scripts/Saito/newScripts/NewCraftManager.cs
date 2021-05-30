@@ -31,7 +31,7 @@ public class NewCraftManager : MonoBehaviour
         }
         if (ZInventoryManager.Instance.FullInventory)
         {
-            MessgaeManager.ViweMessage("インベントリが一杯です");
+            MessgaeManager.ViweMessage("インベントリが一杯だ");
             Debug.Log("インベントリが一杯です");
             return;
         }
@@ -50,7 +50,7 @@ public class NewCraftManager : MonoBehaviour
         {
             if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
             {
-                MessgaeManager.ViweMessage("素材が足りません");
+                MessgaeManager.ViweMessage("素材が足りないようだ");
                 Debug.Log("不足");
                 return;
             }
@@ -64,6 +64,7 @@ public class NewCraftManager : MonoBehaviour
         MessgaeManager.ViweMessage(NewItemManager.Instance.GetName(targetID) + "を作成した！", targetID);
         Debug.Log("作成");
         ZInventoryManager.Instance.ViewMaterialReset();
+        SoundManager.Instance.PlayUISound();
     }
     public void OnClickRecycle()
     {
@@ -78,6 +79,7 @@ public class NewCraftManager : MonoBehaviour
             ZInventoryManager.Instance.RecycleTool();
             targetID = 0;
             ZInventoryManager.Instance.ViewMaterialReset();
+            SoundManager.Instance.PlayUISound();
         }
     }
     public void OnClickCooking()
@@ -101,7 +103,7 @@ public class NewCraftManager : MonoBehaviour
         {
             if (itemManager.HaveItemNumber(idList[j]) < needMaterialNumbers[j])
             {
-                MessgaeManager.ViweMessage("素材が足りません");
+                MessgaeManager.ViweMessage("素材が足ないようだ");
                 Debug.Log("不足");
                 return;
             }
@@ -115,12 +117,14 @@ public class NewCraftManager : MonoBehaviour
         {
             itemManager.AddItem(itemManager.GetMaterialId(item), 1);
         }
+        MessgaeManager.ViweMessage(itemManager.GetName(targetID) + "を食べた!");
         PlayerManager.Instance.HealingHP(NewItemManager.Instance.GetItem(targetID).GetEfficiency() / 2);
         PlayerManager.Instance.HealingHunger(NewItemManager.Instance.GetItem(targetID).GetEfficiency());
         ZInventoryManager.Instance.OnClickCloseAll();
         targetID = 0;
         TimeManager.Instance.PlayCutIn(0);
         ZInventoryManager.Instance.ViewMaterialReset();
+        SoundManager.Instance.PlayUISound();
     }
     public void EXPGet(int exp)
     {

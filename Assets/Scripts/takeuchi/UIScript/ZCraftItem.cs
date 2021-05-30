@@ -38,6 +38,7 @@ public class ZCraftItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         m_craftGuide.SetData(m_itemID);
+        SoundManager.Instance.PlayUISound();
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {

@@ -52,6 +52,7 @@ public class ZInventoryManager : MonoBehaviour
                         return;
                     }
                 }
+                MessgaeManager.ViweMessage("インベントリが一杯だ");
                 FullInventory = true;
                 return;
             }

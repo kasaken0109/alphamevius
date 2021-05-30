@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         
-        PlayBgm(m_bgm);
+        //PlayBgm(m_bgm);
     }
 
     private void Update()

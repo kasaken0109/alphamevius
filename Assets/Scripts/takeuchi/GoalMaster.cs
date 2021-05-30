@@ -73,6 +73,7 @@ public class GoalMaster : MonoBehaviour
     private IEnumerator GoalItemMove()
     {
         Player.Instance.AllStop();
+        PlayerManager.Instance.Win = true;
         itemPoint = -1.5f;
         while (itemPoint < movePointY)
         {

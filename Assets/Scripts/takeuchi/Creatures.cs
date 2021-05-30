@@ -69,7 +69,7 @@ public class Creatures : MonoBehaviour
     /// <param name="damage"></param>
     public virtual void Damage(int damage)
     {
-        Debug.Log(damage);
+        SoundManager.Instance.PlayObjectSE(6);
         CurrentHP -= damage;
         if (CurrentHP <= 0)
         {
@@ -230,6 +230,7 @@ public class Creatures : MonoBehaviour
     {
         if (attackRange)
         {
+            SoundManager.Instance.PlayObjectSE(3);
             if (attackRange.ONPlayer())
             {
                 PlayerManager.Instance.Damage(power);

@@ -465,6 +465,7 @@ MonoBehaviour:
   m_getItem: {fileID: 0}
   m_walk: []
   m_fire: {fileID: 0}
+  m_objectSE: []
 --- !u!1 &2033375729080133297
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class Arrow : MonoBehaviour
     }
     public void SetArrowDir(Vector2 dir)
     {
+        SoundManager.Instance.PlayObjectSE(1);
         PlayerManager.Instance.ExpendHunger(1);
         PlayerManager.Instance.ExpendHydrate(2);
         this.dir = dir;
@@ -33,6 +34,7 @@ public class Arrow : MonoBehaviour
             if (!hit)
             {
                 hit = true;
+                SoundManager.Instance.PlayObjectSE(8);
                 EffectManager.PlayEffect(EffectType.Hit, transform.position);
                 Destroy(this.gameObject);
             }

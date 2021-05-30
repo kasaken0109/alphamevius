@@ -36,6 +36,7 @@ public class WaterPlace : MonoBehaviour
             PlayerManager.Instance.HealingHydrate(100);
             m_guide.SetActive(false);
             IsFirstTime = false;
+            SoundManager.Instance.PlayObjectSE(9);
         }
         else
         {

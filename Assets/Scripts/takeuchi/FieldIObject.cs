@@ -12,6 +12,7 @@ public class FieldIObject : MonoBehaviour
     {
         if (collision.tag == "Attack")
         {
+            SoundManager.Instance.PlayObjectSE(8);
             ObjectShaker.Instance.ShakeObject(gameObject);
             EffectManager.PlayEffect(EffectType.Hit,transform.position);
             if (ObjectType == PlayerManager.Instance.EquipmentTool)
@@ -21,6 +22,7 @@ public class FieldIObject : MonoBehaviour
 
                 if (strengthPoint <= 0)
                 {
+                    SoundManager.Instance.PlayObjectSE(4);
                     EffectManager.PlayEffect(EffectType.Smoke1, transform.position);
                     FieldItemManager.Instance.DropMaterial(DropItems, transform.position);
                     gameObject.SetActive(false);

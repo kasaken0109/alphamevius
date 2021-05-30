@@ -119,6 +119,7 @@ public class FieldItem : MonoBehaviour
                 }
                 if (materialType != MaterialType.None)
                 {
+                    SoundManager.Instance.PlayObjectSE(12);
                     NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
                 }
                 drop = false;
@@ -139,6 +140,7 @@ public class FieldItem : MonoBehaviour
                 }
                 if (materialType != MaterialType.None)
                 {
+                    SoundManager.Instance.PlayObjectSE(12);
                     NewItemManager.Instance.AddItem(NewItemManager.Instance.GetMaterialId(materialType), 1);
                 }
                 drop = false;

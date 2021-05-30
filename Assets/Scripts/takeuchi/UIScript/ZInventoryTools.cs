@@ -42,6 +42,7 @@ public class ZInventoryTools : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             ResetItem();
             m_recycleItem.SetItemID(0);
+            ZInventoryManager.Instance.RecycleTool();
         }
     }
     public int GetItemID() { return m_itemID; }

@@ -92,7 +92,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.083333336
-    functionName: PlayGetDamageSE
+    functionName: PlaySeGetDamage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -88,6 +88,11 @@ public class NewCraftManager : MonoBehaviour
         {
             return;
         }
+        if (PlayerManager.Instance.CurrentHunger >= 95)
+        {
+            MessgaeManager.ViweMessage("今は満腹だ．．．");
+            return;
+        }
         MaterialType[] needMaterials = itemManager.GetNeedMaterialItems(targetID); ;
         int[] idList = new int[3];
         int[] needMaterialNumbers = new int[3];

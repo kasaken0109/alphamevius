@@ -64,6 +64,9 @@ public class NewItemEffectManager : MonoBehaviour
             case ToolType.EmptyBottle:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
                 break;
+            case ToolType.Garbage:
+                ZInventoryManager.Instance.OnClickOpenRecycle();
+                break;
             default:
                 break;
         }
@@ -136,6 +139,9 @@ public class NewItemEffectManager : MonoBehaviour
                 break;
             case ToolType.EmptyBottle:
                 PlayerManager.Instance.SetEquipmentTool(manager.GetItem(itemID));
+                break;
+            case ToolType.Garbage:
+                ZInventoryManager.Instance.OnClickOpenRecycle();
                 break;
             default:
                 break;

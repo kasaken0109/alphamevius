@@ -285,7 +285,7 @@ public class Player : MonoBehaviour
             playerAnimation.SetBool("Arrow", false);
             arrow = false;
             move = true;
-            attackTimer = 0.5f;
+            attackTimer = 2.0f;
         }
     }
     public void PlayerAttack()
@@ -340,25 +340,29 @@ public class Player : MonoBehaviour
     }
     public void AttackAction(Vector2 dir)
     {
-        if (arrow)
-        {
-            GameObject arrowObiect = Instantiate(arrowPrefab);
-            arrowObiect.transform.position = attackScale.transform.position;
-            arrowObiect.GetComponent<Arrow>().SetArrowDir(dir);
-            playerAnimation.SetBool("Arrow", false);
-            arrow = false;
-            move = true;
-            attackTimer = 1.5f;
-            return;
-        }
         if (attackTimer <= 0)
         {
+            PlayerManager.Instance.ExpendHunger(1);
+            PlayerManager.Instance.ExpendHydrate(2);
+            if (arrow)
+            {
+                GameObject arrowObiect = Instantiate(arrowPrefab);
+                arrowObiect.transform.position = attackScale.transform.position;
+                arrowObiect.GetComponent<Arrow>().SetArrowDir(dir);
+                playerAnimation.SetBool("Arrow", false);
+                arrow = false;
+                move = true;
+                attackTimer = 0.5f;
+                return;
+            }
             if (playerAnimation)
             {
                 if (arrowMode)
                 {
+                    PlayerManager.Instance.ExpendHunger(2);
                     playerAnimation.SetBool("Arrow", true);
                     arrow = true;
+                    attackTimer = 0.5f;
                     rB.velocity = Vector2.zero;
                 }
                 else

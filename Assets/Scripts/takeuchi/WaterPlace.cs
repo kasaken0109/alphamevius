@@ -13,7 +13,7 @@ public class WaterPlace : MonoBehaviour
     {
         if (actionRange.ONPlayer())
         {
-            Debug.Log("Rangetrue");
+            //Debug.Log("Rangetrue");
             m_guide.SetActive(true);
         }
         else
@@ -23,14 +23,23 @@ public class WaterPlace : MonoBehaviour
         }
         if (IsFirstTime == false)
         {
-            m_guide.gameObject.transform.localScale = new Vector3(m_normalHintSize,m_normalHintSize,0);
+            m_guide.gameObject.transform.localScale = new Vector3(m_normalHintSize,m_normalHintSize,1);
             //m_guide.transform.localScale
         }
     }
     
     public void Drink()
     {
-        PlayerManager.Instance.HealingHydrate(100);
-        IsFirstTime = false;
+        if (PlayerManager.Instance.CurrentHydrate <= 90)
+        {
+            MessgaeManager.ViweMessage("冷くおいしい水だった");
+            PlayerManager.Instance.HealingHydrate(100);
+            m_guide.SetActive(false);
+            IsFirstTime = false;
+        }
+        else
+        {
+            MessgaeManager.ViweMessage("今はのどは乾いていない");
+        }
     }
 }

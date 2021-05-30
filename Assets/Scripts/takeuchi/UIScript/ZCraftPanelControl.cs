@@ -37,6 +37,7 @@ public class ZCraftPanelControl : MonoBehaviour
     }
     public void OnClickOpenPage(int page)
     {
+        SoundManager.Instance.PlayUISound();
         for (int i = 1; i < m_craftPage.Length; i++)
         {
             if (page == i)

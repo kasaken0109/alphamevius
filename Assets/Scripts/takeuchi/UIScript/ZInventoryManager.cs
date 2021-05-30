@@ -192,6 +192,7 @@ public class ZInventoryManager : MonoBehaviour
     }
     public void OnClickCloseAll()
     {
+        SoundManager.Instance.PlayUISound();
         MapManager.Instance.CloseMap();
         PickMarkReset();
         m_helps.AllClose();

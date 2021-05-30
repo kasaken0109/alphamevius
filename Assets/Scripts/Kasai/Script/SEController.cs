@@ -65,6 +65,6 @@ public class SEController : MonoBehaviour
     public void PlayWalk()
     {
         m_audioSource.PlayOneShot(m_walk[0]);
-        Debug.Log("walkSound");
+        //Debug.Log("walkSound");
     }
 }

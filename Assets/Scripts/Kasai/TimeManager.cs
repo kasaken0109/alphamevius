@@ -94,8 +94,11 @@ public class TimeManager : MonoBehaviour
 
         if (m_secondCount >= 1f * m_gameSpeed && NewTimeManager.Instance.GetGameStatus() != NewTimeManager.GameStatus.PAUSE)
         {
-            m_secondCount = 0;
-            PlayerManager.Instance.OneSecondStatusUpdate();
+            if (!nightRemainController.IsRemain)
+            {
+                m_secondCount = 0;
+                PlayerManager.Instance.OneSecondStatusUpdate();
+            }
         }
 
         if (dayStatus == DayStatus.NOON)
